@@ -20,6 +20,8 @@ import javax.xml.parsers.ParserConfigurationException;
 import org.postgis.LineString;
 import org.postgis.LinearRing;
 import org.postgis.Point;
+import org.postgis.Polygon;
+import org.postgresql.geometric.PGpoint;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -307,8 +309,8 @@ public class Main {
 	public void connectToPostgres() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
-		 Connection conn = DriverManager.getConnection(url, "postgres", "");
-		//Connection conn = DriverManager.getConnection(url, "admin", "admin");
+		// Connection conn = DriverManager.getConnection(url, "postgres", "");
+		Connection conn = DriverManager.getConnection(url, "admin", "admin");
 
 		fillTablesNodes(conn);
 		fillTablesWays(conn);
@@ -360,7 +362,7 @@ public class Main {
 		}
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, point);
+		ps.setObject(2, point,java.sql.Types.OTHER);
 		ps.setObject(3, sound);
 		ps.setObject(4, vib);
 		ps.executeUpdate();
@@ -389,7 +391,7 @@ public class Main {
 		String sName = getValueOfNodeByString(node, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, point);
+		ps.setObject(2, point,java.sql.Types.OTHER);
 		ps.setObject(3, shelter);
 		ps.setObject(4, sBusRoutes);
 		ps.setObject(5, sName);
@@ -456,7 +458,7 @@ public class Main {
 		MyNode node = nodesMap.get(nodeKey);
 
 		Point point = node.p;
-
+		
 		String name = getValueOfNodeByString(node, "name", 50);
 		String city = getValueOfNodeByString(node, "addr:city", 50);
 		String street = getValueOfNodeByString(node, "addr:street", 50);
@@ -469,15 +471,8 @@ public class Main {
 		String sHousenumber = getValueOfNodeByString(node, "addr:housenumber", 10);
 
 		String spostcode = getValueOfNodeByString(node, "postal_code", 50);
-		int postcode = 0;
-		if (spostcode != "") {
-			postcode = Integer.parseInt(spostcode);
-		}else{
+		if (spostcode.equals("")) {
 			spostcode = getValueOfNodeByString(node, "addr:postcode", 50);
-			if (spostcode != "") {
-				postcode = Integer.parseInt(spostcode);
-		
-		}
 		}
 		String sgeb_nr = getValueOfNodeByString(node, "geb_nr", 50);
 		int geb_nr = 0;
@@ -499,7 +494,7 @@ public class Main {
 		ps.setObject(2, street);
 		ps.setObject(3, name);
 		ps.setObject(4, sHousenumber);
-		ps.setObject(5, postcode);
+		ps.setObject(5, spostcode);
 		ps.setObject(6, city);
 		ps.setObject(7, geb_nr);
 		ps.setObject(8, levels);
@@ -510,7 +505,7 @@ public class Main {
 		ps.setObject(13, tourism);
 		ps.setObject(14, operator);
 		ps.setObject(15, null);
-		ps.setObject(16, point);
+		ps.setObject(16, point,java.sql.Types.OTHER);
 
 		ps.executeUpdate();
 		ps.close();
@@ -627,7 +622,8 @@ public class Main {
 		"INSERT INTO parkplatz VALUES (?,?,?,?,?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing polygon = new LinearRing(way.path.getPoints());
+		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		Polygon polygon = new Polygon(rings);
 		// access
 		boolean access = way.key.contains("access");
 		if (access) {
@@ -655,7 +651,7 @@ public class Main {
 		ps.setObject(3, fee);
 		ps.setObject(4, capicity);
 		ps.setObject(5, operator);
-		ps.setObject(6, polygon);
+		ps.setObject(6, polygon, java.sql.Types.OTHER);
 		ps.setObject(7, name);
 
 		ps.executeUpdate();
@@ -679,7 +675,8 @@ public class Main {
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 
-		LinearRing polygon = new LinearRing(way.path.getPoints());
+		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		Polygon polygon = new Polygon(rings);
 
 		String name = getValueOfWayByString(way, "name", 50);
 		String city = getValueOfWayByString(way, "addr:city", 50);
@@ -693,14 +690,8 @@ public class Main {
 		String sHousenumber = getValueOfWayByString(way, "addr:housenumber", 10);
 
 		String spostcode = getValueOfWayByString(way, "postal_code", 50);
-		int postcode = 0;
-		if (spostcode != "") {
-			postcode = Integer.parseInt(spostcode);
-		}else{
+		if (spostcode.equals("")) {
 			spostcode = getValueOfWayByString(way, "addr:postcode", 50);
-			if (spostcode != "") {
-				postcode = Integer.parseInt(spostcode);
-			}
 		}
 		String sgeb_nr = getValueOfWayByString(way, "geb_nr", 50);
 		int geb_nr = 0;
@@ -722,7 +713,7 @@ public class Main {
 		ps.setObject(2, street);
 		ps.setObject(3, name);
 		ps.setObject(4, sHousenumber);
-		ps.setObject(5, postcode);
+		ps.setObject(5, spostcode);
 		ps.setObject(6, city);
 		ps.setObject(7, geb_nr);
 		ps.setObject(8, levels);
@@ -732,7 +723,7 @@ public class Main {
 		ps.setObject(12, shop);
 		ps.setObject(13, tourism);
 		ps.setObject(14, operator);
-		ps.setObject(15, polygon);
+		ps.setObject(15, polygon, java.sql.Types.OTHER);
 		ps.setObject(16, null);
 
 		ps.executeUpdate();
@@ -780,7 +771,7 @@ public class Main {
 		ps.setObject(4, maxspeed);
 		ps.setObject(5, surface);
 		ps.setObject(6, lanes);
-		ps.setObject(7, path);
+		ps.setObject(7, path, java.sql.Types.OTHER);
 		ps.executeUpdate();
 		ps.close();
 		System.out.println("Straße: Insert done");
@@ -801,7 +792,7 @@ public class Main {
 
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, path);
+		ps.setObject(2, path, java.sql.Types.OTHER);
 		ps.executeUpdate();
 		ps.close();
 		System.out.println("Straßenbahn: Insert done");
@@ -821,7 +812,7 @@ public class Main {
 
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, path);
+		ps.setObject(2, path,java.sql.Types.OTHER);
 		ps.executeUpdate();
 		ps.close();
 		System.out.println("Eisenbahn: Insert done");
@@ -843,7 +834,7 @@ public class Main {
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
 		ps.setObject(2, name);
-		ps.setObject(3, path);
+		ps.setObject(3, path,java.sql.Types.OTHER);
 		ps.executeUpdate();
 		ps.close();
 		System.out.println("Fluss: Insert done");
@@ -860,11 +851,12 @@ public class Main {
 		"INSERT INTO see VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing polygon = new LinearRing(way.path.getPoints());
+		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		Polygon polygon = new Polygon(rings);
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, polygon);
+		ps.setObject(2, polygon, java.sql.Types.OTHER);
 		ps.setObject(3, name);
 		ps.executeUpdate();
 		ps.close();
@@ -882,11 +874,12 @@ public class Main {
 		"INSERT INTO landnutzung VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing polygon = new LinearRing(way.path.getPoints());
+		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		Polygon polygon = new Polygon(rings);
 		String name = getValueOfWayByString(way, "landuse", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, polygon);
+		ps.setObject(2, polygon, java.sql.Types.OTHER);
 		ps.setObject(3, name);
 		ps.executeUpdate();
 		ps.close();
@@ -904,11 +897,12 @@ public class Main {
 		"INSERT INTO park VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing polygon = new LinearRing(way.path.getPoints());
+		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		Polygon polygon = new Polygon(rings);
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, polygon);
+		ps.setObject(2, polygon, java.sql.Types.OTHER);
 		ps.setObject(3, name);
 		ps.executeUpdate();
 		ps.close();
@@ -926,11 +920,12 @@ public class Main {
 		"INSERT INTO spielplatz VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing polygon = new LinearRing(way.path.getPoints());
+		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		Polygon polygon = new Polygon(rings);
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, polygon);
+		ps.setObject(2, polygon, java.sql.Types.OTHER);
 		ps.setObject(3, name);
 		ps.executeUpdate();
 		ps.close();
@@ -1003,7 +998,7 @@ public class Main {
 		ps.setObject(7, road);
 		ps.setObject(8, river);
 		ps.setObject(9, rail);
-		ps.setObject(10, path);
+		ps.setObject(10, path, java.sql.Types.OTHER);
 		ps.executeUpdate();
 		ps.close();
 		System.out.println("Bruecke: Insert done");
@@ -1070,7 +1065,7 @@ public class Main {
 		ps.setObject(6, lanes);
 		ps.setObject(7, road);
 		ps.setObject(8, rail);
-		ps.setObject(9, path);
+		ps.setObject(9, path, java.sql.Types.OTHER);
 		ps.executeUpdate();
 		ps.close();
 		System.out.println("Bruecke: Insert done");

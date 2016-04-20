@@ -1,10 +1,10 @@
--- Parse::SQL::Dia      version 0.26                              
+-- Parse::SQL::Dia      version 0.27                              
 -- Documentation        http://search.cpan.org/dist/Parse-Dia-SQL/
--- Environment          Perl 5.020002, /usr/bin/perl              
--- Architecture         x86_64-linux                              
+-- Environment          Perl 5.018002, /usr/bin/perl              
+-- Architecture         x86_64-linux-gnu-thread-multi             
 -- Target Database      postgres                                  
 -- Input file           uml_db.dia                                
--- Generated at         Wed Apr 20 08:57:05 2016                  
+-- Generated at         Wed Apr 20 10:08:48 2016                  
 -- Typemap for postgres not found in input file                   
 
 -- get_constraints_drop 
@@ -37,7 +37,7 @@ create table Haus (
    street      varchar(50)                 ,--  Haus befindet sich an Weg
    name        varchar(50)                 ,
    housenumber varchar(10)                 ,
-   postcode    int                         ,
+   postcode    varchar(5)                  ,
    city        varchar(50)                 ,
    geb_nr      int                         ,
    levels      int                         ,
@@ -48,7 +48,7 @@ create table Haus (
    tourism     varchar(50)                 ,
    operator    varchar(50)                 ,
    umriss      geometry('polygon')         ,
-   pos         point                       ,
+   pos         geometry('point')           ,
    constraint pk_Haus primary key (id)
 )   ;
 create table Strasse (
@@ -82,18 +82,18 @@ create table Parkplatz (
    constraint pk_Parkplatz primary key (id)
 )   ;
 create table Ampel (
-   id        bigserial not null,
-   pos       point             ,
-   sound     boolean           ,
-   vibration boolean           ,
+   id        bigserial         not null,
+   pos       geometry('point')         ,
+   sound     boolean                   ,
+   vibration boolean                   ,
    constraint pk_Ampel primary key (id)
 )   ;
 create table Haltestelle (
-   id         bigserial   not null,
-   pos        point               ,
-   shelter    boolean             ,
-   bus_routes varchar(50)         ,
-   name       varchar(50)         ,
+   id         bigserial         not null,
+   pos        geometry('point')         ,
+   shelter    boolean                   ,
+   bus_routes varchar(50)               ,
+   name       varchar(50)               ,
    constraint pk_Haltestelle primary key (id)
 )   ;
 create table See (
