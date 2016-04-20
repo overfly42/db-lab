@@ -1,20 +1,102 @@
-Kein Haus in See
+I. Kein Haus in See
 create Assertion keinHausInSee CHECK(
 	not exist(
 		select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss)
 	));
-
-Straße kreuzt Spielplatz
+II. Straße kreuzt Spielplatz
 create Assertion keineStrasseDurchSpielplatz CHECK(
 	not exist(
-		select * from Straße t, Spielplatz p where ST_Crosses(t.umriss,h.umriss)
+		select * from Straße t, Spielplatz p 
+				where ST_Crosses(t.path,h.umriss)
 ));
-Keine Straßen durch Häuser
-Kein Parkplatz im See
-Kein Spielplatz auf Friedhof
-Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen
 
-Ampel an Straße, Straßenban, Eisenbahn 
-Haltestelle an Straßenbahn, Schiene, Straße
-Brücke auf Straße, Straßenbahn und Eisenbahn
-Parkplatz an Straße
+III. Keine Straßen durch Häuser
+create Assertion keineStrasseDurchHaus CHECK(
+	not exist(
+		select * from Straße s, haus h where ST_Crosses(s.path,h.umriss)
+));
+
+IV. Kein Parkplatz im See
+create Assertion keineParkplatzImSee CHECK(
+	not exist(
+		select * from See s, Parkplatz p 
+				where ST_Crosses(s.umriss,p.umriss)
+));
+
+V. Kein Spielplatz auf Friedhof
+create Assertion keineSpielplatzAufFriedhof CHECK(
+	not exist(
+		select * from Landnutzung l, Spielplatz s 
+				where l.landuse = 'cemetery' 
+				and ST_Crosses(f.umriss,s.umriss)
+));
+
+VI. Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen
+create Assertion brueckeMussKreuzen CHECK(
+	exist(
+		select b.id,s.id from bruecke as b, strasse s 
+				where ST_Crosses(b.path,s.path)
+		union
+		select b.id,sb.id from breucke as b, strassenbahn sb 
+				where ST_Crosses(b.path, sb.path)
+		union
+		select b.id,e.id from breucke as b, eisenbahn e 
+				where ST_Crosses(b.path, e.path)
+		union
+		select b.id,f.id from breucke as b, fluss f sb 
+				where ST_Crosses(b.path, f.path)
+));
+
+VII. Ampel an Straße, Straßenban, Eisenbahn 
+//Es wird davon ausgegangen, dass eine Ampel immer an einer Straße ist
+create Assertion AmpelAnWeg CHECK(
+	exist(
+		select a.id,s.id from ampel as a, strasse s 
+				where ST_Crosses(a.pos,s.path)
+		union
+		select a.id,sb.id from ampel as a, strassenbahn sb 
+				where ST_Crosses(a.pos, sb.path)
+		union
+		select a.id,e.id from ampel as a, eisenbahn e 
+				where ST_Crosses(a.pos, e.path)
+		union
+		select a.id,f.id from ampel as a, fluss f sb 
+				where ST_Crosses(a.pos, f.path)
+));
+
+VIII. Haltestelle an Straßenbahn, Schiene, Straße 
+//Es wird davon ausgegangen, dass eine Haltestelle 
+create Assertion HaltestelleAnWeg CHECK(
+	exist(
+		select h.id,s.id from Haltestelle as h, strasse s 
+				where ST_Crosses(h.pos,s.path)
+		union
+		select h.id,sb.id from Haltestelle as h, strassenbahn sb 
+				where ST_Crosses(h.pos, sb.path)
+		union
+		select h.id,e.id from Haltestelle as h, eisenbahn e 
+				where ST_Crosses(h.pos, e.path)
+		union
+		select h.id,f.id from Haltestelle as h, fluss f sb 
+				where ST_Crosses(h.pos, f.path)
+));
+
+IX. Brücke auf Straße, Straßenbahn und Eisenbahn
+create Assertion BrueckeIstWeg CHECK(
+	exist(
+		select a.id,b.id from bruecke a, strasse b 
+				where ST_Coverdby(a.path,b.path)
+		union
+		select a.id,b.id from bruecke a, strassenbahn b 
+				where ST_Coverdby(a.path,b.path)
+		union
+		select a.id,b.id from bruecke a, eisenbahn b 
+				where ST_Coverdby(a.path,b.path)
+));
+
+X. Parkplatz an Straße
+create Assertion ParkplatzAnStraße Check(
+	exist(
+		select a.id,b.id from Parkplatz as a, Strasse as b 
+				where ST_Crosses(a.umriss,b.path)
+));

@@ -4,7 +4,7 @@
 -- Architecture         x86_64-linux-gnu-thread-multi             
 -- Target Database      postgres                                  
 -- Input file           uml_db.dia                                
--- Generated at         Wed Apr 20 10:08:48 2016                  
+
 -- Typemap for postgres not found in input file                   
 
 -- get_constraints_drop 
@@ -82,6 +82,7 @@ create table Parkplatz (
    constraint pk_Parkplatz primary key (id)
 )   ;
 create table Ampel (
+<<<<<<< HEAD
    id        bigserial         not null,
    pos       geometry('point')         ,
    sound     boolean                   ,
@@ -94,6 +95,20 @@ create table Haltestelle (
    shelter    boolean                   ,
    bus_routes varchar(50)               ,
    name       varchar(50)               ,
+=======
+   id        bigserial       not null,
+   pos       geometry(point)         ,
+   sound     boolean                 ,
+   vibration boolean                 ,
+   constraint pk_Ampel primary key (id)
+)   ;
+create table Haltestelle (
+   id         bigserial       not null,
+   pos        geometry(point)         ,
+   shelter    boolean                 ,
+   bus_routes varchar(50)             ,
+   name       varchar(50)             ,
+>>>>>>> b775c05c1561d95b453fcc6c93593bb3a60debd8
    constraint pk_Haltestelle primary key (id)
 )   ;
 create table See (
