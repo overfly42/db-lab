@@ -1,10 +1,20 @@
 Kein Haus in See
+create Assertion keinHausInSee CHECK(
+	not exist(
+		select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss)
+	));
+
 Straße kreuzt Spielplatz
-Ampel an Straße, Straßenban, Eisenbahn 
-Haltestelle an Straßenbahn, Schiene, Straße
+create Assertion keineStrasseDurchSpielplatz CHECK(
+	not exist(
+		select * from Straße t, Spielplatz p where ST_Crosses(t.umriss,h.umriss)
+));
 Keine Straßen durch Häuser
 Kein Parkplatz im See
-Brücke auf Straße, Straßenbahn und Eisenbahn
 Kein Spielplatz auf Friedhof
-Parkplatz an Straße
 Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen
+
+Ampel an Straße, Straßenban, Eisenbahn 
+Haltestelle an Straßenbahn, Schiene, Straße
+Brücke auf Straße, Straßenbahn und Eisenbahn
+Parkplatz an Straße
