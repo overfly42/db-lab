@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="76cm" height="50cm" viewBox="-216 -343 1501 996" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="70.4762" y="380.53" width="225.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="70.4762" y="380.53" width="225.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="183.276" y="399.53">Flaeche</text>
+    <rect style="fill: #ffffff" x="70.4762" y="408.53" width="225.6" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="70.4762" y="408.53" width="225.6" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="73.9762" y="422.53">#id: int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="73.9762" y="438.53">+umriss: geometry('polygon')</text>
+    <rect style="fill: #ffffff" x="70.4762" y="444.53" width="225.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="70.4762" y="444.53" width="225.6" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="59.7006" y="536.508" width="148.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="59.7006" y="536.508" width="148.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="134.001" y="555.508">Spielplatz</text>
+    <rect style="fill: #ffffff" x="59.7006" y="564.508" width="148.6" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="59.7006" y="564.508" width="148.6" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="63.2006" y="578.508">+name: varchar(50)</text>
+    <rect style="fill: #ffffff" x="59.7006" y="584.508" width="148.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="59.7006" y="584.508" width="148.6" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="410.804" y="329.426" width="148.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="410.804" y="329.426" width="148.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="485.104" y="348.426">Park</text>
+    <rect style="fill: #ffffff" x="410.804" y="357.426" width="148.6" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="410.804" y="357.426" width="148.6" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="414.304" y="371.426">+name: varchar(50)</text>
+    <rect style="fill: #ffffff" x="410.804" y="377.426" width="148.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 3; stroke: #000000" x="410.804" y="377.426" width="148.6" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="112.086" y="34.1252" width="202.5" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="112.086" y="34.1252" width="202.5" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="213.336" y="53.1252">Haus</text>
+    <rect style="fill: #ffffff" x="112.086" y="62.1252" width="202.5" height="228"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="112.086" y="62.1252" width="202.5" height="228"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="76.1252">+street: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="92.1252">+name: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="108.125">+housenumber: varchar(10)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="124.125">+postcode: varchar(5)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="140.125">+city: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="156.125">+geb_nr: int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="172.125">+levels: int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="188.125">+height: decimal</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="204.125">+roof_shape: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="220.125">+amnity: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="236.125">+shop: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="252.125">+tourism: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="268.125">+operator: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="115.086" y="284.125">+pos: geometry('point')</text>
+    <rect style="fill: #ffffff" x="112.086" y="290.125" width="202.5" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="112.086" y="290.125" width="202.5" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="416.818" y="-205.622" width="171.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="416.818" y="-205.622" width="171.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="502.668" y="-186.622">Strasse</text>
+    <rect style="fill: #ffffff" x="416.818" y="-177.622" width="171.7" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="416.818" y="-177.622" width="171.7" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="419.818" y="-163.622">+name: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="419.818" y="-147.622">+oneway: boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="419.818" y="-131.622">+maxspeed: int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="419.818" y="-115.622">+surface: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="419.818" y="-99.622">+lanes: int</text>
+    <rect style="fill: #ffffff" x="416.818" y="-93.622" width="171.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="416.818" y="-93.622" width="171.7" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="911.278" y="-48.8042" width="134.15" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="911.278" y="-48.8042" width="134.15" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="978.353" y="-29.8042">Strassenbahn</text>
+    <rect style="fill: #ffffff" x="911.278" y="-20.8042" width="134.15" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="911.278" y="-20.8042" width="134.15" height="8"/>
+    <rect style="fill: #ffffff" x="911.278" y="-12.8042" width="134.15" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="911.278" y="-12.8042" width="134.15" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="942.086" y="-143.02" width="103.25" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="942.086" y="-143.02" width="103.25" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="993.711" y="-124.02">Eisenbahn</text>
+    <rect style="fill: #ffffff" x="942.086" y="-115.02" width="103.25" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="942.086" y="-115.02" width="103.25" height="8"/>
+    <rect style="fill: #ffffff" x="942.086" y="-107.02" width="103.25" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="942.086" y="-107.02" width="103.25" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="1135.31" y="-189.817" width="148.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1135.31" y="-189.817" width="148.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="1209.61" y="-170.817">Fluss</text>
+    <rect style="fill: #ffffff" x="1135.31" y="-161.817" width="148.6" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1135.31" y="-161.817" width="148.6" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="1138.31" y="-147.817">+name: varchar(50)</text>
+    <rect style="fill: #ffffff" x="1135.31" y="-141.817" width="148.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="1135.31" y="-141.817" width="148.6" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="350.15" y="596.044" width="148.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="350.15" y="596.044" width="148.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="424.45" y="615.044">See</text>
+    <rect style="fill: #ffffff" x="350.15" y="624.044" width="148.6" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="350.15" y="624.044" width="148.6" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="353.15" y="638.044">+name: varchar(50)</text>
+    <rect style="fill: #ffffff" x="350.15" y="644.044" width="148.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="350.15" y="644.044" width="148.6" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="480.824" y="463.7" width="171.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="480.824" y="463.7" width="171.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="566.674" y="482.7">Landnutzung</text>
+    <rect style="fill: #ffffff" x="480.824" y="491.7" width="171.7" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="480.824" y="491.7" width="171.7" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="483.824" y="505.7">+landuse: varchar(50)</text>
+    <rect style="fill: #ffffff" x="480.824" y="511.7" width="171.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="480.824" y="511.7" width="171.7" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-214.862" y="278.736" width="187.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-214.862" y="278.736" width="187.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="-121.312" y="297.736">Parkplatz</text>
+    <rect style="fill: #ffffff" x="-214.862" y="306.736" width="187.1" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-214.862" y="306.736" width="187.1" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-211.862" y="320.736">+access: boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-211.862" y="336.736">+fee: boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-211.862" y="352.736">+capicity: int</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="-211.862" y="368.736">+operator: varchar (50)</text>
+    <rect style="fill: #ffffff" x="-214.862" y="374.736" width="187.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-214.862" y="374.736" width="187.1" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="-0.888328" y="-158.314" width="187.1" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-0.888328" y="-158.314" width="187.1" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="92.6617" y="-139.314">Ampel</text>
+    <rect style="fill: #ffffff" x="-0.888328" y="-130.314" width="187.1" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-0.888328" y="-130.314" width="187.1" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="2.11167" y="-116.314">#id: bigserial</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="2.11167" y="-100.314">+pos: geometry('point')</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="2.11167" y="-84.3144">+sound: boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="2.11167" y="-68.3144">+vibration: boolean</text>
+    <rect style="fill: #ffffff" x="-0.888328" y="-62.3144" width="187.1" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="-0.888328" y="-62.3144" width="187.1" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="0.630248" y="-304.732" width="194.8" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="0.630248" y="-304.732" width="194.8" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="98.0302" y="-285.732">Haltestelle</text>
+    <rect style="fill: #ffffff" x="0.630248" y="-276.732" width="194.8" height="84"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="0.630248" y="-276.732" width="194.8" height="84"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="3.63025" y="-262.732">#id: bigserial</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="3.63025" y="-246.732">+pos: geometry('point')</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="3.63025" y="-230.732">+shelter: boolean</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="3.63025" y="-214.732">+bus_routes: varchar(50)</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="3.63025" y="-198.732">+name: varchar(50)</text>
+    <rect style="fill: #ffffff" x="0.630248" y="-192.732" width="194.8" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="0.630248" y="-192.732" width="194.8" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="701.912" y="-341.632" width="233.3" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="701.912" y="-341.632" width="233.3" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="818.562" y="-322.632">Weg</text>
+    <rect style="fill: #ffffff" x="701.912" y="-313.632" width="233.3" height="36"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="701.912" y="-313.632" width="233.3" height="36"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="704.912" y="-299.632">#id: bigserial</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="704.912" y="-283.632">+path: geometry('linestring')</text>
+    <rect style="fill: #ffffff" x="701.912" y="-277.632" width="233.3" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="701.912" y="-277.632" width="233.3" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="802.642" y="117.639" width="69.7" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="802.642" y="117.639" width="69.7" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="837.492" y="136.639">Tunnel</text>
+    <rect style="fill: #ffffff" x="802.642" y="145.639" width="69.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="802.642" y="145.639" width="69.7" height="8"/>
+    <rect style="fill: #ffffff" x="802.642" y="153.639" width="69.7" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="802.642" y="153.639" width="69.7" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="620.284" y="7.21332" width="82.9" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620.284" y="7.21332" width="82.9" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="661.734" y="26.2133">Bruecke</text>
+    <rect style="fill: #ffffff" x="620.284" y="35.2133" width="82.9" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620.284" y="35.2133" width="82.9" height="8"/>
+    <rect style="fill: #ffffff" x="620.284" y="43.2133" width="82.9" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="620.284" y="43.2133" width="82.9" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="745.16" y="-168.808" width="81" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="745.16" y="-168.808" width="81" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="785.66" y="-149.808">Schiene</text>
+    <rect style="fill: #ffffff" x="745.16" y="-140.808" width="81" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="745.16" y="-140.808" width="81" height="8"/>
+    <rect style="fill: #ffffff" x="745.16" y="-132.808" width="81" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="745.16" y="-132.808" width="81" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="872.342,161.639 872.342,161.287 1209.61,161.287 1209.61,-121.581 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1214.61,-121.581 1209.61,-131.581 1204.61,-121.581 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="802.642,161.639 502.668,161.639 502.668,-73.3859 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="507.668,-73.3859 502.668,-83.3859 497.668,-73.3859 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="661.734,7.21332 661.734,-61.7973 745.16,-61.7973 745.16,-118.572 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="750.16,-118.572 745.16,-128.572 740.16,-118.572 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="620.284,7.21332 604.401,7.21332 604.401,-151.622 600.754,-151.622 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="600.754,-156.622 590.754,-151.622 600.754,-146.622 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="837.492,117.639 837.492,-3.5844 785.66,-3.5844 785.66,-112.572 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="790.66,-112.572 785.66,-122.572 780.66,-112.572 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="911.278,-10.8042 868.719,-10.8042 868.719,-124.808 838.396,-124.808 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="838.396,-129.808 828.396,-124.808 838.396,-119.808 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="941.08,-121.02 883.62,-121.02 883.62,-168.808 838.396,-168.808 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="838.396,-173.808 828.396,-168.808 838.396,-163.808 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="213.336,299.121 213.336,349.02 183.276,349.02 183.276,368.294 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="178.276,368.294 183.276,378.294 188.276,368.294 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="410.804,357.264 353.44,357.264 353.44,380.53 308.312,380.53 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="308.312,375.53 298.312,380.53 308.312,385.53 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="-27.762,316.736 21.3571,316.736 21.3571,418.53 58.2401,418.53 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="58.2401,423.53 68.2401,418.53 58.2401,413.53 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="134.001,536.508 134.001,494.519 183.276,494.519 183.276,464.766 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="188.276,464.766 183.276,454.766 178.276,464.766 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="424.45,596.044 424.45,524.287 296.076,524.287 296.076,464.766 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="301.076,464.766 296.076,454.766 291.076,464.766 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="480.824,501.7 388.45,501.7 388.45,418.53 308.312,418.53 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="308.312,413.53 298.312,418.53 308.312,423.53 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="588.518,-205.622 645.215,-205.622 645.215,-303.632 689.676,-303.632 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="689.676,-298.632 699.676,-303.632 689.676,-308.632 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="1209.61,-189.817 1194.95,-189.817 1194.95,-303.632 947.448,-303.632 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="947.448,-308.632 937.448,-303.632 947.448,-298.632 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="785.66,-168.808 785.66,-219.22 818.562,-219.22 818.562,-257.396 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="823.562,-257.396 818.562,-267.396 813.562,-257.396 "/>
+  </g>
+</svg>
