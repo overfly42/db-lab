@@ -307,8 +307,8 @@ public class Main {
 	public void connectToPostgres() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
-		// Connection conn = DriverManager.getConnection(url, "postgres", "");
-		Connection conn = DriverManager.getConnection(url, "admin", "admin");
+		 Connection conn = DriverManager.getConnection(url, "postgres", "");
+		//Connection conn = DriverManager.getConnection(url, "admin", "admin");
 
 		fillTablesNodes(conn);
 		fillTablesWays(conn);
