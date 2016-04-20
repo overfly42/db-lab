@@ -1,0 +1,27 @@
+
+
+
+
+
+
+
+create table geotest3 (id int, pfad geometry('linestring',-1));
+
+create table geotest4 (id int, bereich geometry('polygon',-1));
+
+
+insert into geotest3 values (1,ST_GeomFromText('LINESTRING(2 1, 1 2)',-1));
+insert into geotest3 values (2,ST_GeomFromText('LINESTRING(1 1, 2 2)',-1));
+insert into geotest3 values (3,ST_GeomFromText('LINESTRING(3 3, 3 4)',-1));
+
+select a.id, ST_AsText(a.pfad),b.id,ST_AsText(b.pfad),ST_Crosses(a.pfad,b.pfad) from geotest3 as a, geotest3 as b;
+
+insert into geotest4 values (1, ST_GeomFromText('POLYGON((0 0,4 0, 4 4, 0 4, 0 0))'));
+
+select * from geotest3, geotest4;
+select a.id,ST_asText(a.pfad),b.id,ST_asText(b.bereich) from geotest3 as a , geotest4 as b;
+
+select a.id,ST_asText(a.pfad),b.id,ST_asText(b.bereich),st_crosses(a.pfad,b.bereich) from geotest3 as a , geotest4 as b;
+insert into geotest4 values (2, ST_GeomFromText('POLYGON((1.25 1.25,1.25 1.75, 1.75 1.75, 1.75 1.25, 1.25 1.25))'));
+select a.id,ST_asText(a.pfad),b.id,ST_asText(b.bereich),st_crosses(a.pfad,b.bereich) from geotest3 as a , geotest4 as b;
+select a.id,ST_asText(a.pfad),b.id,ST_asText(b.bereich) from geotest3 as a , geotest4 as b where st_crosses(a.pfad,b.bereich);

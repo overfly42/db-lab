@@ -1,0 +1,10 @@
+Kein Haus in See
+Straße kreuzt Spielplatz
+Ampel an Straße, Straßenban, Eisenbahn 
+Haltestelle an Straßenbahn, Schiene, Straße
+Keine Straßen durch Häuser
+Kein Parkplatz im See
+Brücke auf Straße, Straßenbahn und Eisenbahn
+Kein Spielplatz auf Friedhof
+Parkplatz an Straße
+Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen

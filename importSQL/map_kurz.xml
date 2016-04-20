@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2016-04-13T21:55:02Z"/>
+
+  <bounds minlat="52.2517" minlon="10.5037" maxlat="52.2772" maxlon="10.5471"/>
+
+  <node id="21613360" lat="52.2755426" lon="10.5285216" version="7" timestamp="2013-02-25T07:41:23Z" changeset="15157865" uid="393959" user="erge50">
+    <tag k="highway" v="traffic_signals"/>
+  </node>
+  <node id="25456521" lat="52.2668960" lon="10.5001822" version="6" timestamp="2015-12-16T21:56:22Z" changeset="35998721" uid="1719211" user="poschon">
+    <tag k="highway" v="traffic_signals"/>
+  </node>
+  <node id="26153648" lat="52.2775403" lon="10.5348707" version="3" timestamp="2013-01-26T10:27:09Z" changeset="14790742" uid="393959" user="erge50">
+    <tag k="highway" v="traffic_signals"/>
+  </node>
+  <node id="26154037" lat="52.2742482" lon="10.5151608" version="7" timestamp="2015-10-18T21:44:40Z" changeset="34721283" uid="1719211" user="poschon">
+    <tag k="bicycle" v="yes"/>
+    <tag k="crossing" v="traffic_signals"/>
+    <tag k="highway" v="traffic_signals"/>
+  </node>
+  <node id="26193288" lat="52.2727930" lon="10.5369901" version="11" timestamp="2014-04-15T05:59:00Z" changeset="21702624" uid="393959" user="erge50">
+    <tag k="highway" v="traffic_signals"/>
+    <tag k="traffic_signals:sound" v="yes"/>
+  </node>
+  <node id="28114789" lat="52.2624082" lon="10.5263960" version="4" timestamp="2014-10-21T19:43:16Z" changeset="26241443" uid="51045" user="Geogast">
+    <tag k="crossing" v="traffic_signals"/>
+    <tag k="highway" v="crossing"/>
+  </node>
+  <node id="35512052" lat="52.2692757" lon="10.5301153" version="16" timestamp="2011-04-19T18:37:51Z" changeset="7909300" uid="41033" user="bitsteller">
+    <tag k="highway" v="traffic_signals"/>
+  </node>
+  <node id="369315833" lat="52.2548685" lon="10.5066196" version="10" timestamp="2012-05-08T18:05:25Z" changeset="11541737" uid="393959" user="erge50">
+    <tag k="crossing" v="traffic_signals"/>
+    <tag k="traffic_signals:sound" v="yes"/>
+    <tag k="traffic_signals:vibration" v="yes"/>
+  </node>
+
+</osm>

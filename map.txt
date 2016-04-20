@@ -1,0 +1,2247 @@
+k=opening_hours	v=Mo-Fr 08:00-18:30;Sa 09:00-13:00:	1
+k=wikipedia	v=de:Stechinelli-Haus (Braunschweig):	1
+k=name	v=Schülerhilfe:	1
+k=name	v=EGA Computer Systems:	1
+k=website	v=http://www.adam-soft.de:	1
+k=phone	v=+49 531 7072877:	1
+k=operator	v=Contipark Parkgaragen GmbH:	1
+k=name	v=Fahrrad-Hahne:	1
+k=website	v=http://badsha.de/:	1
+k=addr:street	v=Leonhardplatz:	1
+k=collection_times	v=Mo-Fr 16:00, 18:15;Sa 12:15:	1
+k=brand	v=HEM:	1
+k=name	v=Klinikum Celler Straße:	4
+k=opening_hours	v=Mo-Fr 06:00-18:00; Sa 06:00; Su 08:00-11:00:	1
+k=name	v=Steinecke Bäckerei:	1
+k=name	v=Weinland:	1
+k=denomination	v=jehovahs_witness:	1
+k=wikipedia	v=de:Karl Wilhelm Ferdinand (Braunschweig):	1
+k=name	v=Schnittstudio Mareile:	1
+k=name	v=San Lorenzo:	1
+k=healthcare:speciality	v=paediatrics:	2
+k=name	v=Portikus:	1
+k=website	v=http://www.eusebia.de:	1
+k=name	v=Hausarztpraxis Dr. Blass:	1
+k=name	v=Tante Puttchen:	1
+k=foot	v=yes:	82
+k=railway:signal:main:form	v=light:	9
+k=opening_hours	v=We-Th 10:00-18:00;Fr-Sa 12:00-18:00;Su 10:00-18:00:	2
+k=uic_ref	v=8000049:	1
+k=opening_hours	v=Mo-Tu 08:30-13:00,15:00-18:30; We 08:30-13:00; Th-Fr 08:30-13:00,15:00-18:30; Sa 08:30-13:00:	1
+k=name	v=Kindertagesstätte Quäker-Nachbarschaftsheim:	1
+k=name	v=Kosmetiksalon:	1
+k=addr:housename	v=Athen:	1
+k=operator	v=Atelier Vélo:	1
+k=name	v=Das Radstübchen:	1
+k=wikipedia	v=de:Eiserner Heinrich (Braunschweig):	1
+k=addr:street	v=Humboldtstraße:	6
+k=name	v=Dr. Heimberger-Warneboldt:	1
+k=operator	v=Deutsche Post AG:	6
+k=shop	v=bakery:	54
+k=name	v=Spielplatz Gliesmaroder Straße:	1
+k=brand	v=Deutsche Post:	53
+k=name	v=Landschaftsgebäude:	1
+k=name	v=Dres. Steinberg, Höpner, Tribukait:	1
+k=opening_hours	v=Tu-Sa 13:00-18:00; Su 14:00-18:00:	1
+k=addr:housenumber	v=38/40:	1
+k=phone	v=+495312407313:	1
+k=contact:phone	v=0531 61497900:	1
+k=public_transport	v=station:	1
+k=name	v=jette 1st 2nd Hand:	1
+k=name	v=Kiosk Lorenz:	1
+k=name	v=Zum Steinkrug:	1
+k=railway:signal:direction	v=forward:	31
+k=website	v=http://www.romantica-bs.de:	1
+k=opening_hours	v=Mo-Su 12:00-14:30; Mo-Sa 18:00-23:00; Su 18:00-22:00:	1
+k=name	v=Radeklint:	4
+k=name	v=Hotel an der Stadthalle:	1
+k=artist_name	v=Reinhard Buxel:	1
+k=website	v=http://www.jobrandes.de/:	1
+k=website	v=http://wein-atelier.de/:	1
+k=website	v=http://www.caritas-bs.de/:	1
+k=name	v=Heidebrot Landbäckerei:	1
+k=contact:phone	v=0531 12333-0:	1
+k=addr:housenumber	v=38/39:	1
+k=addr:street	v=Parkstraße:	1
+k=opening_hours	v=Mo-Fr 06:00-18:00; Sa 06:00-13:00; Su 08:00-11:00:	2
+k=name	v=Bücherwurm:	1
+k=name	v=TopClean Textilpflege GmbH & Co. KG:	1
+k=website	v=https://siedentopf.lvm.de/:	1
+k=name	v=Amalien-Apotheke:	1
+k=name	v=Kunstverein Braunschweig e. V.:	1
+k=phone	v=+49 531 14048:	1
+k=name	v=Blizzeria:	1
+k=wheelchair:description	v=in den Arkaden Behinderten-WC:	1
+k=name	v=Geodätischer Referenzpunkt Braunschweig Löwenwall:	1
+k=name	v=Noa Noa Braunschweig:	1
+k=wikipedia	v=de:Oberlandesgericht Braunschweig:	1
+k=addr:street	v=Gliesmaroder Straße:	11
+k=name	v=Jade:	1
+k=name	v=Schokoladen Brandes:	1
+k=railway:signal:combined:substitute_signal	v=DE-ESO:db:zs7:	10
+k=name	v=Teestube und Café Schmidt:	1
+k=contact:phone	v=+49-531-17467:	1
+k=visibility	v=area:	1
+k=contact:phone	v=+49 531 2392990:	1
+k=ref	v=Wendenstraße:	2
+k=image	v=http://upload.wikimedia.org/wikipedia/commons/e/e9/Braunschweig_Altstadtrathaus_mit_Brunnen.jpg:	1
+k=website	v=http://www.gemeinschaftspraxis-moltkestrasse.de:	1
+k=name	v=Wallstraße:	2
+k=operator	v=HBK:	1
+k=name	v=Back Facktory:	1
+k=grave	v=yes:	1
+k=shop	v=lottery:	2
+k=ref	v=0010:	2
+k=operator	v=Braunschweiger Verkehrs-GmbH:	196
+k=addr:street	v=Schuhstraße:	6
+k=name	v=tantehip:	1
+k=website	v=http://maps.locr.com/:	1
+k=website	v=http://www.altstadtmarkt.de:	1
+k=operator	v=Irmela Biegel:	1
+k=ref	v=0858-A:	1
+k=name	v=Sander:	2
+k=name	v=Post Apotheke:	1
+k=addr:street	v=Viewegstraße:	2
+k=motor_vehicle	v=no:	8
+k=name	v=La Crema:	1
+k=website	v=http://www.boutique-birkenstock.de:	1
+k=opening_hours	v=Mo-Fr 7:30-17:00:	1
+k=website	v=http://espresso-bar-braunschweig.de/:	1
+k=opening_hours	v=Mo-Fr 9:00+;Sa-Su 10:00+:	1
+k=name	v=Zu den vier Linden:	1
+k=website	v=http://www.rosenbote.de:	1
+k=name	v=Brabandtstraße 11:	1
+k=phone	v=+49 531 3497213:	1
+k=opening_hours	v=Mo-Su 11:00-22:00:	1
+k=addr:street	v=Mauernstraße:	1
+k=addr:street	v=Gieselerwall:	1
+k=building:height	v=22 m:	1
+k=ref	v=0858-C:	1
+k=ref	v=0858-D:	1
+k=website	v=http://www.lebenshilfe-braunschweig.de/index.php?id=207:	1
+k=website	v=http://www.vitaminreich-braunschweig.de/:	1
+k=ref	v=0801-A:	1
+k=contact:phone	v=+49 531 335311:	1
+k=phone	v=+49 531 896989:	1
+k=ref	v=0801-D:	1
+k=access	v=no:	1
+k=name	v=Merlin-Apotheke:	1
+k=name	v=Hintern Brüdern:	2
+k=ref_name	v=Cyriaksring, Braunschweig:	2
+k=name	v=Paeschke:	1
+k=operator	v=BS_Energy:	2
+k=wheelchair:description	v=Stufen in das Gebäude. Beim Arzt drinnen aber Rollstuhlgerecht:	1
+k=collection_times	v=Mo-Fr 16:00, 18:15;Sa 12:00:	1
+k=payment:credit_cards	v=no:	1
+k=cuisine	v=pizza,_pasta:	1
+k=amenity	v=ice_cream:	9
+k=email	v=kokon@drk-kv-bs-sz.de:	1
+k=operator	v=Thomas Kinzel:	1
+k=website	v=http://fs-smile.de/:	1
+k=url	v=http://www.asta.tu-bs.de:	1
+k=note	v=z. Zt. leer:	1
+k=phone	v=+49 531 129462-0:	1
+k=rooms	v=5:	1
+k=office	v=company:	11
+k=shop	v=kitchen:	1
+k=name	v=Bootsstation:	1
+k=operator	v=Greenwheels:	3
+k=name	v=Dr. med. M. Würfel:	1
+k=phone	v=+49 531 38986788:	1
+k=contact:fax	v=+49-531-332905:	1
+k=name	v=Genuss-Tresor:	1
+k=phone	v=00495311219870:	1
+k=website	v=https://www.facebook.com/maestro.bs/:	1
+k=name	v=Bibliothek des GEI:	1
+k=opening_hours	v=11:00-23:00:	1
+k=crossing	v=island:	13
+k=image	v=http://upload.wikimedia.org/wikipedia/commons/5/56/Braunschweig_Brunswick_Bernhard_Skulptur.jpg:	1
+k=name	v=Magnitor Wächter:	1
+k=name	v=TV-Video Braun:	1
+k=sport	v=10pin:	1
+k=opening_hours	v=Mo-Fr 10:00-18:30, Sa 10:00-16:00:	1
+k=website	v=www.taichi-qigong-braunschweig.de:	1
+k=name	v=Friedrich-Wilhelm-Platz:	8
+k=artist_name	v=Siegfried Neuenhausen:	1
+k=opening_hours	v=Mo 13:00-15:00; Th 10:00-12:00:	1
+k=operator	v=Landessparkasse:	1
+k=name	v=Memoris Bestattungen:	1
+k=name	v=L'Osteria:	1
+k=name	v=Göthe's Imbiss:	1
+k=amenity	v=studio:	2
+k=operator	v=Sängerschaft Frankonia-Brunonia:	1
+k=source	v=knowledge:	4
+k=name	v=mili's haarstudio:	1
+k=phone	v=+49-174-1432672:	1
+k=addr:street	v=Karrenführerstraße:	1
+k=opening_hours	v=Mo off; Tu-Fr 16:00+; Sa 12:00+:	1
+k=ref	v=30N4:	1
+k=height	v=85:	1
+k=polling_station	v=120-31;120-32;120-33;120-34:	1
+k=ref	v=30N5:	1
+k=ref	v=30N2:	1
+k=ref	v=30N3:	1
+k=ref	v=30N8:	1
+k=vending	v=condoms:	5
+k=name	v=Tom Tailor:	1
+k=ref	v=30N6:	1
+k=ref	v=30N7:	1
+k=ref	v=0814-B:	1
+k=name	v=Reisebank:	1
+k=payment:electronic_purses	v=yes:	7
+k=name	v=Deichmann:	2
+k=operator	v=Jüdische Gemeinde Braunschweig K.d.ö.R.:	1
+k=opening_hours	v=Mo off; Tu 09:30-13:00,14:30-18:00; We 09:30-13:00; Th 09:30-13:00,14:30-18:00; Fr 09:30-13:00; Sa 09:30-13:00; Su off; PH off:	1
+k=name	v=radio ferner sehen:	1
+k=ref	v=0814-C:	1
+k=ref	v=0814-D:	1
+k=name	v=Rabea Knabe:	1
+k=operator	v=Drive Carsharing:	10
+k=note	v=Buch, Design und Handmade:	1
+k=name	v=Dres. Alexandra Block und Berthold Block:	1
+k=fax	v=+49-531-1218525:	1
+k=phone	v=+49 531 41611:	1
+k=name	v=Pizzeria Jakupi:	1
+k=name	v=Pfeuffer Haustechnik:	1
+k=barrier	v=bump_gate:	2
+k=addr:housenumber	v=42a:	1
+k=wikipedia	v=de:Liste der Denkmale und Standbilder der Stadt Braunschweig#Kragenb.C3.A4r:	1
+k=name	v=Löwen-Apotheke:	1
+k=website	v=http://www.caritas-bs.de/kindertagesstaette-stnikolaus.html:	1
+k=fax	v=+49 531 3904529:	1
+k=ref	v=0075:	5
+k=website	v=http://www.immo-team-bs.de:	1
+k=railway	v=switch:	132
+k=addr:housenumber	v=19-21:	1
+k=addr:housenumber	v=19-20:	1
+k=capacity	v=76:	1
+k=name	v=Tantuni:	1
+k=capacity	v=78:	1
+k=name	v=Trinkwasserstelle Domplatz:	1
+k=name	v=Bahnhof Gliesmarode:	2
+k=ref	v=Karrenführerstraße 1-3, 38100 Braunschweig:	1
+k=name	v=More Than Music:	1
+k=name	v=Mathias Kolban Handelsvertretung:	1
+k=species:de	v=Chinesisches Rotholz:	1
+k=wikipedia	v=de:Johann Heinrich Blasius:	1
+k=name	v=Milkau:	5
+k=contact:phone	v=0531 12064-44:	1
+k=opening_hours	v=Tu 09:00-12:00, 14:00-17:00; Th 09:00-12:00:	1
+k=name	v=Bolero:	1
+k=name	v=Penny:	1
+k=addr:street	v=Langer Hof:	1
+k=website	v=http://www.musikmewes.de/:	1
+k=barrier	v=lift_gate:	44
+k=lit	v=no:	4
+k=website	v=http://www.my-little-secrets.de/:	1
+k=name	v=SHV-Computer:	1
+k=name	v=Eis-Pavillon:	1
+k=toilets:position	v=seated;urinal:	2
+k=network	v=Verbundtarif Region Braunschweig (VRB):	81
+k=opening_hours	v=Mo-Fr 09:00-19:00; Sa 09:00-14:00:	1
+k=opening_hours	v=Mo-Tu,Th 09:00-18:00; We,Fr 09:00-14:00:	1
+k=name	v=BK Fahrzeugservice:	1
+k=name	v=Pfandleiher Leihhaus Schumacher:	1
+k=name	v=Cafeteria:	1
+k=amenity	v=townhall:	1
+k=person:date_of_birth	v=05.07.1925:	1
+k=delivery	v=no:	3
+k=cuisine	v=pizza;kebab:	1
+k=cuisine	v=burger:	6
+k=phone	v=+49 531 7996511:	1
+k=shop	v=computer:	5
+k=opening_hours	v=Th-Tu 17:00-22:00; We off:	1
+k=name	v=Haiky:	2
+k=name	v=Jasperallee:	6
+k=phone	v=+49 531 48039802:	1
+k=capacity	v=94:	1
+k=operator	v=Birgit Gröhlich:	1
+k=bench	v=no:	2
+k=capacity	v=52:	1
+k=operator	v=Jürgen-Otto Brandes:	1
+k=name	v=Ärztin Eiswirt:	1
+k=capacity	v=56:	2
+k=capacity	v=58:	1
+k=name	v=All in One:	1
+k=name	v=Luftfahrt-Bundesamt:	1
+k=railway:signal:combined:states	v=DE-ESO:hp0;DE-ESO:ks1;DE-ESO:ks2:	2
+k=fabric	v=wool:	1
+k=website	v=http://www.lordhelmchen.eu:	1
+k=diving:air_fill	v=yes:	1
+k=phone	v=+49 531 707 65 01:	1
+k=railway:position:exact	v=60.810:	1
+k=name	v=Fleischerei Göthe:	1
+k=contact:phone	v=+49-5172-4860:	1
+k=name	v=Tano's Pizza:	1
+k=name	v=Cut & Style:	1
+k=operator	v=Postbank:	3
+k=collection_times	v=Mo-Fr 14:15, 17:15;Sa12:15:	1
+k=ref	v=Humboldtstraße 9, 38106 Braunschweig:	1
+k=capacity	v=60:	3
+k=contact:website	v=http://www.naehcenter-aktuell.de/:	1
+k=capacity	v=63:	1
+k=capacity	v=64:	1
+k=capacity	v=68:	1
+k=map_size	v=site:	1
+k=artist_name	v=Franz Bernhard:	1
+k=operator	v=Ebeling Tabakwaren:	2
+k=name	v=Selecta Cafeteria (Dachgeschoß, Panoramaview):	1
+k=name	v=Esprit:	2
+k=name	v=9 Bar:	1
+k=name	v=Schilldenkmal:	1
+k=name	v=Freiwilligenagentur Braunschweig:	1
+k=source	v=local_knowledge:	5
+k=capacity	v=70:	2
+k=capacity	v=72:	1
+k=opening_hours	v=Mo-Fr 10:00-12:00, 14:00-16:00:	1
+k=capacity	v=30:	4
+k=contact:website	v=www.praxis-am-hagenmarkt.com:	1
+k=capacity	v=32:	4
+k=name	v=Friseur Bubikopf:	1
+k=capacity	v=34:	1
+k=name	v=Hof Apotheke:	1
+k=name	v=Kunsthandel Olaf Koch:	1
+k=religion	v=muslim:	3
+k=name	v=Dr. Greuer:	1
+k=capacity	v=37:	1
+k=addr:street	v=Mittelweg:	1
+k=name	v=Technikerschule:	1
+k=FIXME	v=wheelchair?:	1
+k=operator	v=Deutsche Telekom:	1
+k=name	v=Leseratte:	1
+k=playground	v=climbingframe:	1
+k=capacity	v=40:	1
+k=height	v=30:	1
+k=capacity	v=42:	1
+k=phone	v=+49 531 24 29 00:	1
+k=name	v=Pizza & Kebab Oase:	1
+k=capacity	v=44:	1
+k=capacity	v=45:	1
+k=capacity	v=47:	1
+k=capacity	v=48:	2
+k=name	v=Fashion Hair:	1
+k=payment:debit_cards	v=yes:	6
+k=name	v=Playhouse:	1
+k=artwork_type	v=painting:	1
+k=name	v=Gemeindezentrum mit Synagoge:	1
+k=addr:street	v=Friedrich-Wilhelm-Straße:	7
+k=name:de	v=Touristinfo:	1
+k=phone	v=+49 531 3884851:	1
+k=name	v=Starbucks:	2
+k=note	v=Schloss-Arkaden Braunschweig Obergeschoss:	1
+k=opening_hours	v=Mo-Fr 08:00-20:00; Sa 09:00-18:00:	1
+k=name	v=Il Sorriso:	2
+k=name	v=Goldankauf Experte:	1
+k=name	v=Ruder-Klub "Normannia" e.V.:	1
+k=name	v=Restaurant Dubrovnik:	1
+k=website	v=http://www.sanders-backstube.de/:	1
+k=capacity	v=50:	3
+k=ref_name	v=Braunschweig Rathaus:	1
+k=capacity	v=10:	21
+k=contact:phone	v=+49 531 42477:	1
+k=capacity	v=11:	6
+k=capacity	v=12:	8
+k=capacity	v=13:	2
+k=capacity	v=14:	5
+k=name	v=Dr. Graeber:	1
+k=capacity	v=15:	4
+k=capacity	v=16:	10
+k=amenity	v=boat_rental:	1
+k=capacity	v=17:	1
+k=capacity	v=18:	9
+k=capacity	v=19:	3
+k=website	v=http://www.paetsch.net/:	1
+k=website	v=www.kingkingshop.de:	1
+k=website	v=www.karadeniz-market.de:	1
+k=name	v=Saschas Sport Store:	1
+k=name	v=Buchhandlung Graff:	1
+k=name	v=Bogen der Erinnerung:	1
+k=opening_hours	v=Mo-Fr 06:00-18:00; Sa 06:00-12:00; Su 08:00-11:00; PH off:	1
+k=website	v=http://www.restaurant-tandure.de/:	1
+k=speisebezirk	v=trenner:	10
+k=collection_times	v=Mo-Fr 16:30,17:00,19:00; Sa 14:00:	1
+k=name	v=Wochenmarkt auf dem Magnikirchplatz:	1
+k=phone	v=+49 531 335585:	1
+k=barrier	v=entrance:	10
+k=name	v=Neuroth:	1
+k=name	v=Pizzeria Belmondo:	1
+k=capacity	v=20:	10
+k=height	v=10:	3
+k=memorial:text	v=Sie wird am 31.03.1901 in Metz geboren und stirbt in Sao Paulo, Brasilien, im Jahr 1968.:	1
+k=capacity	v=21:	1
+k=railway:switch:movable_frog	v=no:	4
+k=capacity	v=22:	1
+k=capacity	v=24:	5
+k=capacity	v=25:	2
+k=capacity	v=26:	1
+k=capacity	v=27:	1
+k=capacity	v=28:	4
+k=capacity	v=29:	1
+k=name	v=Elisat Zahnarzt:	1
+k=railway:local_operated	v=no:	13
+k=name	v=bonding-studenteninitiative e.V.:	1
+k=name	v=Begegnungsstätte der Evangelischen Stiftung Neuerkerode:	1
+k=name	v=Joker Bar:	1
+k=name	v=Mechau:	1
+k=name	v=Paparazzi:	1
+k=ref	v=Wendenstraße/Kaiserstraße, 38100 Braunschweig:	1
+k=operator	v=Monkeyrock e. V.:	1
+k=opening_hours	v=Mo-Fr 07:00-18:00; Sa 07:00-13:00:	1
+k=cuisine	v=kebab:	9
+k=opening_hours	v=TU-Fr 15:00-18:00; Su 11:00-17:00:	1
+k=name	v=Muskelimpuls:	1
+k=website	v=http://www.copythek-braunschweig.de/:	1
+k=office	v=foundation:	1
+k=shop	v=hairdresser:	45
+k=operator	v=Deutsches Jugendherbergswerk:	2
+k=genus	v=Eiche:	1
+k=year	v=1915:	1
+k=opening_hours	v=Mo off; Tu,We,Th,Su 11:30-15:00,17:00-21:00; Fr,Sa 17:00-22:00:	1
+k=leaf_type	v=needleleaved:	1
+k=name	v=Brüwer-Krug K. u. Droste H.:	1
+k=name	v=Evi's Frisurenlädchen:	1
+k=website	v=http://www.deutscheshaus24.de/:	1
+k=name	v=Doris Heinemann:	1
+k=opening_hours	v=Tu-Su 11:30-15:00,17:30-23:00:	1
+k=name	v=kleinod:	1
+k=name	v=Juwelier Kraemer:	1
+k=name	v=face kosmetik:	1
+k=name	v=Play Off:	1
+k=old_name	v=Why Not:	1
+k=opening_hours	v=Tu,Th 15:00-22:00 "und nach Absprache":	1
+k=phone	v=+49 531 123 118 40:	1
+k=website	v=http://hagenmarkt.de:	2
+k=wheelchair:description	v=keine Behindertentoilette:	1
+k=name	v=Toys R Us:	1
+k=fuel:lpg	v=yes:	1
+k=entrance	v=exit:	1
+k=name	v=sander's backstube:	1
+k=addr:street	v=Jöddenstraße:	1
+k=ref	v=12120:	1
+k=name	v=Tiburzy Modellbau:	1
+k=name	v=Sroka&Langowski:	1
+k=name	v=Achilles:	1
+k=opening_hours	v=Mo-Su 12:00-15:00,18:00-22:45:	1
+k=website	v=http://tattoo-cultureshocks.de:	1
+k=addr:street	v=Lange Straße:	4
+k=ref	v=0817:	1
+k=phone	v=+49 531 340020:	1
+k=shop	v=interior_decoration:	6
+k=phone	v=+49 531 7073370:	1
+k=microbrewery	v=no:	1
+k=power	v=transformer:	7
+k=source	v=Ruhrpottviller:	5
+k=railway:signal:speed_limit	v=DE-ESO:zs3:	18
+k=name	v=Am Marstall:	1
+k=artwork_type	v=sculpture:	22
+k=motor_vehicle	v=yes:	1
+k=website	v=http://www.eula.de:	1
+k=wheelchair:description:de	v=Einzig rollstuhltauglich sind Eingangsbereich und WC. Alle anderen Räume sind nur über Treppen zu erreichen.:	1
+k=tourism	v=hotel:	13
+k=name	v=Orion:	2
+k=access	v=private:	56
+k=operator	v=Dipl.-Ing. Jörg Bassenberg:	1
+k=name	v=Kiosk Campe:	1
+k=website	v=http://www.kleinod-braunschweig.de:	1
+k=fax	v=+49 531 1200444:	1
+k=currency:EUR	v=yes:	1
+k=website	v=http://www.sofien-apo.de/:	1
+k=operator	v=Hygia-Gruppe:	1
+k=phone	v=+49-531-340363:	1
+k=artist_name	v=Adolf Breymann:	1
+k=opening_hours	v=Mo-Sa 09:30-20:00; Su off; PH off:	2
+k=name	v=Tauben Apotheke:	1
+k=name	v=Tramp- und Globetrotterladen:	1
+k=cuisine	v=arabisch:	1
+k=website	v=https://www.burgerking.de/:	1
+k=name:lt	v=Braunšveigas:	1
+k=name	v=Papierkorb:	1
+k=year	v=1909:	1
+k=phone	v=+49 531 123 118 50:	1
+k=website	v=http://hakon-restaurant-braunschweig.jimdo.com:	1
+k=cuisine	v=sandwich:	4
+k=name	v=Finke und Freunde Computer:	1
+k=website	v=http://www.magni-kirche.de/:	1
+k=year	v=1951:	1
+k=ref	v=0876-?:	1
+k=ref	v=0840:	1
+k=contact:website	v=http://www.asia-ambiente.de/:	1
+k=opening_hours	v=Mo-Sa 7:00-22:00; PH off:	1
+k=ref	v=0876-C:	1
+k=name	v=Hall of Nails:	1
+k=website	v=http://kioskcyriaksterassen.de/:	1
+k=note	v=ehemalige Bäckerei Langner:	1
+k=opening_hours	v=Mo-Sa 09:00-20:00:	3
+k=ref	v=0846:	1
+k=year	v=1954:	2
+k=railway	v=power_supply:	6
+k=name	v=TSV Chart and Fox e.V.:	1
+k=name	v=Kita Karlstraße:	1
+k=website	v=http://www.pizzeria-taormina-braunschweig.de:	1
+k=access	v=public:	1
+k=ref	v=Helmstedter Straße 35, 38102 Braunschweig:	1
+k=railway:milestone:catenary_mast	v=yes:	4
+k=highway	v=give_way:	3
+k=amenity	v=dentist:	12
+k=railway:signal:combined:shortened	v=no:	7
+k=name	v=Tanzschule Häusler:	1
+k=ref	v=0854:	1
+k=name	v=Filou:	1
+k=year	v=1960:	1
+k=ref	v=0855:	1
+k=name	v=Kanzlei Wille & Laaß:	1
+k=opening_hours	v=Mo-Sa 17:30-23:00; Su 17:30-22:00:	1
+k=phone	v=0531 20 67 53 5:	1
+k=name	v=Loom:	1
+k=website	v=http://www.florentine-bs.de/:	1
+k=phone	v=+49 531 61499634:	1
+k=shop	v=insurance:	1
+k=year	v=1967:	1
+k=FIXME	v=exact position?:	1
+k=name	v=Benetton:	1
+k=year	v=1968:	1
+k=website	v=http://itubs.de:	1
+k=opening_hours	v=Mo-Fr 10:00-18:00; Sa-Su off:	1
+k=contact:phone	v=0531 2842634:	1
+k=name	v=Peek & Cloppenburg:	2
+k=website	v=http://www.india-house-bs.de/:	1
+k=capacity	v=98:	1
+k=shop	v=sports;travel_agency:	1
+k=description	v=Tatendrang ist eine Ateliergemeinschaft von fünf Designerinnen. Roberta Bergmann, Eva Jaeger, Anne-Luise Groß, Meike Töpperwien und Tonia Wiatrowski setzen gemeinsam künstlerische und gestalterische Ideen um.:	1
+k=source	v=http://www.apotheke-bar.com:	1
+k=name	v=LULU Bar:	1
+k=phone	v=+49 531 48289781:	1
+k=phone	v=+49 531 335509:	1
+k=name	v=Dr. med. Lara Junius:	1
+k=railway:signal:route:states	v=P;?:	1
+k=opening_hours	v=Mo-Fr 08:00-18:30;Sa 08:00-13:00:	2
+k=phone	v=+49 531 123 118 20:	1
+k=name	v=Manuela's Fahrschule:	1
+k=opening_hours	v=Mo,Th 07:30-11:30,14:00-17:30; Tu 08:30-12:30,15:00-19:00; We,Fr 07:30-13:00:	1
+k=name	v=Schneiderei Petra:	1
+k=opening_hours	v=Tu 16:00-18:30;Th 10:00-12:00:	1
+k=contact:phone	v=+49-531-2885227:	1
+k=takeaway	v=yes:	8
+k=name	v=Runenstein:	1
+k=species	v=Fagus sylvatica L. cv. 'Pendula':	1
+k=name	v=Braunschweiger Zeitung:	1
+k=name	v=Hotel Meyer:	1
+k=name	v=Kabinett 24:	1
+k=name	v=Crazy Pizza:	1
+k=shelter	v=yes:	20
+k=ref	v=0879:	1
+k=year	v=1949:	1
+k=website	v=http://www.landesmuseum-bs.de/:	1
+k=website	v=http://www.yoo-mee-sushi.com/:	1
+k=room	v=IZ 305:	1
+k=contact:phone	v=+49 531 44241:	1
+k=phone	v=+49 531 123 118 10:	2
+k=website	v=www.selendi.de:	1
+k=cuisine	v=italian:	19
+k=opening_hours	v=Mo-Sa 09:00-19:00:	3
+k=opening_hours	v=Mo-Sa 11:00-18:00:	1
+k=website	v=http://www.stadthotel-magni.de/:	1
+k=name	v=Schützenstraße (Karstadt):	1
+k=name	v=Altstadtrathaus:	1
+k=fixme	v=Position geschätzt:	1
+k=phone	v=+49 531 7015521:	1
+k=wheelchair	v=yes:	406
+k=year	v=1990:	1
+k=amenity	v=doctors:	41
+k=board_type	v=public_transport:	1
+k=name	v=Thai-Nippon-Sushi-Bar:	1
+k=map_size	v=city:	4
+k=ref	v=30W182:	1
+k=name	v=ePlus:	1
+k=name	v=Nanu Nana:	1
+k=note	v=hängt am Bahnsteigdach:	2
+k=operator	v=Göritz B.:	1
+k=name	v=Jacobi Kiosk:	1
+k=contact:website	v=http://www.pompe-optic.de/:	1
+k=website	v=http://www.braunschweig.de/tourismus/touristinfo/touristinfo.html:	1
+k=name	v=Altenpflegeheim St. Hedwig:	1
+k=opening_hours	v=Tu-Sa 09:00-18:00; Su 10:00-18:00:	1
+k=name	v=Staatstheater Kleines Haus:	1
+k=phone	v=+49 531 12150:	1
+k=name	v=Dr. Weber:	1
+k=name	v=Aladin:	1
+k=website	v=http://www.devilfamily.de:	1
+k=name	v=MVZ Senologie (EG):	1
+k=operator	v=Land Niedersachsen:	1
+k=fixme	v=Haltestelle wurde offenbar verlegt:	1
+k=addr:street	v=Kalenwall:	2
+k=opening_hours	v=Mo-Th 15:00-24:00; Fr-Sa 15:00-02:00:	1
+k=addr:street	v=Bürgerstraße:	1
+k=amenity	v=music_school:	1
+k=website	v=http://www.apotheke-bar.com:	1
+k=name	v=J. Peilake:	1
+k=opening_hours	v=17:30-23:30:	1
+k=name	v=Santander Consumer Bank AG:	1
+k=wikipedia	v=de:Löwenwall:	1
+k=ref	v=Bruchtorwall 15, 38100 Braunschweig:	1
+k=ref	v=30W181:	1
+k=ref_name	v=Ekbertstraße, Braunschweig:	1
+k=amenity	v=cafe:	60
+k=name	v=Ristaurante Katané:	1
+k=ref	v=30W166:	1
+k=ref	v=30W165:	1
+k=year	v=1975:	1
+k=ref	v=30W164:	1
+k=ref	v=30W163:	1
+k=ref	v=30W162:	1
+k=ref	v=30W161:	1
+k=name	v=Konsequent Sozialpädagogisches Krisenmanagement:	1
+k=brand	v=Volksbank:	1
+k=cuisine	v=Asia-Imbiss:	1
+k=lawyer	v=notary:	1
+k=name	v=Athen:	1
+k=bus_routes	v=M19,461,601,603,620,631:	1
+k=collection_times	v=Mo-Fr 15:45;Sa 11:30:	1
+k=name	v=LVM:	1
+k=website	v=http://www.restaurant-brodocz.de/:	1
+k=addr:street	v=Kuhstraße:	2
+k=opening_hours	v=Mo-Fr 09:30-18:00;Sa 10:00-14:00:	1
+k=geb_nr	v=4203:	1
+k=phone	v=+49 531 31782983:	1
+k=healthcare	v=alternative:	1
+k=name	v=Löbbeckes Insel:	1
+k=name	v=Internistische Gemeinschaftspraxis, Schwerpunkt Onkologie:	1
+k=phone	v=+49 1577 4936551:	1
+k=note	v=6th floor:	1
+k=ref	v=30W154:	1
+k=name	v=Alte Schmiede:	1
+k=ref	v=30W152:	1
+k=short_name	v=VW-Halle:	1
+k=year	v=1980:	1
+k=vending	v=coffee:	1
+k=payment:notes	v=no:	1
+k=year	v=1981:	2
+k=office	v=government:	4
+k=name	v=Schroers Werbeagentur:	1
+k=room	v=(PK 11.3):	1
+k=ref_name	v=Maschstraße, Braunschweig:	2
+k=year	v=1988:	1
+k=collection_times	v=Mo-Fr 15:45;Sa 11:45:	1
+k=vending	v=excrement_bags:	7
+k=name	v=Institut für Umweltgeologie:	1
+k=opening_hours	v=Mo-Fr 09:00-18:00; Sa 09:00-15:00:	1
+k=name	v=JAKO-O:	1
+k=phone	v=+49 531 12 94 203:	1
+k=website	v=http://www.welfenapotheke-braunschweig.de:	1
+k=website	v=http://www.buffethaus-bs.de/:	1
+k=ref	v=Wendentorwall 20, 38100 Braunschweig:	1
+k=operator	v=Wolfgang R. Büttner:	1
+k=operator	v=DB Netz AG:	1
+k=memorial:text	v=Sie wird 1928 in Braunschweig geboren und emigrierte am 10.07.1938 mit der Familie nach Sao Paulo, Brasilien.:	1
+k=name	v=Pizzeria Fantasia:	1
+k=contact:phone	v=0531 61284201:	1
+k=operator	v=Horst Baseniak:	1
+k=opening_hours	v=Mo-Tu 08:30-11:30,15:30-17:30; We 08:30-11:30; Th 08:30-11:30,15:30-17:30; Fr 08:30-11:30,15:30-17:00; PH off:	1
+k=designation	v=Croatian:	1
+k=ref	v=29675:	1
+k=name	v=Happy Rizzi House:	1
+k=wikipedia	v=de:Liste der Denkmale und Standbilder der Stadt Braunschweig#Die gro.C3.9Fe Verweigerung:	1
+k=name	v=Kebab Haus:	1
+k=species:de	v=Hänge-Buche:	1
+k=name	v=Charlys Tiger:	1
+k=contact:phone	v=0531 4737400:	1
+k=name	v=Altstadtmarkt-Apotheke:	1
+k=shop	v=books:	12
+k=name:is	v=Brúnsvík:	1
+k=website	v=http://www.teremok-ev.de/:	1
+k=operator	v=Steinkamp:	1
+k=wheelchair:description	v=Höhere Schwelle am Eingang, eventuell nicht ohne Hilfe zu überwinden. Keine Behindertentoilette.:	1
+k=name	v=LorVel:	1
+k=name	v=Matratzen Factory Outlet:	1
+k=name	v=HAPPY DONAZZ & Co:	1
+k=name	v=Nordstraße:	1
+k=type	v=Rondell:	1
+k=ref	v=Madamenweg 174, 38118 Braunschweig:	1
+k=payment:none	v=yes:	7
+k=addr:street	v=Schlossplatz:	2
+k=website	v=http://www.rheinische-republik-bs.de:	1
+k=railway:signal:position	v=left:	26
+k=healthcare:speciality:de	v=Kinder- und Jugendmedizin:	2
+k=name	v=Siebenschläfer:	1
+k=name	v=Lange Straße Nord (C1 Cinema):	1
+k=memorial:addr	v=Friedrich-Wilhelm-Straße 36:	4
+k=name	v=Güldenstraße 39:	1
+k=name	v=Fischotter:	1
+k=wheelchair_toilet	v=no:	3
+k=contact:website	v=http://www.humboldtstrasse.de/mi-parti/index.htm:	1
+k=playground	v=sandpit:	1
+k=addr:housenumber	v=8:	15
+k=addr:housenumber	v=9:	10
+k=addr:housenumber	v=6:	11
+k=alt_name	v=Noa Noa:	1
+k=name	v=Heinrichslinde:	1
+k=addr:housenumber	v=7:	19
+k=addr:street	v=Wilhelmstraße:	4
+k=addr:street	v=Rebenring:	17
+k=name	v=Caritasverband Braunschweig e.V.:	1
+k=phone	v=+49 531 48269320:	1
+k=addr:housenumber	v=1:	42
+k=name	v=Hermes PaketShop:	1
+k=name	v=DEVK Versicherungen:	1
+k=name	v=Grünes Lädchen:	1
+k=addr:housenumber	v=4:	19
+k=name	v=Spiel im Tivoli:	1
+k=contact:phone	v=+49 531 338582:	1
+k=addr:housenumber	v=5:	15
+k=addr:housenumber	v=2:	14
+k=addr:housenumber	v=3:	12
+k=wifi	v=no:	2
+k=name	v=Asia Markt An Linh:	1
+k=shop	v=photo_studio:	1
+k=wheelchair:description	v=Bushaltestelle "Madamenweg" der Linie "Bus 418", Verkehr täglich im 30Min takt in beiden Richtungen. Leider hält der Bus an normaler Bürgersteig-Haltestelle, an der der Fahrer die Rampe rausklappen muss.:	1
+k=railway:signal:combined:states	v=DE-ESO:hp0;DE-ESO:ks1;DE-ESO:ks2;DE-ESO:kennlicht:	8
+k=cuisine	v=coffee_shop:	4
+k=website	v=http://www.schillstrasse.de:	3
+k=operator	v=Studentenwerk Braunschweig:	1
+k=name	v=Europasaurus holgeri:	1
+k=opening_hours	v=Mo-Sa 00:00-01:00,15:00-24:00; Su 00:00-01:00,12:00-24:00; PH 00:00-01:00, 12:00-24:00:	1
+k=name	v=Giesecke:	1
+k=url	v=http://fseitp-bs.de/Fachschaft/Hauptseite:	1
+k=website	v=http://www.expertise-braunschweig.de/:	1
+k=name	v=Kiosk Menzeleck:	1
+k=railway:signal:speed_limit:form	v=sign:	6
+k=polling_station	v=120-11:	1
+k=name	v=Braunschweiger Quadriga:	1
+k=website	v=http://www.walbusch.de:	1
+k=fax	v=+49 531 44434:	1
+k=collection_times	v=Mo-Fr 15:30, 16:30;Sa 12:15:	1
+k=phone	v=+49 531 2592059:	1
+k=name	v=Basler:	1
+k=bicycle	v=no:	26
+k=opening_hours	v=Tu-Sa 11:00-15:00,17:00-23:00; Su 11:00-23:00; Mo off:	1
+k=name	v=MicMac - Design Second Hand:	1
+k=ref	v=1223:	1
+k=name	v=Petristraße:	2
+k=opening_hours	v=Mo-Sa 09:30-21:00:	1
+k=polling_station	v=132-05:	1
+k=name	v=IQRA Moschee:	1
+k=opening_hours	v=Mo off; Tu-Fr 10:00-13:00,15:00-18:00; Sa 11:00-13:00; Su off; PH off:	1
+k=name	v=Fahrrad Ambulanz:	1
+k=name	v=DeBeKa:	1
+k=opening_hours	v=Mo-Tu,Th-Fr 08:30-13:00,15:00-18:30;We 08:30-13:00;Sa 09:00-13:00:	1
+k=polling_station	v=120-22:	1
+k=wikipedia	v=de:Braunschweiger Löwe:	1
+k=addr:street	v=Alte Waage:	1
+k=recycling:cans	v=no:	10
+k=email	v=cafehaertle@arcor.de:	1
+k=website	v=http://www.friedrich-magni.de:	1
+k=motorcycle	v=no:	7
+k=name	v=Ärztekammer Niedersachsen:	1
+k=name	v=Hotel Wartburg:	1
+k=opening_hours	v=Mo-Fr 09:00-18:00, Sa 10:00-14:00, Su off:	1
+k=name	v=HypoVereinsbank:	1
+k=name	v=Frites van Holland:	1
+k=name	v=TU Braunschweig Praktikum PC Physikalische Chemie:	1
+k=opening_hours	v=Mo-Fr 7:30-18:00; Sa 8:00-13:00:	1
+k=addr:city	v=Braunschweig:	655
+k=url	v=http://tubraunschweig.enactus.de/blog/projekte/spende-dein-pfand/:	1
+k=name	v=Karstadt Sport:	1
+k=url	v=http://www.therapie-therme.de/:	1
+k=name	v=Staatstheater Großes Haus:	1
+k=name	v=Kappes:	1
+k=name	v=La Femme:	1
+k=note	v=gate "east":	1
+k=end_date	v=2014-10:	2
+k=phone	v=+49 531 74441:	1
+k=phone	v=+49 531 1294741:	1
+k=opening_hours	v=Tu-Su 12:00-22:00:	1
+k=railway:signal:minor:form	v=light:	35
+k=addr:street	v=Museumstraße:	1
+k=addr:street	v=Hagenbrücke:	3
+k=email	v=info@radiologie-scholz.de:	1
+k=name	v=Jacques' Wein-Depot:	1
+k=recycling:glass	v=yes:	24
+k=opening_hours	v=Mo-Fr 10:00-15:00:	1
+k=fixme	v=position estimated:	2
+k=contact:fax	v=0531 7017820:	1
+k=website	v=http://www.morethanmusic-bs.de:	1
+k=name	v=bellybuttonfood:	1
+k=addr:street	v=Hagenmarkt:	6
+k=name	v=Pocoloco:	1
+k=person:date_of_birth	v=24.11.1894:	1
+k=phone	v=05 31 2 44 29-0:	1
+k=phone	v=+49 531 73104:	1
+k=name	v=Kiosk am Botanischen Garten:	1
+k=website	v=http://www.miners-coffee.de:	1
+k=railway:signal:speed_limit:height	v=normal:	16
+k=recycling:scrap_metal	v=no:	1
+k=ref	v=Sophienstraße 31, 38118 Braunschweig:	1
+k=opening_hours	v=Mo-Th 08:00-12:00,15:00-18:00; Fr 08:00-12:00; Sa-Su off; PH off:	1
+k=recycling:small_appliances	v=no:	1
+k=name	v=Pizzeria Riano:	1
+k=website	v=http://www.zahnaerztin-bs.de/:	1
+k=opening_hours	v=Mo-Sa 11:00-14:30, 18:00-22:30:	1
+k=opening_hours	v=11:30-14:30,17:30-23:00:	1
+k=phone	v=+49-531-2444111:	1
+k=operator	v=Park und Tank GmbH:	1
+k=phone	v=0531 14200:	1
+k=name	v=KIOSK:	1
+k=name	v=Volkswagen Halle:	1
+k=name	v=Stechinelli-Haus:	1
+k=railway:signal:speed_limit:deactivated	v=no:	2
+k=opening_hours	v=Mo-Su 06:00-24:00:	1
+k=opening_hours	v=Mo-Fr 08:30-13:00,15:00-23:00; Sa 09:00-13:00,15:00-23:00; Su 09:00-23:00:	1
+k=name	v=Pompe Optic:	1
+k=phone	v=+49 531 49487:	2
+k=vending	v=parking_tickets:	11
+k=tourism	v=information:	71
+k=description	v=Ausgang Nord:	1
+k=operator	v=Stadtmobil:	4
+k=operator	v=DB:	10
+k=name	v=Jamil Mahjoub:	1
+k=cuisine	v=turkish:	10
+k=name	v=Bistro / Kiosk:	1
+k=name	v=Funzel:	1
+k=name	v=Franz-Abt-Denkmal:	1
+k=building	v=hospital:	11
+k=drink:club-mate	v=served:	1
+k=shop	v=florist:	17
+k=addr:housenumber	v=30A:	1
+k=shop	v=craft:	1
+k=addr:housenumber	v=30B:	1
+k=name	v=Hauptbahnhof:	7
+k=bench	v=yes:	8
+k=contact:phone	v=+49 531 2344579:	1
+k=name	v=Altstadthotel Wienecke:	1
+k=healthcare	v=centre:	1
+k=playground	v=swing:	2
+k=website	v=http://www.apotheke-bs.de:	1
+k=payment:electronic_purses	v=no:	2
+k=contact:phone	v=+49-531-330023:	1
+k=addr:street	v=Europaplatz:	1
+k=name	v=ABC Schuhe:	1
+k=website	v=http://www.haiky.de/:	1
+k=name	v=Punjabi:	1
+k=name	v=Hair Studio Marina:	1
+k=railway:signal:route	v=DE-ESO:zs2:	7
+k=collection_times	v=Mo-Fr 17:00;Sa 11:45:	2
+k=source	v=Flyer:	1
+k=collection_times	v=Mo-Fr 15:45,18:00;Sa 12:15:	1
+k=name	v=Löwenplay:	1
+k=website	v=http://www.punjabi-bs.de:	1
+k=phone	v=+49 531 342810:	1
+k=ref	v=E040 H 05:	1
+k=website	v=http://www.blumenhausmangano.de/Home:	1
+k=name	v=Nostal-G:	1
+k=name	v=Fashion Nails:	1
+k=ref	v=Celler Straße 98, 38114 Braunschweig:	1
+k=ref	v=1283:	1
+k=phone	v=+49 531 16565:	1
+k=ref	v=1282:	1
+k=shop	v=leather:	1
+k=opening_hours	v=Mo-Tu,Th 08:30-18:00; We,Fr 08:30-13:00; PH off:	1
+k=name	v=oehler:	1
+k=name	v=Staatstheater:	2
+k=addr:street	v=Papenstieg:	2
+k=addr:street	v=Platz am Ritterbrunnen:	7
+k=artwork_type	v=relief:	1
+k=tourism	v=picnic_site:	4
+k=website	v=https://www.greenwheels.com/de/Home/Privatkunden/Home:	2
+k=wikipedia	v=de:Locr:	1
+k=ref	v=30P41:	1
+k=recycling:magazines	v=yes:	5
+k=name	v=OkerCabana (Mai-Sept.):	1
+k=name	v=My Way:	1
+k=amenity	v=motorcycle_parking:	6
+k=name	v=Turnerschaft Alania:	1
+k=phone	v=0531330539:	1
+k=opening_hours	v=Mo off; Tu-Sa 10:00-18:00; Su off; PH off:	1
+k=opening_hours	v=Mo-Sa 8:00-22:00:	2
+k=memorial:addr	v=Bohlweg:	3
+k=name	v=Marios Imbis:	1
+k=name	v=Kunst Blume:	1
+k=website	v=http://www.nervenarztpraxis-fasanenstrasse.de/:	1
+k=website	v=http://www.zoo-bindestrasse.de/body_main.htm:	1
+k=collection_times	v=Mo-Fr 14:45,17:00;Sa 12:00;Su 9:45:	1
+k=name	v=Strom-Tankstelle:	1
+k=name	v=Arbeitskreis für psychosoziale Hilfen Braunschweig e.V.:	1
+k=cuisine	v=american:	1
+k=source	v=Braunschweiger Taxenzentrale :	3
+k=ref:isil	v=DE-56:	1
+k=phone	v=+49 531 244400:	1
+k=name	v=Jauns:	1
+k=bus_routes	v=M19,443,601,620,603,631:	1
+k=source	v=http://www.bodystreet.com/standorte/braunschweig-schloss.html:	1
+k=name	v=Targo Bank:	1
+k=name	v=locr GmbH:	1
+k=name	v=Copythek:	1
+k=website	v=http://hof-apotheke-braunschweig.de:	1
+k=name	v=Arzt Raisch, Arzt Lippold:	1
+k=phone	v=+49 531 333006:	1
+k=genus:la	v=aesculus:	1
+k=name	v=Gmyrek:	1
+k=name	v=Busenfreundin:	1
+k=note	v=toilets:	1
+k=ref	v=Willy-Brandt-Platz 6, 38102 Braunschweig:	1
+k=website	v=http://herzensraeuber.blogspot.de:	1
+k=name	v=Weinhandlung Knigge:	1
+k=is_in	v=Braunschweig:	1
+k=coin:design_count	v=2:	1
+k=ref	v=Hans-Sommer-Straße / Hagenring, 38106 Braunschweig:	1
+k=source:wheelchair	v=survey:	1
+k=website	v=http://mandel-meier.wdnord.de:	1
+k=name	v=DAV Kletterwand Güldenstraße:	1
+k=contact:email	v=dmk-bs@t-online.de:	1
+k=opening_hours	v=Mo-Fr 08:00-19:00; Sa 08:00-15:00; PH off:	1
+k=contact:website	v=www.kleintierpraxis-mertens.de:	1
+k=name	v=Verkehrsunfalldienst:	1
+k=opening_hours	v=Mo-Fr 09:00-18:30, Sa 10:00-14:00:	1
+k=ref:isil	v=DE-84:	1
+k=name	v=Antiquariat im Hopfengarten:	1
+k=opening_hours	v=Mo-Sa 07:00-20:00:	1
+k=website	v=http://www.musiktrainer.de/:	1
+k=ref	v=0903-C:	1
+k=name	v=Bacio:	1
+k=traffic_signals	v=signal:	6
+k=addr:housename	v=Mund-, Kiefer-, Plastische Gesichtschirurgie (MKG) 1 + 2 (2. OG):	1
+k=opening_hours	v=Mo-Fr 09:00-24:00; Sa 00:00-04:00,10:00-24:00; Su 00:00-04:00,10:00-23:00; PH 10:00-23:00:	1
+k=opening_hours	v=Mo-Fr 10:00-13:00,14:00-17:00:	1
+k=name	v=LEI:	1
+k=operator	v=unknown:	2
+k=shop	v=sewing:	1
+k=backrest	v=yes:	57
+k=phone	v=+49 531 1231130:	1
+k=name	v=Eingang Bohlweg:	1
+k=ref	v=0903-A:	1
+k=collection_times	v=Mo-Fr 16:15;Sa 11:30:	1
+k=addr:street	v=Cammannstraße:	1
+k=amenity	v=car_rental:	1
+k=phone	v=+49 5371 891120:	1
+k=addr:housename	v=Kiosk an der Mensa:	1
+k=opening_hours	v=Mo-Fr 09:00-12:00,14:00-17:00; Sa 09:00-12:00; Su off; PH off:	1
+k=tourism	v=guest_house:	1
+k=contact:email	v=fairkauf.kaufhaus@lebenshilfe-braunschweig.de:	1
+k=addr:housenumber	v=23a:	1
+k=website	v=http://www.augenklinik-dr-hoffmann.de/:	1
+k=xmas:url	v=http://www.braunschweig.de/weihnachtsmarkt/:	1
+k=name	v=Taichi Qigong Center:	1
+k=phone	v=+49 531 7018677:	1
+k=name	v=Liebe zum Vollmond:	1
+k=name	v=Deutscher Alpenverein Sektion Braunschweig e.V.:	1
+k=amenity	v=driving_school:	7
+k=phone	v=+49 531 41590:	1
+k=name	v=Stadtplan:	1
+k=name	v=Sozial-Referat:	1
+k=name	v=Afro-Shop:	1
+k=wheelchair:description	v=Separater Eingang rechts vom Haupteingang:	1
+k=recycling:plastic_packaging	v=no:	3
+k=phone	v=+49 531 45956:	1
+k=name	v=Sternchen Kiosk:	1
+k=ref	v=30P81:	1
+k=website	v=www.yourpersonalklub.de:	1
+k=name	v=Stresa Pizzeria:	1
+k=amenity	v=kindergarten:	12
+k=operator	v=Stefan Zeuke:	1
+k=books	v=antiquarian:	1
+k=addr:street	v=Wiesenstraße:	1
+k=operator	v=Volkswagen Bank:	1
+k=opening_hours	v=Mo 08:00-13:00,14:00-18:00; Tu 08:00-13:00,15:00-19:00; We 08:00-13:00; Th 08:00-13:00,15:00-19:00; Fr 08:00-15:00; Sa,Su off; PH off:	1
+k=operator	v=Valovis Commercial Bank:	1
+k=room	v=PK 2.1 (C2):	1
+k=name	v=Pusteblume:	1
+k=name	v=Zweirad Asche:	1
+k=addr:street	v=Schild:	3
+k=website	v=http://www.optiker-krake.de/:	1
+k=information	v=Die Halbkugeln sind ein Geschenk der Magdeburger an ihre Partnerstadt zum 15. Geburtstag der Partnerschaft beider Städte:	1
+k=phone	v=+49 531 41564:	1
+k=phone	v=+4953141550:	1
+k=opening_hours	v=Tu-Fr 12:00-18:00;Sa 10:00-16:00:	1
+k=cuisine	v=organic:	1
+k=opening_hours	v=09:00-17:00:	1
+k=phone	v=+49 531 346329:	1
+k=name	v=von Schade Schmuckwerkstatt:	1
+k=name	v=Petite Crêperie:	1
+k=addr:street	v=Am Alten Petritore:	1
+k=shop	v=coffee:	1
+k=contact:email	v=braunschweig-group@mcdonalds.de:	1
+k=name	v=Mieze & Fiffi:	1
+k=website	v=http://www.neonaut.de:	1
+k=name	v=HerzensRäuber Kindermode:	1
+k=shelter	v=no:	13
+k=xmas:feature	v=market:	1
+k=uic_ref	v=893541:	2
+k=name	v=Obelisk auf dem Löwenwall:	1
+k=brand	v=0:	1
+k=name	v=Piratenpartei Braunschweig:	1
+k=name	v=Südstraße:	3
+k=uic_ref	v=893538:	1
+k=addr:housenumber	v=27a:	2
+k=name	v=DERPART:	1
+k=addr:housenumber	v=286:	1
+k=level	v=-1:	14
+k=railway:signal:minor:deactivated	v=no:	6
+k=addr:street	v=Cyriaksring:	1
+k=name	v=Dres. Hauswaldt:	1
+k=name	v=Ekbertstraße:	2
+k=phone	v=+49 531 2092-0:	1
+k=memorial:text	v=Am 24.11.1894 wird er in Braunschweig geboren. Seine letzte selbstgewählte Adresse ab 14.10.1933 ist die Friedrich- Wilhelm-Straße 36. Am 26.05.1958 stirbt er in Sao Paulo, Brasilien.:	1
+k=kerb	v=yes:	3
+k=surveillance	v=indoor:	8
+k=barrier	v=cycle_barrier:	7
+k=phone	v=+49 531 340156:	1
+k=website	v=http://www.brotinsel.de:	1
+k=internet_access	v=yes:	5
+k=website	v=www.tatendrang-design.de:	1
+k=opening_hours	v=Mo 15:00-18:00; Tu-We 08:00-13:00,15:00-18:00; Th-Fr 08:00-18:00; Sa 08:00-13:00; PH off:	1
+k=opening_hours	v=Mo,Tu,Th 09:00-12:00,15:00-17:00; We,Fr 09:00-12:00:	1
+k=cuisine	v=sushi:	3
+k=addr:street	v=Heinrich-Büssing-Ring:	7
+k=name	v=Adam Hertha Sanitätshaus:	1
+k=name	v=OX U. S. Steakhouse:	1
+k=website	v=http://www.cafe-schmidt-braunschweig.de/:	1
+k=name	v=Hundestation Löwenwall:	1
+k=phone	v=+49 531 2355 0:	1
+k=railway:signal:brake_test:states	v=DE-ESO:db:zp6;DE-ESO:db:zp7;DE-ESO:db:zp8:	10
+k=name	v=Willy-Brandt-Platz:	5
+k=email	v=kontakt@teremok-ev.de:	1
+k=operator	v=Pizza Hut:	1
+k=name	v=Ut'n Grooten Pott:	1
+k=name	v=Gülden Apotheke:	1
+k=is_in:country	v=Germany:	1
+k=health_facility:type	v=counselling_centre:	1
+k=name	v=Sparda-Bank:	2
+k=name	v=Wendenstraße / Werder:	1
+k=website	v=http://www.sushi-bs.de/:	1
+k=operator	v=Lebenshilfe Braunschweig:	2
+k=railway	v=milestone:	5
+k=website	v=http://www.tuev-nord.de/de/mpu-infoveranstaltung-1870.htm:	1
+k=website	v=http://www.naehzentrum-braunschweig.de/:	1
+k=source	v=Web:	1
+k=website	v=www.chirurgie-humboldtstr24.de:	1
+k=coin:type	v=5cent:	1
+k=name	v=Halber GmbH:	1
+k=railway:signal:stop:caption	v=100 m:	6
+k=contact:phone	v=0531 15100:	1
+k=name	v=Dres.Georg, Muschol:	1
+k=name	v=Fahrschule Jendritzki:	1
+k=name	v=Wochenmarkt:	1
+k=email	v=info@siedentopf.lvm.de:	1
+k=website	v=http://www.kinzel-bode.de/:	1
+k=name	v=Jakob Friedmann:	1
+k=website	v=http://braunschweig.bolerobar.de/:	1
+k=phone	v=+49 531 332541:	1
+k=access	v=delivery:	3
+k=name	v=Packhof:	2
+k=operator	v=Landeskirchliche Gemeinschaft:	1
+k=opening_hours	v=Mo 08:00-18:00; Tu-We 08:00-19:00; Th 08:00-18:00; Fr 08:00-13:00:	1
+k=name	v=Sanders Backstube:	2
+k=phone	v=+49 531 390450:	1
+k=name	v=Nagelstudio Nails and more:	1
+k=ref	v=0015;480:	1
+k=name	v=Hagenmarkt Apotheke:	1
+k=railway:signal:speed_limit_distant:height	v=dwarf:	1
+k=name	v=ehem. Villa Felmy:	1
+k=name	v=Tandurino:	1
+k=phone	v=05312806463:	1
+k=name	v=Braunschweigisches Landesmuseum:	1
+k=phone	v=+49 5314811020:	1
+k=ref	v=30W143:	1
+k=collection_times	v=Mo-Fr 15:30, 17:15;Sa 11:45:	1
+k=ref	v=3a:	1
+k=name	v=Pflegedienstleitungen (1. OG):	1
+k=name	v=Lederstrumpf Braunschweig:	1
+k=contact:email	v=info@hawo-bs.de:	1
+k=website	v=http://www.vielharmonie-bs.de:	1
+k=opening_hours	v=Mo-Fr 10:00-18:00; Sa 10:00-14:00:	1
+k=website	v=http://www.busenfreundin-bs.de/:	1
+k=phone	v=+49 531 43366:	1
+k=opening_hours	v=Mo-Fr 07:30-18:30; Sa 09:00-16:00:	1
+k=phone	v=+49 531 243900:	1
+k=name	v=Apollo Optik:	1
+k=website	v=http://www.kilians-rondo.de/:	1
+k=website	v=http://www.bischoffs-teeladen-ug.de/:	1
+k=phone	v=+49 531 4737172:	1
+k=phone	v=0531-4811380:	1
+k=railway:signal:stop:height	v=dwarf:	9
+k=name	v=Body Street:	1
+k=addr:street	v=Steinstraße:	2
+k=phone	v=+49 531 769 91:	1
+k=collection_times	v=Mo-Fr 15:45; Sa 11:30:	1
+k=note:de	v=Kundeninformation:	1
+k=ref	v=0888-?:	2
+k=vehicle	v=no:	1
+k=parking	v=multi-storey:	17
+k=amenity	v=police:	2
+k=ref	v=0888-C:	1
+k=recycling:electrical_appliances	v=no:	2
+k=website	v=http://www.zweimalschoen.de/:	1
+k=collection_times	v=Mo-Fr 15:30,17:15;Sa 11:30:	1
+k=name	v=Anna:	1
+k=name	v=adam Soft:	1
+k=name	v=Ohlendorf:	1
+k=network	v=Flinkster:	2
+k=name	v=raddress:	1
+k=addr:street	v=Wendenstraße:	6
+k=opening_hours	v=Mo-Su 10:00-22:00:	1
+k=addr:street	v=Charlottenstraße:	1
+k=ref	v=Frankfurter Straße 2, 38122 Braunschweig:	1
+k=name	v=HNO-Facharztpraxis Dr.Erich Koch:	1
+k=name	v=Bürobedarfshaus Pätsch:	1
+k=operator	v=Deutsche Tamoil GmbH:	1
+k=name	v=Stadtpalais:	1
+k=opening_hours	v=Mo-Fr 07:00-13:00; Mo-Tu 15:00-19:00; Th-Fr 15:00-19:00; PH off:	1
+k=ref	v=30W126:	1
+k=phone	v=+49 531 43344:	1
+k=ref	v=30W125:	1
+k=ref	v=30W124:	1
+k=shop	v=art_supplies:	1
+k=fire_hydrant:position	v=parking_lot:	1
+k=shop	v=wine:	1
+k=opening_hours	v=Mo,Th 08:00-12:30,15:00-18:00; Tu,Fr 08:00-14:00; We 08:00-12:30,15:00-19:00; PH off:	1
+k=name	v=KiK:	1
+k=contact:website	v=http://www.goethes.de/:	1
+k=phone	v=+49 531 61803440:	1
+k=collection_times	v=Mo-Fr 15:00, 18:15;Sa 11:00:	1
+k=name	v=Buffethaus:	1
+k=name	v=Ludwigstraße:	2
+k=opening_hours	v=Mo-Fr 09:00-12:00; PH off:	1
+k=name	v=Neuklang:	1
+k=name	v=Edeka Aktiv Markt Görge:	1
+k=amenity	v=ticket_validator:	1
+k=name	v=Georg-Eckert-Institut für internationale Schulbuchforschung:	1
+k=name	v=Tchibo:	1
+k=addr:street	v=Schleinitzstraße:	8
+k=phone	v=+49 531 331253:	1
+k=brewery	v=Guinness; Kilkenny:	1
+k=name	v=Mediamarkt:	1
+k=opening_hours	v=Tu-Sa 18:00-23:00; Su 12:00-14:30, 18:00-23:00:	1
+k=name	v=Tedi:	1
+k=website	v=http://www.tu-braunschweig.de/sc:	1
+k=contact:phone	v=+49-531-58046710:	1
+k=ref	v=30W113:	1
+k=genus:en	v=Birch:	11
+k=opening_hours	v=Mo-Fr 10:00-19:00; Sa 10:00-18:00:	4
+k=name	v=IN|creare, indiv. Werbemittel + Geschenke:	1
+k=operator	v=Bankhaus Löbbecke:	1
+k=name	v=Jugendgästehaus Braunschweig:	1
+k=healthcare:speciality	v=gynaecology:	2
+k=name:la	v=Brunsvicum:	1
+k=name	v=Botanischer Garten:	2
+k=name	v=Per Lei:	1
+k=name	v=Höhe:	1
+k=name	v=Friseur Salon Maxime:	1
+k=website	v=http://www.zahnarzt-schwandt.de:	1
+k=vending	v=cigarettes:	12
+k=bicycle_parking	v=stands:	277
+k=foot	v=no:	13
+k=xmas:note	v=30.11. bis 23:00 geöffnet; 24./25.12. geschlossen:	1
+k=local_ref	v=3b:	1
+k=railway	v=crossing:	116
+k=local_ref	v=3a:	1
+k=email	v=reisen@unterwegs.eu:	1
+k=note	v=Der Ausstellungsraum in Braunschweig:	1
+k=addr:street	v=Langedammstraße:	3
+k=website	v=http://www.magnitorwaechter.de/:	1
+k=website	v=http://www.luke6.de:	1
+k=opening_hours:url	v=http://www.restaurant-brodocz.de/?page_id=110:	1
+k=website	v=www.weinland-bs.de:	1
+k=collection_times	v=Mo-Fr 17:00;Sa 12:00:	1
+k=name	v=Cafe Klio:	1
+k=capacity	v=160:	1
+k=highway	v=mini_roundabout:	2
+k=website	v=http://www.katharinen-apotheke-braunschweig.de:	1
+k=name	v=Parco am botanischen Garten:	1
+k=name	v=Fahrschule Kasper Ulrike:	1
+k=opening_hours	v=Tu-Fr 10:00-18:00; Sa 09:00-13:00:	1
+k=opening_hours	v=Tu-Su 10:00-17:00:	1
+k=phone	v=0531 795100:	1
+k=contact:phone	v=0531 4739505:	1
+k=drinking_water	v=no:	2
+k=ref	v=Theodor-Heuss-Straße 3, 38122 Braunschweig:	1
+k=local_ref	v=2b:	1
+k=railway:signal:stop:deactivated	v=no:	6
+k=ref	v=C 17:	1
+k=power	v=substation:	3
+k=genus	v=Fagus:	3
+k=website	v=http://www.parkundtank.de/:	1
+k=name	v=Kindertagesstätte Stadt Braunschweig:	1
+k=shop	v=optician:	8
+k=contact:website	v=www.vierlinden.de:	1
+k=addr:street	v=Wilhelmsgarten:	1
+k=artwork_type	v=statue:	1
+k=source	v=http://www.cafezeit-bs.de/:	1
+k=opening_hours	v=Mo-Fr 09:00-13:00,14:00-18:00; Sa 10:00-14:00:	1
+k=name	v=Touristinfo:	1
+k=name	v=City-Strumpf:	1
+k=name	v=Eiserner Heinrich:	1
+k=contact:email	v=w.hberkamm@vierlinden.de:	1
+k=capacity	v=1250:	2
+k=name	v=Konditorei und Café "Süßes Leben":	1
+k=website	v=http://guidos-pizzeria.com/:	1
+k=crossing:barrier	v=full:	3
+k=operator	v=Netto:	1
+k=phone	v=+4953139078700:	1
+k=website	v=http://www.cafebritannia.de:	1
+k=phone	v=+49 531 8869940:	1
+k=source	v=estimation:	1
+k=website	v=http://www.okerwelle.de:	1
+k=opening_hours	v=Mo-Sa 08:00-20:00; PH off:	1
+k=website	v=https://www.greenwheels.com/de/Home/Privatkunden/Home.html:	1
+k=name	v=Star Tankstelle:	1
+k=collection_times	v=Mo-Fr 16:45;Sa 12:00:	1
+k=phone	v=+49 531 71200:	1
+k=name	v=Tiziano:	3
+k=description	v=Fahrscheinvorverkaufsstelle der Braunschweiger Verkehrs-GmbH im Einzelhandel:	2
+k=cuisine	v=ice_cream:	3
+k=opening_hours	v=Mo-Fr 06:30-18:00; Sa 06:30-13:00:	1
+k=ref	v=Bankplatz 5, 38100 Braunschweig:	1
+k=phone	v=+49 531 15977:	1
+k=name	v=Salentino:	1
+k=phone	v=+49 531 400903:	1
+k=name	v=Asia Ambiente:	1
+k=natural	v=tree:	259
+k=name	v=radhaus:	1
+k=phone	v=+49 531 46234:	1
+k=website	v=http://himmelhoch-cafe.de/:	1
+k=email	v=info@restaurant-tandure.de:	1
+k=name	v=Kastanienallee:	4
+k=website	v=http://www.hotel-ami.de/h-4368-E/bilder/hotel-meyer-mit-restaurant-grill-zum-huehnerhof-in-braunschweig.htm:	1
+k=ref	v=Güldenstraße/Bäckerklint, 38100 Braunschweig:	1
+k=is_in:state	v=Niedersachsen:	1
+k=traffic_signals:vibration	v=yes:	33
+k=phone	v=+49 531 346907:	1
+k=ref	v=Stadthalle, 38102 Braunschweig:	1
+k=phone	v=+49 531 331872:	1
+k=phone	v=+49-531-76060:	1
+k=website	v=http://www.yoga-ambiente.de/:	1
+k=railway:electricity:jumpering	v=jumpered:	4
+k=opening_hours	v=Mo-Fr 10:00-19:00; Sa 10:00-15:00:	1
+k=name	v=Baßgeige:	1
+k=website	v=http://www.baeckerei-kappes.de/:	1
+k=name	v=Hörgeräte Böckhoff:	1
+k=phone	v=+49 531 341220:	1
+k=note:de	v=http://wiki.openstreetmap.org/index.php/DE:DSL_Hauptverteiler:	3
+k=phone	v=+49 531 60180206:	1
+k=addr:street	v=Ackerstraße:	1
+k=name	v=steinkamp:	1
+k=payment:coins	v=no:	1
+k=wikipedia	v=de:Heinrich Kielhorn:	1
+k=website	v=http://www.m-bs-immo.de/:	1
+k=phone	v=+49 531 13337:	1
+k=amenity	v=parking:	20
+k=office	v=yes:	2
+k=addr:street	v=Höfenstraße:	4
+k=name	v=Fisch-Feinkost H. Groß:	1
+k=website	v=http://www.universum-filmtheater.de/:	1
+k=contact:email	v=braunschweig@bonding.de:	1
+k=opening_hours	v=Jan-Mar: Mo-Su off; Apr-Oct: Mo-Su 14:30-18:00; Nov-Dec: Mo-Su off:	1
+k=phone	v=+49531 7075969:	1
+k=name	v=Pit Stop:	1
+k=name	v=Eusebia:	1
+k=phone	v=+49 531 389 254 84:	1
+k=name	v=Joey's:	2
+k=note	v=EW 54-300-1:9:	1
+k=name	v=Abspann:	1
+k=ref	v=Kastanienallee 18/Altewiekring, 38102 Braunschweig:	1
+k=name	v=summersby outlet:	1
+k=website	v=http://www.radiologie-braunschweig.com:	1
+k=opening_hours	v=Mo-Su 12:00-15:00,18:00-24:00:	1
+k=bin	v=yes:	4
+k=cuisine	v=vegan:	2
+k=amenity	v=recycling:	59
+k=shop	v=photo:	2
+k=name	v=Elektronik-Bauteile-Vertrieb:	1
+k=wikipedia	v=de:Friedrich Wilhelm (Braunschweig-Lüneburg):	1
+k=waterway	v=waterfall:	1
+k=wikipedia	v=de:Liste der Denkmale und Standbilder der Stadt Braunschweig#Laodizea:	1
+k=opening_hours	v=Mo-Tu 09:00-12:00,16:00-18:30; We 09:00-12:00; Th-Fr 09:00-12:00,16:00-18:30:	1
+k=website	v=http://drgraeber.de/:	1
+k=wheelchair:description	v=Nur draussen barrierefrei:	1
+k=name	v=Wyrwas Studiotechnik GmbH:	1
+k=phone	v=+49 531 12000:	1
+k=operator	v=Kieser Training:	1
+k=addr:street	v=Kaiserstraße:	3
+k=opening_hours	v=Mo-Fr 10:00+;Sa 12:00+;Su 10:00-21:00:	1
+k=website	v=http://www.blumen-gundlach.de/:	1
+k=description:wheelchair:de	v=Keine Behindertentoiletten in Kindergröße, gefährlich steile Abschüssige Stellen auf dem Spielplatz:	1
+k=name	v=Schild:	1
+k=contact:email	v=flugmed.braunschweig@t-online.de:	1
+k=artist_name	v=Arnold Kramer:	2
+k=operator	v=Edeka:	1
+k=note	v=Im 3. OG Firma DAVID-Software reinklingeln.:	1
+k=phone	v=+49 531 707 60 44:	1
+k=fax	v=+49 531 1218864:	1
+k=phone	v=+49 531 1293312:	1
+k=name	v=Pazific:	1
+k=name	v=Augenklinik - Dr. Hoffmann:	1
+k=website	v=http://www.barnabys-bs.de/:	1
+k=railway:signal:speed_limit:speed	v=60:	1
+k=opening_hours	v=Mo-Fr 08:30-15:00; Sa 10:00-15:00:	1
+k=name	v=Stiftung Braunschweigischer Kulturbesitz:	1
+k=source	v=http://kanzlei-mrb.de/kontakt.htm:	1
+k=wheelchair:description	v=nur EG barrierefrei, keine Behindertentoilette:	1
+k=name	v=Friseur Rüffer:	1
+k=opening_hours	v=Mo-Fr 10:00-18:30; Sa 10:00-16:00:	2
+k=name	v=Graphiti:	1
+k=note	v=description= no children-sized accessible toilets, dangerously steep declines in the playground:	1
+k=name	v=Tills Sportsbar:	1
+k=opening_hours	v=Mo-Fr 09:00-12:00,15:00-18:00; Sa 10:00-12:00:	1
+k=website	v=http://www.baerenland.com:	1
+k=wikipedia	v=de:Ginkgo:	1
+k=opening_hours	v=Mo off; Tu-Fr 09:00-18:00; Sa 08:00-13:00; Su off; PH off:	1
+k=railway:signal:speed_limit:speed	v=50:	4
+k=tactile_paving	v=no:	11
+k=name	v=Dr. med. Matthias Franke:	1
+k=artist_name	v=Magnus Klein-Tebbe:	1
+k=polling_station	v=131-04:	1
+k=ref	v=Wilhelmstraße/Abelnkarre, 38100 Braunschweig:	1
+k=contact:website	v=http://www.baeckerei-kappes.de/:	1
+k=phone	v=+49 531 894558:	1
+k=name	v=Osteria all' Ombretta:	1
+k=recycling:paper	v=yes:	37
+k=website	v=http://www.kastanienallee.de/priemer/:	1
+k=url	v=http://de.wikipedia.org/wiki/Heinrichslinde:	1
+k=operator	v=tobaccoland:	2
+k=website	v=http://www.mensgala.de/:	1
+k=beauty	v=nails:	2
+k=name	v=Schuh Kay:	1
+k=phone	v=+49 531 4803104:	1
+k=railway:signal:speed_limit:speed	v=80:	1
+k=operator	v=Sparda Bank:	1
+k=name	v=Karadeniz Market - Türkischer Lebensmittelladen und Fleischerei:	1
+k=name	v=Maschplatz:	2
+k=designation	v=Kiosk an der Mensa:	1
+k=opening_hours	v=Mo- Fr 10:00-19:00; Sa 10:00-18:00:	3
+k=collection_times	v=Mo-Fr 15:30;Sa 10:30:	1
+k=addr:street	v=Hintern Brüdern:	1
+k=name	v=Gaußberg:	1
+k=operator	v=Studentenwerk Ostniedersachsen:	2
+k=wheelchair:access	v=yes:	1
+k=operator	v=Marina Scheifer:	1
+k=polling_station	v=131-13:	1
+k=polling_station	v=131-11:	1
+k=polling_station	v=131-12:	1
+k=fax	v=+49 531 70733760:	1
+k=name	v=Chee's Asia Bistro:	1
+k=name	v=Malort:	1
+k=website	v=http://www.bossanova-bs.de/bossanova/:	1
+k=note	v=customer's information desk:	1
+k=website	v=http://www.sportscheck.com/filialen/braunschweig/uebersicht/:	1
+k=name	v=Amalienplatz:	6
+k=phone	v=+49 531 799 238:	1
+k=addr:street	v=Schunterstraße:	7
+k=office	v=estate_agent:	5
+k=website	v=https://www.steigenberger.com/hotels/alle-hotels/deutschland:	1
+k=phone	v=+49 531 2335134:	1
+k=addr:housename	v=Karadeniz Market:	1
+k=addr:street	v=Fallersleberstr.:	1
+k=name	v=Mi-parti:	1
+k=phone	v=+49 531 49353:	1
+k=note	v=Kilometerstein:	1
+k=amenity	v=restaurant:	122
+k=website	v=https://www.maredo.de/steakhouse/braunschweig-lange-strasse-1/:	1
+k=artist_name	v=Fritz Schaper:	1
+k=name	v=Danica:	1
+k=collection_times	v=Mo-Fr 17:00;Sa 12:45:	1
+k=email	v=kontakt@india-house-bs.de:	1
+k=name	v=Fischer:	1
+k=created_by	v=Vespucci 0.6.5:	1
+k=wheelchair:description	v=Klingel vorhanden, Seiteneingang dann barrierefrei mit Aufzug:	1
+k=shop	v=pawnbroker:	1
+k=image	v=http://upload.wikimedia.org/wikipedia/commons/9/9e/2000Jahre_Christentum.jpg:	1
+k=memorial:text	v=Am 07.11.1909 in Grajewo geboren. 1936 emigrierte er nach England. 1948 reist er in die USA aus und heißt Jack Frydmann. Über seinen weiteren Verbleib gibt es keine gesicherten Informationen.:	1
+k=website	v=http://www.treuer-husar.de/:	1
+k=toilets:wheelchair	v=yes:	26
+k=name	v=Sanitätshaus Müllenheim:	2
+k=addr:street	v=Steinbrecherstraße:	1
+k=name	v=MUNTE immobilien:	1
+k=room	v=PK 11.1:	1
+k=cuisine	v=japanese:	3
+k=phone	v=+49 531 2090030:	1
+k=addr:street	v=Goslarsche Straße:	11
+k=origin	v=asian:	1
+k=contact:website	v=http://www.mickyundmolly.de:	2
+k=operator	v=Klara Rogalski:	1
+k=phone	v=+49 531 125055:	1
+k=addr:housename	v=ARTmax:	2
+k=name	v=Silberquelle:	1
+k=name	v=Pizzaexpress:	1
+k=name	v=Bio Markt:	1
+k=opening_hours	v=Mo-Fr 08:00-12:00,15:00-18:30; Sa-Su off; PH off:	1
+k=name	v=Bei Alwin:	1
+k=vending	v=bicycle_tube:	5
+k=name	v=Spitzweg Apotheke:	1
+k=amenity	v=dancing_school:	2
+k=name	v=Dr. Simon Sporrer:	1
+k=opening_hours	v=Mo 17:30-23:00; Tu-Su 11:30-14:30,17:30-23:00:	1
+k=name	v=Holl Gebäudereinigung:	1
+k=amenity	v=place_of_worship:	11
+k=name	v=Tommy's Bistro:	1
+k=name	v=Vai Pizza:	1
+k=name	v=Werner-Tours:	1
+k=railway:signal:speed_limit:speed	v=40:	3
+k=opening_hours	v=Mo-Fr 08:00-18:00; Sa 10:00-14:00:	1
+k=capacity	v=100:	1
+k=website	v=http://www.prontocasa.de/:	1
+k=artist_name	v=Karl Paul Egon Schiffers:	2
+k=website	v=http://www.srithai-braunschweig.de/:	1
+k=name	v=Zweirad Profis:	1
+k=shop	v=mall:	1
+k=ref	v=Charlottenstraße/Viewegstraße, 38102 Braunschweig:	1
+k=name	v=42°Fieber:	1
+k=vending	v=parcel_pickup;parcel_mail_in:	8
+k=name	v=Helenenstraße:	2
+k=supervised	v=yes:	2
+k=website	v=http://www.rk-normannia.de/:	1
+k=fax	v=+49 531 331580:	1
+k=ref_name	v=Güldenstraße, Braunschweig:	2
+k=capacity	v=112:	1
+k=addr:street	v=Herderstraße:	1
+k=addr:street	v=Frankfurter Straße:	1
+k=opening_hours	v=Mo-Fr 06:00-02:00, Sa 08:00-02:00, Su 10:00-02:00:	1
+k=addr:street	v=Stobenstraße:	2
+k=name	v=HHP Nord/Ost Beratende Ingenieure GmbH:	1
+k=opening_hours	v=Mo-Tu 09:00-19:00; We 10:00-20:00; Th 09:00-13:00; Fr 09:00-19:00; Su off; PH off:	1
+k=artist_name	v=Anatol Buchholtz:	1
+k=sport	v=basketball:	1
+k=note	v=reception:	1
+k=cuisine	v=vegetarian:	1
+k=wheelchair:description:de	v=Stufen vor dem Eingang:	1
+k=name	v=Schaper:	4
+k=opening_hours	v=Mo-Th 11:30-15:00,17:00-24:00; Fr-Sa 11:30-15:00,17:00-01:00, Su 09:00-23:00:	1
+k=phone	v=+49 531 754 88:	1
+k=FIXME	v=Wheelchair?:	1
+k=fax	v=0531 4702055:	1
+k=wheelchair	v=designated:	1
+k=specialization	v=physiotherapy:	1
+k=railway:signal:stop	v=DE-ESO:ne5:	24
+k=website	v=http://www.scheinundsein-bs.com/:	1
+k=operator	v=Jörg Bischoff:	1
+k=opening_hours	v=Mo-Fr 10:00-18:00; Sa 10:00-15:00:	1
+k=opening_hours	v=Mo-Su 00:00-02:00,16:00-24:00; PH 00:00-02:00,16:00-24:00:	1
+k=opening_hours	v=Fr-Sa 23:00+; PH 23:00+:	1
+k=name	v=First Reisebüro:	1
+k=name	v=Guten Morgen bioladen:	2
+k=name	v=Michelangelo:	1
+k=fax	v=+49 531 4713499:	1
+k=addr:street	v=Feuerbachstraße:	1
+k=phone	v=+45 (531) 39 39 76 0:	1
+k=contact:website	v=http://www.scheitelschmied.de:	1
+k=name	v=Logoform GmbH:	1
+k=name	v=Braunschweiger Landessparkasse:	1
+k=ref	v=Jasperallee 35a, 38102 Braunschweig:	1
+k=website	v=http://www.drk-sprungbrett.de/:	1
+k=name	v=Heimbs Kaffee:	1
+k=operator	v=VHS:	1
+k=ref_name	v=Am Wassertor, Braunschweig:	2
+k=name	v=Taj Mahal:	1
+k=name	v=Radio Okerwelle:	1
+k=shop	v=chemist:	6
+k=website	v=http://www.rossmann.de:	2
+k=image	v=http://commons.wikimedia.org/wiki/File:Braunschweig_Obelisk_auf_dem_Loewenwall.jpg?uselang=de:	1
+k=board_type	v=history:	2
+k=addr:street	v=Richard-Wagner-Straße:	2
+k=polling_station	v=120-35;120-36;120-37:	1
+k=operator	v=Berufsfeuerwehr Braunschweig:	1
+k=opening_hours	v=Mo-Sa 07:00-19:00; Su, PH off:	1
+k=name	v=Chateau Café • Bar •Hookah • Lounge:	1
+k=indoor	v=yes:	26
+k=genus	v=Platanus:	1
+k=opening_hours	v=Mo-Sa 06:30-18:00; Su 08:00-11:00:	1
+k=name	v=Kaffeezeremonie:	1
+k=phone	v=+49 531 241024:	1
+k=shop	v=kiosk:	26
+k=cuisine	v=greek:	4
+k=name	v=Badsha:	1
+k=phone	v=+49 531 2195951:	1
+k=railway:signal:main:states	v=DE-ESO:hp0;DE-ESO:ks1;DE-ESO:kennlicht:	9
+k=name	v=Staatstheater Haus III:	1
+k=email	v=kontakt@mono-photography.de:	1
+k=name	v=Pronto Casa:	1
+k=phone	v=+49 531 73070:	1
+k=name	v=Mella's Schreibwaren:	1
+k=website	v=http://koerperhuellen.com:	1
+k=phone	v=+49 531 73068:	1
+k=waste_basket	v=yes:	3
+k=name	v=Stadtfriseur:	1
+k=office	v=educational_institution:	1
+k=operator	v=Peter Priemer:	1
+k=phone	v=+49 531 88925278:	1
+k=operator	v=Michael Gwinner:	1
+k=opening_hours	v=Mo-Fr 10:00-13:00, 15:00-19:00; Sa 10:00-14:00:	1
+k=name	v=Art & Flower:	1
+k=collection_times	v=Mo-Fr 16:15;Sa 10:15:	1
+k=opening_hours	v=Mo-Fr 09:00-18:00; Sa 10:00-14:00:	1
+k=name	v=Frau Dr. med. Helga Fischer-Klapproth, Coaching, Psychotherapie, Allgemeinmedizin und Akupunktur:	1
+k=artist_name	v=Peter Joseph Krahe:	1
+k=name	v=Omidi:	1
+k=addr:street	v=Neue Straße:	8
+k=name	v=El Mundo:	1
+k=name	v=Schwandt:	1
+k=amenity	v=advertising_tower:	1
+k=name	v=Adventgemeinde:	1
+k=addr:street	v=Petristraße:	1
+k=amenity	v=bicycle_rental:	2
+k=ref	v=Böcklerstraße 18, 38102 Braunschweig:	1
+k=opening_hours	v=Mo-Tu 08:00-13:00,14:00-18:00; We 08:00-13:00; Th-Fr 08:00-13:00,14:00-18:00; Sa 08:00-13:00; Su 10:00-12:00; PH off:	1
+k=opening_hours	v=Mo-Fr 09:30-18:00; Sa 9:30-14:30; Su off; PH off:	1
+k=note	v=Lage geprüft und korrigiert:	1
+k=railway:signal:speed_limit_distant:form	v=sign:	1
+k=opening_hours	v=unknown:	1
+k=operator	v=Sinja Burckhardt:	1
+k=fixme	v=access:	1
+k=name	v=Fröhlicher Anfang e.V:	1
+k=wikipedia	v=de:Liste der Denkmale und Standbilder der Stadt Braunschweig#Dionysos:	1
+k=name	v=Gedenkstätte KZ-Aussenlager Schillstraße:	1
+k=opening_hours	v=Mo-Tu 09:00-11:00,15:30-17:00; We 09:00-13:00; Th 09:00-11:00,15:30-17:00; Fr 09:00-13:00; Sa-Su off; PH off:	1
+k=name	v=Europaplatz:	5
+k=name	v=Cafe am Park:	1
+k=name	v=Falafeli:	1
+k=image	v=http://upload.wikimedia.org/wikipedia/commons/3/3f/Braunschweig_Brunswick_Heinrichsbrunnen_1.jpg:	1
+k=operator	v=Schreib- und Tabakwaren Martin Opp & Co KG:	1
+k=shop	v=frames:	1
+k=url	v=http://www.ags.tu-bs.de/:	1
+k=name	v=Erna & Käthe:	1
+k=shop	v=greengrocer:	2
+k=shop	v=winery:	1
+k=wikipedia	v=de:Jakobskirche (Braunschweig):	1
+k=cuisine	v=irish:	1
+k=name	v=City Bowlingcenter:	1
+k=name	v=Reuter Denkmal:	1
+k=recycling:paper_packaging	v=yes:	5
+k=name	v=Eula Einrichtung am Botanischer Garten:	1
+k=website	v=http://www.hotel-an-der-stadthalle.de:	1
+k=website	v=http://www.shamrock-braunschweig.de:	1
+k=name	v=SportScheck:	1
+k=tourism	v=attraction:	6
+k=name	v=Deli circle:	1
+k=name	v=Holzberg:	1
+k=name	v=Videobuster:	1
+k=crossing	v=traffic_lights:	2
+k=opening_hours	v=Mo-Fr 09:00-12:00, 14:00-17:00:	1
+k=phone	v=+49 531 41458:	1
+k=amenity	v=artwork:	2
+k=phone	v=05321 2406640:	1
+k=name	v=Stationäre Aufnahme und Wirtschaftsstelle (EG):	1
+k=website	v=http://www.altstadttreff-bs.de/:	1
+k=phone	v=+49 531 40121:	1
+k=description	v=Schließfächer:	1
+k=name	v=Irmgard Spanjer-Herford:	1
+k=name	v=Sporthalle Alte Waage:	1
+k=name	v=Till Eulenspiegel Apotheke:	1
+k=addr:street	v=Schillstraße:	1
+k=phone	v=+49 531 18224:	1
+k=name	v=Magni-Kiosk:	1
+k=support	v=wall_mounted:	1
+k=name	v=Pizza Prinz:	1
+k=name	v=Toilette:	1
+k=recycling:wood	v=no:	1
+k=website	v=http://familienpraxis-braunschweig.de:	1
+k=opening_hours	v=Mo,We-Fr 09:00-12:00,15:00-18:00; Tu 09:00-12:00:	1
+k=name	v=The Lindbergh Palace:	1
+k=playground	v=slide:	1
+k=railway:signal:route:deactivated	v=no:	1
+k=name	v=Il dolce sosta:	1
+k=name	v=Dolly Buster:	1
+k=operator	v=Evangelische Studentengemeinde:	1
+k=smoking	v=no:	31
+k=collection_times	v=Mo-Fr 14:00,17:15;Sa 11:30;Su 09:30:	1
+k=opening_hours	v=Mo-Su 12:00-24:00:	1
+k=website	v=http://www.adfc-braunschweig.de/:	1
+k=name	v=Schier Parfümerie und Foto:	1
+k=name	v=TU Braunchweig:	1
+k=ref	v=Hamburger Straße / Ersatz Speisung:	2
+k=image	v=http://upload.wikimedia.org/wikipedia/commons/3/3f/Braunschweig_Brunswick_Gauss-Denkmal_Detail_(2006).JPG:	1
+k=shop	v=sports:	4
+k=name	v=H&M:	3
+k=amenity	v=bureau_de_change:	1
+k=website	v=http://www.rizzi-haus.de/:	1
+k=note	v=SFU Ausrüstung:	1
+k=wikipedia	v=de:Reinhard Buxel:	1
+k=opening_hours	v=Mo 8:30-18:00; Tu 8:30-15:30; We 9:00-12:00; Th 8:30-15:30; Fr 8:30-13:00; Sa 9:00-12:00:	1
+k=name	v=Campestraße:	3
+k=organic	v=yes:	6
+k=opening_hours	v=Mo-Fr 6:00-18:00;Sa 6:00-12:00;Su 8:00-11:00:	1
+k=name	v=Best of Hockey:	1
+k=website	v=http://www.reisebuero-wernertours.de/:	1
+k=url	v=http://www.bassenberg.de:	1
+k=website	v=www.stadtmobil.de:	3
+k=amenity	v=marketplace:	3
+k=name	v=Frankfurter (FR):	1
+k=website	v=http://www.magniviertel.de/matrix-schmuckatelier:	1
+k=website	v=http://www.kunsthandel-koch.de:	1
+k=addr:street	v=Waterloostraße:	2
+k=name	v=Augenoptik BOCK:	1
+k=website	v=http://www.trattoria-la-grappa.de/:	1
+k=name:nl	v=Brunswijk:	1
+k=historic	v=yes:	1
+k=name	v=Mexicana:	1
+k=contact:email	v=info@logoform.de:	1
+k=name	v=Gedenksäule für das Reserve-Infanterie-Regiment 273:	1
+k=toilets:wheelchair	v=no:	67
+k=operator	v=Kiosk Menzeleck Horst Jürgen Fuhrmann:	1
+k=opening_hours	v=Mo-Fr 11:00-15:00, 17:00-22:30;Sa-Su 12:00-22:30:	1
+k=loc_name	v=bonding Braunschweig:	1
+k=name	v=Knollis:	1
+k=name	v=Pula:	1
+k=phone	v=+49 531 43283:	1
+k=contact:website	v=http://www.ddmkbs.de/:	1
+k=name	v=Gliesmaroder Straße:	4
+k=opening_hours	v=Mo-Fr 12:00-13:00 off:	1
+k=phone	v=+49 531 7075777:	1
+k=service:bicycle:retail	v=no:	1
+k=name	v=Nudelhaus No. 1:	1
+k=barrier	v=kissing_gate:	2
+k=designation	v=Ateliergemeinschaft:	1
+k=name	v=Finanzamt Braunschweig:	1
+k=name	v=Humanic:	1
+k=name	v=Alte Waage:	3
+k=name	v=Ärztezentrum:	1
+k=name:nds	v=Brunswiek:	1
+k=opening_hours	v=Mo-Su 10:00-1:00:	1
+k=addr:housename	v=Weisses Ross:	2
+k=shop	v=car_repair:	6
+k=addr:street	v=Heinrichstraße:	5
+k=operator	v=Volksbank Braunschweig-Wolfsburg:	1
+k=railway:signal:speed_limit:form	v=light:	12
+k=name	v=Grafik & Design | Consult & Communication:	1
+k=name	v=Mund-, Kiefer-, Plastische Gesichtschirurgie (MKG) 1 + 2 (2. OG):	1
+k=website	v=www.schnittstudio.net:	1
+k=cuisine	v=mexican:	1
+k=name	v=ESG Campuskapelle:	1
+k=opening_hours	v=Mo-Sa 10:00-20:00; Su 12:00-20:00; PH 12:00-20:00:	1
+k=amenity	v=charging_station:	7
+k=wheelchair:description	v=Lungenpraxis ist mit Fahrstuhl erreichbar:	1
+k=name	v=Dr. Stefan Hesse, Manuela Kintzi-Hesse:	1
+k=emergency	v=fire_hydrant:	5
+k=name	v=RENTER:	1
+k=note:de	v=Eingang Ost:	1
+k=phone	v=+49 800 4555500:	1
+k=contact:phone	v=+49 531 44461:	1
+k=crossing	v=traffic_signals:	355
+k=name	v=Daggis Eckchen:	1
+k=name	v=Heinrich Jasper:	1
+k=wifi	v=free:	1
+k=name	v=Packhof (Welfenhof):	1
+k=access	v=yes:	245
+k=cuisine	v=polish,_café,_cocktails,_wine:	1
+k=ref	v=Fallerslebener-Tor-Wall, 38106 Braunschweig:	1
+k=name	v=Winfried Suerdieck (Neurologe):	1
+k=website	v=http://www.danica.de/:	1
+k=motorcar	v=private:	1
+k=name	v=Biobrotladen:	1
+k=capacity	v=900:	1
+k=removable	v=yes:	2
+k=name	v=Lidl:	1
+k=person:date_of_birth	v=07.11.1909:	1
+k=collection_times	v=Mo-Fr 15:45,18:00;Sa 12:15;Su 10:00:	1
+k=name	v=Hagenmarkt:	3
+k=contact:phone	v=+49 531 76042:	1
+k=phone	v=+49 531 44561:	1
+k=phone	v=+49 531 61498999:	1
+k=name	v=Bäckerei und Konditorei Kappes:	1
+k=addr:street	v=Hagenring:	4
+k=name	v=Rosenbote:	1
+k=opening_hours	v=Mo-Fr 07:30-18:00; Sa 07:30-13:00; PH off:	1
+k=website	v=http://www.ofd.niedersachsen.de/portal/live.php?navigation_id=17533&article_id=67477&_psmand=110:	1
+k=memorial:text	v=Horst Friedmann ist in Braunschweig geboren.:	1
+k=name	v=NI Coffee:	1
+k=name	v=Unterwegs:	1
+k=name	v=Love For Sale:	1
+k=phone	v=+49 531 332224:	1
+k=telephone	v=+49 531 340076:	1
+k=name	v=Augenoptik Böckhoff:	1
+k=name	v=Schnittchen:	1
+k=diet:vegan	v=yes:	5
+k=phone	v=+49 531 1205590:	1
+k=recycling:waste	v=no:	1
+k=phone	v=+49 531 36259657:	1
+k=fixme	v=ungenaue Lage:	5
+k=drink:club-mate	v=yes:	1
+k=diet:vegetarian	v=yes:	2
+k=website	v=http://kindertagespflege-veltenhof.de/:	1
+k=name	v=Brotinsel:	3
+k=phone	v=+49 531 12264206:	1
+k=website	v=http://www.muenzenhandlung-heinrich.de:	1
+k=operator	v=VW:	1
+k=name	v=Nds.Musikschule:	1
+k=opening_hours	v=Tu,Fr 17:00-18:30:	1
+k=name	v=Nußberg Garage Lüddeke:	1
+k=name	v=Madamenweg:	2
+k=contact:phone	v=0531 45278:	1
+k=shop	v=supermarket:	30
+k=memorial	v=stele:	1
+k=website	v=http://www.elisat-zahnarzt.de:	1
+k=website	v=http://www.damenmode-lei.de:	1
+k=cuisine	v=international:	5
+k=name	v=Teremok:	1
+k=name	v=Havanna:	1
+k=operator	v=Europcar:	1
+k=amenity	v=post_box:	54
+k=name	v=Love shoes & details:	1
+k=amenity	v=fast_food:	64
+k=website	v=http://www.mutter-habenicht.de/:	1
+k=operator	v=Wolfgang Kielich:	1
+k=name	v=Nordsee:	2
+k=name:ru	v=Брауншвейг:	1
+k=name	v=Schloss:	8
+k=wheelchair:description	v=Treppe zum Haare waschen. Kleine Stufe am Eingang:	1
+k=material	v=wood:	35
+k=source	v=http://www.braunschweig.de/vv/oe/0/vzn_bs/index.php:	1
+k=name	v=DMK Moschee:	1
+k=opening_hours	v=Mo-Fr 10:00-17:00:	1
+k=name	v=Roots Sportsbar:	1
+k=crossing	v=uncontrolled:	29
+k=payment:credit_cards	v=yes:	3
+k=ref_name	v=Campestraße, Braunschweig:	1
+k=shop	v=variety_store:	2
+k=operator	v=ParkmaxX:	1
+k=source	v=http://www.galerie-jaeschke.de/:	1
+k=operator	v=Dirk Rossmann GmbH:	2
+k=ref	v=480:	6
+k=alt_name	v=Plessi-Bogen:	1
+k=phone	v=+49 531 60 94 95 60:	1
+k=wikipedia	v=de:Liste der Denkmale und Standbilder der Stadt Braunschweig#Liebe zum Vollmond:	1
+k=fuel:octane_98	v=yes:	3
+k=website	v=http://www.gingco.net/:	1
+k=fax	v=+49 531 12152607:	1
+k=name	v=African-Europe Beauty Salon:	1
+k=name	v=HermesPaketshop:	1
+k=disused:public_transport	v=platform:	6
+k=phone	v=+49 531 338582:	1
+k=contact:phone	v=+49-531-14916:	1
+k=name	v=Mandrin:	1
+k=ref	v=Kurt-Schuhmacher-Straße 24, 38102 Braunschweig:	1
+k=amenity	v=arts_centre:	2
+k=email	v=gut-brenneckenbrueck@t-online.de:	1
+k=website	v=http://www.buecherwurm-braunschweig.de/:	1
+k=name	v=Fussgänger Eingang:	3
+k=url	v=http://www.wyrwas.de/cms/:	1
+k=name	v=Spielplatz Celler Straße:	1
+k=name	v=Käse-Klemmer:	1
+k=railway:signal:route:form	v=light:	6
+k=cuisine	v=indian:	5
+k=amenity	v=pharmacy:	34
+k=healthcare	v=physiotherapist:	1
+k=name	v=Dres. Bendorf, Börnsen, Vorwerk-Braun:	1
+k=email	v=info@yoo-mee-sushi.com:	1
+k=vending	v=ticket_validator:	2
+k=species	v=Ginkgo biloba:	1
+k=name	v=2Lives:	1
+k=name	v=Volkswagen Bank direct:	1
+k=note	v=gate "centre":	1
+k=website	v=http://www.lederstrumpf-braunschweig.de:	1
+k=phone	v=+49 531 2403665:	1
+k=name	v=Stromtankstelle Reichsstraße:	1
+k=note	v=only special service:	1
+k=phone	v=+490531 1206357:	1
+k=name	v=SB Waschsalon:	1
+k=name	v=Einhorn-Apotheke:	1
+k=railway:turnout_side	v=left:	3
+k=phone	v=+49 1805-5 77678-86:	1
+k=website	v=http://www.einhorn-apotheke-braunschweig.de:	1
+k=name	v=Stadthalle:	1
+k=recycling:scrap_metal	v=yes:	1
+k=ref	v=Friedrich-Wilhelm-Straße 3, 38100 Braunschweig:	1
+k=name	v=Pflegedienst:	1
+k=contact:phone	v=+49-531-23443930:	1
+k=service:bicycle:repair	v=yes:	4
+k=room	v=IZ 358:	1
+k=addr:street	v=Campestraße:	3
+k=name	v=Mr. SUB:	1
+k=name	v=Florentine:	1
+k=website	v=http://www.frisuren-eck.de/:	1
+k=addr:street	v=Ägidienmarkt:	3
+k=opening_hours	v=Tu 11:00-13:00; We 18:30-20:30:	1
+k=railway:signal:direction	v=right:	1
+k=name	v=Wegweiser:	1
+k=name	v=Tandure:	1
+k=phone	v=+49 531 48039056:	1
+k=website	v=http://www.braunschweig.de/vv/oe/II/32/32_4/32_41/index.php:	1
+k=name:fy	v=Breunswyk:	1
+k=healthcare:speciality	v=radiology;nuclear:	1
+k=phone	v=+49 531 - 123 118 30:	1
+k=shop	v=garden_centre:	1
+k=phone	v=+49 531 2615910:	1
+k=phone	v=+49-531-2337773:	1
+k=addr:street	v=C<riaksring:	1
+k=name	v=Pyramideneiche:	2
+k=railway:signal:main	v=DE-ESO:ks:	9
+k=railway	v=railway_crossing:	29
+k=name	v=Altstadtmarkt:	1
+k=website	v=http://www.zahnärztin-braunschweig.de/:	1
+k=website	v=http://christhos.de/:	1
+k=opening_hours	v=Mo-Fr 11:00-18:00; Sa 11:00-14:00:	1
+k=name	v=Selendi:	1
+k=short_name	v=Braunschweig Hbf:	1
+k=phone	v=+4953145384:	1
+k=website	v=www.steinecke.info:	2
+k=website	v=http://www.californiajeans-bs.de:	1
+k=opening_hours	v=Mo-Fr 15:00-17:00:	1
+k=phone	v=0531 70214644:	1
+k=asb	v=7:	1
+k=asb	v=4:	1
+k=artist_name	v=Kurt Edzhard:	1
+k=name	v=Augenoptiker Rothe:	1
+k=office	v=construction_company:	1
+k=name	v=das aquarium:	1
+k=name	v=Kabel Deutschland:	1
+k=phone	v=+49 531 48039071:	1
+k=website	v=http://www.tauchprofis.com/:	1
+k=name	v=Arkaden-Apotheke:	1
+k=name	v=KuhAcht:	1
+k=information	v=guidepost:	57
+k=operator	v=Touristinfo Braunschweig:	1
+k=phone	v=+49 531 341314:	1
+k=shop	v=erotic:	4
+k=opening_hours	v=Mo-Th 08:00-13:00; Mo-Tu 15:00-17:00; Th 15:00-17:00; Fr 08:00-15:00; PH off:	1
+k=is_in:country_code	v=DE:	1
+k=website	v=https://www.dein-alex.de/dein-alex-braunschweig:	1
+k=website	v=http://www.postapotheke-bs.de/:	1
+k=ref	v=0116:	1
+k=addr:street	v=Altstadtmarkt:	2
+k=addr:housenumber	v=5-6:	1
+k=addr:housenumber	v=5-7:	1
+k=contact:email	v=mail@baeckerei-kappes.de:	1
+k=phone	v=+49 531 43085:	1
+k=capacity:disabled	v=yes:	4
+k=name	v=Connies Kiosk:	1
+k=source:smoking	v=survey:	1
+k=name	v=anziehend!:	1
+k=safe_way	v=right_side:	2
+k=name	v=Alimentari i vini:	1
+k=type	v=cigarettes:	2
+k=name	v=Kindertagesstätte "Die Okerpiraten" (DRK):	1
+k=contact:phone	v=+49531344267:	1
+k=name	v=Horst Friedmann:	1
+k=shop	v=coaching:	1
+k=name	v=Arcachon Café:	1
+k=name	v=Steinecke:	4
+k=telephone	v=+49 531 347332:	1
+k=addr:street	v=Willy-Brandt-Platz:	1
+k=name	v=Paul Silex, Margarete Ehrenberg geb. Silex, Klara Silex, Schulinspektor Silex:	1
+k=recycling:glass_bottles	v=yes:	20
+k=xmas:day_date	v=27.11.2013 - 29.12.2013:	1
+k=website	v=http://siepker-immobilien.de/:	1
+k=ref	v=Frankfurter Platz 24, 38122 Braunschweig:	1
+k=name	v=Foyer 61:	1
+k=shop	v=tattoo:	3
+k=railway:position	v=5.0:	1
+k=shop	v=toys:	7
+k=wikipedia	v=de:Braunschweig Hauptbahnhof:	1
+k=name	v=Hörgeräte Siems:	1
+k=phone	v=+49 531 82660:	1
+k=name	v=Der Rufer:	1
+k=phone	v=+495311216430:	1
+k=name	v=Alexandra Design Meister:	1
+k=shop	v=newsagent:	1
+k=website	v=http://www.zauberhafteblumen.de/:	1
+k=historic	v=locomotive:	1
+k=railway:signal:stop:caption	v=150 m:	1
+k=name	v=Mozartstraße:	2
+k=operator	v=Discotier GmbH:	1
+k=website	v=http://www.knappworst.com:	1
+k=name	v=Ringerbrunnen:	1
+k=website	v=http://hhpberlin.de:	1
+k=operator	v=CVJM:	1
+k=wheelchair	v=limited:	261
+k=note	v=wird z.zt. umgebaut:	1
+k=website	v=http://www.magni-outdoor.de:	1
+k=smoking	v=yes:	5
+k=operator	v=Commerzbank:	3
+k=name	v=Deutsche Bank:	3
+k=name	v=T-Punkt:	1
+k=name	v=Baktereologie (1. OG):	1
+k=office	v=advertising_agency:	2
+k=name	v=streets:	1
+k=name	v=nebel:	1
+k=addr:housename	v=21:	1
+k=name	v=Schuhhaus Rheingold:	1
+k=contact:phone	v=00495311233288:	1
+k=website	v=http://www.muellenheim.de:	2
+k=website	v=http://privileg-club.com/:	1
+k=opening_hours	v=Mo-Su 12:00-15:00,17:30-23:00:	1
+k=name	v=Borek:	1
+k=capacity	v=unbekannt:	4
+k=operator	v=Jacobi Kiosk:	1
+k=name	v=Besenmännchen:	1
+k=phone	v=+49 531 88619951:	1
+k=name	v=Alt Bremen:	1
+k=cuisine	v=crepe:	1
+k=name	v=Akin Bäckerei Braunschweig:	1
+k=phone	v=+49 531 43957:	1
+k=shop	v=video:	2
+k=addr:housenumber	v=58a:	1
+k=shop	v=second_hand:	4
+k=name	v=Kecko (Herrensalon):	1
+k=addr:housenumber	v=58b:	1
+k=name	v=akkurad:	1
+k=opening_hours	v=Mo 08:00-11:00,16:00-18:00; Tu 08:00-11:00,15:00-17:00; We 08:00-11:00; Th 08:00-11:00,16:00-18:00; Fr 08:00-11:00,15:00-17:00; Sa,Su off; PH off:	1
+k=doctor	v=ophthalmologist:	1
+k=name	v=X-Trend:	1
+k=name	v=Brasserie an der Oker:	1
+k=phone	v=+49 531 12017790:	1
+k=contact:phone	v=0531 2428310:	1
+k=website	v=http://www.onkel-emma.org:	1
+k=is_in:iso_3166_2	v=DE-NI:	1
+k=name	v=Mezopotamien Grill:	1
+k=name	v=moolah:	1
+k=opening_hours	v=Mo-Sa 08:30-20:00; Su 10:30-18:30:	1
+k=studio	v=television:	1
+k=website	v=http://www.muellerhoergeraete.de/:	1
+k=name	v=Rudolfplatz:	1
+k=wikipedia	v=de:Liste der Denkmale und Standbilder der Stadt Braunschweig#B.C3.BCste von Heinrich Jasper:	1
+k=contact:email	v=info-bs@pompe-optic.de:	1
+k=opening_hours	v=Tu-Su 10:00-17:00; Th 10:00-20:00:	1
+k=operator	v=Thomas Meyer:	1
+k=contact:phone	v=+49 531 334391:	1
+k=website	v=http://www.disko-kolchose.de/:	2
+k=phone	v=+49 531 281980:	1
+k=name	v=einRaum5-7 - Kunst auf 29qm:	1
+k=phone	v=+49 531 16312:	1
+k=website	v=http://www.ulrici-apotheke.de:	1
+k=advertising	v=column:	43
+k=name	v=Spielplatz Amalienplatz:	1
+k=name	v=Guten Morgen Buchladen:	1
+k=name	v=Magni-Friseur:	1
+k=description	v=Chinesische und thailändische Spezialitäten:	1
+k=email	v=marktwesen@braunschweig.de:	1
+k=phone	v=+49 531 43932:	1
+k=artist_name	v=Sigrid Sigurdsson:	2
+k=name	v=Parkdeck Weisses Ross:	1
+k=contact:website	v=http://www.bio-brotladen.de/inhalte/startseite.htm:	1
+k=fire_hydrant:type	v=underground:	1
+k=name	v=Altstadtfriseur:	1
+k=phone	v=+49 531 7999422:	1
+k=phone	v=+49 531 6180168:	1
+k=ref	v=0170:	1
+k=ref	v=0171:	1
+k=level	v=0.5:	1
+k=phone	v=+49 531 4717-4811:	1
+k=website	v=http://www.elrocio-bs.de/:	1
+k=addr:street	v=Gieseler Straße:	1
+k=fax	v=+49 531 2444049:	1
+k=addr:street	v=Roonstraße:	1
+k=name	v=Cyriaksring:	6
+k=opening_hours	v=Mo-Fr 10:00-17:00; Sa 10:30-13:30; PH off:	1
+k=name	v=Braunschweig Hauptbahnhof:	10
+k=name	v=ADFC Braunschweig:	1
+k=website	v=http://perfix-reinigung.de/:	1
+k=phone	v=+49 18 05 31 31 28:	1
+k=wheelchair:description	v=Die Apotheke am Botanischen Garten wurde kürzlich voll barrierefrei umgestaltet. Die Inhaber überbrückten eine Stufe zum Eingang durch eine fest verbaute kleine Rampe, die völlig problemlos befahren werden kann.:	1
+k=name	v=Steintor:	1
+k=website	v=http://meler-bauservice.de/:	1
+k=contact:phone	v=05313495535:	1
+k=name	v=Asia shop Lebensmittel & Geschenke:	1
+k=name	v=Studio Daria:	1
+k=name	v=Tamaris:	1
+k=shop	v=furniture:	7
+k=name	v=Freise & Heidemann GmbH & Co. KG:	1
+k=website	v=http://www.volkswagenhalle-braunschweig.de/:	1
+k=phone	v=+49 531 6128401:	1
+k=railway:ref	v=HBS:	3
+k=opening_hours	v=Mo-Sa 10:00-19:00; PH off:	1
+k=website	v=http://www.gutenmorgenbuchladen.de/:	1
+k=name	v=Unser Lebensmittel:	1
+k=name	v=Heinrich Kielhorn Relief:	1
+k=phone	v=+49 531 2615065:	1
+k=opening_hours	v=Mo,Th 10:00-18:00; Tu 10:00-14:00; "Mittwoch,Freitag nach Vereinbarung":	1
+k=opening_hours	v=Mo-Su 11:00-23:00:	2
+k=opening_hours	v=11:00-24:00:	1
+k=ref	v=0193:	1
+k=name	v=Abseits Sportsbar:	1
+k=name	v=Chinarestaurant Lotusblume:	1
+k=phone	v=+49 531 2407140:	1
+k=phone	v=+49-531-2338238:	1
+k=website	v=http://www.altstadthotel-wienecke.de/:	1
+k=name	v=Heinrich Caspari, Marie Caspari geb. Ribbentrop:	1
+k=ref	v=30P6:	1
+k=ref	v=30P7:	1
+k=ref	v=3117:	1
+k=ref	v=30P4:	1
+k=ref	v=30P5:	1
+k=name	v=Karstadt am Gewandhaus:	1
+k=name	v=Maschstraße:	2
+k=food	v=yes:	1
+k=internet_access	v=yes_free_wireless_internet:	1
+k=website	v=http://www.hotel-cafeampark.de:	1
+k=phone	v=+49 531 77331:	1
+k=ref	v=30P2:	1
+k=collection_times	v=Mo-Fr 14:30,18:00;Sa 11:00;Su 10:15:	1
+k=phone	v=+49 531 48039933:	1
+k=ref	v=30P3:	1
+k=amenity	v=toilets:	9
+k=shop	v=doityourself:	3
+k=website	v=http://www.galerie-jaeschke.de/:	1
+k=ref	v=30P1:	1
+k=website	v=http://www.spitzweg-apo-online.de/:	1
+k=name	v=Otto-Bennemann-Schule (BBS3):	1
+k=collection_times	v=Mo-Fr 16:15; Sa 12:00:	2
+k=website	v=http://braunschweig.jugendherberge.de:	1
+k=website	v=http://loveforsale.org:	1
+k=contact:phone	v=+49 531 347711:	1
+k=wheelchair:description	v=Personal idR freundlich und Hilfsbereit, dass sie auch vor den Tresen kommen.:	1
+k=name	v=Guido's Pizzeria:	1
+k=species:de	v=Blut-Buche:	1
+k=name	v=Tatendrang-Design:	1
+k=railway	v=tram_stop:	69
+k=ref	v=3121:	1
+k=addr:housename	v=Silberquelle DER PAVILLON:	1
+k=ref	v=4:	2
+k=ref	v=3:	1
+k=operator	v=GE Money Bank:	1
+k=ref	v=6:	1
+k=ref	v=3136:	1
+k=ref	v=5:	1
+k=contact:phone	v=0531 701780:	1
+k=addr:street	v=Rosenstraße:	3
+k=ref	v=2:	1
+k=ref	v=1:	1
+k=diet	v=vegetarian, vegan, gluten-free, lactose-free:	1
+k=website	v=http://www.sinaheffner.de:	1
+k=created_by	v=iLOE 1.9:	1
+k=name	v=Fürstenhof:	1
+k=ref	v=?:	1
+k=operator	v=Deutsche Post:	53
+k=name	v=Bielefeld & Buß oHG:	1
+k=phone	v=+49 531 618 3003 - 04:	1
+k=addr:street	v=Hopfengarten:	1
+k=opening_hours	v=Mo-Th 15:00-18:30:	1
+k=name	v=Tanzschule Hoffmann:	1
+k=amenity	v=parking_space:	2
+k=ref	v=Hochstraße, 38102 Braunschweig:	1
+k=website	v=www.noanoa-braunschweig.de:	1
+k=source	v=bing; extrapolation; survey:	1
+k=opening_hours	v=Mo-Fr 09:00-18:00:	2
+k=name	v=Jojeco fairfashion:	1
+k=website	v=www.finkeundfreunde.de:	1
+k=opening_hours	v=Mo-Th 08:30-12:30; Mo-We 14:30-17:30; Th 14:30-19:00; Fr 08:30-12:30:	1
+k=contact:phone	v=+49-531-2337801:	1
+k=opening_hours	v=Mo,Th 08:00-11:00,15:00-17:30; Tu 08:00-11:00,16:00-18:30; We 08:00-11:00; Fr 08:00-15:30:	1
+k=name	v=Zahnarztpraxis Petritorwall 21:	1
+k=shop	v=gift:	9
+k=name	v=Stadt Braunschweig - Fachbereich Stadtplanung und Umweltschutz:	1
+k=opening_hours	v=Mo-Fr 8:30-22:30, Sa 10:00-14:00:	1
+k=name	v=California Jeans:	1
+k=name	v=La Piazza Ristorante & Eiscafe:	1
+k=opening_hours	v=Mo-Fr 08:00-12:00; Mo,Tu,Th 15:00-17:00:	1
+k=name	v=Herzog Friedrich Wilhelm:	1
+k=ref	v=411;416;450;480:	4
+k=phone	v=+49531 2190360:	1
+k=addr:street	v=Linnéstraße:	1
+k=amenity	v=gambling:	5
+k=man_made	v=survey_point:	1
+k=opening_hours	v=Mo-Th 09:15-19:00; Fr 09:15-18:00; Sa 10:00-16:00; Su off; PH off:	1
+k=name	v=Hundestation Museumpark Süd:	1
+k=ref	v=3153:	1
+k=opening_hours	v=Mo,Tu,Fr 08:30-18:30;We 08:30-13:00;Th 08:30-19:00;Sa 09:00-13:00:	1
+k=opening_hours	v=Mo-Fr 8:00-19:00;Sa 8:00-16:00:	1
+k=button_operated	v=yes:	1
+k=motorcar	v=no:	4
+k=website	v=http://www.praxis-dr-rochow.de:	1
+k=railway:signal:combined:form	v=light:	10
+k=phone	v=+49-531-42726:	1
+k=opening_hours	v=Mo-Sa 10:00+; Su 10:00-21:00:	1
+k=name	v=Die Friseurmeister Harry Mainka:	1
+k=name	v=Apotheke am Bankplatz:	1
+k=email	v=info@therapie-therme.de:	1
+k=ref	v=30N41:	1
+k=name	v=Micky & Molly Café:	1
+k=voltage-high	v=110000:	2
+k=website	v=http://www.opatijagrill.de/:	1
+k=sport	v=athletics:	1
+k=name	v=A-Chau Asia Food Specialties:	1
+k=name	v=Gingco.Net:	1
+k=recycling:plastic	v=no:	3
+k=name	v=Flying Croque:	1
+k=addr:street	v=Kastanienallee:	11
+k=name	v=Eiscafe Giovanni I.:	1
+k=name	v=Café L'emigré:	1
+k=opening_hours	v=Tu-Th 16:00+; Fr-Sa 18:00+; Su 11:00+; PH 11:00+:	1
+k=opening_hours	v=Mo-Fr 06:30-20:00; Sa 09:00-14:00; Su 09:00-18:00; PH off:	1
+k=socket:chademo	v=1:	1
+k=ref	v=0900:	1
+k=operator	v=Peters & Lippold GbR:	1
+k=ref	v=0901:	1
+k=name	v=Radhaus GmbH:	1
+k=opening_hours	v=Mo-Sa 08:00-20:00:	4
+k=contact:phone	v=0531 849001:	1
+k=name	v=Beethovenstraße:	1
+k=uic_name	v=Braunschweig Hbf:	2
+k=name	v=Care for Hair:	1
+k=name	v=Maymun Café-Shisha-Bar:	1
+k=shop	v=paint:	1
+k=ref	v=531/14081:	1
+k=website	v=http://kanzlei-mrb.de/:	1
+k=phone	v=+49 531 38999793:	1
+k=ref	v=Wendenstraße 38, 38100 Braunschweig:	1
+k=comment:de	v=Facharzt allgemein Medizin:	1
+k=addr:street	v=Münzstraße:	4
+k=source	v=web:	1
+k=public_transport	v=stop_position:	187
+k=description	v=Ausgang Süd:	1
+k=website	v=http://www.merlin-apotheke-bs.de/:	1
+k=operator	v=Doris Borgmann:	1
+k=note	v=Eingang und Briefkasten Studentenwerk:	1
+k=fire_hydrant:diameter	v=100:	1
+k=shop	v=ticket:	1
+k=smoking	v=outside:	6
+k=ref	v=0905-B:	1
+k=ref	v=0905-A:	1
+k=name	v=Quartier:	1
+k=name	v=Merlin Apotheke:	1
+k=website	v=http://loewenbaecker-schaper.de/:	1
+k=ref	v=0914:	1
+k=name	v=Shamrock Irish Pub:	1
+k=operator	v=Stadtmarketing Braunschweig GmbH:	1
+k=name	v=Kantine/Kasino:	1
+k=ref	v=0909:	1
+k=name	v=Schlossmuseum:	1
+k=name	v=Titizler:	1
+k=website	v=http://www.sbk-bs.de/:	1
+k=phone	v=+49 531 347427:	1
+k=website	v=http://www.gruenes-laedchen-bs.de/:	1
+k=name	v=Kebaphouse:	1
+k=ref	v=0905-?:	1
+k=organic	v=only:	11
+k=name	v=Magnitorwall:	1
+k=fax	v=+49 531 18709:	1
+k=name	v=Siemens Firmenparkplatz:	1
+k=ref	v=0921:	1
+k=phone	v=+49 531 273 020:	1
+k=ref	v=0922:	1
+k=contact:phone	v=+49-531-332904:	1
+k=disused:capacity	v=441:	1
+k=name	v=Löwenbäcker Schaper:	2
+k=cuisine	v=kebab;pizza:	1
+k=opening_hours	v=Mo-Fr 08:00-12:00:	1
+k=highway	v=crossing:	342
+k=name	v=Vielharmonie:	1
+k=phone	v=+49 0531 16608:	1
+k=addr:housenumber	v=18/19:	1
+k=wikipedia	v=de:Altstadtrathaus (Braunschweig):	1
+k=website	v=http://www.bloemker-parkett.de/:	1
+k=ref	v=Münzstraße14, 38100 Braunschweig:	1
+k=name	v=Zoo&Co:	1
+k=phone	v=+49-531-342884:	1
+k=opening_hours	v=Mo-Sa 09:30-20:00; Su off; Dec 24, Dec 31 09:00-14:00; PH off:	1
+k=website	v=https://www.tu-braunschweig.de/iwf:	1
+k=ref	v=0931:	1
+k=ref	v=0933:	1
+k=name	v=Hans-Sommer-Straße:	2
+k=description	v=1.OG / 1st floor:	1
+k=ref	v=30N81:	1
+k=phone	v=+49 531 70770:	1
+k=sport	v=multi:	1
+k=contact:phone	v=+49 531 7071410:	1
+k=name	v=ehemalige Landeszentralbank:	1
+k=place	v=suburb:	1
+k=man_made	v=MDF:	3
+k=operator	v=Post- und Lottoagentur:	1
+k=addr:street	v=Burgpassage:	2
+k=phone	v=0531-60949014:	1
+k=email	v=info@caritas-bs.de:	1
+k=phone	v=+49 531 7020720:	1
+k=wheelchair:description:de	v=Innen geht eine Stufe nach unten, es wird gerne geholfen.:	1
+k=name	v=C. W. Hoffmeister:	1
+k=website	v=www.rokohl.de:	1
+k=phone	v=+495313618035:	1
+k=opening_hours	v=Mo-Sa 11:00-20:00:	1
+k=addr:street	v=Sonnenstraße:	2
+k=name	v=Galerie Jaeschke:	1
+k=website	v=http://www.st-petri-apotheke-braunschweig.de:	1
+k=phone	v=+49 531 15959:	1
+k=name	v=Takko Fashion:	1
+k=drive_through	v=yes:	2
+k=tourism	v=artwork:	37
+k=name	v=Deutsche Vermögensberatung:	1
+k=opening_hours	v=Mo-Fr 10:00-19:00, Sa 10:00-18:00:	1
+k=name	v=Zack Zack Änderungsschneiderei:	1
+k=note	v="Braunschweig Hbf" (mit "Hbf" als Abkürzung für "Hauptbahnhof") ist die offizielle Betriebsstellenbezeichnung laut Betriebsstellenverzeichnis und Online-Fahrplanausukunft:	1
+k=name	v=MHO 1 (1. OG):	1
+k=phone	v=+49 531 2406640:	1
+k=name	v=Stadtpark:	2
+k=amenity	v=telephone:	51
+k=name	v=Januskopf:	1
+k=opening_hours	v=Mo-Sa 8:00-20:00:	1
+k=fax	v=+49 531 332900:	1
+k=operator	v=Braunschweigische Landessparkasse:	3
+k=phone	v=+49 531 14615:	1
+k=opening_hours	v=Mo-Sa 17:00-22:00; Su 12:00-14:00,17:00-22:00:	1
+k=collection_times	v=Mo-Fr 17:30;Sa 11:15:	1
+k=opening_hours	v=Mo-Th 08:00-21:00; Fr-Sa 08:00-22:00; PH off:	1
+k=name	v=Kim Kim:	1
+k=name	v=Croatia Grill:	1
+k=crossing:barrier	v=no:	2
+k=opening_hours	v=Tu-Sa 17:00-23:00; Su 12:00-22:00:	1
+k=name	v=Landbäckerei Sander:	1
+k=addr:street	v=Böcklerstraße:	1
+k=name	v=Türkis:	1
+k=ref_name	v=Radeklint, Braunschweig:	3
+k=operator	v=Braunschweiger_Versorgungs-AG:	1
+k=name	v=Le Petit Cafe:	1
+k=room	v=SN 19.6:	1
+k=room	v=SN 19.5:	1
+k=name	v=Kiosk an der Mensa:	1
+k=room	v=SN 19.4:	1
+k=name	v=Lindi:	1
+k=website	v=http://www.fs-jendritzki.de/:	1
+k=cemetery	v=grave:	3
+k=name	v=Nähcenter Casparistraße:	1
+k=phone	v=+49 531 44461:	1
+k=name	v=Ulrici Apotheke:	1
+k=room	v=SN 19.3:	1
+k=room	v=SN 19.2:	1
+k=room	v=SN 19.1:	1
+k=website	v=http://www.ernaundkaethe.de/:	1
+k=contact:website	v=http://www.denns-biomarkt.de/:	1
+k=name	v=Friseur2000:	1
+k=sauna	v=yes:	1
+k=addr:street	v=Kleine Burg:	3
+k=opening_hours	v=Tu,Fr 8:00-18:00; We,Th 8:00-17:00; Sa 8:00-13:00; Su off; PH off:	1
+k=phone	v=0531-3495400:	1
+k=highway	v=turning_circle:	37
+k=railway:signal:speed_limit_distant	v=DE-ESO:lf6:	1
+k=website	v=http://www.magniviertel.de/koerner:	1
+k=opening_hours	v=Mo-Su 11:30-23:00:	3
+k=opening_hours	v=Mo-Tu,Th 08:00-18:30;We,Fr 08:00-18:00;Sa 08:30-13:00:	1
+k=name	v=Die große Verweigerung:	1
+k=name	v=ALBA Kunden- und Umweltzentrum:	1
+k=addr:street	v=Bohlweg:	6
+k=name	v=Cinque:	1
+k=wheelchair:description	v=hohe Stufe am Eingang ohne Alternative:	1
+k=name	v=Halabi:	1
+k=name	v=Schloß Restaurant:	1
+k=name	v=Postfiliale im Einzelhandel:	2
+k=addr:street	v=Husarenstraße:	2
+k=website	v=http://www.cafezeit-bs.de/:	1
+k=collection_times	v=Mo-Fr 16:30;Sa 12:00:	1
+k=amenity	v=fountain:	15
+k=name	v=kawa:	1
+k=name	v=Fleischerei R. Brandes:	1
+k=surveillance	v=public:	21
+k=name	v=Dr. von Morgenstern Schulen:	1
+k=name	v=idee:	1
+k=craft	v=locksmith:	1
+k=ref	v=Kaiserstraße 7, 38100 Braunschweig:	1
+k=name	v=Die Brille:	1
+k=uic_ref	v=893703:	2
+k=source	v=bing:	107
+k=office	v=therapist:	1
+k=website	v=http://www.sonnendeck-sued.de/:	1
+k=website	v=http://de.vapiano.com/de/restaurants/vapiano-braunschweig-ritterbrunnen-4-1/:	1
+k=wikipedia	v=de:Gewandhaus (Braunschweig):	1
+k=phone	v=+49 531 49 515:	1
+k=addr:housename	v=Pathologie (EG):	1
+k=asb	v=33:	1
+k=name	v=Restaurant Tegtmeyer:	1
+k=phone	v=+49 531 88927940:	1
+k=name	v=Hochstraße:	2
+k=opening_hours:url	v=http://www.strupait.de/102.php?pgid=5:	1
+k=ref	v=0864-C:	1
+k=ref	v=0864-A:	1
+k=name	v=Zucker:	1
+k=image	v=http://www.logoform.de/images/general/logo.jpg:	1
+k=addr:street	v=Am Bruchtor:	3
+k=operator	v=DHL:	14
+k=opening_hours	v=Mo-Fr 11:00-18:00; Sa 11:00-17:00:	1
+k=operator	v=Madlen Arnold:	1
+k=name	v=Lemans Currywurst Bar:	1
+k=website	v=http://www.waxcare.de/:	1
+k=addr:street	v=Ratsbleiche:	1
+k=wheelchair:description	v=Fahrstuhl, Barrierefreies WC:	1
