@@ -6,22 +6,20 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
-import org.postgresql.geometric.PGpath;
-import org.postgresql.geometric.PGpoint;
-import org.postgresql.geometric.PGpolygon;
+import org.postgis.LineString;
+import org.postgis.LinearRing;
+import org.postgis.Point;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -38,7 +36,7 @@ public class Main {
 	Map<Long, MyWay> waysMap;
 
 	private class MyNode {
-		public PGpoint p;
+		public Point p;
 		public List<String> key;
 		public List<String> value;
 
@@ -48,33 +46,39 @@ public class Main {
 			value = new ArrayList<>();
 		}
 
-		public MyNode(PGpoint point, List<String> keys, List<String> values) {
+		public MyNode(Point point, List<String> keys, List<String> values) {
 			this.p = point;
 			this.key = keys;
 			this.value = values;
 
 		}
 
-		public PGpoint getP() {
+		public Point getP() {
 			return p;
 		}
 
 	}
 
 	private class MyWay {
-		public PGpath path;
+		public LineString path;
 		public List<String> key;
 		public List<String> value;
+		public boolean closed = false;
 
 		public MyWay() {
 			key = new ArrayList<>();
 			value = new ArrayList<>();
 		}
 
-		public MyWay(PGpath path, List<String> keys, List<String> values) {
+		public MyWay(LineString path, List<String> keys, List<String> values, boolean closed) {
 			this.path = path;
 			this.key = keys;
 			this.value = values;
+			this.closed = closed;
+		}	
+		
+		public boolean isClosed(){
+			return closed;
 		}
 	}
 
@@ -145,8 +149,9 @@ public class Main {
 					.getNodeValue();
 			double lat = Double.valueOf(sLat);
 			double lon = Double.valueOf(sLon);
-			PGpoint point = new PGpoint();
-			point.translate(lat, lon);
+			Point point = new Point();
+			point.setX(lat);
+			point.setY(lon);
 
 			List<String> keys = new ArrayList<>();
 			;
@@ -183,7 +188,7 @@ public class Main {
 			NodeList n = ways.item(i).getChildNodes();
 			System.out.println("Way: id " + id);
 
-			List<PGpoint> points = new ArrayList<>();
+			List<Point> points = new ArrayList<>();
 			List<Long> containingNodes = new ArrayList<>();
 			boolean closed = false;
 			for (int j = 0; j < n.getLength(); j++) {
@@ -199,7 +204,7 @@ public class Main {
 					}
 					// System.out.println("Nodes: " + nodeID);
 					try{
-					PGpoint point = nodesMap.get(nodeID).getP();
+					Point point = nodesMap.get(nodeID).getP();
 					points.add(point);
 					}catch(Exception e){
 						
@@ -207,13 +212,15 @@ public class Main {
 					
 				}
 			}
-			PGpoint[] pointsArray = new PGpoint[points.size()];
+			Point[] pointsArray = new Point[points.size()];
 			for (int j = 0; j < pointsArray.length; j++) {
 				pointsArray[j] = points.get(j);
 			}
 
-			PGpath path = new PGpath(pointsArray, !closed);
-			System.out.println("way closed " + closed);
+			
+			LineString path = new LineString(pointsArray);
+			
+		//	System.out.println("way closed " + closed);
 
 			List<String> keys = new ArrayList<>();
 			List<String> values = new ArrayList<>();
@@ -230,7 +237,7 @@ public class Main {
 					values.add(v);
 				}
 			}
-			MyWay myWay = new MyWay(path, keys, values);
+			MyWay myWay = new MyWay(path, keys, values, closed);
 			waysMap.put(id, myWay);
 		}
 	}
@@ -300,8 +307,8 @@ public class Main {
 	public void connectToPostgres() throws ClassNotFoundException, SQLException {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
-		 Connection conn = DriverManager.getConnection(url, "postgres", "");
-		//Connection conn = DriverManager.getConnection(url, "admin", "admin");
+		// Connection conn = DriverManager.getConnection(url, "postgres", "");
+		Connection conn = DriverManager.getConnection(url, "admin", "admin");
 
 		fillTablesNodes(conn);
 		fillTablesWays(conn);
@@ -336,7 +343,7 @@ public class Main {
 				.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
 		long id = nodeKey;
 		MyNode node = nodesMap.get(nodeKey);
-		PGpoint point = node.p;
+		Point point = node.p;
 		// sound
 		boolean sound = node.key.contains("traffic_signals:sound");
 		if (sound) {
@@ -369,7 +376,7 @@ public class Main {
 				"INSERT INTO haltestelle VALUES (?,?,?,?,?)");
 		long id = nodeKey;
 		MyNode node = nodesMap.get(nodeKey);
-		PGpoint point = node.p;
+		Point point = node.p;
 		// shelter
 		boolean shelter = node.key.contains("shelter");
 		if (shelter) {
@@ -448,7 +455,7 @@ public class Main {
 		long id = nodeKey;
 		MyNode node = nodesMap.get(nodeKey);
 
-		PGpoint point = node.p;
+		Point point = node.p;
 
 		String name = getValueOfNodeByString(node, "name", 50);
 		String city = getValueOfNodeByString(node, "addr:city", 50);
@@ -489,7 +496,7 @@ public class Main {
 		}
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, 0);
+		ps.setObject(2, street);
 		ps.setObject(3, name);
 		ps.setObject(4, sHousenumber);
 		ps.setObject(5, postcode);
@@ -517,7 +524,7 @@ public class Main {
 		for (long key : waysMap.keySet()) {
 			// Parkplatz
 			if (waysMap.get(key).value.contains("parking")) {
-				if (waysMap.get(key).path.isClosed()) {
+				if (waysMap.get(key).isClosed()) {
 					fillTableParkplatz(conn, key);
 				}
 
@@ -526,7 +533,7 @@ public class Main {
 			if (waysMap.get(key).key.contains("building")) {
 				int index = waysMap.get(key).key.indexOf("building");
 				if (waysMap.get(key).value.get(index).contains("yes")) {
-					if (waysMap.get(key).path.isClosed()) {
+					if (waysMap.get(key).isClosed()) {
 					fillTableHaus2(conn, key);
 					}
 				}
@@ -565,21 +572,21 @@ public class Main {
 			if (waysMap.get(key).key.contains("natural")) {
 				int index = waysMap.get(key).key.indexOf("natural");
 				if (waysMap.get(key).value.get(index).contains("water")) {
-					if (waysMap.get(key).path.isClosed()) {
+					if (waysMap.get(key).isClosed()) {
 						fillTableSee(conn, key);
 					}
 				}
 			}
 			// Landnutzung
 			if (waysMap.get(key).key.contains("landuse")) {
-				if (waysMap.get(key).path.isClosed()) {
+				if (waysMap.get(key).isClosed()) {
 					fillTableLandnutzung(conn, key);
 				}
 
 			}
 			// Park oder Spielplatz
 			if (waysMap.get(key).key.contains("leisure")) {
-				if (waysMap.get(key).path.isClosed()) {
+				if (waysMap.get(key).isClosed()) {
 					int index = waysMap.get(key).key.indexOf("leisure");
 
 					if (waysMap.get(key).value.get(index).contains("park")) {
@@ -620,7 +627,7 @@ public class Main {
 		"INSERT INTO parkplatz VALUES (?,?,?,?,?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpolygon polygon = new PGpolygon(way.path.points);
+		LinearRing polygon = new LinearRing(way.path.getPoints());
 		// access
 		boolean access = way.key.contains("access");
 		if (access) {
@@ -672,7 +679,7 @@ public class Main {
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 
-		PGpolygon polygon = new PGpolygon(way.path.points);
+		LinearRing polygon = new LinearRing(way.path.getPoints());
 
 		String name = getValueOfWayByString(way, "name", 50);
 		String city = getValueOfWayByString(way, "addr:city", 50);
@@ -712,7 +719,7 @@ public class Main {
 		}
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
-		ps.setObject(2, 0);
+		ps.setObject(2, street);
 		ps.setObject(3, name);
 		ps.setObject(4, sHousenumber);
 		ps.setObject(5, postcode);
@@ -745,7 +752,7 @@ public class Main {
 		"INSERT INTO strasse VALUES (?,?,?,?,?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpath path = way.path;
+		LineString path = way.path;
 		String name = getValueOfWayByString(way, "name", 50);
 		String surface = getValueOfWayByString(way, "surface", 50);
 		String slanes = getValueOfWayByString(way, "lanes", 50);
@@ -790,7 +797,7 @@ public class Main {
 		"INSERT INTO strassenbahn VALUES (?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpath path = way.path;
+		LineString path = way.path;
 
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
@@ -810,7 +817,7 @@ public class Main {
 		"INSERT INTO eisenbahn VALUES (?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpath path = way.path;
+		LineString path = way.path;
 
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
@@ -831,7 +838,7 @@ public class Main {
 		"INSERT INTO fluss VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpath path = way.path;
+		LineString path = way.path;
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
@@ -853,7 +860,7 @@ public class Main {
 		"INSERT INTO see VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpolygon polygon = new PGpolygon(way.path.points);
+		LinearRing polygon = new LinearRing(way.path.getPoints());
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
@@ -875,7 +882,7 @@ public class Main {
 		"INSERT INTO landnutzung VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpolygon polygon = new PGpolygon(way.path.points);
+		LinearRing polygon = new LinearRing(way.path.getPoints());
 		String name = getValueOfWayByString(way, "landuse", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
@@ -897,7 +904,7 @@ public class Main {
 		"INSERT INTO park VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpolygon polygon = new PGpolygon(way.path.points);
+		LinearRing polygon = new LinearRing(way.path.getPoints());
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
@@ -919,7 +926,7 @@ public class Main {
 		"INSERT INTO spielplatz VALUES (?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpolygon polygon = new PGpolygon(way.path.points);
+		LinearRing polygon = new LinearRing(way.path.getPoints());
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
 		ps.setObject(1, id);
@@ -944,7 +951,7 @@ public class Main {
 		"INSERT INTO tunnel VALUES (?,?,?,?,?,?,?,?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpath path = way.path;
+		LineString path = way.path;
 		String name = getValueOfWayByString(way, "name", 50);
 		String surface = getValueOfWayByString(way, "surface", 50);
 		String slanes = getValueOfWayByString(way, "lanes", 50);
@@ -1015,7 +1022,7 @@ public class Main {
 		"INSERT INTO bruecke VALUES (?,?,?,?,?,?,?,?,?)");
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		PGpath path = way.path;
+		LineString path = way.path;
 		String name = getValueOfWayByString(way, "name", 50);
 		String surface = getValueOfWayByString(way, "surface", 50);
 		String slanes = getValueOfWayByString(way, "lanes", 50);
