@@ -1,0 +1,56 @@
+CREATE ASSERTION NoLakeInBuilding CHECK ( 
+NOT EXISTS (SELECT * 
+FROM Lake l, Building b
+WHERE b.outline <@ l.outline));
+
+CREATE ASSERTION NoTrafficLightInLake CHECK ( 
+NOT EXISTS (SELECT * 
+FROM Lake l, Traffic_Light t
+WHERE t.position <@ l.outline));
+
+CREATE ASSERTION NoStopStationInBuilding CHECK ( 
+NOT EXISTS (SELECT * 
+FROM Stop_Station s, Building b
+WHERE b.outline <@ s.position));
+
+CREATE ASSERTION ThroughPlaygroundNoStreets CHECK (
+NOT EXISTS (SELECT *
+FROM Street s, Playground p
+WHERE s.path ?# p.outline));
+
+CREATE ASSERTION NoOverlapBuilding CHECK (
+NOT EXISTS (SELECT *
+FROM , Building a Building b
+WHERE a.outline && b.outline
+AND a.Id < b.Id));
+
+CREATE ASSERTION NoParkingInLake CHECK(
+NOT EXISTS (SELECT * 
+FROM Lake l, Parking p 
+WHERE ST_Crosses(l.outline,p.outline)));
+
+CREATE ASSERTION ThroughBuildingNoStreets CHECK (
+NOT EXISTS (SELECT *
+FROM Street s, Building b
+WHERE s.path ?# b.outline));
+
+CREATE ASSERTION TrafficLightCloseToStreet CHECK (
+NOT EXISTS (SELECT *
+FROM Traffic_Light t
+WHERE (NOT EXISTS (SELECT *
+FROM Street s
+WHERE t.position <-> s.path = 0))));
+
+CREATE ASSERTION ReachParkingThroughStreet CHECK (
+NOT EXISTS (SELECT *
+FROM Parking p
+WHERE (NOT EXISTS (SELECT *
+FROM Street s
+WHERE p.outline <-> s.path = 0))));
+
+CREATE ASSERTION ThroughPlaygroundNoRiver CHECK (
+NOT EXISTS (SELECT *
+FROM River r, Playground p
+WHERE r.path ?# p.outline));
+
+
