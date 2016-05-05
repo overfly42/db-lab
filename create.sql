@@ -1,6 +1,40 @@
+-- Parse::SQL::Dia      version 0.26                              
+-- Documentation        http://search.cpan.org/dist/Parse-Dia-SQL/
+-- Environment          Perl 5.020002, /usr/bin/perl              
+-- Architecture         x86_64-linux                              
+-- Target Database      postgres                                  
+-- Input file           uml_db.dia                                
+-- Generated at         Thu May  5 14:07:12 2016                  
+-- Typemap for postgres not found in input file                   
+
+-- get_constraints_drop 
+
+-- get_permissions_drop 
+
+-- get_view_drop
+
+-- get_schema_drop
+drop table Haus;
+drop table Strasse;
+drop table Strassenbahn;
+drop table Eisenbahn;
+drop table Parkplatz;
+drop table Ampel;
+drop table Haltestelle;
+drop table See;
+drop table Landnutzung;
+drop table Park;
+drop table Spielplatz;
+drop table Fluss;
+drop table Tunnel;
+drop table Bruecke;
+
+-- get_smallpackage_pre_sql 
+
+-- get_schema_create
 create table Haus (
    id          bigserial           not null,
-   street      varchar(50)                 ,
+   street      varchar(50)                 ,--  Haus befindet sich an Weg
    name        varchar(50)                 ,
    housenumber varchar(10)                 ,
    postcode    varchar(5)                  ,
@@ -60,18 +94,6 @@ create table Haltestelle (
    shelter    boolean                   ,
    bus_routes varchar(50)               ,
    name       varchar(50)               ,
-   id        bigserial       not null,
-   pos       geometry(point)         ,
-   sound     boolean                 ,
-   vibration boolean                 ,
-   constraint pk_Ampel primary key (id)
-)   ;
-create table Haltestelle (
-   id         bigserial       not null,
-   pos        geometry(point)         ,
-   shelter    boolean                 ,
-   bus_routes varchar(50)             ,
-   name       varchar(50)             ,
    constraint pk_Haltestelle primary key (id)
 )   ;
 create table See (
@@ -129,3 +151,13 @@ create table Bruecke (
    path     geometry('linestring')         ,
    constraint pk_Bruecke primary key (id)
 )   ;
+
+-- get_view_create
+
+-- get_permissions_create
+
+-- get_inserts
+
+-- get_smallpackage_post_sql
+
+-- get_associations_create
