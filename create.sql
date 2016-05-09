@@ -1,4 +1,4 @@
--- Parse::SQL::Dia      version 0.26                              
+﻿-- Parse::SQL::Dia      version 0.26                              
 -- Documentation        http://search.cpan.org/dist/Parse-Dia-SQL/
 -- Environment          Perl 5.020002, /usr/bin/perl              
 -- Architecture         x86_64-linux                              
@@ -14,20 +14,11 @@
 -- get_view_drop
 
 -- get_schema_drop
-drop table Haus;
-drop table Strasse;
-drop table Strassenbahn;
-drop table Eisenbahn;
-drop table Parkplatz;
-drop table Ampel;
-drop table Haltestelle;
-drop table See;
-drop table Landnutzung;
-drop table Park;
-drop table Spielplatz;
-drop table Fluss;
-drop table Tunnel;
-drop table Bruecke;
+
+
+CREATE EXTENSION postgis;
+CREATE EXTENSION postgis_topology;
+
 
 -- get_smallpackage_pre_sql 
 
