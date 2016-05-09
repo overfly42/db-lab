@@ -12,6 +12,7 @@ public class Parser {
 	public class Assertion {
 		public String name;
 		public String condition;
+		public String select;
 	}
 
 	public List<Assertion> precheckedAssertions;
@@ -28,6 +29,7 @@ public class Parser {
 		}
 		List<String> assertions = parseAssertions(rawData);
 		runPreCheck(assertions);
+		grepSelects();
 	}
 
 	private File checkFile(String file) {
@@ -65,6 +67,15 @@ public class Parser {
 		String assertion = "";
 		for (String s : rawData) {
 			char[] letters = s.toCharArray();
+			if (assertion.length() > 0 && s.toLowerCase().trim().startsWith("create assertion")) {
+				System.out.println(
+						"Assertion error, skipping\n fault(qoutes,brakets, or ; in (create assertion (case ignored) is not a valid keyword within the assertion)):"
+								+ assertion);
+
+				inQuotes = false;
+				assertion = "";
+				countBrakets = 0;
+			}
 			for (int i = 0; i < letters.length; i++) {
 				switch (letters[i]) {
 				case '"':
@@ -88,6 +99,39 @@ public class Parser {
 		}
 		System.out.println("In " + rawData.size() + " relevanten Zeilen " + data.size() + " Assertions gefunden");
 		return data;
+	}
+
+	private void grepSelects() {
+		List<Assertion> fails = new ArrayList<>();
+		for (Assertion a : precheckedAssertions) {
+			a.select = getSelectFromAssertion(a);
+			if (a.name == null || a.condition == null || a.select == null) {
+				if (a.name == null)
+					System.out.println("Assertion has no name");
+				else if (a.condition == null)
+					System.out.println("Assertion " + a.name + "has not condition");
+				else if (a.select == null)
+					System.out.println("Could not fetch select from condition in assertion " + a.name);
+				fails.add(a);
+			}
+		}
+		precheckedAssertions.removeAll(fails);
+		System.out.println(precheckedAssertions.size());
+	}
+
+	private String getSelectFromAssertion(Assertion a) {
+		String[] s = a.condition.split(" ");
+		String condition;
+		// check for exists or not exists
+		if (s[0].equals("not") && s[1].startsWith("exist") || s[0].startsWith("exist")) {
+			// remove first and last braked
+			condition = a.condition.substring(a.condition.indexOf('(') + 1, a.condition.length() - 1).trim();
+
+		} else {
+			condition = null;
+			System.out.println("The condtion  of assertion \""+a.name+"\" should start with \"exist\" or \"not exist\"");
+		}
+		return condition;
 	}
 
 	private void runPreCheck(List<String> rawData) {
@@ -126,7 +170,7 @@ public class Parser {
 					System.out.println("Ist hier ein Fehler?");
 			}
 
-			System.out.println(a.condition);
+			// System.out.println(a.condition);
 		}
 	}
 }

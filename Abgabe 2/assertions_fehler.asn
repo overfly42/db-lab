@@ -39,7 +39,7 @@ create Assertion AmpelAnWeg CHECK(
 		union
 		select a.id from ampel as a, eisenbahn e 
 				where ST_CoveredBy(a.pos, e.path)
-)));
+));
 
 
 #X. Parkplatz an Straße - doppelte assertion
