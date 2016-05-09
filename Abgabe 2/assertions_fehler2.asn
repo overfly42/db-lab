@@ -1,8 +1,7 @@
 #I. falsche Tabelle 
 create Assertion keinHausInSee CHECK(
-	not exist(
 		select * from See2 s,Haus h where ST_Crosses(s.umriss,h.umriss)
-	));
+	);
 #II. falsches not exiata
 create Assertion keineStrasseDurchSpielplatz CHECK(
 	not2 exist(
@@ -11,7 +10,6 @@ create Assertion keineStrasseDurchSpielplatz CHECK(
 
 #VI. falsche Spalte
 create Assertion brueckeMussKreuzen CHECK(
-	not exist(
 	select b.id2 from bruecke as b where b.id not in (
 		select b.id from bruecke as b, strasse s 
 				where ST_Crosses(b.path2,s.path)
@@ -24,12 +22,16 @@ create Assertion brueckeMussKreuzen CHECK(
 		union
 		select b.id from bruecke as b, fluss f 
 				where ST_Crosses(b.path, f.path)
-)));
+));
 
-#VII. Klammer fehlt 
+#V. invalider Name
+create Assertion select CHECK(
+		select * from Landnutzung l, Spielplatz s where l.landuse = 'cemetery' and ST_Crosses(l.umriss,s.umriss)
+);
+
+#VII. Syntaxerror
 #//Es wird davon ausgegangen, dass eine Ampel immer an einer Straße ist
 create Assertion AmpelAnWeg CHECK(
-	not exist(
 	select a.id from ampel as a where a.id not in (
 		select a.id from ampel as a, strasse s 
 				where ST_CoveredBy(a.pos,s.path)
@@ -37,15 +39,15 @@ create Assertion AmpelAnWeg CHECK(
 		select a.id from ampel as a, strassenbahn sb 
 				where ST_CoveredBy(a.pos, sb.path)
 		union
-		select a.id from ampel as a, eisenbahn e 
+		select a.id, from ampel as a, eisenbahn e 
 				where ST_CoveredBy(a.pos, e.path)
-)));
+));
 
 
 #X. Parkplatz an Straße - doppelte assertion
 create Assertion ParkplatzAnStraße Check(
-	not exist(
+
 	select a.id from Parkplatz as a where a.id not in (
 		select a.id from Parkplatz as a, Strasse as b 
 				where ST_Crosses(a.umriss,b.path))
-));
+);
