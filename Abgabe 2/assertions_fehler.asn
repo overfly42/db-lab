@@ -39,10 +39,16 @@ create Assertion AmpelAnWeg CHECK(
 		union
 		select a.id from ampel as a, eisenbahn e 
 				where ST_CoveredBy(a.pos, e.path)
-)));
+));
 
 
 #X. Parkplatz an Straße - doppelte assertion
+create Assertion ParkplatzAnStraße Check(
+	not exist(
+	select a.id from Parkplatz as a where a.id not in (
+		select a.id from Parkplatz as a, Strasse as b 
+				where ST_Crosses(a.umriss,b.path))
+));
 create Assertion ParkplatzAnStraße Check(
 	not exist(
 	select a.id from Parkplatz as a where a.id not in (

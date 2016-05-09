@@ -80,7 +80,7 @@ public class CheckDB {
 	private boolean checkSelectTestSysRel(Connection conn, Assertion as) throws SQLException {
 		Statement stmt = conn.createStatement();
 		try {
-			ResultSet exists = stmt.executeQuery(as.condition);
+			ResultSet exists = stmt.executeQuery(as.select);
 		}
 		catch (Exception e){
 			System.out.println("Error in assertion " + as.name + ":");
