@@ -2,20 +2,7 @@
 create Assertions 1234 CHECK ( 
 not exists (select * 
 from See s, Haus h
-where h.umriss <@ s.umriss))
-
-# fehlendes Semikolon
-create Assertion keineStrassedurchSpielplatz CHECK (
-not exists (select *
-from Strasse s, Spielplatz p
-where s.path ?# p.umriss))
-
-# Keyword Assertion fehlt
-create keineUeberlappung CHECK (
-not exists (select *
-from Haus 11, Haus 12
-where 11.umriss && 12.umriss
-and 11.Id < 12.Id));
+where h.umriss <@ s.umriss));
 
 # falscher Operator 
 create Assertion keineStrassedurchHaus CHECK (
@@ -28,5 +15,18 @@ create Assertion select CHECK (
 not exists (select * 
 from See s, Haus h
 where h.umriss <@ s.umriss));
+
+# Ungueltiges Praedikat
+create Assertion keineStrassedurchHaus CHECK (
+create Test (Field INTEGER));
+
+# fehlendes Semikolon
+create Assertion keineStrassedurchSpielplatz CHECK (
+not exists (select *
+from Strasse s, Spielplatz p
+where s.path ?# p.umriss))
+
+
+
 
 
