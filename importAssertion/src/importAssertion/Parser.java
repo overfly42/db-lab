@@ -69,7 +69,7 @@ public class Parser {
 			char[] letters = s.toCharArray();
 			if (assertion.length() > 0 && s.toLowerCase().trim().startsWith("create assertion")) {
 				System.out.println(
-						"Assertion error, skipping\n fault(qoutes,brakets, or ; in (create assertion (case ignored) is not a valid keyword within the assertion)):"
+						"Assertion error, skipping\nfault(qoutes,brakets, or ; in (create assertion (case ignored) is not a valid keyword within the assertion)):"
 								+ assertion);
 
 				inQuotes = false;
