@@ -2,7 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/christian/git/db-lab/postgis-jdbc-2.1.7.jar"/>
-	<classpathentry kind="lib" path="/home/christian/git/db-lab/postgresql-9.4.1208.jre6.jar"/>
+	<classpathentry kind="lib" path="/Users/Polymorph/DB_Praktikum/postgis-jdbc-2.1.7.jar"/>
+	<classpathentry kind="lib" path="/Users/Polymorph/DB_Praktikum/postgresql-9.4.1208.jre6.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
