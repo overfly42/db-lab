@@ -1,32 +1,112 @@
-# falscher Bezeichner
+# 1. falsches Keyword "assertions"
 create Assertions 1234 CHECK ( 
 not exists (select * 
 from See s, Haus h
-where h.umriss <@ s.umriss))
+where h.umriss <@ s.umriss));
 
-# fehlendes Semikolon
-create Assertion keineStrassedurchSpielplatz CHECK (
-not exists (select *
-from Strasse s, Spielplatz p
-where s.path ?# p.umriss))
+# 2. falsches Keyword "check"
+create Assertion 1234 ( 
+not exists (select * 
+from See s, Haus h
+where h.umriss <@ s.umriss));
 
-# Keyword Assertion fehlt
+# 3. falscher Assertionname
+create Assertion 1234 CHECK ( 
+not exists (select * 
+from See s, Haus h
+where h.umriss <@ s.umriss));
+
+# 4. Schluesselwort als Assertionname
+create Assertion select CHECK ( 
+not exists (select * 
+from See s, Haus h
+where h.umriss <@ s.umriss));
+
+# 5. Keyword "assertion" fehlt
 create keineUeberlappung CHECK (
 not exists (select *
 from Haus 11, Haus 12
 where 11.umriss && 12.umriss
 and 11.Id < 12.Id));
 
-# falscher Operator 
+# 6. fehlendes Semikolon
+create Assertion keineStrassedurchSpielplatz CHECK (
+not exists (select *
+from Strasse s, Spielplatz p
+where s.path ?# p.umriss))
+
+# 7. falscher Operator in der Select-Condition
 create Assertion keineStrassedurchHaus CHECK (
 not exists ( select * 
 from Haus h, Strasse s
 where path(h.umriss) ?+ s.path));
 
-# Schluesselwort als Bezeichner
-create Assertion select CHECK ( 
-not exists (select * 
-from See s, Haus h
-where h.umriss <@ s.umriss));
+# 8. falsche DB-Tabelle 
+create Assertion keinHausInSee CHECK(
+	not exist(
+		select * from See2 s,Haus h where ST_Crosses(s.umriss,h.umriss)
+	));
+# 9. falsches Keyword "not exit"
+create Assertion keineStrasseDurchSpielplatz CHECK(
+	not2 exist(
+		select * from Strasse t, Spielplatz p where ST_Crosses(t.path,p.umriss)
+));
+# 10. Doppelte Assertion
+create Assertion ParkplatzAnStraße Check(
+	not exist(
+	select a.id from Parkplatz as a where a.id not in (
+		select a.id from Parkplatz as a, Strasse as b 
+				where ST_Crosses(a.umriss,b.path))
+));
+create Assertion ParkplatzAnStraße Check(
+	not exist(
+	select a.id from Parkplatz as a where a.id not in (
+		select a.id from Parkplatz as a, Strasse as b 
+				where ST_Crosses(a.umriss,b.path))
+));
+# 11. Klammer fehlt 
+create Assertion AmpelAnWeg CHECK(
+	not exist(
+	select a.id from ampel as a where a.id not in (
+		select a.id from ampel as a, strasse s 
+				where ST_CoveredBy(a.pos,s.path)
+		union
+		select a.id from ampel as a, strassenbahn sb 
+				where ST_CoveredBy(a.pos, sb.path)
+		union
+		select a.id from ampel as a, eisenbahn e 
+				where ST_CoveredBy(a.pos, e.path)
+));
+
+# 12. Klammer falsch gesetzt
+create Assertion AmpelAnWeg2 CHECK(
+	not exist(
+	select a.id from ampel as a where a.id not in (
+		select a.id from ampel as a, strasse s 
+				where ST_CoveredBy(a.pos,s.path)
+		union
+		select a.id from ampel as a, strassenbahn sb 
+				where ST_CoveredBy(a.pos, sb.path)
+		union
+		select a.id from ampel as a, eisenbahn e 
+				where ST_CoveredBy(a.pos, e.path)()
+)));
+
+# 13. falsche DB-Spalte
+create Assertion brueckeMussKreuzen CHECK(
+	not exist(
+	select b.id2 from bruecke as b where b.id not in (
+		select b.id from bruecke as b, strasse s 
+				where ST_Crosses(b.path2,s.path)
+		union
+		select b.id from bruecke as b, strassenbahn sb 
+				where ST_Crosses(b.path, sb.path)
+		union
+		select b.id from bruecke as b, eisenbahn e 
+				where ST_Crosses(b.path, e.path)
+		union
+		select b.id from bruecke as b, fluss f 
+				where ST_Crosses(b.path, f.path)
+)));
 
 

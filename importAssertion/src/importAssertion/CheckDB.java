@@ -17,28 +17,30 @@ public class CheckDB {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
 		Connection conn;
-		try{
+		try {
 			conn = DriverManager.getConnection(url, "postgres", "admin");
-		}catch (Exception e){
-			try{
-					conn = DriverManager.getConnection(url, "postgres", "");
+		} catch (Exception e) {
+			try {
+				conn = DriverManager.getConnection(url, "postgres", "");
+			} catch (Exception ex) {
+				conn = DriverManager.getConnection(url, "admin", "admin");
 			}
-			catch (Exception ex){
-				 	conn = DriverManager.getConnection(url, "admin", "admin");	
-			}
-			
+
 		}
+		System.out.println("Start DB Check...");
 		checkTestSysRel(conn);
 		checkAssertionSysRel(conn);
-		for(Assertion as : p.precheckedAssertions){
-			if(checkName(conn, as)){
-				if (checkSelectTestSysRel(conn, as)){
+		for (Assertion as : p.precheckedAssertions) {
+			if (checkName(conn, as)) {
+				if (checkSelectTestSysRel(conn, as)) {
 					insertAssertions(conn, as);
+
 				}
 			}
-				
+
 		}
 		conn.close();
+		System.out.println("Finished!");
 	}
 
 	// TestSysRel
@@ -46,8 +48,8 @@ public class CheckDB {
 		Statement create = conn.createStatement();
 
 		try {
-			ResultSet exists = create.executeQuery(
-					"SELECT count(relname) AS hasTable FROM pg_class WHERE lower(relname) = lower('TestSysRel')");
+			ResultSet exists = create
+					.executeQuery("SELECT count(relname) AS hasTable FROM pg_class WHERE lower(relname) = lower('TestSysRel')");
 
 			if (exists.next() && exists.getInt("hasTable") == 0) {
 				create.executeUpdate("CREATE TABLE TestSysRel (Attribut INTEGER NOT NULL, PRIMARY KEY (Attribut))");
@@ -63,60 +65,60 @@ public class CheckDB {
 		Statement create = conn.createStatement();
 
 		try {
-			ResultSet exists = create.executeQuery(
-					"SELECT count(relname) AS hasTable FROM pg_class WHERE lower(relname) = lower('AssertionSysRel')");
+			ResultSet exists = create
+					.executeQuery("SELECT count(relname) AS hasTable FROM pg_class WHERE lower(relname) = lower('AssertionSysRel')");
 
 			if (exists.next() && exists.getInt("hasTable") == 0) {
-				create.executeUpdate("CREATE TABLE AssertionSysRel (" + "Assertionname VARCHAR(40) NOT NULL,"
-						+ "Bedingung VARCHAR(800) NOT NULL," + "implementiert BOOL DEFAULT FALSE,"
+				create.executeUpdate("CREATE TABLE AssertionSysRel ("
+						+ "Assertionname VARCHAR(40) NOT NULL,"
+						+ "Bedingung VARCHAR(800) NOT NULL,"
+						+ "implementiert BOOL DEFAULT FALSE,"
 						+ "PRIMARY KEY (Assertionname)" + ")");
 			}
 		} finally {
 			create.close();
 		}
 	}
-	
-	//check Select in TestSysRel
-	private boolean checkSelectTestSysRel(Connection conn, Assertion as) throws SQLException {
+
+	// check Select in TestSysRel
+	private boolean checkSelectTestSysRel(Connection conn, Assertion as)
+			throws SQLException {
 		Statement stmt = conn.createStatement();
 		try {
 			ResultSet exists = stmt.executeQuery(as.select);
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			System.out.println("Error in assertion " + as.name + ":");
-			System.out.println(e.getMessage());
+			System.out.println("\t" + e.getMessage());
 			return false;
-		}
-		finally {
+		} finally {
 			stmt.close();
 		}
 		return true;
 	}
-	
-	//insert Assertions
-	private void insertAssertions (Connection conn, Assertion as) throws SQLException {
+
+	// insert Assertions
+	private void insertAssertions(Connection conn, Assertion as)
+			throws SQLException {
 		PreparedStatement ps = conn
 				.prepareStatement("INSERT INTO AssertionSysRel VALUES (?,?)");
 		ps.setObject(1, as.name);
 		ps.setObject(2, as.condition);
 		try {
-			ps.execute();	
-		}
-		catch (Exception e){
+			ps.execute();
+			System.out.println("Insert " + as.name + "in DB.");
+		} catch (Exception e) {
 			System.out.println("Error in assertion " + as.name + ":");
-			if(e.getMessage().contains("duplicate key value violates unique")){
-				System.out.println("Assertion already exists");
+			if (e.getMessage().contains("duplicate key value violates unique")) {
+				System.out.println("\t ERROR: Assertion already exists");
+			} else {
+				System.out.println("\t" + e.getMessage());
 			}
-			else{
-				System.out.println(e.getMessage());
-			}
-			
-		}
-		finally {
+
+		} finally {
 			ps.close();
 		}
 	}
-	
+
 	private boolean checkName (Connection conn, Assertion as) throws SQLException {
 		Statement create = conn.createStatement();
 
@@ -126,7 +128,16 @@ public class CheckDB {
 		}
 		catch (Exception e){
 			System.out.println("Error in assertion " + as.name + ":");
-			System.out.println("Invalid assertion name");	
+			
+			if(e.getMessage().contains("syntax error")){
+				System.out.println("\tERROR: Invalid assertion name");
+				try{
+					Integer.parseInt(""+ as.name.toCharArray()[0]);
+				System.out.println("\tAssertion should start with a letter");
+			}catch(Exception ex){}}
+			else{
+				System.out.println(e.getMessage());
+			}
 			return false;
 			
 		} finally {
@@ -136,5 +147,4 @@ public class CheckDB {
 		return true;
 		
 	}
-
 }
