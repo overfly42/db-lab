@@ -44,6 +44,9 @@ public class CheckDB {
 					System.out.println("Insert function: " + crFct);
 					boolean crTri = createTrigger(conn, as, "DO"+as.name, tables); 
 					System.out.println("Insert trigger: " + crTri);
+					if(crFct && crTri){
+						updateCorrectAssertions(conn, as);
+					}
 				}
 			}
 		}
@@ -123,6 +126,22 @@ public class CheckDB {
 		}
 	}
 
+	// insert Assertions
+	private void updateCorrectAssertions(Connection conn, Assertion as)
+			throws SQLException {
+		Statement create = conn.createStatement();
+		
+		try {
+			create.executeUpdate("UPDATE AssertionSysRel SET implementiert= "+true+ " WHERE "+ "Assertionname='"+as.name+"';");
+			System.out.println("Update AssertionSysRel");
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		} finally {
+			create.close();
+		}
+	}
+	
+	
 	private boolean checkName(Connection conn, Assertion as) throws SQLException {
 		Statement create = conn.createStatement();
 
