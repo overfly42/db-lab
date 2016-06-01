@@ -1,0 +1,112 @@
+// Aus CheckDB.java
+
+	private boolean checkName (Connection conn, Assertion as) throws SQLException {
+		Statement create = conn.createStatement();
+
+		try {
+			create.executeUpdate("CREATE TABLE " + as.name + " ( id INT )");
+			create.executeUpdate("DROP TABLE " + as.name);
+		}
+		catch (Exception e){
+			System.out.println("Error in assertion " + as.name + ":");
+			
+			if(e.getMessage().contains("syntax error")){
+				System.out.println("\tERROR: Invalid assertion name");
+				try{
+					Integer.parseInt(""+ as.name.toCharArray()[0]);
+				System.out.println("\tAssertion should start with a letter");
+			}catch(Exception ex){}}
+			else{
+				System.out.println(e.getMessage());
+			}
+			return false;
+			
+		} finally {
+			create.close();
+		}
+		
+		return true;
+		
+	}
+
+// Aus Parser.java
+private void runPreCheck(List<String> rawData) {
+		System.out.println("---------------------------------------");
+		System.out.println("Running Precheck...");
+		for (String s : rawData) {
+			String[] words = s.trim().split(" ");
+			// check keywords
+			if (words.length < 5)
+				continue;// not a valid number of tokens
+			if (!words[0].toLowerCase().equals("create")) {
+				System.out.println("Error: " + s);
+				System.out.println("\tERROR: Missing Keyword create at " + words[0]);
+				continue;// first word has to be create, in upper or lower or
+							// mixed case
+			}
+			if (!words[1].toLowerCase().equals("assertion")) {
+				System.out.println("Error: " + s);
+				System.out.println("\tERROR: Missing Keyword assertion at " + words[1]);
+				continue;// see to rows above
+			}
+			if (!words[3].toLowerCase().startsWith("check")) {
+				System.out.println("Error: " + s);
+				System.out.println("\tERROR: Missing Keyword check " + words[3]);
+				continue;// see four rows above
+			}
+			if (words[3].length() > 5)
+				words[3] = words[3].substring(5);
+			else
+				words[3] = "";
+			// by reaching this line, the assertion may be okay
+			Assertion a = new Assertion();
+			a.name = words[2];
+			a.condition = "";
+			precheckedAssertions.add(a);
+			for (int i = 3; i < words.length; i++)
+				a.condition += " " + words[i];
+			a.condition = a.condition.trim();
+			if (a.condition.endsWith(";")) {// belongs to the create assertion
+				a.condition = a.condition
+						.substring(0, a.condition.length() - 1).trim();
+			}
+			if (a.condition.startsWith("(")) {
+				a.condition = a.condition.substring(1);
+				if (a.condition.endsWith(")")) // belongs to
+					a.condition = a.condition.substring(0,
+							a.condition.length() - 1).trim();
+				else{
+					System.out.println("Warning in assertion: " + a.name);
+					System.out.println("\tWARNING: Check Brackets!");
+				}		
+			}
+
+		}
+	}
+
+	private void grepSelects() {
+		List<Assertion> fails = new ArrayList<>();
+		for (Assertion a : precheckedAssertions) {
+			a.select = getSelectFromAssertion(a);
+			if (a.name == null || a.condition == null || a.select == null) {
+				if (a.name == null)
+					System.out.println("ERROR: Assertion has no name");
+				else if (a.condition == null){
+					System.out.println("Error in assertion: " + a.name);
+					System.out.println("\t ERROR: Assertion " + a.name
+							+ "has not condition");
+				}
+				else if (a.select == null){
+					System.out.println("Error in assertion: " + a.name);
+					System.out
+							.println("\t ERROR: Could not fetch select from condition.");
+				}
+				fails.add(a);
+			}
+		}
+		precheckedAssertions.removeAll(fails);
+		System.out.println("Precheck done: " + precheckedAssertions.size()
+				+ " passed");
+		System.out.println("-----------------------------------------------");
+	}
+

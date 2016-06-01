@@ -1,0 +1,15 @@
+assertionname                |   bedingung                                                                               | implementiert 
+-----------------------------+-------------------------------------------------------------------------------------------+----------------------------------------
+ keineStrasseDurchSpielplatz | not exist( select * from Strasse t, Spielplatz p where ST_Crosses(t.path,p.umriss))       | f
+ keineParkplatzImSee         | not exist( select * from See s, Parkplatz p where ST_Crosses(s.umriss,p.umriss) or ST_Contains(s.umriss,p.umriss)) | f 
+ keineSpielplatzAufFriedhof  | not exist( select * from Landnutzung l, Spielplatz s where l.landuse = 'cemetery' and ST_Crosses(l.umriss,s.umriss) or ST_Contains(l.umriss,s.umriss)) | f 
+ brueckeMussKreuzen          | not exist( select b.id from bruecke as b where b.id not in ( select b.id from bruecke as b, strasse s where ST_Crosses(b.path,s.path) union select b.id from bruecke as b, strassenbahn sb where ST_Crosses(b.path, sb.path) union select b.id from bruecke as b, eisenbahn e where ST_Crosses(b.path, e.path) union select b.id from bruecke as b, fluss f where ST_Crosses(b.path, f.path) )) | f
+ AmpelAnWeg                  | not exist( select a.id from ampel as a where a.id not in ( select a.id from ampel as a, strasse s where ST_CoveredBy(a.pos,s.path) union select a.id from ampel as a, strassenbahn sb where ST_CoveredBy(a.pos, sb.path) union select a.id from ampel as a, eisenbahn e where ST_CoveredBy(a.pos, e.path) ))                                                                                    | f
+ HaltestelleAnWeg            | not exist( select h.id from haltestelle as h where h.id not in ( select h.id from Haltestelle as h, strasse s where ST_CoveredBy(h.pos,s.path) union select h.id from Haltestelle as h, strassenbahn sb where ST_CoveredBy(h.pos, sb.path) union select h.id from Haltestelle as h, eisenbahn e where ST_CoveredBy(h.pos, e.path) ))                                                            | f
+ BrueckeIstWeg               | not exist( select a.id from bruecke as a where a.id not in ( select a.id from bruecke a, strasse b where ST_Coveredby(a.path,b.path) union select a.id from bruecke a, strassenbahn b where ST_Coveredby(a.path,b.path) union select a.id from bruecke a, eisenbahn b where ST_Coveredby(a.path,b.path) ))   
+                                                                                   | f
+
+
+(7 rows)
+
+

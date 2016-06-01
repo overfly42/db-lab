@@ -1,0 +1,46 @@
+Arbeitsverzeichnis ist: /home/lisa/db-lab/importAssertion
+Versuche Datei ../Abgabe 2/Assertions_fehlerhaft_Janine.asn einzulesen
+Error: create Assertion keineStrassedurchSpielplatz CHECK ( not exists (select * from Strasse s, Spielplatz p where s.path ?# p.umriss))
+	ERROR: Assertion skipped. Quotes, brakets or ; is missing. New "create assertion" found
+Error: create Assertion AmpelAnWeg CHECK( not exist( select a.id from ampel as a where a.id not in ( select a.id from ampel as a, strasse s where ST_CoveredBy(a.pos,s.path) union select a.id from ampel as a, strassenbahn sb where ST_CoveredBy(a.pos, sb.path) union select a.id from ampel as a, eisenbahn e where ST_CoveredBy(a.pos, e.path) ));
+	ERROR: Assertion skipped. Quotes, brakets or ; is missing. New "create assertion" found
+In 88 relevanten Zeilen 12 Assertions gefunden
+---------------------------------------
+Running Precheck...
+Error:  create Assertions 1234 CHECK ( not exists (select * from See s, Haus h where h.umriss <@ s.umriss));
+	ERROR: Missing Keyword assertion at Assertions
+Error:  create Assertion 1234 ( not exists (select * from See s, Haus h where h.umriss <@ s.umriss));
+	ERROR: Missing Keyword check (
+Error:  create keineUeberlappung CHECK ( not exists (select * from Haus 11, Haus 12 where 11.umriss && 12.umriss and 11.Id < 12.Id));
+	ERROR: Missing Keyword assertion at keineUeberlappung
+Error in assertion: keineStrasseDurchSpielplatz
+	ERROR: The condtion should start with "exist" or "not exist"
+Error in assertion: keineStrasseDurchSpielplatz
+	 ERROR: Could not fetch select from condition.
+Precheck done: 8 passed
+-----------------------------------------------
+Start DB Check...
+Error in assertion 1234:
+	ERROR: Invalid assertion name
+	Assertion should start with a letter
+Error in assertion select:
+	ERROR: Invalid assertion name
+Error in assertion keineStrassedurchHaus:
+	ERROR: operator does not exist: path ?+ geometry
+  Hinweis: No operator matches the given name and argument type(s). You might need to add explicit type casts.
+  Position: 54
+Error in assertion keinHausInSee:
+	ERROR: relation "see2" does not exist
+  Position: 15
+Error in assertion ParkplatzAnStraße:
+ERROR: relation "parkplatzanstraße" already exists
+Error in assertion ParkplatzAnStraße:
+ERROR: relation "parkplatzanstraße" already exists
+Error in assertion AmpelAnWeg2:
+	ERROR: syntax error at or near "("
+  Position: 287
+Error in assertion brueckeMussKreuzen:
+	ERROR: column b.id2 does not exist
+  Position: 8
+Finished!
+
