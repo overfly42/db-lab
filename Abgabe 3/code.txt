@@ -1,0 +1,21 @@
+	private Set<String> getUsedTables(Connection conn, Assertion as) throws SQLException {
+		Set<String> output = new HashSet<>();
+		Statement statement = conn.createStatement();
+		ResultSet rs = statement.executeQuery("explain " + as.select);
+		int cols = rs.getMetaData().getColumnCount();;
+		while (rs.next()) {
+			for (int i = 1; i <= cols; i++) {
+				String res = rs.getString(i);
+				if(res.toLowerCase().contains("on"))
+				{
+					String[] words = res.split(" ");
+					for(int n = 0; n < words.length;n++)
+						if(words[n].trim().toLowerCase().equals("on"))
+						{
+							output.add(words[n+1]);
+						}
+				}
+			}
+		}
+		return output;
+	}

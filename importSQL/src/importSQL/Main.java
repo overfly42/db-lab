@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -21,7 +22,6 @@ import org.postgis.LineString;
 import org.postgis.LinearRing;
 import org.postgis.Point;
 import org.postgis.Polygon;
-import org.postgresql.geometric.PGpoint;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
@@ -77,15 +77,14 @@ public class Main {
 			this.key = keys;
 			this.value = values;
 			this.closed = closed;
-		}	
-		
-		public boolean isClosed(){
+		}
+
+		public boolean isClosed() {
 			return closed;
 		}
 	}
 
-	public static void main(String[] args) throws ClassNotFoundException,
-			SQLException {
+	public static void main(String[] args) throws ClassNotFoundException {
 
 		try {
 			System.out.println("Hello World");
@@ -101,8 +100,7 @@ public class Main {
 
 	}
 
-	public Main() throws ParserConfigurationException, SAXException,
-			IOException, ClassNotFoundException, SQLException {
+	public Main() throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException {
 		System.out.println("Working dir is: " + System.getProperty("user.dir"));
 		if (!createDoc())
 			return;
@@ -115,8 +113,7 @@ public class Main {
 		// testoutput();
 	}
 
-	public boolean createDoc() throws ParserConfigurationException,
-			SAXException, IOException {
+	public boolean createDoc() throws ParserConfigurationException, SAXException, IOException {
 		File input = new File("map.xml");
 		if (!input.exists()) {
 			System.out.println("File map.xml does not exist");
@@ -143,12 +140,9 @@ public class Main {
 	private void createNodes(NodeList nodes) {
 		nodesMap = new HashMap<>();
 		for (int i = 0; i < nodes.getLength(); i++) {
-			Long id = Long.valueOf(nodes.item(i).getAttributes()
-					.getNamedItem("id").getNodeValue());
-			String sLat = nodes.item(i).getAttributes().getNamedItem("lat")
-					.getNodeValue();
-			String sLon = nodes.item(i).getAttributes().getNamedItem("lat")
-					.getNodeValue();
+			Long id = Long.valueOf(nodes.item(i).getAttributes().getNamedItem("id").getNodeValue());
+			String sLat = nodes.item(i).getAttributes().getNamedItem("lat").getNodeValue();
+			String sLon = nodes.item(i).getAttributes().getNamedItem("lat").getNodeValue();
 			double lat = Double.valueOf(sLat);
 			double lon = Double.valueOf(sLon);
 			Point point = new Point();
@@ -156,9 +150,8 @@ public class Main {
 			point.setY(lon);
 
 			List<String> keys = new ArrayList<>();
-			;
+
 			List<String> values = new ArrayList<>();
-			;
 
 			// Tags fetchen
 			NodeList n = nodes.item(i).getChildNodes();
@@ -166,10 +159,8 @@ public class Main {
 			// point.x +", " + point.y + ")");
 			for (int j = 0; j < n.getLength(); j++) {
 				if (n.item(j).getNodeName().equals("tag")) {
-					String k = n.item(j).getAttributes().getNamedItem("k")
-							.getNodeValue();
-					String v = n.item(j).getAttributes().getNamedItem("v")
-							.getNodeValue();
+					String k = n.item(j).getAttributes().getNamedItem("k").getNodeValue();
+					String v = n.item(j).getAttributes().getNamedItem("v").getNodeValue();
 					// System.out.println("Tags: " + k + " " + v);
 					keys.add(k);
 					values.add(v);
@@ -183,8 +174,7 @@ public class Main {
 	private void createWays(NodeList ways) {
 		waysMap = new HashMap<>();
 		for (int i = 0; i < ways.getLength(); i++) {
-			Long id = Long.valueOf(ways.item(i).getAttributes()
-					.getNamedItem("id").getNodeValue());
+			Long id = Long.valueOf(ways.item(i).getAttributes().getNamedItem("id").getNodeValue());
 
 			// fetch nodes
 			NodeList n = ways.item(i).getChildNodes();
@@ -196,8 +186,7 @@ public class Main {
 			for (int j = 0; j < n.getLength(); j++) {
 				if (n.item(j).getNodeName().equals("nd")) {
 
-					String sNodeID = n.item(j).getAttributes()
-							.getNamedItem("ref").getNodeValue();
+					String sNodeID = n.item(j).getAttributes().getNamedItem("ref").getNodeValue();
 					Long nodeID = Long.valueOf(sNodeID);
 					// Test, if path is open
 					if (!closed) {
@@ -205,13 +194,13 @@ public class Main {
 						containingNodes.add(nodeID);
 					}
 					// System.out.println("Nodes: " + nodeID);
-					try{
-					Point point = nodesMap.get(nodeID).getP();
-					points.add(point);
-					}catch(Exception e){
-						
+					try {
+						Point point = nodesMap.get(nodeID).getP();
+						points.add(point);
+					} catch (Exception e) {
+
 					}
-					
+
 				}
 			}
 			Point[] pointsArray = new Point[points.size()];
@@ -219,10 +208,9 @@ public class Main {
 				pointsArray[j] = points.get(j);
 			}
 
-			
 			LineString path = new LineString(pointsArray);
-			
-		//	System.out.println("way closed " + closed);
+
+			// System.out.println("way closed " + closed);
 
 			List<String> keys = new ArrayList<>();
 			List<String> values = new ArrayList<>();
@@ -230,10 +218,8 @@ public class Main {
 			// Tags fetchen
 			for (int j = 0; j < n.getLength(); j++) {
 				if (n.item(j).getNodeName().equals("tag")) {
-					String k = n.item(j).getAttributes().getNamedItem("k")
-							.getNodeValue();
-					String v = n.item(j).getAttributes().getNamedItem("v")
-							.getNodeValue();
+					String k = n.item(j).getAttributes().getNamedItem("k").getNodeValue();
+					String v = n.item(j).getAttributes().getNamedItem("v").getNodeValue();
 					System.out.println("Tags: " + k + " " + v);
 					keys.add(k);
 					values.add(v);
@@ -257,10 +243,8 @@ public class Main {
 			NodeList n = nl.item(i).getChildNodes();
 			for (int j = 0; j < n.getLength(); j++)
 				if (n.item(j).getNodeName().equals("tag")) {
-					String k = n.item(j).getAttributes().getNamedItem("k")
-							.getNodeValue();
-					String v = n.item(j).getAttributes().getNamedItem("v")
-							.getNodeValue();
+					String k = n.item(j).getAttributes().getNamedItem("k").getNodeValue();
+					String v = n.item(j).getAttributes().getNamedItem("v").getNodeValue();
 
 					String key = "k=" + k + "\tv=" + v;
 					Integer val = tags.get(key);
@@ -275,14 +259,11 @@ public class Main {
 	}
 
 	public void testoutput() {
-		System.out
-				.println("Found " + nodes.getLength() + " Nodes of type node");
+		System.out.println("Found " + nodes.getLength() + " Nodes of type node");
 		System.out.println("Found " + ways.getLength() + " Nodes of type way");
-		System.out.println("Found " + relations.getLength()
-				+ " Nodes of type relation");
+		System.out.println("Found " + relations.getLength() + " Nodes of type relation");
 		Node item = ways.item(0);
-		System.out.println(item.getNodeName() + " "
-				+ item.getAttributes().getNamedItem("id"));
+		System.out.println(item.getNodeName() + " " + item.getAttributes().getNamedItem("id"));
 		System.out.println(item.getAttributes().getLength());
 		NodeList childNodes = item.getChildNodes();
 		System.out.println("Number of Child Nodes: " + childNodes.getLength());
@@ -306,43 +287,63 @@ public class Main {
 		}
 	}
 
-	public void connectToPostgres() throws ClassNotFoundException, SQLException {
+	public void connectToPostgres() throws ClassNotFoundException {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
-		// Connection conn = DriverManager.getConnection(url, "postgres", "");
-		Connection conn = DriverManager.getConnection(url, "admin", "admin");
+		Connection conn = null;
+		try {
+			conn = DriverManager.getConnection(url, "admin", "admin");
 
-		fillTablesNodes(conn);
-		fillTablesWays(conn);
-
-		conn.close();
-
+		} catch (SQLException e) {
+			try {
+				conn = DriverManager.getConnection(url, "postgres", "");
+			} catch (SQLException e2) {
+				System.out.println("Could not connect to database");
+				return;
+			}
+		} finally {
+			if (conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+		}
+		int done = 0;
+		done += fillTablesNodes(conn);
+		done += fillTablesWays(conn);
+		System.out.println("Done " + done + " entrys out of (" + (nodesMap.size() + waysMap.size()));
 	}
 
-	private boolean fillTablesNodes(Connection conn) throws SQLException {
+	private int fillTablesNodes(Connection conn) {
 		// Ampel
+		int positive = 0;// count only positive ones
 		for (long key : nodesMap.keySet()) {
 			if (nodesMap.get(key).value.contains("traffic_signals")) {
-				fillTableAmpel(conn, key);
+				positive += fillTableAmpel(conn, key) ? 1 : 0;
 			}
 			// Haltestelle
-			if (nodesMap.get(key).value.contains("bus_stop")
-					|| nodesMap.get(key).value.contains("tram_stop")) {
-				fillTableHaltestelle(conn, key);
+			if (nodesMap.get(key).value.contains("bus_stop") || nodesMap.get(key).value.contains("tram_stop")) {
+				positive += fillTableHaltestelle(conn, key) ? 1 : 0;
 			}
 			// Haus
 			if (nodesMap.get(key).key.contains("addr:housenumber")) {
-				fillTableHaus(conn, key);
+				positive += fillTableHaus(conn, key) ? 1 : 0;
 			}
 
 		}
-		return true;
+		return positive;
 	}
 
-	private boolean fillTableAmpel(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn
-				.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
+	private boolean fillTableAmpel(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
+		} catch (SQLException e) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Ampel");
+			return false;
+		}
 		long id = nodeKey;
 		MyNode node = nodesMap.get(nodeKey);
 		Point point = node.p;
@@ -360,22 +361,44 @@ public class Main {
 			if (node.value.get(index).equals("no"))
 				vib = false;
 		}
+
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, point,java.sql.Types.OTHER);
-		ps.setObject(3, sound);
-		ps.setObject(4, vib);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, point, java.sql.Types.OTHER);
+			ps.setObject(3, sound);
+			ps.setObject(4, vib);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			if (e.getMessage().contains("ASSERTION") && e.getMessage().contains("potentiel Verletzt"))
+				System.out.println("REASON: ASSERTION verletzt");
+			else
+				System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Ampel: Insert done");
 		return true;
 	}
 
-	private boolean fillTableHaltestelle(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		// id pos shelter busroutes name
-				"INSERT INTO haltestelle VALUES (?,?,?,?,?)");
+	private boolean fillTableHaltestelle(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					// id pos shelter busroutes name
+					"INSERT INTO haltestelle VALUES (?,?,?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haltestelle");
+			return false;
+		}
 		long id = nodeKey;
 		MyNode node = nodesMap.get(nodeKey);
 		Point point = node.p;
@@ -390,13 +413,29 @@ public class Main {
 		String sBusRoutes = getValueOfNodeByString(node, "bus_routes", 50);
 		String sName = getValueOfNodeByString(node, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, point,java.sql.Types.OTHER);
-		ps.setObject(3, shelter);
-		ps.setObject(4, sBusRoutes);
-		ps.setObject(5, sName);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, point, java.sql.Types.OTHER);
+			ps.setObject(3, shelter);
+			ps.setObject(4, sBusRoutes);
+			ps.setObject(5, sName);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			if (e.getMessage().contains("ASSERTION") && e.getMessage().contains("potentiel Verletzt"))
+				System.out.println("REASON: ASSERTION verletzt");
+			else
+				System.out.println("REASON: " + e.getMessage());
+			return false;
+
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		System.out.println("Buststops: Insert done");
 		return true;
 	}
@@ -443,22 +482,28 @@ public class Main {
 		return value;
 	}
 
-	private boolean fillTableHaus(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, sid bigserial ,-- Haus befindet sich an Weg
-		 * name varchar(50) , housenumber int , postcode int , city varchar(50)
-		 * , geb_nr int , levels int , height decimal , roof_shape varchar(50) ,
-		 * amnity varchar(50) , shop varchar(50) , tourism varchar(50) ,
-		 * operator varchar(50) , umriss polygon , pos point
-		 */
-		"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+	private boolean fillTableHaus(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, sid bigserial ,-- Haus befindet
+					 * sich an Weg name varchar(50) , housenumber int , postcode
+					 * int , city varchar(50) , geb_nr int , levels int , height
+					 * decimal , roof_shape varchar(50) , amnity varchar(50) ,
+					 * shop varchar(50) , tourism varchar(50) , operator
+					 * varchar(50) , umriss polygon , pos point
+					 */
+					"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haus");
+			return false;
+		}
 		long id = nodeKey;
 		MyNode node = nodesMap.get(nodeKey);
 
 		Point point = node.p;
-		
+
 		String name = getValueOfNodeByString(node, "name", 50);
 		String city = getValueOfNodeByString(node, "addr:city", 50);
 		String street = getValueOfNodeByString(node, "addr:street", 50);
@@ -490,37 +535,52 @@ public class Main {
 			height = Double.parseDouble(sheight);
 		}
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, street);
-		ps.setObject(3, name);
-		ps.setObject(4, sHousenumber);
-		ps.setObject(5, spostcode);
-		ps.setObject(6, city);
-		ps.setObject(7, geb_nr);
-		ps.setObject(8, levels);
-		ps.setObject(9, height);
-		ps.setObject(10, roof_shape);
-		ps.setObject(11, amnity);
-		ps.setObject(12, shop);
-		ps.setObject(13, tourism);
-		ps.setObject(14, operator);
-		ps.setObject(15, null);
-		ps.setObject(16, point,java.sql.Types.OTHER);
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, street);
+			ps.setObject(3, name);
+			ps.setObject(4, sHousenumber);
+			ps.setObject(5, spostcode);
+			ps.setObject(6, city);
+			ps.setObject(7, geb_nr);
+			ps.setObject(8, levels);
+			ps.setObject(9, height);
+			ps.setObject(10, roof_shape);
+			ps.setObject(11, amnity);
+			ps.setObject(12, shop);
+			ps.setObject(13, tourism);
+			ps.setObject(14, operator);
+			ps.setObject(15, null);
+			ps.setObject(16, point, java.sql.Types.OTHER);
 
-		ps.executeUpdate();
-		ps.close();
-		
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		}
+
 		System.out.println("Haus: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTablesWays(Connection conn) throws SQLException {
+	private int fillTablesWays(Connection conn) {
+		int positiv = 0;
 		for (long key : waysMap.keySet()) {
 			// Parkplatz
 			if (waysMap.get(key).value.contains("parking")) {
 				if (waysMap.get(key).isClosed()) {
-					fillTableParkplatz(conn, key);
+					positiv += fillTableParkplatz(conn, key) ? 1 : 0;
 				}
 
 			}
@@ -529,7 +589,7 @@ public class Main {
 				int index = waysMap.get(key).key.indexOf("building");
 				if (waysMap.get(key).value.get(index).contains("yes")) {
 					if (waysMap.get(key).isClosed()) {
-					fillTableHaus2(conn, key);
+						positiv += fillTableHaus2(conn, key) ? 1 : 0;
 					}
 				}
 			}
@@ -537,13 +597,10 @@ public class Main {
 			if (waysMap.get(key).key.contains("highway")) {
 				int index = waysMap.get(key).key.indexOf("highway");
 				String value = waysMap.get(key).value.get(index);
-				if (value.contains("primary") || value.contains("secondary")
-						|| value.contains("tertiary")
-						|| value.contains("residential")
-						|| value.contains("living_street")
-						|| value.contains("unclassified")
-						|| value.contains("service")) {
-					fillTableStreet(conn, key);
+				if (value.contains("primary") || value.contains("secondary") || value.contains("tertiary")
+						|| value.contains("residential") || value.contains("living_street")
+						|| value.contains("unclassified") || value.contains("service")) {
+					positiv += fillTableStreet(conn, key) ? 1 : 0;
 				}
 
 			}
@@ -551,16 +608,16 @@ public class Main {
 			if (waysMap.get(key).key.contains("railway")) {
 				int index = waysMap.get(key).key.indexOf("railway");
 				if (waysMap.get(key).value.get(index).contains("rail")) {
-					fillTableEisenbahn(conn, key);
+					positiv += fillTableEisenbahn(conn, key) ? 1 : 0;
 				} else if (waysMap.get(key).value.get(index).contains("tram")) {
-					fillTableStraßenbahn(conn, key);
+					positiv += fillTableStraßenbahn(conn, key) ? 1 : 0;
 				}
 			}
 			// Fluss
 			if (waysMap.get(key).key.contains("waterway")) {
 				int index = waysMap.get(key).key.indexOf("waterway");
 				if (waysMap.get(key).value.get(index).contains("river")) {
-					fillTableFluss(conn, key);
+					positiv += fillTableFluss(conn, key) ? 1 : 0;
 				}
 			}
 			// See
@@ -568,14 +625,14 @@ public class Main {
 				int index = waysMap.get(key).key.indexOf("natural");
 				if (waysMap.get(key).value.get(index).contains("water")) {
 					if (waysMap.get(key).isClosed()) {
-						fillTableSee(conn, key);
+						positiv += fillTableSee(conn, key) ? 1 : 0;
 					}
 				}
 			}
 			// Landnutzung
 			if (waysMap.get(key).key.contains("landuse")) {
 				if (waysMap.get(key).isClosed()) {
-					fillTableLandnutzung(conn, key);
+					positiv += fillTableLandnutzung(conn, key) ? 1 : 0;
 				}
 
 			}
@@ -585,11 +642,10 @@ public class Main {
 					int index = waysMap.get(key).key.indexOf("leisure");
 
 					if (waysMap.get(key).value.get(index).contains("park")) {
-						fillTablePark(conn, key);
-					} else if (waysMap.get(key).value.get(index).contains(
-							"playground")) {
+						positiv += fillTablePark(conn, key) ? 1 : 0;
+					} else if (waysMap.get(key).value.get(index).contains("playground")) {
 
-						fillTableSpielplatz(conn, key);
+						positiv += fillTableSpielplatz(conn, key) ? 1 : 0;
 					}
 				}
 			}
@@ -597,7 +653,7 @@ public class Main {
 			if (waysMap.get(key).key.contains("tunnel")) {
 				int index = waysMap.get(key).key.indexOf("tunnel");
 				if (waysMap.get(key).value.get(index).contains("yes")) {
-					fillTableTunnel(conn, key);
+					positiv += fillTableTunnel(conn, key) ? 1 : 0;
 				}
 			}
 
@@ -605,24 +661,30 @@ public class Main {
 			if (waysMap.get(key).key.contains("bridge")) {
 				int index = waysMap.get(key).key.indexOf("bridge");
 				if (waysMap.get(key).value.get(index).contains("yes")) {
-					fillTableBruecke(conn, key);
+					positiv += fillTableBruecke(conn, key) ? 1 : 0;
 				}
 			}
 		}
-		return true;
+		return positiv;
 	}
 
-	private boolean fillTableParkplatz(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, access boolean , fee boolean , capicity int ,
-		 * operator varchar (50) , umriss polygon , name varchar(50) ,
-		 */
-		"INSERT INTO parkplatz VALUES (?,?,?,?,?,?,?)");
+	private boolean fillTableParkplatz(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, access boolean , fee boolean ,
+					 * capicity int , operator varchar (50) , umriss polygon ,
+					 * name varchar(50) ,
+					 */
+					"INSERT INTO parkplatz VALUES (?,?,?,?,?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Parkplatz");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		LinearRing rings[] = { new LinearRing((way.path.getPoints())) };
 		Polygon polygon = new Polygon(rings);
 		// access
 		boolean access = way.key.contains("access");
@@ -646,36 +708,53 @@ public class Main {
 			capicity = Integer.parseInt(scapicity);
 		}
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, access);
-		ps.setObject(3, fee);
-		ps.setObject(4, capicity);
-		ps.setObject(5, operator);
-		ps.setObject(6, polygon, java.sql.Types.OTHER);
-		ps.setObject(7, name);
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, access);
+			ps.setObject(3, fee);
+			ps.setObject(4, capicity);
+			ps.setObject(5, operator);
+			ps.setObject(6, polygon, java.sql.Types.OTHER);
+			ps.setObject(7, name);
 
-		ps.executeUpdate();
-		ps.close();
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
 		System.out.println("Parkplatz: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableHaus2(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, sid bigserial ,-- Haus befindet sich an Weg
-		 * name varchar(50) , housenumber int , postcode int , city varchar(50)
-		 * , geb_nr int , levels int , height decimal , roof_shape varchar(50) ,
-		 * amnity varchar(50) , shop varchar(50) , tourism varchar(50) ,
-		 * operator varchar(50) , umriss polygon , pos point
-		 */
-		"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+	private boolean fillTableHaus2(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, sid bigserial ,-- Haus befindet
+					 * sich an Weg name varchar(50) , housenumber int , postcode
+					 * int , city varchar(50) , geb_nr int , levels int , height
+					 * decimal , roof_shape varchar(50) , amnity varchar(50) ,
+					 * shop varchar(50) , tourism varchar(50) , operator
+					 * varchar(50) , umriss polygon , pos point
+					 */
+					"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haus");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 
-		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		LinearRing rings[] = { new LinearRing((way.path.getPoints())) };
 		Polygon polygon = new Polygon(rings);
 
 		String name = getValueOfWayByString(way, "name", 50);
@@ -709,38 +788,56 @@ public class Main {
 			height = Double.parseDouble(sheight);
 		}
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, street);
-		ps.setObject(3, name);
-		ps.setObject(4, sHousenumber);
-		ps.setObject(5, spostcode);
-		ps.setObject(6, city);
-		ps.setObject(7, geb_nr);
-		ps.setObject(8, levels);
-		ps.setObject(9, height);
-		ps.setObject(10, roof_shape);
-		ps.setObject(11, amnity);
-		ps.setObject(12, shop);
-		ps.setObject(13, tourism);
-		ps.setObject(14, operator);
-		ps.setObject(15, polygon, java.sql.Types.OTHER);
-		ps.setObject(16, null);
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, street);
+			ps.setObject(3, name);
+			ps.setObject(4, sHousenumber);
+			ps.setObject(5, spostcode);
+			ps.setObject(6, city);
+			ps.setObject(7, geb_nr);
+			ps.setObject(8, levels);
+			ps.setObject(9, height);
+			ps.setObject(10, roof_shape);
+			ps.setObject(11, amnity);
+			ps.setObject(12, shop);
+			ps.setObject(13, tourism);
+			ps.setObject(14, operator);
+			ps.setObject(15, polygon, java.sql.Types.OTHER);
+			ps.setObject(16, null);
 
-		ps.executeUpdate();
-		ps.close();
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Haus: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableStreet(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, name varchar(50) , oneway boolean , maxspeed
-		 * int , surface varchar(50) , lanes int , path path ,
-		 */
-		"INSERT INTO strasse VALUES (?,?,?,?,?,?,?)");
+	private boolean fillTableStreet(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, name varchar(50) , oneway boolean
+					 * , maxspeed int , surface varchar(50) , lanes int , path
+					 * path ,
+					 */
+					"INSERT INTO strasse VALUES (?,?,?,?,?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Street");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 		LineString path = way.path;
@@ -765,185 +862,319 @@ public class Main {
 		}
 
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, name);
-		ps.setObject(3, oneway);
-		ps.setObject(4, maxspeed);
-		ps.setObject(5, surface);
-		ps.setObject(6, lanes);
-		ps.setObject(7, path, java.sql.Types.OTHER);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, name);
+			ps.setObject(3, oneway);
+			ps.setObject(4, maxspeed);
+			ps.setObject(5, surface);
+			ps.setObject(6, lanes);
+			ps.setObject(7, path, java.sql.Types.OTHER);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
 		System.out.println("Straße: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableStraßenbahn(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, path path
-		 */
-		"INSERT INTO strassenbahn VALUES (?,?)");
+	private boolean fillTableStraßenbahn(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, path path
+					 */
+					"INSERT INTO strassenbahn VALUES (?,?)");
+		} catch (SQLException e) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 		LineString path = way.path;
 
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, path, java.sql.Types.OTHER);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, path, java.sql.Types.OTHER);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
 		System.out.println("Straßenbahn: Insert done");
 		return true;
 	}
 
-	private boolean fillTableEisenbahn(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, path path
-		 */
-		"INSERT INTO eisenbahn VALUES (?,?)");
+	private boolean fillTableEisenbahn(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, path path
+					 */
+					"INSERT INTO eisenbahn VALUES (?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Eisenbahn");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 		LineString path = way.path;
 
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, path,java.sql.Types.OTHER);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, path, java.sql.Types.OTHER);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Eisenbahn: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableFluss(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, path path
-		 */
-		"INSERT INTO fluss VALUES (?,?,?)");
+	private boolean fillTableFluss(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, path path
+					 */
+					"INSERT INTO fluss VALUES (?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Fluss");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 		LineString path = way.path;
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, name);
-		ps.setObject(3, path,java.sql.Types.OTHER);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, name);
+			ps.setObject(3, path, java.sql.Types.OTHER);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Fluss: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableSee(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, umriss polygon , name varchar(50)
-		 */
-		"INSERT INTO see VALUES (?,?,?)");
+	private boolean fillTableSee(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, umriss polygon , name varchar(50)
+					 */
+					"INSERT INTO see VALUES (?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table See");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		LinearRing rings[] = { new LinearRing((way.path.getPoints())) };
 		Polygon polygon = new Polygon(rings);
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, polygon, java.sql.Types.OTHER);
-		ps.setObject(3, name);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, polygon, java.sql.Types.OTHER);
+			ps.setObject(3, name);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("See: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableLandnutzung(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, umriss polygon , name varchar(50)
-		 */
-		"INSERT INTO landnutzung VALUES (?,?,?)");
+	private boolean fillTableLandnutzung(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, umriss polygon , name varchar(50)
+					 */
+					"INSERT INTO landnutzung VALUES (?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Landnutzung");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		LinearRing rings[] = { new LinearRing((way.path.getPoints())) };
 		Polygon polygon = new Polygon(rings);
 		String name = getValueOfWayByString(way, "landuse", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, polygon, java.sql.Types.OTHER);
-		ps.setObject(3, name);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, polygon, java.sql.Types.OTHER);
+			ps.setObject(3, name);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Landnutzung: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTablePark(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, umriss polygon , name varchar(50)
-		 */
-		"INSERT INTO park VALUES (?,?,?)");
+	private boolean fillTablePark(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, umriss polygon , name varchar(50)
+					 */
+					"INSERT INTO park VALUES (?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Park");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		LinearRing rings[] = { new LinearRing((way.path.getPoints())) };
 		Polygon polygon = new Polygon(rings);
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, polygon, java.sql.Types.OTHER);
-		ps.setObject(3, name);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, polygon, java.sql.Types.OTHER);
+			ps.setObject(3, name);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Park: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableSpielplatz(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, umriss polygon , name varchar(50)
-		 */
-		"INSERT INTO spielplatz VALUES (?,?,?)");
+	private boolean fillTableSpielplatz(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, umriss polygon , name varchar(50)
+					 */
+					"INSERT INTO spielplatz VALUES (?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Spielplatz");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
-		LinearRing rings[] = {new LinearRing((way.path.getPoints()))};
+		LinearRing rings[] = { new LinearRing((way.path.getPoints())) };
 		Polygon polygon = new Polygon(rings);
 		String name = getValueOfWayByString(way, "name", 50);
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, polygon, java.sql.Types.OTHER);
-		ps.setObject(3, name);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, polygon, java.sql.Types.OTHER);
+			ps.setObject(3, name);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Spielplatz: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableTunnel(Connection conn, long nodeKey)
-			throws SQLException {
+	private boolean fillTableTunnel(Connection conn, long nodeKey) {
 
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, name varchar(50) , oneway boolean , maxspeed
-		 * int , surface varchar(50) , lanes int , road boolean , river boolean
-		 * , rail boolean ,path path ,
-		 */
-		"INSERT INTO tunnel VALUES (?,?,?,?,?,?,?,?,?,?)");
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, name varchar(50) , oneway boolean
+					 * , maxspeed int , surface varchar(50) , lanes int , road
+					 * boolean , river boolean , rail boolean ,path path ,
+					 */
+					"INSERT INTO tunnel VALUES (?,?,?,?,?,?,?,?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn");
+			return false;
+
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 		LineString path = way.path;
@@ -971,7 +1202,7 @@ public class Main {
 		int index = way.key.indexOf("railway");
 		if (index != -1 && way.value.get(index).equals("rail"))
 			rail = true;
-		//river
+		// river
 		boolean river = false;
 		index = way.key.indexOf("waterway");
 		if (index != -1 && way.value.get(index).equals("river"))
@@ -979,42 +1210,58 @@ public class Main {
 		// road
 		boolean road = false;
 		index = way.key.indexOf("highway");
-		if (index != -1){
-		String value = way.value.get(index);
-		if ((value.contains("primary") || value.contains("secondary")
-				|| value.contains("tertiary") || value.contains("residential")
-				|| value.contains("living_street")
-				|| value.contains("unclassified") || value.contains("service"))) {
-			road = true;
-		}
+		if (index != -1) {
+			String value = way.value.get(index);
+			if ((value.contains("primary") || value.contains("secondary") || value.contains("tertiary")
+					|| value.contains("residential") || value.contains("living_street")
+					|| value.contains("unclassified") || value.contains("service"))) {
+				road = true;
+			}
 		}
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, name);
-		ps.setObject(3, oneway);
-		ps.setObject(4, maxspeed);
-		ps.setObject(5, surface);
-		ps.setObject(6, lanes);
-		ps.setObject(7, road);
-		ps.setObject(8, river);
-		ps.setObject(9, rail);
-		ps.setObject(10, path, java.sql.Types.OTHER);
-		ps.executeUpdate();
-		ps.close();
+		try {
+			ps.setObject(1, id);
+			ps.setObject(2, name);
+			ps.setObject(3, oneway);
+			ps.setObject(4, maxspeed);
+			ps.setObject(5, surface);
+			ps.setObject(6, lanes);
+			ps.setObject(7, road);
+			ps.setObject(8, river);
+			ps.setObject(9, rail);
+			ps.setObject(10, path, java.sql.Types.OTHER);
+			ps.executeUpdate();
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Bruecke: Insert done");
 		return true;
 
 	}
 
-	private boolean fillTableBruecke(Connection conn, long nodeKey)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement(
-		/*
-		 * id bigserial not null, name varchar(50) , oneway boolean , maxspeed
-		 * int , surface varchar(50) , lanes int , road boolean , rail boolean
-		 * ,path path ,
-		 */
-		"INSERT INTO bruecke VALUES (?,?,?,?,?,?,?,?,?)");
+	private boolean fillTableBruecke(Connection conn, long nodeKey) {
+		PreparedStatement ps;
+		try {
+			ps = conn.prepareStatement(
+					/*
+					 * id bigserial not null, name varchar(50) , oneway boolean
+					 * , maxspeed int , surface varchar(50) , lanes int , road
+					 * boolean , rail boolean ,path path ,
+					 */
+					"INSERT INTO bruecke VALUES (?,?,?,?,?,?,?,?,?)");
+		} catch (SQLException e1) {
+			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn");
+			return false;
+		}
 		long id = nodeKey;
 		MyWay way = waysMap.get(nodeKey);
 		LineString path = way.path;
@@ -1047,27 +1294,40 @@ public class Main {
 		// rail
 		boolean road = false;
 		index = way.key.indexOf("highway");
-		if (index != -1){
-		String value = way.value.get(index);
-		if ((value.contains("primary") || value.contains("secondary")
-				|| value.contains("tertiary") || value.contains("residential")
-				|| value.contains("living_street")
-				|| value.contains("unclassified") || value.contains("service"))) {
-			road = true;
-		}
+		if (index != -1) {
+			String value = way.value.get(index);
+			if ((value.contains("primary") || value.contains("secondary") || value.contains("tertiary")
+					|| value.contains("residential") || value.contains("living_street")
+					|| value.contains("unclassified") || value.contains("service"))) {
+				road = true;
+			}
 		}
 		// setzen des Parameters und ausfuehren der Anweisung
-		ps.setObject(1, id);
-		ps.setObject(2, name);
-		ps.setObject(3, oneway);
-		ps.setObject(4, maxspeed);
-		ps.setObject(5, surface);
-		ps.setObject(6, lanes);
-		ps.setObject(7, road);
-		ps.setObject(8, rail);
-		ps.setObject(9, path, java.sql.Types.OTHER);
-		ps.executeUpdate();
-		ps.close();
+		try {
+
+			ps.setObject(1, id);
+			ps.setObject(2, name);
+			ps.setObject(3, oneway);
+			ps.setObject(4, maxspeed);
+			ps.setObject(5, surface);
+			ps.setObject(6, lanes);
+			ps.setObject(7, road);
+			ps.setObject(8, rail);
+			ps.setObject(9, path, java.sql.Types.OTHER);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			System.out.println("ERROR: at Node: " + nodeKey + " with statement " + ps.toString());
+			System.out.println("REASON: " + e.getMessage());
+			return false;
+		} finally {
+			try {
+				ps.close();
+			} catch (SQLException e) {
+				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
+			}
+		}
+
 		System.out.println("Bruecke: Insert done");
 		return true;
 
