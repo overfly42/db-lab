@@ -34,7 +34,8 @@ public class CheckDB {
 			if (checkName(conn, as)) {
 				if (checkSelectTestSysRel(conn, as)) {
 					insertAssertions(conn, as);
-
+					boolean crFct = createDOFunction(conn, as, "DO"+as.name);
+					System.out.println("Insert function: " + crFct);
 				}
 			}
 
@@ -147,4 +148,44 @@ public class CheckDB {
 		return true;
 		
 	}
+	
+	public boolean createDOFunction (Connection conn, Assertion as, String functionName) throws SQLException {
+		Statement create = conn.createStatement();
+		try {
+			ResultSet result = create.executeQuery("CREATE Function " + functionName + "() RETURNS TRIGGER AS " +
+							"'Declare ErgebnisRec RECORD; BEGIN " +
+							"SELECT INTO ErgebnisRec COUNT(*) AS Anzahl " +
+							"FROM TestSysRel " +
+							"WHERE NOT ( " + as.condition + "); " +
+							"IF (ErgebnisRec.Anzahl >=1 )" +
+							"THEN RAISE EXCEPTION" +
+							"''ASSERTION " + as.name + " potenziell verletzt!'';" +
+						    "END IF;" +
+						    "RETURN NEW;" +
+						    "END;'" +
+						    "LANGUAGE 'plpgsql';" );
+			System.out.println(result);
+		
+		}catch(Exception ex){
+			System.out.println("CREATE Function " + functionName + "() RETURNS TRIGGER AS " +
+					"'Declare ErgebnisRec RECORD; BEGIN " +
+					"SELECT INTO ErgebnisRec COUNT(*) AS Anzahl " +
+					"FROM TestSysRel " +
+					"WHERE NOT ( " + as.condition + "); " +
+					"IF (ErgebnisRec.Anzahl >=1 )" +
+					"THEN RAISE EXCEPTION" +
+					"''ASSERTION " + as.name + " potenziell verletzt!'';" +
+				    "END IF;" +
+				    "RETURN NEW;" +
+				    "END;'" +
+				    "LANGUAGE 'plpgsql';" );
+			System.out.println(ex);
+			return false;
+		}finally {
+			create.close();
+		}
+		return true;
+		
+	}
+	
 }

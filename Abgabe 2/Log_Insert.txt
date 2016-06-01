@@ -1,0 +1,17 @@
+Arbeitsverzeichnis ist: /home/lisa/db-lab/importAssertion
+Versuche Datei ../Abgabe 2/assertions.asn einzulesen
+In 63 relevanten Zeilen 7 Assertions gefunden
+---------------------------------------
+Running Precheck...
+Precheck done: 7 passed
+-----------------------------------------------
+Start DB Check...
+Insert keineStrasseDurchSpielplatzin DB.
+Insert keineParkplatzImSeein DB.
+Insert keineSpielplatzAufFriedhofin DB.
+Insert brueckeMussKreuzenin DB.
+Insert AmpelAnWegin DB.
+Insert HaltestelleAnWegin DB.
+Insert BrueckeIstWegin DB.
+Finished!
+
