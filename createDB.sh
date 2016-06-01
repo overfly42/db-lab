@@ -1,6 +1,6 @@
 #!/bin/bash
 #drop and recreate database geo
-parsediasql --file uml_db.dia --db postgres > ./create.sql 
+#parsediasql --file uml_db.dia --db postgres > ./create.sql 
 psql -U postgres -c "drop database geo"
 psql -U postgres -c "create database geo"
 psql -U postgres -d geo -c "CREATE EXTENSION postgis;"

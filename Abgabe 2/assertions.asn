@@ -16,7 +16,7 @@ create Assertion keineParkplatzImSee CHECK(
 #3. Kein Spielplatz auf Friedhof
 create Assertion keineSpielplatzAufFriedhof CHECK(
 	not exists(
-		select * from Landnutzung l, Spielplatz s where l.landuse = "cemetery" and ST_Crosses(l.umriss,s.umriss) or ST_Contains(l.umriss,s.umriss)
+		select * from Landnutzung l, Spielplatz s where l.landuse = 'cemetery' and ST_Crosses(l.umriss,s.umriss) or ST_Contains(l.umriss,s.umriss)
 ));
 
 #4. Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen
@@ -79,4 +79,10 @@ create Assertion BrueckeIstWeg CHECK(
 		select a.id from bruecke a, eisenbahn b 
 				where ST_Coveredby(a.path,b.path)
 )));
+
+#8. keine Haltestelle im Haus
+create Assertion keineHaltestelleImHaus CHECK(
+	not exists(
+		select * from Haltestelle h, Haus ha where ST_Contains(h.pos,ha.umriss)
+));
 

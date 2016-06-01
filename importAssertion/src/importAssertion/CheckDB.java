@@ -9,7 +9,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class CheckDB {
 	Parser parser;
@@ -32,19 +34,19 @@ public class CheckDB {
 		System.out.println("Start DB Check...");
 		checkTestSysRel(conn);
 		checkAssertionSysRel(conn);
-		List<String> tables = new ArrayList<>();
+		
 		for (Assertion as : p.precheckedAssertions) {
 			if (checkName(conn, as)) {
 				if (checkSelectTestSysRel(conn, as)) {
 					insertAssertions(conn, as);
-					tables.addAll(getUsedTables(conn, as));
+					Set<String> tables = getUsedTables(conn, as);
 					boolean crFct = createDOFunction(conn, as, "DO"+as.name);
 					System.out.println("Insert function: " + crFct);
+					boolean crTri = createTrigger(conn, as, "DO"+as.name, tables); 
+					System.out.println("Insert trigger: " + crTri);
 				}
 			}
-
 		}
-		System.out.println("Used " + tables.size() + " tables");
 		conn.close();
 		System.out.println("Finished!");
 	}
@@ -148,41 +150,38 @@ public class CheckDB {
 		return true;
 
 	}
-	private List<String> getUsedTables(Connection conn, Assertion as) throws SQLException {
-		List<String> output = new ArrayList<>();
+	private Set<String> getUsedTables(Connection conn, Assertion as) throws SQLException {
+		Set<String> output = new HashSet<>();
 		Statement statement = conn.createStatement();
 		ResultSet rs = statement.executeQuery("explain " + as.select);
-		int cols = rs.getMetaData().getColumnCount();
-		System.out.println("-------------");
-		System.out.println("Num of cols: " + cols);
+		int cols = rs.getMetaData().getColumnCount();;
 		while (rs.next()) {
 			for (int i = 1; i <= cols; i++) {
 				String res = rs.getString(i);
 				if(res.toLowerCase().contains("on"))
 				{
-//					System.out.println(res.trim());
 					String[] words = res.split(" ");
 					for(int n = 0; n < words.length;n++)
 						if(words[n].trim().toLowerCase().equals("on"))
 						{
-	//						System.out.println(words[n+1]);
 							output.add(words[n+1]);
 						}
 				}
 			}
 		}
-		System.out.println("-------------");
 		return output;
 	}
 	
 	public boolean createDOFunction (Connection conn, Assertion as, String functionName) throws SQLException {
 		Statement create = conn.createStatement();
 		try {
+			String condition = as.condition.replace('\'', '"');
+			
 			ResultSet result = create.executeQuery("CREATE Function " + functionName + "() RETURNS TRIGGER AS " +
 							"'Declare ErgebnisRec RECORD; BEGIN " +
 							"SELECT INTO ErgebnisRec COUNT(*) AS Anzahl " +
 							"FROM TestSysRel " +
-							"WHERE NOT ( " + as.condition + "); " +
+							"WHERE NOT ( " + condition + "); " +
 							"IF (ErgebnisRec.Anzahl >=1 )" +
 							"THEN RAISE EXCEPTION" +
 							"''ASSERTION " + as.name + " potenziell verletzt!'';" +
@@ -193,25 +192,41 @@ public class CheckDB {
 			System.out.println(result);
 		
 		}catch(Exception ex){
-			System.out.println("CREATE Function " + functionName + "() RETURNS TRIGGER AS " +
-					"'Declare ErgebnisRec RECORD; BEGIN " +
-					"SELECT INTO ErgebnisRec COUNT(*) AS Anzahl " +
-					"FROM TestSysRel " +
-					"WHERE NOT ( " + as.condition + "); " +
-					"IF (ErgebnisRec.Anzahl >=1 )" +
-					"THEN RAISE EXCEPTION" +
-					"''ASSERTION " + as.name + " potenziell verletzt!'';" +
-				    "END IF;" +
-				    "RETURN NEW;" +
-				    "END;'" +
-				    "LANGUAGE 'plpgsql';" );
-			System.out.println(ex);
-			return false;
+			if(ex.getMessage().contains("Die Abfrage lieferte kein Ergebnis.")){
+				return true;
+			}
+			else {
+				System.out.println(ex.getMessage());
+				return false;
+			}
 		}finally {
 			create.close();
 		}
 		return true;
 		
 	}
+	
+	public boolean createTrigger(Connection conn, Assertion as, String functionName, Set<String> tables) throws SQLException  {
+		Statement create = conn.createStatement();
+		int result = -1;
+		try {
+			for (String table: tables){
+				result = create.executeUpdate("CREATE TRIGGER CHECK"+as.name+table+" AFTER INSERT OR UPDATE OR DELETE ON "
+						+ table + " FOR EACH ROW EXECUTE PROCEDURE " + functionName +"();");
+		}
+		}catch(Exception ex){
+			System.out.println(ex.getMessage());
+			return false;
+		}finally {
+			create.close();
+		}
+		if (result == 0){
+			return true;
+		}else{
+			return false;
+		}
+			
+	}
+	
 	
 }
