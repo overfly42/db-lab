@@ -34,7 +34,8 @@ public class Parser {
 
 	private File checkFile(String file) {
 		if (!file.endsWith(".asn")) {
-			System.out.println("Datei sollte mit \".asn\" enden\nProgramm Ende");
+			System.out
+					.println("Datei sollte mit \".asn\" enden\nProgramm Ende");
 			System.exit(-1);
 
 		}
@@ -67,10 +68,12 @@ public class Parser {
 		String assertion = "";
 		for (String s : rawData) {
 			char[] letters = s.toCharArray();
-			if (assertion.length() > 0 && s.toLowerCase().trim().startsWith("create assertion")) {
-				System.out.println(
-						"Assertion error, skipping\nfault(qoutes,brakets, or ; in (create assertion (case ignored) is not a valid keyword within the assertion)):"
-								+ assertion);
+			if (assertion.length() > 0
+					&& s.toLowerCase().trim().startsWith("create assertion")) {
+				System.out.println("Error:" + assertion);
+				System.out
+						.println("\tERROR: Assertion skipped. Quotes, brakets or ; is missing. New \"create assertion\" found"
+								);
 
 				inQuotes = false;
 				assertion = "";
@@ -97,7 +100,8 @@ public class Parser {
 				assertion = "";
 			}
 		}
-		System.out.println("In " + rawData.size() + " relevanten Zeilen " + data.size() + " Assertions gefunden");
+		System.out.println("In " + rawData.size() + " relevanten Zeilen "
+				+ data.size() + " Assertions gefunden");
 		return data;
 	}
 
@@ -107,46 +111,69 @@ public class Parser {
 			a.select = getSelectFromAssertion(a);
 			if (a.name == null || a.condition == null || a.select == null) {
 				if (a.name == null)
-					System.out.println("Assertion has no name");
-				else if (a.condition == null)
-					System.out.println("Assertion " + a.name + "has not condition");
-				else if (a.select == null)
-					System.out.println("Could not fetch select from condition in assertion " + a.name);
+					System.out.println("ERROR: Assertion has no name");
+				else if (a.condition == null){
+					System.out.println("Error in assertion: " + a.name);
+					System.out.println("\t ERROR: Assertion " + a.name
+							+ "has not condition");
+				}
+				else if (a.select == null){
+					System.out.println("Error in assertion: " + a.name);
+					System.out
+							.println("\t ERROR: Could not fetch select from condition.");
+				}
 				fails.add(a);
 			}
 		}
 		precheckedAssertions.removeAll(fails);
-		System.out.println(precheckedAssertions.size());
+		System.out.println("Precheck done: " + precheckedAssertions.size()
+				+ " passed");
+		System.out.println("-----------------------------------------------");
 	}
 
 	private String getSelectFromAssertion(Assertion a) {
 		String[] s = a.condition.split(" ");
 		String condition;
 		// check for exists or not exists
-		if (s[0].equals("not") && s[1].startsWith("exist") || s[0].startsWith("exist")) {
+		if (s[0].equals("not") && s[1].startsWith("exist")
+				|| s[0].startsWith("exist")) {
 			// remove first and last braked
-			condition = a.condition.substring(a.condition.indexOf('(') + 1, a.condition.length() - 1).trim();
+			condition = a.condition.substring(a.condition.indexOf('(') + 1,
+					a.condition.length() - 1).trim();
 
 		} else {
 			condition = null;
-			System.out.println("The condtion  of assertion \""+a.name+"\" should start with \"exist\" or \"not exist\"");
+			System.out.println("Error in assertion: " + a.name);
+			System.out.println("\tERROR: The condtion"
+					+ " should start with \"exist\" or \"not exist\"");
 		}
 		return condition;
 	}
 
 	private void runPreCheck(List<String> rawData) {
+		System.out.println("---------------------------------------");
+		System.out.println("Running Precheck...");
 		for (String s : rawData) {
 			String[] words = s.trim().split(" ");
 			// check keywords
 			if (words.length < 5)
 				continue;// not a valid number of tokens
-			if (!words[0].toLowerCase().equals("create"))
+			if (!words[0].toLowerCase().equals("create")) {
+				System.out.println("Error: " + s);
+				System.out.println("\tERROR: Missing Keyword create at " + words[0]);
 				continue;// first word has to be create, in upper or lower or
 							// mixed case
-			if (!words[1].toLowerCase().equals("assertion"))
+			}
+			if (!words[1].toLowerCase().equals("assertion")) {
+				System.out.println("Error: " + s);
+				System.out.println("\tERROR: Missing Keyword assertion at " + words[1]);
 				continue;// see to rows above
-			if (!words[3].toLowerCase().startsWith("check"))
+			}
+			if (!words[3].toLowerCase().startsWith("check")) {
+				System.out.println("Error: " + s);
+				System.out.println("\tERROR: Missing Keyword check " + words[3]);
 				continue;// see four rows above
+			}
 			if (words[3].length() > 5)
 				words[3] = words[3].substring(5);
 			else
@@ -160,14 +187,18 @@ public class Parser {
 				a.condition += " " + words[i];
 			a.condition = a.condition.trim();
 			if (a.condition.endsWith(";")) {// belongs to the create assertion
-				a.condition = a.condition.substring(0, a.condition.length() - 1).trim();
+				a.condition = a.condition
+						.substring(0, a.condition.length() - 1).trim();
 			}
 			if (a.condition.startsWith("(")) {
 				a.condition = a.condition.substring(1);
 				if (a.condition.endsWith(")")) // belongs to
-					a.condition = a.condition.substring(0, a.condition.length() - 1).trim();
-				else
-					System.out.println("Ist hier ein Fehler?");
+					a.condition = a.condition.substring(0,
+							a.condition.length() - 1).trim();
+				else{
+					System.out.println("Warning in assertion: " + a.name);
+					System.out.println("\tWARNING: Check Brackets!");
+				}		
 			}
 
 			// System.out.println(a.condition);

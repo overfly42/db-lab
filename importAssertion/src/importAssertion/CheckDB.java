@@ -29,6 +29,7 @@ public class CheckDB {
 			}
 
 		}
+		System.out.println("Start DB Check...");
 		checkTestSysRel(conn);
 		checkAssertionSysRel(conn);
 		List<String> tables = new ArrayList<>();
@@ -43,6 +44,7 @@ public class CheckDB {
 		}
 		System.out.println("Used " + tables.size() + " tables");
 		conn.close();
+		System.out.println("Finished!");
 	}
 
 	// TestSysRel
@@ -87,7 +89,7 @@ public class CheckDB {
 			ResultSet exists = stmt.executeQuery(as.select);
 		} catch (Exception e) {
 			System.out.println("Error in assertion " + as.name + ":");
-			System.out.println(e.getMessage());
+			System.out.println("\t" + e.getMessage());
 			return false;
 		} finally {
 			stmt.close();
@@ -96,18 +98,20 @@ public class CheckDB {
 	}
 
 	// insert Assertions
-	private void insertAssertions(Connection conn, Assertion as) throws SQLException {
+	private void insertAssertions(Connection conn, Assertion as)
+			throws SQLException {
 		PreparedStatement ps = conn.prepareStatement("INSERT INTO AssertionSysRel VALUES (?,?)");
 		ps.setObject(1, as.name);
 		ps.setObject(2, as.condition);
 		try {
 			ps.execute();
+			System.out.println("Insert " + as.name + "in DB.");
 		} catch (Exception e) {
 			System.out.println("Error in assertion " + as.name + ":");
 			if (e.getMessage().contains("duplicate key value violates unique")) {
-				System.out.println("Assertion already exists");
+				System.out.println("\t ERROR: Assertion already exists");
 			} else {
-				System.out.println(e.getMessage());
+				System.out.println("\t" + e.getMessage());
 			}
 
 		} finally {
@@ -123,7 +127,16 @@ public class CheckDB {
 			create.executeUpdate("DROP TABLE " + as.name);
 		} catch (Exception e) {
 			System.out.println("Error in assertion " + as.name + ":");
-			System.out.println("Invalid assertion name");
+			
+			if(e.getMessage().contains("syntax error")){
+				System.out.println("\tERROR: Invalid assertion name");
+				try{
+					Integer.parseInt(""+ as.name.toCharArray()[0]);
+				System.out.println("\tAssertion should start with a letter");
+			}catch(Exception ex){}}
+			else{
+				System.out.println(e.getMessage());
+			}
 			return false;
 
 		} finally {
@@ -133,7 +146,6 @@ public class CheckDB {
 		return true;
 
 	}
-
 	private List<String> getUsedTables(Connection conn, Assertion as) throws SQLException {
 		List<String> output = new ArrayList<>();
 		Statement statement = conn.createStatement();

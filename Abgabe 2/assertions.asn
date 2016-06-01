@@ -1,33 +1,25 @@
-#I. Kein Haus in See
-create Assertion keinHausInSee CHECK(
-	not exist(
-		select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss)
-	));
-#II. Straße kreuzt Spielplatz
+
+#1. Straße kreuzt Spielplatz
 create Assertion keineStrasseDurchSpielplatz CHECK(
 	not exist(
 		select * from Strasse t, Spielplatz p where ST_Crosses(t.path,p.umriss)
 ));
 
-#III. Keine Straßen durch Häuser
-create Assertion keineStrasseDurchHaus CHECK(
-	not exist(
-		select * from Strasse s, haus h where ST_Crosses(s.path,h.umriss)
-));
 
-#IV. Kein Parkplatz im See
+
+#2. Kein Parkplatz im See
 create Assertion keineParkplatzImSee CHECK(
 	not exist(
-		select * from See s, Parkplatz p where ST_Crosses(s.umriss,p.umriss)
+		select * from See s, Parkplatz p where ST_Crosses(s.umriss,p.umriss) or ST_Contains(s.umriss,p.umriss)
 ));
 
-#V. Kein Spielplatz auf Friedhof
+#3. Kein Spielplatz auf Friedhof
 create Assertion keineSpielplatzAufFriedhof CHECK(
 	not exist(
-		select * from Landnutzung l, Spielplatz s where l.landuse = 'cemetery' and ST_Crosses(l.umriss,s.umriss)
+		select * from Landnutzung l, Spielplatz s where l.landuse = 'cemetery' and ST_Crosses(l.umriss,s.umriss) or ST_Contains(l.umriss,s.umriss)
 ));
 
-#VI. Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen
+#4. Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen
 create Assertion brueckeMussKreuzen CHECK(
 	not exist(
 	select b.id from bruecke as b where b.id not in (
@@ -44,7 +36,7 @@ create Assertion brueckeMussKreuzen CHECK(
 				where ST_Crosses(b.path, f.path)
 )));
 
-#VII. Ampel an Straße, Straßenban, Eisenbahn 
+#5. Ampel an Straße, Straßenban, Eisenbahn 
 #//Es wird davon ausgegangen, dass eine Ampel immer an einer Straße ist
 create Assertion AmpelAnWeg CHECK(
 	not exist(
@@ -59,7 +51,7 @@ create Assertion AmpelAnWeg CHECK(
 				where ST_CoveredBy(a.pos, e.path)
 )));
 
-#VIII. Haltestelle an Straßenbahn, Schiene, Straße 
+#6. Haltestelle an Straßenbahn, Schiene, Straße 
 #//Es wird davon ausgegangen, dass eine Haltestelle 
 create Assertion HaltestelleAnWeg CHECK(
 	not exist(
@@ -74,7 +66,7 @@ create Assertion HaltestelleAnWeg CHECK(
 				where ST_CoveredBy(h.pos, e.path)
 )));
 
-#IX. Brücke auf Straße, Straßenbahn und Eisenbahn
+#7. Brücke auf Straße, Straßenbahn und Eisenbahn
 create Assertion BrueckeIstWeg CHECK(
 	not exist(
 	select a.id from bruecke as a where a.id not in (
@@ -88,10 +80,3 @@ create Assertion BrueckeIstWeg CHECK(
 				where ST_Coveredby(a.path,b.path)
 )));
 
-#X. Parkplatz an Straße
-create Assertion ParkplatzAnStraße Check(
-	not exist(
-	select a.id from Parkplatz as a where a.id not in (
-		select a.id from Parkplatz as a, Strasse as b 
-				where ST_Crosses(a.umriss,b.path))
-));
