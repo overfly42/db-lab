@@ -8,6 +8,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CheckDB {
 	Parser parser;
@@ -17,27 +19,29 @@ public class CheckDB {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
 		Connection conn;
-		try{
+		try {
 			conn = DriverManager.getConnection(url, "postgres", "admin");
-		}catch (Exception e){
-			try{
-					conn = DriverManager.getConnection(url, "postgres", "");
+		} catch (Exception e) {
+			try {
+				conn = DriverManager.getConnection(url, "postgres", "");
+			} catch (Exception ex) {
+				conn = DriverManager.getConnection(url, "admin", "admin");
 			}
-			catch (Exception ex){
-				 	conn = DriverManager.getConnection(url, "admin", "admin");	
-			}
-			
+
 		}
 		checkTestSysRel(conn);
 		checkAssertionSysRel(conn);
-		for(Assertion as : p.precheckedAssertions){
-			if(checkName(conn, as)){
-				if (checkSelectTestSysRel(conn, as)){
+		List<String> tables = new ArrayList<>();
+		for (Assertion as : p.precheckedAssertions) {
+			if (checkName(conn, as)) {
+				if (checkSelectTestSysRel(conn, as)) {
 					insertAssertions(conn, as);
+					tables.addAll(getUsedTables(conn, as));
 				}
 			}
-				
+
 		}
+		System.out.println("Used " + tables.size() + " tables");
 		conn.close();
 	}
 
@@ -75,66 +79,85 @@ public class CheckDB {
 			create.close();
 		}
 	}
-	
-	//check Select in TestSysRel
+
+	// check Select in TestSysRel
 	private boolean checkSelectTestSysRel(Connection conn, Assertion as) throws SQLException {
 		Statement stmt = conn.createStatement();
 		try {
 			ResultSet exists = stmt.executeQuery(as.select);
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			System.out.println("Error in assertion " + as.name + ":");
 			System.out.println(e.getMessage());
 			return false;
-		}
-		finally {
+		} finally {
 			stmt.close();
 		}
 		return true;
 	}
-	
-	//insert Assertions
-	private void insertAssertions (Connection conn, Assertion as) throws SQLException {
-		PreparedStatement ps = conn
-				.prepareStatement("INSERT INTO AssertionSysRel VALUES (?,?)");
+
+	// insert Assertions
+	private void insertAssertions(Connection conn, Assertion as) throws SQLException {
+		PreparedStatement ps = conn.prepareStatement("INSERT INTO AssertionSysRel VALUES (?,?)");
 		ps.setObject(1, as.name);
 		ps.setObject(2, as.condition);
 		try {
-			ps.execute();	
-		}
-		catch (Exception e){
+			ps.execute();
+		} catch (Exception e) {
 			System.out.println("Error in assertion " + as.name + ":");
-			if(e.getMessage().contains("duplicate key value violates unique")){
+			if (e.getMessage().contains("duplicate key value violates unique")) {
 				System.out.println("Assertion already exists");
-			}
-			else{
+			} else {
 				System.out.println(e.getMessage());
 			}
-			
-		}
-		finally {
+
+		} finally {
 			ps.close();
 		}
 	}
-	
-	private boolean checkName (Connection conn, Assertion as) throws SQLException {
+
+	private boolean checkName(Connection conn, Assertion as) throws SQLException {
 		Statement create = conn.createStatement();
 
 		try {
 			create.executeUpdate("CREATE TABLE " + as.name + " ( id INT )");
 			create.executeUpdate("DROP TABLE " + as.name);
-		}
-		catch (Exception e){
+		} catch (Exception e) {
 			System.out.println("Error in assertion " + as.name + ":");
-			System.out.println("Invalid assertion name");	
+			System.out.println("Invalid assertion name");
 			return false;
-			
+
 		} finally {
 			create.close();
 		}
-		
+
 		return true;
-		
+
 	}
 
+	private List<String> getUsedTables(Connection conn, Assertion as) throws SQLException {
+		List<String> output = new ArrayList<>();
+		Statement statement = conn.createStatement();
+		ResultSet rs = statement.executeQuery("explain " + as.select);
+		int cols = rs.getMetaData().getColumnCount();
+		System.out.println("-------------");
+		System.out.println("Num of cols: " + cols);
+		while (rs.next()) {
+			for (int i = 1; i <= cols; i++) {
+				String res = rs.getString(i);
+				if(res.toLowerCase().contains("on"))
+				{
+//					System.out.println(res.trim());
+					String[] words = res.split(" ");
+					for(int n = 0; n < words.length;n++)
+						if(words[n].trim().toLowerCase().equals("on"))
+						{
+	//						System.out.println(words[n+1]);
+							output.add(words[n+1]);
+						}
+				}
+			}
+		}
+		System.out.println("-------------");
+		return output;
+	}
 }
