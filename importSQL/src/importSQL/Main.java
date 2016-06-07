@@ -395,8 +395,9 @@ public class Main {
 			ps = conn.prepareStatement(
 					// id pos shelter busroutes name
 					"INSERT INTO haltestelle VALUES (?,?,?,?,?)");
-		} catch (SQLException e1) {
+		} catch (SQLException e) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haltestelle");
+			System.out.println("REASON: " + e.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -495,8 +496,9 @@ public class Main {
 					 * varchar(50) , umriss polygon , pos point
 					 */
 					"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-		} catch (SQLException e1) {
+		} catch (SQLException e) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haus");
+			System.out.println("REASON: " + e.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -678,8 +680,9 @@ public class Main {
 					 * name varchar(50) ,
 					 */
 					"INSERT INTO parkplatz VALUES (?,?,?,?,?,?,?)");
-		} catch (SQLException e1) {
+		} catch (SQLException e) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Parkplatz");
+			System.out.println("REASON: " + e.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -747,8 +750,9 @@ public class Main {
 					 * varchar(50) , umriss polygon , pos point
 					 */
 					"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-		} catch (SQLException e1) {
+		} catch (SQLException e) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haus");
+			System.out.println("REASON: " + e.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -836,6 +840,7 @@ public class Main {
 					"INSERT INTO strasse VALUES (?,?,?,?,?,?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Street");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -897,6 +902,7 @@ public class Main {
 					"INSERT INTO strassenbahn VALUES (?,?)");
 		} catch (SQLException e) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn");
+			System.out.println("REASON: " + e.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -933,6 +939,7 @@ public class Main {
 					"INSERT INTO eisenbahn VALUES (?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Eisenbahn");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -971,6 +978,7 @@ public class Main {
 					"INSERT INTO fluss VALUES (?,?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Fluss");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -1010,6 +1018,7 @@ public class Main {
 					"INSERT INTO see VALUES (?,?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table See");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -1050,6 +1059,7 @@ public class Main {
 					"INSERT INTO landnutzung VALUES (?,?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Landnutzung");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -1089,6 +1099,7 @@ public class Main {
 					"INSERT INTO park VALUES (?,?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Park");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -1129,6 +1140,7 @@ public class Main {
 					"INSERT INTO spielplatz VALUES (?,?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Spielplatz");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 		}
 		long id = nodeKey;
@@ -1172,6 +1184,7 @@ public class Main {
 					"INSERT INTO tunnel VALUES (?,?,?,?,?,?,?,?,?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 
 		}
@@ -1260,6 +1273,7 @@ public class Main {
 					"INSERT INTO bruecke VALUES (?,?,?,?,?,?,?,?,?)");
 		} catch (SQLException e1) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn");
+			System.out.println("REASON: " + e1.getMessage());
 			return false;
 		}
 		long id = nodeKey;
