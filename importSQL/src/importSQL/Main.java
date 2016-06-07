@@ -114,7 +114,7 @@ public class Main {
 	}
 
 	public boolean createDoc() throws ParserConfigurationException, SAXException, IOException {
-		File input = new File("map.xml");
+		File input = new File("map_kurz.xml");
 		if (!input.exists()) {
 			System.out.println("File map.xml does not exist");
 			return false;
@@ -301,19 +301,18 @@ public class Main {
 				System.out.println("Could not connect to database");
 				return;
 			}
-		} finally {
-			if (conn != null)
-				try {
-					conn.close();
-				} catch (SQLException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
 		}
 		int done = 0;
 		done += fillTablesNodes(conn);
 		done += fillTablesWays(conn);
-		System.out.println("Done " + done + " entrys out of (" + (nodesMap.size() + waysMap.size()));
+		System.out.println("Done " + done + " entrys out of " + (nodesMap.size() + waysMap.size()));
+		if (conn != null)
+			try {
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 	}
 
 	private int fillTablesNodes(Connection conn) {
@@ -342,6 +341,7 @@ public class Main {
 			ps = conn.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
 		} catch (SQLException e) {
 			System.out.println("ERROR: Could not create Statement for Node: " + nodeKey + " to table Ampel");
+			System.out.println("REASON: " + e.getMessage());
 			return false;
 		}
 		long id = nodeKey;
