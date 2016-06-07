@@ -114,7 +114,7 @@ public class Main {
 	}
 
 	public boolean createDoc() throws ParserConfigurationException, SAXException, IOException {
-		File input = new File("map_kurz.xml");
+		File input = new File("map.xml");
 		if (!input.exists()) {
 			System.out.println("File map.xml does not exist");
 			return false;
