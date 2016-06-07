@@ -385,7 +385,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Ampel: Insert done");
+		//System.out.println("Ampel: Insert done");
 		return true;
 	}
 
@@ -437,7 +437,7 @@ public class Main {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Buststops: Insert done");
+		//System.out.println("Buststops: Insert done");
 		return true;
 	}
 
@@ -571,7 +571,7 @@ public class Main {
 
 		}
 
-		System.out.println("Haus: Insert done");
+		//System.out.println("Haus: Insert done");
 		return true;
 
 	}
@@ -732,7 +732,7 @@ public class Main {
 				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
 			}
 		}
-		System.out.println("Parkplatz: Insert done");
+		//System.out.println("Parkplatz: Insert done");
 		return true;
 
 	}
@@ -823,7 +823,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Haus: Insert done");
+	//	System.out.println("Haus: Insert done");
 		return true;
 
 	}
@@ -887,7 +887,7 @@ public class Main {
 				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
 			}
 		}
-		System.out.println("Straße: Insert done");
+		//System.out.println("Straße: Insert done");
 		return true;
 
 	}
@@ -925,7 +925,7 @@ public class Main {
 				System.out.println("ERROR: at Node: " + nodeKey + " could not close Statement");
 			}
 		}
-		System.out.println("Straßenbahn: Insert done");
+		//System.out.println("Straßenbahn: Insert done");
 		return true;
 	}
 
@@ -963,7 +963,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Eisenbahn: Insert done");
+		//System.out.println("Eisenbahn: Insert done");
 		return true;
 
 	}
@@ -1003,7 +1003,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Fluss: Insert done");
+		//System.out.println("Fluss: Insert done");
 		return true;
 
 	}
@@ -1044,7 +1044,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("See: Insert done");
+		//System.out.println("See: Insert done");
 		return true;
 
 	}
@@ -1084,7 +1084,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Landnutzung: Insert done");
+		//System.out.println("Landnutzung: Insert done");
 		return true;
 
 	}
@@ -1125,7 +1125,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Park: Insert done");
+		//System.out.println("Park: Insert done");
 		return true;
 
 	}
@@ -1166,7 +1166,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Spielplatz: Insert done");
+		//System.out.println("Spielplatz: Insert done");
 		return true;
 
 	}
@@ -1256,7 +1256,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Bruecke: Insert done");
+		//System.out.println("Bruecke: Insert done");
 		return true;
 
 	}
@@ -1342,7 +1342,7 @@ public class Main {
 			}
 		}
 
-		System.out.println("Bruecke: Insert done");
+		//System.out.println("Bruecke: Insert done");
 		return true;
 
 	}
