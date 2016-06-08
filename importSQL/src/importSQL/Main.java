@@ -281,7 +281,7 @@ public class Main {
 		// Mehrfach drüber gehen, wegen Aobhängigkeit
 		while (!checkInsertStable){
 			
-			System.out.println(counter + ". Durchlauf: ");
+			System.out.println(counter++ + ". Durchlauf: ");
 			done.addAll(fillTablesNodes(conn));
 			// Eingefügte löschen
 			for(long key : done){
@@ -1353,4 +1353,9 @@ public class Main {
 		return true;
 
 	}
+	private void calculateViolatedAssertions(String exception){
+	//	exception.s
+	}
+	
+	
 }

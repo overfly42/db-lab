@@ -13,11 +13,6 @@ create Assertion keineParkplatzImSee CHECK(
 		select * from See s, Parkplatz p where ST_Crosses(s.umriss,p.umriss) or ST_Contains(s.umriss,p.umriss)
 ));
 
-#3. Kein Spielplatz auf Friedhof
-create Assertion keineSpielplatzAufFriedhof CHECK(
-	not exists(
-		select * from Landnutzung l, Spielplatz s where l.landuse = 'cemetery' and ST_Crosses(l.umriss,s.umriss) or ST_Contains(l.umriss,s.umriss)
-));
 
 #4. Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen
 create Assertion brueckeMussKreuzen CHECK(
