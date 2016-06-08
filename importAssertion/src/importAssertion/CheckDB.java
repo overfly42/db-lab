@@ -195,7 +195,7 @@ public class CheckDB {
 		Statement create = conn.createStatement();
 		String cmd = null;
 		try {
-			String condition = as.condition.replace('\'', '"');
+			String condition = as.condition.replace("'", "$$");
 			cmd = "CREATE Function " + functionName + "() RETURNS TRIGGER AS " +
 					"'Declare ErgebnisRec RECORD; BEGIN " +
 					"SELECT INTO ErgebnisRec COUNT(*) AS Anzahl " +
@@ -217,7 +217,7 @@ public class CheckDB {
 			}
 			else {
 				System.out.println(ex.getMessage());
-//				System.out.println(cmd);
+				System.out.println(cmd);
 				return false;
 			}
 		}finally {
