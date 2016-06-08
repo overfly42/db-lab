@@ -193,21 +193,22 @@ public class CheckDB {
 	
 	public boolean createDOFunction (Connection conn, Assertion as, String functionName) throws SQLException {
 		Statement create = conn.createStatement();
+		String cmd = null;
 		try {
 			String condition = as.condition.replace('\'', '"');
-			
-			ResultSet result = create.executeQuery("CREATE Function " + functionName + "() RETURNS TRIGGER AS " +
-							"'Declare ErgebnisRec RECORD; BEGIN " +
-							"SELECT INTO ErgebnisRec COUNT(*) AS Anzahl " +
-							"FROM TestSysRel " +
-							"WHERE NOT ( " + condition + "); " +
-							"IF (ErgebnisRec.Anzahl >=1 )" +
-							"THEN RAISE EXCEPTION" +
-							"''ASSERTION " + as.name + " potenziell verletzt!'';" +
-						    "END IF;" +
-						    "RETURN NEW;" +
-						    "END;'" +
-						    "LANGUAGE 'plpgsql';" );
+			cmd = "CREATE Function " + functionName + "() RETURNS TRIGGER AS " +
+					"'Declare ErgebnisRec RECORD; BEGIN " +
+					"SELECT INTO ErgebnisRec COUNT(*) AS Anzahl " +
+					"FROM TestSysRel " +
+					"WHERE NOT ( " + condition + "); " +
+					"IF (ErgebnisRec.Anzahl >=1 )" +
+					"THEN RAISE EXCEPTION" +
+					"''ASSERTION " + as.name + " potenziell verletzt!'';" +
+				    "END IF;" +
+				    "RETURN NEW;" +
+				    "END;'" +
+				    "LANGUAGE 'plpgsql';";
+			ResultSet result = create.executeQuery(cmd);
 			System.out.println(result);
 		
 		}catch(Exception ex){
@@ -216,13 +217,13 @@ public class CheckDB {
 			}
 			else {
 				System.out.println(ex.getMessage());
+//				System.out.println(cmd);
 				return false;
 			}
 		}finally {
 			create.close();
 		}
 		return true;
-		
 	}
 	
 	public boolean createTrigger(Connection conn, Assertion as, String functionName, Set<String> tables) throws SQLException  {
