@@ -258,35 +258,6 @@ public class Main {
 		}
 	}
 
-	public void testoutput() {
-		System.out.println("Found " + nodes.getLength() + " Nodes of type node");
-		System.out.println("Found " + ways.getLength() + " Nodes of type way");
-		System.out.println("Found " + relations.getLength() + " Nodes of type relation");
-		Node item = ways.item(0);
-		System.out.println(item.getNodeName() + " " + item.getAttributes().getNamedItem("id"));
-		System.out.println(item.getAttributes().getLength());
-		NodeList childNodes = item.getChildNodes();
-		System.out.println("Number of Child Nodes: " + childNodes.getLength());
-		int tag = 0, nd = 0;
-		for (int i = 0; i < childNodes.getLength(); i++) {
-			if (childNodes.item(i).getNodeName().equals("tag"))
-				tag++;
-			if (childNodes.item(i).getNodeName().equals("nd"))
-				nd++;
-		}
-		System.out.println("Tag: " + tag + " nd: " + nd);
-		Set<String> s = new HashSet<>();
-		s.add("Blub");
-		System.out.println(s.size());
-		s.add("Blub");
-		System.out.println(s.size());
-
-		System.out.println("Tags");
-		for (String str : tags.keySet()) {
-			System.out.println(str + ":\t" + tags.get(str));
-		}
-	}
-
 	public void connectToPostgres() throws ClassNotFoundException {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
@@ -302,10 +273,32 @@ public class Main {
 				return;
 			}
 		}
-		int done = 0;
-		done += fillTablesNodes(conn);
-		done += fillTablesWays(conn);
-		System.out.println("Done " + done + " entrys out of " + (nodesMap.size() + waysMap.size()));
+		List<Long> done = new ArrayList<>();
+		int allEntries = nodesMap.size() + waysMap.size();
+		boolean checkInsertStable = false;
+		int inserts = 0;
+		int counter = 1;
+		// Mehrfach drüber gehen, wegen Aobhängigkeit
+		while (!checkInsertStable){
+			
+			System.out.println(counter + ". Durchlauf: ");
+			done.addAll(fillTablesNodes(conn));
+			// Eingefügte löschen
+			for(long key : done){
+				nodesMap.remove(key);
+			}
+			done.addAll(fillTablesWays(conn));
+			for(long key : done){
+				waysMap.remove(key);
+			}
+			inserts = inserts + done.size();
+			if (done.size() == 0){
+				checkInsertStable = true;
+			}
+			System.out.println("---------------------------------------");
+			done.clear();
+		}
+		System.out.println("Done " + inserts + " entrys out of " + (allEntries));
 		if (conn != null)
 			try {
 				conn.close();
@@ -315,24 +308,27 @@ public class Main {
 			}
 	}
 
-	private int fillTablesNodes(Connection conn) {
+	private List<Long> fillTablesNodes(Connection conn) {
 		// Ampel
-		int positive = 0;// count only positive ones
+		List<Long> done = new ArrayList<>();
 		for (long key : nodesMap.keySet()) {
 			if (nodesMap.get(key).value.contains("traffic_signals")) {
-				positive += fillTableAmpel(conn, key) ? 1 : 0;
+				if(fillTableAmpel(conn, key))
+					done.add(key);
 			}
 			// Haltestelle
 			if (nodesMap.get(key).value.contains("bus_stop") || nodesMap.get(key).value.contains("tram_stop")) {
-				positive += fillTableHaltestelle(conn, key) ? 1 : 0;
+				if(fillTableHaltestelle(conn, key))
+					done.add(key);
 			}
 			// Haus
 			if (nodesMap.get(key).key.contains("addr:housenumber")) {
-				positive += fillTableHaus(conn, key) ? 1 : 0;
+				if(fillTableHaus(conn, key))
+					done.add(key);
 			}
 
 		}
-		return positive;
+		return done;
 	}
 
 	private boolean fillTableAmpel(Connection conn, long nodeKey) {
@@ -576,13 +572,14 @@ public class Main {
 
 	}
 
-	private int fillTablesWays(Connection conn) {
-		int positiv = 0;
+	private List<Long> fillTablesWays(Connection conn) {
+		List<Long> done = new ArrayList<>();
 		for (long key : waysMap.keySet()) {
 			// Parkplatz
 			if (waysMap.get(key).value.contains("parking")) {
 				if (waysMap.get(key).isClosed()) {
-					positiv += fillTableParkplatz(conn, key) ? 1 : 0;
+					if(fillTableParkplatz(conn, key))
+						done.add(key);
 				}
 
 			}
@@ -591,7 +588,8 @@ public class Main {
 				int index = waysMap.get(key).key.indexOf("building");
 				if (waysMap.get(key).value.get(index).contains("yes")) {
 					if (waysMap.get(key).isClosed()) {
-						positiv += fillTableHaus2(conn, key) ? 1 : 0;
+						if(fillTableHaus2(conn, key))
+							done.add(key);
 					}
 				}
 			}
@@ -602,7 +600,8 @@ public class Main {
 				if (value.contains("primary") || value.contains("secondary") || value.contains("tertiary")
 						|| value.contains("residential") || value.contains("living_street")
 						|| value.contains("unclassified") || value.contains("service")) {
-					positiv += fillTableStreet(conn, key) ? 1 : 0;
+					if(fillTableStreet(conn, key))
+						done.add(key);
 				}
 
 			}
@@ -610,16 +609,19 @@ public class Main {
 			if (waysMap.get(key).key.contains("railway")) {
 				int index = waysMap.get(key).key.indexOf("railway");
 				if (waysMap.get(key).value.get(index).contains("rail")) {
-					positiv += fillTableEisenbahn(conn, key) ? 1 : 0;
+					if(fillTableEisenbahn(conn, key))
+						done.add(key);
 				} else if (waysMap.get(key).value.get(index).contains("tram")) {
-					positiv += fillTableStraßenbahn(conn, key) ? 1 : 0;
+					if(fillTableStraßenbahn(conn, key))
+						done.add(key);
 				}
 			}
 			// Fluss
 			if (waysMap.get(key).key.contains("waterway")) {
 				int index = waysMap.get(key).key.indexOf("waterway");
 				if (waysMap.get(key).value.get(index).contains("river")) {
-					positiv += fillTableFluss(conn, key) ? 1 : 0;
+					if(fillTableFluss(conn, key))
+						done.add(key);
 				}
 			}
 			// See
@@ -627,14 +629,16 @@ public class Main {
 				int index = waysMap.get(key).key.indexOf("natural");
 				if (waysMap.get(key).value.get(index).contains("water")) {
 					if (waysMap.get(key).isClosed()) {
-						positiv += fillTableSee(conn, key) ? 1 : 0;
+						if(fillTableSee(conn, key))
+							done.add(key);
 					}
 				}
 			}
 			// Landnutzung
 			if (waysMap.get(key).key.contains("landuse")) {
 				if (waysMap.get(key).isClosed()) {
-					positiv += fillTableLandnutzung(conn, key) ? 1 : 0;
+					if(fillTableLandnutzung(conn, key))
+						done.add(key);
 				}
 
 			}
@@ -644,10 +648,11 @@ public class Main {
 					int index = waysMap.get(key).key.indexOf("leisure");
 
 					if (waysMap.get(key).value.get(index).contains("park")) {
-						positiv += fillTablePark(conn, key) ? 1 : 0;
+						if(fillTablePark(conn, key))
+							done.add(key);
 					} else if (waysMap.get(key).value.get(index).contains("playground")) {
-
-						positiv += fillTableSpielplatz(conn, key) ? 1 : 0;
+						if(fillTableSpielplatz(conn, key))
+							done.add(key);
 					}
 				}
 			}
@@ -655,7 +660,8 @@ public class Main {
 			if (waysMap.get(key).key.contains("tunnel")) {
 				int index = waysMap.get(key).key.indexOf("tunnel");
 				if (waysMap.get(key).value.get(index).contains("yes")) {
-					positiv += fillTableTunnel(conn, key) ? 1 : 0;
+					if(fillTableTunnel(conn, key))
+						done.add(key);
 				}
 			}
 
@@ -663,11 +669,12 @@ public class Main {
 			if (waysMap.get(key).key.contains("bridge")) {
 				int index = waysMap.get(key).key.indexOf("bridge");
 				if (waysMap.get(key).value.get(index).contains("yes")) {
-					positiv += fillTableBruecke(conn, key) ? 1 : 0;
+					if(fillTableBruecke(conn, key))
+						done.add(key);
 				}
 			}
 		}
-		return positiv;
+		return done;
 	}
 
 	private boolean fillTableParkplatz(Connection conn, long nodeKey) {
