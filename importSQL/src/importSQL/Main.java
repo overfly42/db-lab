@@ -291,17 +291,21 @@ public class Main {
 			output(counter++ + ". Durchlauf: ", Mode.FAST);
 			nodesDone.addAll(fillTablesNodes(conn));
 			// Eingefügte löschen
+			output("nodesMap contains " + nodesMap.size() + " items", Mode.FAST);
 			for (long key : nodesDone) {
 				nodesMap.remove(key);
 			}
+			output("nodesMap contains " + nodesMap.size() + " items", Mode.FAST);
 			inserts += nodesDone.size();
 			output("Inserted " + nodesDone.size() + " nodes", Mode.FAST);
 
 			waysDone.addAll(fillTablesWays(conn));
 
+			output("nodesMap contains " + waysMap.size() + " items", Mode.FAST);
 			for (long key : waysDone) {
 				waysMap.remove(key);
 			}
+			output("nodesMap contains " + waysMap.size() + " items", Mode.FAST);
 
 			inserts += waysDone.size();
 			output("Inserted " + waysDone.size() + " ways", Mode.FAST);
@@ -317,37 +321,87 @@ public class Main {
 	}
 
 	private List<Long> fillTablesNodes(Connection conn) {
-		// Ampel
+
 		List<Long> done = new ArrayList<>();
 		long i = 0;
+		PreparedStatement psAmpel;
+		try {
+			psAmpel = conn.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
+		} catch (SQLException e) {
+			output("ERROR: Could not create Statement for table Ampel", Mode.DEBUG);
+			psAmpel = null;
+		}
+		PreparedStatement psHaltestelle;
+		try {
+			psHaltestelle = conn.prepareStatement(
+					// id pos shelter busroutes name
+					"INSERT INTO haltestelle VALUES (?,?,?,?,?)");
+		} catch (SQLException e) {
+			output("ERROR: Could not create Statement for table Haltestelle", Mode.DEBUG);
+			psHaltestelle = null;
+		}
+		PreparedStatement psHaus;
+		try {
+			psHaus = conn.prepareStatement(
+					/*
+					 * id bigserial not null, sid bigserial ,-- Haus befindet
+					 * sich an Weg name varchar(50) , housenumber int , postcode
+					 * int , city varchar(50) , geb_nr int , levels int , height
+					 * decimal , roof_shape varchar(50) , amnity varchar(50) ,
+					 * shop varchar(50) , tourism varchar(50) , operator
+					 * varchar(50) , umriss polygon , pos point
+					 */
+					"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		} catch (SQLException e) {
+			output("ERROR: Could not create Statement for table Haus", Mode.DEBUG);
+			psHaus = null;
+		}
 		for (long key : nodesMap.keySet()) {
 			output("Dataset(Node):" + i++ + " of " + nodesMap.size(), Mode.INFO);
-			if (nodesMap.get(key).value.contains("traffic_signals")) {
-				if (fillTableAmpel(conn, key))
+			// Ampel
+			if (nodesMap.get(key).value.contains("traffic_signals") && psAmpel != null) {
+				if (fillTableAmpel(psAmpel, key))
 					done.add(key);
-			}//71059 ways
+			}
 			// Haltestelle
-			if (nodesMap.get(key).value.contains("bus_stop") || nodesMap.get(key).value.contains("tram_stop")) {
-				if (fillTableHaltestelle(conn, key))
+			if (nodesMap.get(key).value.contains("bus_stop")
+					|| nodesMap.get(key).value.contains("tram_stop") && psHaltestelle != null) {
+				if (fillTableHaltestelle(psHaltestelle, key))
 					done.add(key);
 			}
 			// Haus
-			if (nodesMap.get(key).key.contains("addr:housenumber")) {
-				if (fillTableHaus(conn, key))
+			if (nodesMap.get(key).key.contains("addr:housenumber") && psHaus != null) {
+				if (fillTableHaus(psHaus, key))
 					done.add(key);
 			}
 
 		}
+		try {
+			psHaus.close();
+			psAmpel.close();
+			psHaltestelle.close();
+
+		} catch (SQLException e) {
+			output("ERROR closing connection " + e.getMessage(), Mode.DEBUG);
+		}
+
 		return done;
 	}
 
-	private boolean fillTableAmpel(Connection conn, long nodeKey) {
-		PreparedStatement ps;
+	private boolean fillTableAmpel(PreparedStatement ps, long nodeKey) {
+		// private boolean fillTableAmpel(Connection conn, long nodeKey) {
+		// PreparedStatement ps;
+		// try {
+		// ps = conn.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
+		// } catch (SQLException e) {
+		// output("ERROR: Could not create Statement for Node: " + nodeKey + "
+		// to table Ampel", Mode.DEBUG);
+		// output("REASON: " + e.getMessage(), Mode.DEBUG);
+		// return false;
+		// }
 		try {
-			ps = conn.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
+			ps.clearParameters();
 		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Ampel", Mode.DEBUG);
-			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		}
 		long id = nodeKey;
@@ -384,26 +438,34 @@ public class Main {
 				output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
-			try {
-				ps.close();
-			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
-			}
+			// try {
+			// ps.close();
+			// } catch (SQLException e) {
+			// output("ERROR: at Node: " + nodeKey + " could not close
+			// Statement", Mode.DEBUG);
+			// }
 		}
 
 		// output("Ampel: Insert done");
 		return true;
 	}
 
-	private boolean fillTableHaltestelle(Connection conn, long nodeKey) {
-		PreparedStatement ps;
+	private boolean fillTableHaltestelle(PreparedStatement ps, long nodeKey) {
+		// private boolean fillTableHaltestelle(Connection conn, long nodeKey) {
+		// PreparedStatement ps;
+		// try {
+		// ps = conn.prepareStatement(
+		// // id pos shelter busroutes name
+		// "INSERT INTO haltestelle VALUES (?,?,?,?,?)");
+		// } catch (SQLException e) {
+		// output("ERROR: Could not create Statement for Node: " + nodeKey + "
+		// to table Haltestelle", Mode.DEBUG);
+		// output("REASON: " + e.getMessage(), Mode.DEBUG);
+		// return false;
+		// }
 		try {
-			ps = conn.prepareStatement(
-					// id pos shelter busroutes name
-					"INSERT INTO haltestelle VALUES (?,?,?,?,?)");
-		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haltestelle", Mode.DEBUG);
-			output("REASON: " + e.getMessage(), Mode.DEBUG);
+			ps.clearParameters();
+		} catch (SQLException e1) {
 			return false;
 		}
 		long id = nodeKey;
@@ -436,12 +498,12 @@ public class Main {
 			return false;
 
 		} finally {
-			try {
-				ps.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			// try {
+			// ps.close();
+			// } catch (SQLException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
 		}
 		// output("Buststops: Insert done");
 		return true;
@@ -489,22 +551,29 @@ public class Main {
 		return value;
 	}
 
-	private boolean fillTableHaus(Connection conn, long nodeKey) {
-		PreparedStatement ps;
+	private boolean fillTableHaus(PreparedStatement ps, long nodeKey) {
+		// private boolean fillTableHaus(Connection conn, long nodeKey) {
+		// PreparedStatement ps;
+		// try {
+		// ps = conn.prepareStatement(
+		// /*
+		// * id bigserial not null, sid bigserial ,-- Haus befindet
+		// * sich an Weg name varchar(50) , housenumber int , postcode
+		// * int , city varchar(50) , geb_nr int , levels int , height
+		// * decimal , roof_shape varchar(50) , amnity varchar(50) ,
+		// * shop varchar(50) , tourism varchar(50) , operator
+		// * varchar(50) , umriss polygon , pos point
+		// */
+		// "INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+		// } catch (SQLException e) {
+		// output("ERROR: Could not create Statement for Node: " + nodeKey + "
+		// to table Haus", Mode.DEBUG);
+		// output("REASON: " + e.getMessage(), Mode.DEBUG);
+		// return false;
+		// }
 		try {
-			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, sid bigserial ,-- Haus befindet
-					 * sich an Weg name varchar(50) , housenumber int , postcode
-					 * int , city varchar(50) , geb_nr int , levels int , height
-					 * decimal , roof_shape varchar(50) , amnity varchar(50) ,
-					 * shop varchar(50) , tourism varchar(50) , operator
-					 * varchar(50) , umriss polygon , pos point
-					 */
-					"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haus", Mode.DEBUG);
-			output("REASON: " + e.getMessage(), Mode.DEBUG);
+			ps.clearParameters();
+		} catch (SQLException e1) {
 			return false;
 		}
 		long id = nodeKey;
@@ -568,12 +637,12 @@ public class Main {
 			return false;
 
 		} finally {
-			try {
-				ps.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+			// try {
+			// ps.close();
+			// } catch (SQLException e) {
+			// // TODO Auto-generated catch block
+			// e.printStackTrace();
+			// }
 
 		}
 
@@ -1367,7 +1436,7 @@ public class Main {
 	}
 
 	private void calculateViolatedAssertions(String exception) {
-		// exception.s
+		System.out.println(exception);
 	}
 
 	private void output(String str, Mode mode) {
