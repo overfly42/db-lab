@@ -35,7 +35,7 @@ public class Main {
 		INFO // Only Info will be Plottet
 	}
 
-	Mode m = Mode.INFO;
+	Mode m = Mode.FAST;
 	Document doc;
 	NodeList nodes;
 	NodeList ways;
@@ -279,32 +279,34 @@ public class Main {
 				return;
 			}
 		}
-		List<Long> done = new ArrayList<>();
+		List<Long> nodesDone = new ArrayList<>();
+		List<Long> waysDone = new ArrayList<>();
 		int allEntries = nodesMap.size() + waysMap.size();
-		boolean checkInsertStable = false;
 		int inserts = 0;
 		int counter = 1;
 		// Mehrfach drüber gehen, wegen Aobhängigkeit
-		while (!checkInsertStable) {
-
-			output(counter++ + ". Durchlauf: ", Mode.INFO);
-			done.addAll(fillTablesNodes(conn));
+		do {
+			nodesDone.clear();
+			waysDone.clear();
+			output(counter++ + ". Durchlauf: ", Mode.FAST);
+			nodesDone.addAll(fillTablesNodes(conn));
 			// Eingefügte löschen
-			for (long key : done) {
+			for (long key : nodesDone) {
 				nodesMap.remove(key);
 			}
-			done.addAll(fillTablesWays(conn));
-			for (long key : done) {
+			inserts += nodesDone.size();
+			output("Inserted " + nodesDone.size() + " nodes", Mode.FAST);
+
+			waysDone.addAll(fillTablesWays(conn));
+
+			for (long key : waysDone) {
 				waysMap.remove(key);
 			}
-			inserts = inserts + done.size();
-			if (done.size() == 0) {
-				checkInsertStable = true;
-			}
-			output("---------------------------------------", Mode.INFO);
-			done.clear();
-		}
-		output("Done " + inserts + " entrys out of " + (allEntries), Mode.INFO);
+
+			inserts += waysDone.size();
+			output("Inserted " + waysDone.size() + " ways", Mode.FAST);
+		} while (nodesDone.size() > 0 || waysDone.size() > 0);
+		output("Done " + inserts + " entrys out of " + (allEntries), Mode.FAST);
 		if (conn != null)
 			try {
 				conn.close();
@@ -323,7 +325,7 @@ public class Main {
 			if (nodesMap.get(key).value.contains("traffic_signals")) {
 				if (fillTableAmpel(conn, key))
 					done.add(key);
-			}
+			}//71059 ways
 			// Haltestelle
 			if (nodesMap.get(key).value.contains("bus_stop") || nodesMap.get(key).value.contains("tram_stop")) {
 				if (fillTableHaltestelle(conn, key))
@@ -584,7 +586,7 @@ public class Main {
 		List<Long> done = new ArrayList<>();
 		long i = 0;
 		for (long key : waysMap.keySet()) {
-			output("Dataset(Ways):" + i++ + " of " + nodesMap.size(), Mode.INFO);
+			output("Dataset(Ways):" + i++ + " of " + waysMap.size(), Mode.INFO);
 			// Parkplatz
 			if (waysMap.get(key).value.contains("parking")) {
 				if (waysMap.get(key).isClosed()) {
@@ -1369,11 +1371,10 @@ public class Main {
 	}
 
 	private void output(String str, Mode mode) {
-		if(str.startsWith("REASON"))
-		{
+		if (str.startsWith("REASON")) {
 			calculateViolatedAssertions(str);
 		}
-		if (m == Mode.FAST)
+		if (m == Mode.FAST && mode != Mode.FAST)
 			return;
 		if (m == Mode.INFO && mode == Mode.DEBUG)
 			return;
