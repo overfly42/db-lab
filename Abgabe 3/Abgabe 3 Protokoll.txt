@@ -1,8 +1,21 @@
 Nicht eingefügt:
-nodesMap contains 69838 items
-waysMap contains 3789 items
+nodesMap contains 70092 items
+waysMap contains 3888 items
 ---------------------------------------------
-Done 11508 entrys out of 85059
-Violated AmpelAnWeg 9 times
-Violated brueckeMussKreuzen 49 times
-Violated keineStrasseDurchSpielplatz 36 times
+Done 11181 entrys out of 85059
+Violated keineStrasseDurchSpielplatz 2 times
+Violated BrueckeIstWeg 49 times
+Violated AmpelAnWeg 258 times
+Violated ParkplatzAnStraße 136 times
+Violated HaltestelleAnWeg 5 times
+
+---------------------------------------------
+INSERT INTO bruecke VALUES (2,'Yorckstraße','0',30,'',0,'1','0','LINESTRING(52.2683681 10.5447898,52.2680009 10.5450426,52.2679558 10.5451957)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+
+INSERT INTO haus VALUES (2,'','','','','',0,0,0.0,'','','','','','POLYGON((52.2643046 10.5189142,52.2643021 10.5188958,52.26422 10.5189253,52.2642224 10.5189437,52.2643046 10.5189142))',NULL)
+--------REASON: ERROR: ASSERTION keinHausInSee potenziell verletzt!
+
+INSERT INTO parkplatz VALUES (3,'0','0',0,'','POLYGON((52.2643046 10.5189142,52.2643021 10.5188958,52.26422 10.5189253,52.2642224 10.5189437,52.2643046 10.5189142))','')
+--------REASON: ERROR: ASSERTION keineParkplatzImSee potenziell verletzt!
+

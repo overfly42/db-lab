@@ -1,7 +1,7 @@
 #I. Kein Haus in See
 create Assertion keinHausInSee CHECK(
 	not exists(
-		select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss)
+		select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss) or ST_CONTAINS(s.umriss,h.umriss)
 	));
 #II. Straße kreuzt Spielplatz
 create Assertion keineStrasseDurchSpielplatz CHECK(
@@ -12,13 +12,13 @@ create Assertion keineStrasseDurchSpielplatz CHECK(
 #III. Keine Straßen durch Häuser
 #create Assertion keineStrasseDurchHaus CHECK(
 #	not exists(
-#		select * from Strasse s, haus h where ST_Crosses(s.path,h.umriss)
+#		select * from Strasse s, haus h where ST_Crosses(s.path,h.umriss) 
 #));
 
 #IV. Kein Parkplatz im See
 create Assertion keineParkplatzImSee CHECK(
 	not exists(
-		select * from See s, Parkplatz p where ST_Crosses(s.umriss,p.umriss)
+		select * from See s, Parkplatz p where ST_Crosses(s.umriss,p.umriss) or ST_CONTAINS(s.umriss,p.umriss)
 ));
 
 #VI. Brücke muss über Straße, Straßenbahn, Eisenbahn, oder FLuss führen

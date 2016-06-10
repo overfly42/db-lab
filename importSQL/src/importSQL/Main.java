@@ -78,7 +78,8 @@ public class Main {
 			value = new ArrayList<>();
 		}
 
-		public MyWay(LineString path, List<String> keys, List<String> values, boolean closed) {
+		public MyWay(LineString path, List<String> keys, List<String> values,
+				boolean closed) {
 			this.path = path;
 			this.key = keys;
 			this.value = values;
@@ -105,7 +106,8 @@ public class Main {
 
 	}
 
-	public Main() throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException {
+	public Main() throws ParserConfigurationException, SAXException,
+			IOException, ClassNotFoundException {
 		output("Working dir is: " + System.getProperty("user.dir"), Mode.INFO);
 		violatedAssertions = new HashMap<String, Integer>();
 		if (!createDoc())
@@ -119,8 +121,9 @@ public class Main {
 		// testoutput();
 	}
 
-	public boolean createDoc() throws ParserConfigurationException, SAXException, IOException {
-		File input = new File("map.xml");
+	public boolean createDoc() throws ParserConfigurationException,
+			SAXException, IOException {
+		File input = new File("anderen Assertions verletzen.xml");
 		if (!input.exists()) {
 			output("File map.xml does not exist", Mode.INFO);
 			return false;
@@ -146,9 +149,12 @@ public class Main {
 	private void createNodes(NodeList nodes) {
 		nodesMap = new HashMap<>();
 		for (int i = 0; i < nodes.getLength(); i++) {
-			Long id = Long.valueOf(nodes.item(i).getAttributes().getNamedItem("id").getNodeValue());
-			String sLat = nodes.item(i).getAttributes().getNamedItem("lat").getNodeValue();
-			String sLon = nodes.item(i).getAttributes().getNamedItem("lat").getNodeValue();
+			Long id = Long.valueOf(nodes.item(i).getAttributes()
+					.getNamedItem("id").getNodeValue());
+			String sLat = nodes.item(i).getAttributes().getNamedItem("lat")
+					.getNodeValue();
+			String sLon = nodes.item(i).getAttributes().getNamedItem("lon")
+					.getNodeValue();
 			double lat = Double.valueOf(sLat);
 			double lon = Double.valueOf(sLon);
 			Point point = new Point();
@@ -165,8 +171,10 @@ public class Main {
 			// point.x +", " + point.y + ")");
 			for (int j = 0; j < n.getLength(); j++) {
 				if (n.item(j).getNodeName().equals("tag")) {
-					String k = n.item(j).getAttributes().getNamedItem("k").getNodeValue();
-					String v = n.item(j).getAttributes().getNamedItem("v").getNodeValue();
+					String k = n.item(j).getAttributes().getNamedItem("k")
+							.getNodeValue();
+					String v = n.item(j).getAttributes().getNamedItem("v")
+							.getNodeValue();
 					// output("Tags: " + k + " " + v);
 					keys.add(k);
 					values.add(v);
@@ -180,7 +188,8 @@ public class Main {
 	private void createWays(NodeList ways) {
 		waysMap = new HashMap<>();
 		for (int i = 0; i < ways.getLength(); i++) {
-			Long id = Long.valueOf(ways.item(i).getAttributes().getNamedItem("id").getNodeValue());
+			Long id = Long.valueOf(ways.item(i).getAttributes()
+					.getNamedItem("id").getNodeValue());
 
 			// fetch nodes
 			NodeList n = ways.item(i).getChildNodes();
@@ -192,7 +201,8 @@ public class Main {
 			for (int j = 0; j < n.getLength(); j++) {
 				if (n.item(j).getNodeName().equals("nd")) {
 
-					String sNodeID = n.item(j).getAttributes().getNamedItem("ref").getNodeValue();
+					String sNodeID = n.item(j).getAttributes()
+							.getNamedItem("ref").getNodeValue();
 					Long nodeID = Long.valueOf(sNodeID);
 					// Test, if path is open
 					if (!closed) {
@@ -224,8 +234,10 @@ public class Main {
 			// Tags fetchen
 			for (int j = 0; j < n.getLength(); j++) {
 				if (n.item(j).getNodeName().equals("tag")) {
-					String k = n.item(j).getAttributes().getNamedItem("k").getNodeValue();
-					String v = n.item(j).getAttributes().getNamedItem("v").getNodeValue();
+					String k = n.item(j).getAttributes().getNamedItem("k")
+							.getNodeValue();
+					String v = n.item(j).getAttributes().getNamedItem("v")
+							.getNodeValue();
 					// output("Tags: " + k + " " + v);
 					keys.add(k);
 					values.add(v);
@@ -249,8 +261,10 @@ public class Main {
 			NodeList n = nl.item(i).getChildNodes();
 			for (int j = 0; j < n.getLength(); j++)
 				if (n.item(j).getNodeName().equals("tag")) {
-					String k = n.item(j).getAttributes().getNamedItem("k").getNodeValue();
-					String v = n.item(j).getAttributes().getNamedItem("v").getNodeValue();
+					String k = n.item(j).getAttributes().getNamedItem("k")
+							.getNodeValue();
+					String v = n.item(j).getAttributes().getNamedItem("v")
+							.getNodeValue();
 
 					String key = "k=" + k + "\tv=" + v;
 					Integer val = tags.get(key);
@@ -312,8 +326,10 @@ public class Main {
 			output("Inserted " + waysDone.size() + " ways", Mode.FAST);
 		} while (nodesDone.size() > 0 || waysDone.size() > 0);
 		output("Done " + inserts + " entrys out of " + (allEntries), Mode.FAST);
+		System.out.println("Size: " + violatedAssertions.size());
 		for (String s : violatedAssertions.keySet())
-			System.out.println("Violated " + s + " " + violatedAssertions.get(s) + " times");
+			System.out.println("Violated " + s + " "
+					+ violatedAssertions.get(s) + " times");
 		if (conn != null)
 			try {
 				conn.close();
@@ -328,52 +344,59 @@ public class Main {
 		List<Long> done = new ArrayList<>();
 		PreparedStatement psAmpel;
 		try {
-			psAmpel = conn.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
+			psAmpel = conn
+					.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
 		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for table Ampel", Mode.DEBUG);
+			output("ERROR: Could not create Statement for table Ampel",
+					Mode.DEBUG);
 			psAmpel = null;
 		}
 		PreparedStatement psHaltestelle;
 		try {
 			psHaltestelle = conn.prepareStatement(
-					// id pos shelter busroutes name
+			// id pos shelter busroutes name
 					"INSERT INTO haltestelle VALUES (?,?,?,?,?)");
 		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for table Haltestelle", Mode.DEBUG);
+			output("ERROR: Could not create Statement for table Haltestelle",
+					Mode.DEBUG);
 			psHaltestelle = null;
 		}
 		PreparedStatement psHaus;
 		try {
 			psHaus = conn.prepareStatement(
-					/*
-					 * id bigserial not null, sid bigserial ,-- Haus befindet
-					 * sich an Weg name varchar(50) , housenumber int , postcode
-					 * int , city varchar(50) , geb_nr int , levels int , height
-					 * decimal , roof_shape varchar(50) , amnity varchar(50) ,
-					 * shop varchar(50) , tourism varchar(50) , operator
-					 * varchar(50) , umriss polygon , pos point
-					 */
-					"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			/*
+			 * id bigserial not null, sid bigserial ,-- Haus befindet sich an
+			 * Weg name varchar(50) , housenumber int , postcode int , city
+			 * varchar(50) , geb_nr int , levels int , height decimal ,
+			 * roof_shape varchar(50) , amnity varchar(50) , shop varchar(50) ,
+			 * tourism varchar(50) , operator varchar(50) , umriss polygon , pos
+			 * point
+			 */
+			"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for table Haus", Mode.DEBUG);
+			output("ERROR: Could not create Statement for table Haus",
+					Mode.DEBUG);
 			psHaus = null;
 		}
 		for (long key : nodesMap.keySet()) {
 			// output("Dataset(Node):" + i++ + " of " + nodesMap.size(),
 			// Mode.INFO);
 			// Ampel
-			if (nodesMap.get(key).value.contains("traffic_signals") && psAmpel != null) {
+			if (nodesMap.get(key).value.contains("traffic_signals")
+					&& psAmpel != null) {
 				if (fillTableAmpel(psAmpel, key))
 					done.add(key);
 			}
 			// Haltestelle
 			if (nodesMap.get(key).value.contains("bus_stop")
-					|| nodesMap.get(key).value.contains("tram_stop") && psHaltestelle != null) {
+					|| nodesMap.get(key).value.contains("tram_stop")
+					&& psHaltestelle != null) {
 				if (fillTableHaltestelle(psHaltestelle, key))
 					done.add(key);
 			}
 			// Haus
-			if (nodesMap.get(key).key.contains("addr:housenumber") && psHaus != null) {
+			if (nodesMap.get(key).key.contains("addr:housenumber")
+					&& psHaus != null) {
 				if (fillTableHaus(psHaus, key))
 					done.add(key);
 			}
@@ -435,8 +458,10 @@ public class Main {
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
-			if (e.getMessage().contains("ASSERTION") && e.getMessage().contains("potentiel Verletzt"))
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
+			if (e.getMessage().contains("ASSERTION")
+					&& e.getMessage().contains("potentiel Verletzt"))
 				output("REASON: ASSERTION verletzt", Mode.DEBUG);
 			else
 				output("REASON: " + e.getMessage(), Mode.DEBUG);
@@ -494,8 +519,10 @@ public class Main {
 			ps.setObject(5, sName);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
-			if (e.getMessage().contains("ASSERTION") && e.getMessage().contains("potentiel Verletzt"))
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
+			if (e.getMessage().contains("ASSERTION")
+					&& e.getMessage().contains("potentiel Verletzt"))
 				output("REASON: ASSERTION verletzt", Mode.DEBUG);
 			else
 				output("REASON: " + e.getMessage(), Mode.DEBUG);
@@ -588,13 +615,15 @@ public class Main {
 		String name = getValueOfNodeByString(node, "name", 50);
 		String city = getValueOfNodeByString(node, "addr:city", 50);
 		String street = getValueOfNodeByString(node, "addr:street", 50);
-		String roof_shape = getValueOfNodeByString(node, "building:roof_shape", 50);
+		String roof_shape = getValueOfNodeByString(node, "building:roof_shape",
+				50);
 		String amnity = getValueOfNodeByString(node, "amnity", 50);
 		String shop = getValueOfNodeByString(node, "shop", 50);
 		String tourism = getValueOfNodeByString(node, "tourism", 50);
 		String operator = getValueOfNodeByString(node, "operator", 50);
 
-		String sHousenumber = getValueOfNodeByString(node, "addr:housenumber", 10);
+		String sHousenumber = getValueOfNodeByString(node, "addr:housenumber",
+				10);
 
 		String spostcode = getValueOfNodeByString(node, "postal_code", 50);
 		if (spostcode.equals("")) {
@@ -636,7 +665,8 @@ public class Main {
 
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 
@@ -682,9 +712,12 @@ public class Main {
 			if (waysMap.get(key).key.contains("highway")) {
 				int index = waysMap.get(key).key.indexOf("highway");
 				String value = waysMap.get(key).value.get(index);
-				if (value.contains("primary") || value.contains("secondary") || value.contains("tertiary")
-						|| value.contains("residential") || value.contains("living_street")
-						|| value.contains("unclassified") || value.contains("service")) {
+				if (value.contains("primary") || value.contains("secondary")
+						|| value.contains("tertiary")
+						|| value.contains("residential")
+						|| value.contains("living_street")
+						|| value.contains("unclassified")
+						|| value.contains("service")) {
 					if (fillTableStreet(conn, key))
 						done.add(key);
 				}
@@ -735,7 +768,8 @@ public class Main {
 					if (waysMap.get(key).value.get(index).contains("park")) {
 						if (fillTablePark(conn, key))
 							done.add(key);
-					} else if (waysMap.get(key).value.get(index).contains("playground")) {
+					} else if (waysMap.get(key).value.get(index).contains(
+							"playground")) {
 						if (fillTableSpielplatz(conn, key))
 							done.add(key);
 					}
@@ -766,14 +800,14 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, access boolean , fee boolean ,
-					 * capicity int , operator varchar (50) , umriss polygon ,
-					 * name varchar(50) ,
-					 */
-					"INSERT INTO parkplatz VALUES (?,?,?,?,?,?,?)");
+			/*
+			 * id bigserial not null, access boolean , fee boolean , capicity
+			 * int , operator varchar (50) , umriss polygon , name varchar(50) ,
+			 */
+			"INSERT INTO parkplatz VALUES (?,?,?,?,?,?,?)");
 		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Parkplatz", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Parkplatz", Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -814,14 +848,16 @@ public class Main {
 
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 		// output("Parkplatz: Insert done");
@@ -833,17 +869,18 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, sid bigserial ,-- Haus befindet
-					 * sich an Weg name varchar(50) , housenumber int , postcode
-					 * int , city varchar(50) , geb_nr int , levels int , height
-					 * decimal , roof_shape varchar(50) , amnity varchar(50) ,
-					 * shop varchar(50) , tourism varchar(50) , operator
-					 * varchar(50) , umriss polygon , pos point
-					 */
-					"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+			/*
+			 * id bigserial not null, sid bigserial ,-- Haus befindet sich an
+			 * Weg name varchar(50) , housenumber int , postcode int , city
+			 * varchar(50) , geb_nr int , levels int , height decimal ,
+			 * roof_shape varchar(50) , amnity varchar(50) , shop varchar(50) ,
+			 * tourism varchar(50) , operator varchar(50) , umriss polygon , pos
+			 * point
+			 */
+			"INSERT INTO haus VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
 		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Haus", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Haus", Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -855,7 +892,8 @@ public class Main {
 
 		String name = getValueOfWayByString(way, "name", 50);
 		String city = getValueOfWayByString(way, "addr:city", 50);
-		String roof_shape = getValueOfWayByString(way, "building:roof_shape", 50);
+		String roof_shape = getValueOfWayByString(way, "building:roof_shape",
+				50);
 		String street = getValueOfWayByString(way, "addr:street", 50);
 		String amnity = getValueOfWayByString(way, "amnity", 50);
 		String shop = getValueOfWayByString(way, "shop", 50);
@@ -904,14 +942,16 @@ public class Main {
 
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -924,14 +964,14 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, name varchar(50) , oneway boolean
-					 * , maxspeed int , surface varchar(50) , lanes int , path
-					 * path ,
-					 */
-					"INSERT INTO strasse VALUES (?,?,?,?,?,?,?)");
+			/*
+			 * id bigserial not null, name varchar(50) , oneway boolean ,
+			 * maxspeed int , surface varchar(50) , lanes int , path path ,
+			 */
+			"INSERT INTO strasse VALUES (?,?,?,?,?,?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Street", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Street", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -969,14 +1009,16 @@ public class Main {
 			ps.setObject(7, path, java.sql.Types.OTHER);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 		// output("Straße: Insert done");
@@ -988,12 +1030,13 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, path path
-					 */
-					"INSERT INTO strassenbahn VALUES (?,?)");
+			/*
+			 * id bigserial not null, path path
+			 */
+			"INSERT INTO strassenbahn VALUES (?,?)");
 		} catch (SQLException e) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Straßenbahn", Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -1007,14 +1050,16 @@ public class Main {
 			ps.setObject(2, path, java.sql.Types.OTHER);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 		// output("Straßenbahn: Insert done");
@@ -1025,12 +1070,13 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, path path
-					 */
-					"INSERT INTO eisenbahn VALUES (?,?)");
+			/*
+			 * id bigserial not null, path path
+			 */
+			"INSERT INTO eisenbahn VALUES (?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Eisenbahn", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Eisenbahn", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -1044,14 +1090,16 @@ public class Main {
 			ps.setObject(2, path, java.sql.Types.OTHER);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -1064,12 +1112,13 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, path path
-					 */
-					"INSERT INTO fluss VALUES (?,?,?)");
+			/*
+			 * id bigserial not null, path path
+			 */
+			"INSERT INTO fluss VALUES (?,?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Fluss", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Fluss", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -1084,14 +1133,16 @@ public class Main {
 			ps.setObject(3, path, java.sql.Types.OTHER);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -1104,12 +1155,13 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, umriss polygon , name varchar(50)
-					 */
-					"INSERT INTO see VALUES (?,?,?)");
+			/*
+			 * id bigserial not null, umriss polygon , name varchar(50)
+			 */
+			"INSERT INTO see VALUES (?,?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table See", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table See", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -1125,14 +1177,16 @@ public class Main {
 			ps.setObject(3, name);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -1145,12 +1199,13 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, umriss polygon , name varchar(50)
-					 */
-					"INSERT INTO landnutzung VALUES (?,?,?)");
+			/*
+			 * id bigserial not null, umriss polygon , name varchar(50)
+			 */
+			"INSERT INTO landnutzung VALUES (?,?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Landnutzung", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Landnutzung", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -1166,13 +1221,15 @@ public class Main {
 			ps.setObject(3, name);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -1185,12 +1242,13 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, umriss polygon , name varchar(50)
-					 */
-					"INSERT INTO park VALUES (?,?,?)");
+			/*
+			 * id bigserial not null, umriss polygon , name varchar(50)
+			 */
+			"INSERT INTO park VALUES (?,?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Park", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Park", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -1206,14 +1264,16 @@ public class Main {
 			ps.setObject(3, name);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -1226,12 +1286,13 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, umriss polygon , name varchar(50)
-					 */
-					"INSERT INTO spielplatz VALUES (?,?,?)");
+			/*
+			 * id bigserial not null, umriss polygon , name varchar(50)
+			 */
+			"INSERT INTO spielplatz VALUES (?,?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Spielplatz", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Spielplatz", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -1247,14 +1308,16 @@ public class Main {
 			ps.setObject(3, name);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -1268,14 +1331,15 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, name varchar(50) , oneway boolean
-					 * , maxspeed int , surface varchar(50) , lanes int , road
-					 * boolean , river boolean , rail boolean ,path path ,
-					 */
-					"INSERT INTO tunnel VALUES (?,?,?,?,?,?,?,?,?,?)");
+			/*
+			 * id bigserial not null, name varchar(50) , oneway boolean ,
+			 * maxspeed int , surface varchar(50) , lanes int , road boolean ,
+			 * river boolean , rail boolean ,path path ,
+			 */
+			"INSERT INTO tunnel VALUES (?,?,?,?,?,?,?,?,?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Straßenbahn", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 
@@ -1317,9 +1381,12 @@ public class Main {
 		index = way.key.indexOf("highway");
 		if (index != -1) {
 			String value = way.value.get(index);
-			if ((value.contains("primary") || value.contains("secondary") || value.contains("tertiary")
-					|| value.contains("residential") || value.contains("living_street")
-					|| value.contains("unclassified") || value.contains("service"))) {
+			if ((value.contains("primary") || value.contains("secondary")
+					|| value.contains("tertiary")
+					|| value.contains("residential")
+					|| value.contains("living_street")
+					|| value.contains("unclassified") || value
+						.contains("service"))) {
 				road = true;
 			}
 		}
@@ -1337,14 +1404,16 @@ public class Main {
 			ps.setObject(10, path, java.sql.Types.OTHER);
 			ps.executeUpdate();
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -1357,14 +1426,15 @@ public class Main {
 		PreparedStatement ps;
 		try {
 			ps = conn.prepareStatement(
-					/*
-					 * id bigserial not null, name varchar(50) , oneway boolean
-					 * , maxspeed int , surface varchar(50) , lanes int , road
-					 * boolean , rail boolean ,path path ,
-					 */
-					"INSERT INTO bruecke VALUES (?,?,?,?,?,?,?,?,?)");
+			/*
+			 * id bigserial not null, name varchar(50) , oneway boolean ,
+			 * maxspeed int , surface varchar(50) , lanes int , road boolean ,
+			 * rail boolean ,path path ,
+			 */
+			"INSERT INTO bruecke VALUES (?,?,?,?,?,?,?,?,?)");
 		} catch (SQLException e1) {
-			output("ERROR: Could not create Statement for Node: " + nodeKey + " to table Straßenbahn", Mode.DEBUG);
+			output("ERROR: Could not create Statement for Node: " + nodeKey
+					+ " to table Straßenbahn", Mode.DEBUG);
 			output("REASON: " + e1.getMessage(), Mode.DEBUG);
 			return false;
 		}
@@ -1402,9 +1472,12 @@ public class Main {
 		index = way.key.indexOf("highway");
 		if (index != -1) {
 			String value = way.value.get(index);
-			if ((value.contains("primary") || value.contains("secondary") || value.contains("tertiary")
-					|| value.contains("residential") || value.contains("living_street")
-					|| value.contains("unclassified") || value.contains("service"))) {
+			if ((value.contains("primary") || value.contains("secondary")
+					|| value.contains("tertiary")
+					|| value.contains("residential")
+					|| value.contains("living_street")
+					|| value.contains("unclassified") || value
+						.contains("service"))) {
 				road = true;
 			}
 		}
@@ -1423,14 +1496,16 @@ public class Main {
 			ps.executeUpdate();
 
 		} catch (SQLException e) {
-			output("ERROR: at Node: " + nodeKey + " with statement " + ps.toString(), Mode.DEBUG);
+			output("ERROR: at Node: " + nodeKey + " with statement "
+					+ ps.toString(), Mode.DEBUG);
 			output("REASON: " + e.getMessage(), Mode.DEBUG);
 			return false;
 		} finally {
 			try {
 				ps.close();
 			} catch (SQLException e) {
-				output("ERROR: at Node: " + nodeKey + " could not close Statement", Mode.DEBUG);
+				output("ERROR: at Node: " + nodeKey
+						+ " could not close Statement", Mode.DEBUG);
 			}
 		}
 
@@ -1443,12 +1518,18 @@ public class Main {
 		System.out.println("--------" + exception);
 		// REASON: FEHLER: ASSERTION brueckeMussKreuzen potenziell verletzt!
 		String[] s = exception.split(" ");
-		if (!s[0].equals("REASON:"))
+		if (!s[0].equals("REASON:")) {
+			System.out.println("s[0] ist " + s[0]);
 			return;
-		if (!s[1].equals("FEHLER:"))
+		}
+		if (!s[1].equals("ERROR:")) {
+			System.out.println("s[1] ist " + s[1]);
 			return;
-		if (!s[2].equals("ASSERTION"))
+		}
+		if (!s[2].equals("ASSERTION")) {
+			System.out.println("s[2] ist " + s[2]);
 			return;
+		}
 		Integer i = violatedAssertions.get(s[3]);
 		if (i == null)
 			i = 0;
