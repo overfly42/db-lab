@@ -1,0 +1,29 @@
+ tgrelid |                   tgname                   | tgfoid | tgtype | tgenabled | tgisinternal | tgconstrrelid | tgconstrindid | tgconstraint | tgdeferrable | tginitdeferred | tgnargs | tgattr | tgargs | tgqual 
+---------+--------------------------------------------+--------+--------+-----------+--------------+---------------+---------------+--------------+--------------+----------------+---------+--------+--------+--------
+   59145 | checkkeinhausinseesee                      |  59246 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59068 | checkkeinhausinseehaus                     |  59246 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59079 | checkkeinestrassedurchspielplatzstrasse    |  59252 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59178 | checkkeinestrassedurchspielplatzspielplatz |  59252 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59145 | checkkeineparkplatzimseesee                |  59258 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59112 | checkkeineparkplatzimseeparkplatz          |  59258 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59101 | checkbrueckemusskreuzeneisenbahn           |  59264 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59090 | checkbrueckemusskreuzenstrassenbahn        |  59264 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59211 | checkbrueckemusskreuzenbruecke             |  59264 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59079 | checkbrueckemusskreuzenstrasse             |  59264 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59189 | checkbrueckemusskreuzenfluss               |  59264 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59101 | checkampelanwegeisenbahn                   |  59273 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59123 | checkampelanwegampel                       |  59273 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59090 | checkampelanwegstrassenbahn                |  59273 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59079 | checkampelanwegstrasse                     |  59273 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59101 | checkhaltestelleanwegeisenbahn             |  59281 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59090 | checkhaltestelleanwegstrassenbahn          |  59281 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59079 | checkhaltestelleanwegstrasse               |  59281 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59134 | checkhaltestelleanweghaltestelle           |  59281 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59101 | checkbrueckeistwegeisenbahn                |  59289 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59090 | checkbrueckeistwegstrassenbahn             |  59289 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59211 | checkbrueckeistwegbruecke                  |  59289 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59079 | checkbrueckeistwegstrasse                  |  59289 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59079 | checkparkplatzanstraßestrasse              |  59297 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+   59112 | checkparkplatzanstraßeparkplatz            |  59297 |     29 | O         | f            |             0 |             0 |            0 | f            | f              |       0 |        | \x     | 
+(30 Zeilen)
+
