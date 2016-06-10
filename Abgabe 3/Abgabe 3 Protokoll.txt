@@ -1,0 +1,8 @@
+Nicht eingefügt:
+nodesMap contains 69838 items
+waysMap contains 3789 items
+---------------------------------------------
+Done 11508 entrys out of 85059
+Violated AmpelAnWeg 9 times
+Violated brueckeMussKreuzen 49 times
+Violated keineStrasseDurchSpielplatz 36 times
