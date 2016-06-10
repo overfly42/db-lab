@@ -1,0 +1,311 @@
+3. Durchlauf: 
+ERROR: at Node: 3344674333 with statement INSERT INTO ampel VALUES (3344674333,'POINT(52.2917695 52.2917695)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+ERROR: at Node: 3344674330 with statement INSERT INTO ampel VALUES (3344674330,'POINT(52.2916773 52.2916773)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+ERROR: at Node: 3344674307 with statement INSERT INTO ampel VALUES (3344674307,'POINT(52.2874082 52.2874082)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+ERROR: at Node: 3344674361 with statement INSERT INTO ampel VALUES (3344674361,'POINT(52.297628 52.297628)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+ERROR: at Node: 3344674359 with statement INSERT INTO ampel VALUES (3344674359,'POINT(52.2975198 52.2975198)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+ERROR: at Node: 3344674471 with statement INSERT INTO ampel VALUES (3344674471,'POINT(52.3070781 52.3070781)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+ERROR: at Node: 3344674468 with statement INSERT INTO ampel VALUES (3344674468,'POINT(52.3069671 52.3069671)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+ERROR: at Node: 3352872209 with statement INSERT INTO ampel VALUES (3352872209,'POINT(52.2931319 52.2931319)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+ERROR: at Node: 2965452872 with statement INSERT INTO ampel VALUES (2965452872,'POINT(52.2868883 52.2868883)','0','0')
+--------REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+REASON: ERROR: ASSERTION AmpelAnWeg potenziell verletzt!
+nodesMap contains 69838 items
+nodesMap contains 69838 items
+Inserted 0 nodes
+ERROR: at Node: 384167667 with statement INSERT INTO bruecke VALUES (384167667,'','0',0,'paving_stones',0,'0','0','LINESTRING(52.2699359 52.2699359,52.2700402 52.2700402,52.2700688 52.2700688)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 384167666 with statement INSERT INTO bruecke VALUES (384167666,'','0',0,'paving_stones',0,'0','0','LINESTRING(52.2699798 52.2699798,52.2698358 52.2698358)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 24790327 with statement INSERT INTO bruecke VALUES (24790327,'','0',0,'',0,'0','0','LINESTRING(52.2571977 52.2571977,52.2571637 52.2571637)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 37791802 with statement INSERT INTO spielplatz VALUES (37791802,'POLYGON((52.2620999 52.2620999,52.2620305 52.2620305,52.2619558 52.2619558,52.2621787 52.2621787,52.2623265 52.2623265,52.262249 52.262249,52.2620999 52.2620999))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 384865544 with statement INSERT INTO bruecke VALUES (384865544,'','0',0,'',0,'0','0','LINESTRING(52.2581076 52.2581076,52.2580876 52.2580876)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 34309375 with statement INSERT INTO spielplatz VALUES (34309375,'POLYGON((52.2674647 52.2674647,52.267512 52.267512,52.2675225 52.2675225,52.2675123 52.2675123,52.2673305 52.2673305,52.2671083 52.2671083,52.2670445 52.2670445,52.2669815 52.2669815,52.2672178 52.2672178,52.2674017 52.2674017,52.2674647 52.2674647))','Spielplatz Theaterpark')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 34746137 with statement INSERT INTO bruecke VALUES (34746137,'','0',0,'',0,'0','0','LINESTRING(52.2709468 52.2709468,52.2709416 52.2709416)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 34069539 with statement INSERT INTO spielplatz VALUES (34069539,'POLYGON((52.2528976 52.2528976,52.2527402 52.2527402,52.252742 52.252742,52.2527643 52.2527643,52.2528023 52.2528023,52.2528972 52.2528972,52.2528976 52.2528976))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 375125000 with statement INSERT INTO spielplatz VALUES (375125000,'POLYGON((52.2750749 52.2750749,52.2751131 52.2751131,52.274988 52.274988,52.2749498 52.2749498,52.2750749 52.2750749))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 353618991 with statement INSERT INTO bruecke VALUES (353618991,'Ringgleis-Brücke (im Bau)','0',0,'',0,'0','0','LINESTRING(52.2772036 52.2772036,52.2771751 52.2771751)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 37824329 with statement INSERT INTO spielplatz VALUES (37824329,'POLYGON((52.2722315 52.2722315,52.2723149 52.2723149,52.2723962 52.2723962,52.2724482 52.2724482,52.2724744 52.2724744,52.2724435 52.2724435,52.2723622 52.2723622,52.2724441 52.2724441,52.2726479 52.2726479,52.272634 52.272634,52.2726924 52.2726924,52.272673 52.272673,52.2726259 52.2726259,52.2725065 52.2725065,52.2725308 52.2725308,52.2725113 52.2725113,52.2724492 52.2724492,52.2724338 52.2724338,52.2722315 52.2722315))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 376509801 with statement INSERT INTO spielplatz VALUES (376509801,'POLYGON((52.2644695 52.2644695,52.2644859 52.2644859,52.2645104 52.2645104,52.2645271 52.2645271,52.2645584 52.2645584,52.2645985 52.2645985,52.2646231 52.2646231,52.2646422 52.2646422,52.2646452 52.2646452,52.2646411 52.2646411,52.2646264 52.2646264,52.2646107 52.2646107,52.2645828 52.2645828,52.2645403 52.2645403,52.2645104 52.2645104,52.2644846 52.2644846,52.2644689 52.2644689,52.2644634 52.2644634,52.2644695 52.2644695))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 375120515 with statement INSERT INTO see VALUES (375120515,'POLYGON((52.2591779 52.2591779,52.2591481 52.2591481,52.2591269 52.2591269,52.259128 52.259128,52.2591285 52.2591285,52.259112 52.259112,52.2590897 52.2590897,52.2590759 52.2590759,52.2590652 52.2590652,52.2590573 52.2590573,52.2590525 52.2590525,52.2590493 52.2590493,52.2590509 52.2590509,52.2590546 52.2590546,52.2590604 52.2590604,52.2590735 52.2590735,52.2591024 52.2591024,52.2591311 52.2591311,52.2591721 52.2591721,52.2592428 52.2592428,52.2593034 52.2593034,52.2594028 52.2594028,52.2594995 52.2594995,52.2598151 52.2598151,52.2602013 52.2602013,52.2604182 52.2604182,52.2609409 52.2609409,52.2610685 52.2610685,52.2614166 52.2614166,52.2615543 52.2615543,52.2617111 52.2617111,52.2618493 52.2618493,52.2620459 52.2620459,52.2622686 52.2622686,52.2623234 52.2623234,52.262324 52.262324,52.2623244 52.2623244,52.2620406 52.2620406,52.2618485 52.2618485,52.2617107 52.2617107,52.2615587 52.2615587,52.2614189 52.2614189,52.2610744 52.2610744,52.2609495 52.2609495,52.2604212 52.2604212,52.2602065 52.2602065,52.2598211 52.2598211,52.2595059 52.2595059,52.2594123 52.2594123,52.2593119 52.2593119,52.2592624 52.2592624,52.2591891 52.2591891,52.2591509 52.2591509,52.2591339 52.2591339,52.2591155 52.2591155,52.2590945 52.2590945,52.2590911 52.2590911,52.2591023 52.2591023,52.259111 52.259111,52.2591369 52.2591369,52.2591636 52.2591636,52.2591753 52.2591753,52.2591771 52.2591771,52.2591779 52.2591779))','')
+--------REASON: ERROR: GEOSCrosses: TopologyException: side location conflict at 52.260901400000002 52.260901400000002
+  Wobei: SQL statement "SELECT                  COUNT(*) AS Anzahl FROM TestSysRel WHERE NOT ( not exists( select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss) ))"
+PL/pgSQL function dokeinhausinsee() line 1 at SQL statement
+REASON: ERROR: GEOSCrosses: TopologyException: side location conflict at 52.260901400000002 52.260901400000002
+  Wobei: SQL statement "SELECT                  COUNT(*) AS Anzahl FROM TestSysRel WHERE NOT ( not exists( select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss) ))"
+PL/pgSQL function dokeinhausinsee() line 1 at SQL statement
+ERROR: at Node: 37794131 with statement INSERT INTO spielplatz VALUES (37794131,'POLYGON((52.2596396 52.2596396,52.2596124 52.2596124,52.259491 52.259491,52.2593713 52.2593713,52.2593503 52.2593503,52.2595047 52.2595047,52.2595249 52.2595249,52.2596396 52.2596396))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 37794129 with statement INSERT INTO spielplatz VALUES (37794129,'POLYGON((52.2613974 52.2613974,52.2612116 52.2612116,52.2613109 52.2613109,52.2615131 52.2615131,52.2614216 52.2614216,52.2613974 52.2613974))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 256355507 with statement INSERT INTO spielplatz VALUES (256355507,'POLYGON((52.2663852 52.2663852,52.2663661 52.2663661,52.2663268 52.2663268,52.2663459 52.2663459,52.2663852 52.2663852))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 24618801 with statement INSERT INTO spielplatz VALUES (24618801,'POLYGON((52.2564886 52.2564886,52.2565047 52.2565047,52.2565642 52.2565642,52.2565786 52.2565786,52.2565815 52.2565815,52.2565449 52.2565449,52.2565483 52.2565483,52.2562798 52.2562798,52.2562138 52.2562138,52.2564886 52.2564886))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 13460676 with statement INSERT INTO bruecke VALUES (13460676,'','0',0,'wood',0,'0','0','LINESTRING(52.2726318 52.2726318,52.2725558 52.2725558)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 9891029 with statement INSERT INTO spielplatz VALUES (9891029,'POLYGON((52.2565188 52.2565188,52.2568915 52.2568915,52.2568713 52.2568713,52.2567824 52.2567824,52.2566269 52.2566269,52.2566358 52.2566358,52.2565783 52.2565783,52.2564894 52.2564894,52.2564379 52.2564379,52.2565188 52.2565188))','Spielplatz Hedwigstraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 34892544 with statement INSERT INTO spielplatz VALUES (34892544,'POLYGON((52.267748 52.267748,52.267784 52.267784,52.2676543 52.2676543,52.2676183 52.2676183,52.267748 52.267748))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 48423354 with statement INSERT INTO spielplatz VALUES (48423354,'POLYGON((52.2578245 52.2578245,52.2578983 52.2578983,52.2579623 52.2579623,52.2578303 52.2578303,52.2577282 52.2577282,52.2578245 52.2578245))','Spielplatz Sophienstraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 34397836 with statement INSERT INTO spielplatz VALUES (34397836,'POLYGON((52.2640579 52.2640579,52.2640632 52.2640632,52.2639371 52.2639371,52.2638583 52.2638583,52.2640579 52.2640579))','Spielplatz Museumpark')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 37852675 with statement INSERT INTO spielplatz VALUES (37852675,'POLYGON((52.2703046 52.2703046,52.2700697 52.2700697,52.2700965 52.2700965,52.2701269 52.2701269,52.2701707 52.2701707,52.2702484 52.2702484,52.2703607 52.2703607,52.2703046 52.2703046))','Spielplatz Eulenstraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 321122636 with statement INSERT INTO spielplatz VALUES (321122636,'POLYGON((52.2648381 52.2648381,52.2649326 52.2649326,52.26499 52.26499,52.2648864 52.2648864,52.2647862 52.2647862,52.2646748 52.2646748,52.2645712 52.2645712,52.2645003 52.2645003,52.2645093 52.2645093,52.2645926 52.2645926,52.2647018 52.2647018,52.2647941 52.2647941,52.2648381 52.2648381))','Spielplatz Inselwall')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 40671680 with statement INSERT INTO spielplatz VALUES (40671680,'POLYGON((52.2755382 52.2755382,52.2756064 52.2756064,52.2754384 52.2754384,52.2753701 52.2753701,52.2755382 52.2755382))','Spielplatz Karlstraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 374679223 with statement INSERT INTO bruecke VALUES (374679223,'','1',0,'',0,'0','0','LINESTRING(52.2586414 52.2586414,52.2588598 52.2588598)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 374679206 with statement INSERT INTO bruecke VALUES (374679206,'','1',0,'',0,'0','0','LINESTRING(52.2576266 52.2576266,52.2578386 52.2578386)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 374679205 with statement INSERT INTO bruecke VALUES (374679205,'','1',0,'',0,'0','0','LINESTRING(52.257789 52.257789,52.2575812 52.2575812)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 374679072 with statement INSERT INTO bruecke VALUES (374679072,'','0',0,'',0,'0','0','LINESTRING(52.2612842 52.2612842,52.2612205 52.2612205)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 374679073 with statement INSERT INTO bruecke VALUES (374679073,'','0',0,'',0,'0','0','LINESTRING(52.261361 52.261361,52.2612989 52.2612989)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 374679332 with statement INSERT INTO bruecke VALUES (374679332,'','1',0,'',0,'0','0','LINESTRING(52.258318 52.258318,52.2581158 52.2581158,52.2581076 52.2581076,52.2580984 52.2580984)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 38095504 with statement INSERT INTO bruecke VALUES (38095504,'Hennebergbrücke (gesperrt bis Ende ''16)','0',0,'asphalt',0,'0','0','LINESTRING(52.2555111 52.2555111,52.2553414 52.2553414)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 121068758 with statement INSERT INTO spielplatz VALUES (121068758,'POLYGON((52.2752896 52.2752896,52.2752765 52.2752765,52.2748947 52.2748947,52.2748412 52.2748412,52.2748405 52.2748405,52.2745784 52.2745784,52.2745792 52.2745792,52.274583 52.274583,52.2745089 52.2745089,52.2745399 52.2745399,52.2748863 52.2748863,52.2752896 52.2752896))','Spielplatz Bültenweg')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 389017673 with statement INSERT INTO bruecke VALUES (389017673,'','0',0,'',0,'0','0','LINESTRING(52.2533352 52.2533352,52.2533306 52.2533306)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 324546083 with statement INSERT INTO bruecke VALUES (324546083,'','0',0,'',0,'0','0','LINESTRING(52.2724521 52.2724521,52.272485 52.272485,52.2725629 52.2725629,52.2726294 52.2726294,52.2727021 52.2727021)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 324546070 with statement INSERT INTO bruecke VALUES (324546070,'','0',0,'',0,'0','0','LINESTRING(52.2725066 52.2725066,52.2726252 52.2726252,52.2727651 52.2727651)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 28576527 with statement INSERT INTO spielplatz VALUES (28576527,'POLYGON((52.275652 52.275652,52.2756114 52.2756114,52.275565 52.275565,52.275309 52.275309,52.2754739 52.2754739,52.2758358 52.2758358,52.2757172 52.2757172,52.2756921 52.2756921,52.275652 52.275652))','Spielplatz Tunicastraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 24896883 with statement INSERT INTO bruecke VALUES (24896883,'','0',0,'',0,'0','0','LINESTRING(52.2533306 52.2533306,52.2532973 52.2532973)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 24896884 with statement INSERT INTO bruecke VALUES (24896884,'','0',0,'',0,'0','0','LINESTRING(52.2532973 52.2532973,52.2532923 52.2532923)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 37817990 with statement INSERT INTO bruecke VALUES (37817990,'','0',0,'',0,'0','0','LINESTRING(52.2681997 52.2681997,52.2681138 52.2681138)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 37817989 with statement INSERT INTO bruecke VALUES (37817989,'','0',0,'',0,'0','0','LINESTRING(52.2678983 52.2678983,52.2678045 52.2678045)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 321366755 with statement INSERT INTO bruecke VALUES (321366755,'','1',0,'',0,'0','0','LINESTRING(52.2741018 52.2741018,52.2740933 52.2740933,52.2738718 52.2738718)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 321366757 with statement INSERT INTO bruecke VALUES (321366757,'','1',0,'',0,'0','0','LINESTRING(52.2737284 52.2737284,52.2737839 52.2737839,52.2739583 52.2739583)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 314608194 with statement INSERT INTO spielplatz VALUES (314608194,'POLYGON((52.2557585 52.2557585,52.2556401 52.2556401,52.255567 52.255567,52.2556295 52.2556295,52.2557492 52.2557492,52.2557585 52.2557585))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 384882639 with statement INSERT INTO bruecke VALUES (384882639,'','0',0,'',0,'0','0','LINESTRING(52.2584437 52.2584437,52.2584997 52.2584997)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 39163102 with statement INSERT INTO bruecke VALUES (39163102,'','1',0,'',0,'0','0','LINESTRING(52.2680045 52.2680045,52.2682717 52.2682717)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 39163104 with statement INSERT INTO bruecke VALUES (39163104,'','1',0,'',0,'0','0','LINESTRING(52.2681571 52.2681571,52.2678827 52.2678827)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 313870028 with statement INSERT INTO spielplatz VALUES (313870028,'POLYGON((52.2540903 52.2540903,52.2539943 52.2539943,52.2538546 52.2538546,52.2539546 52.2539546,52.2540903 52.2540903))','Till Eulenspiegel e.V.')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 328844146 with statement INSERT INTO bruecke VALUES (328844146,'','0',0,'',0,'0','0','LINESTRING(52.2629439 52.2629439,52.2630064 52.2630064)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 328844145 with statement INSERT INTO bruecke VALUES (328844145,'','0',0,'asphalt',0,'0','0','LINESTRING(52.2628781 52.2628781,52.2628266 52.2628266)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 10237435 with statement INSERT INTO spielplatz VALUES (10237435,'POLYGON((52.2578229 52.2578229,52.2578155 52.2578155,52.257812 52.257812,52.2579022 52.2579022,52.257997 52.257997,52.2580199 52.2580199,52.2580447 52.2580447,52.2580602 52.2580602,52.2580893 52.2580893,52.2578143 52.2578143,52.2578229 52.2578229))','Spielplatz Juliusstraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 48470164 with statement INSERT INTO spielplatz VALUES (48470164,'POLYGON((52.2562201 52.2562201,52.2560679 52.2560679,52.2558206 52.2558206,52.2559643 52.2559643,52.2560645 52.2560645,52.2562201 52.2562201))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 28099607 with statement INSERT INTO spielplatz VALUES (28099607,'POLYGON((52.2727964 52.2727964,52.2728643 52.2728643,52.272791 52.272791,52.272729 52.272729,52.2727751 52.2727751,52.2726767 52.2726767,52.2725762 52.2725762,52.2726217 52.2726217,52.2725759 52.2725759,52.2726872 52.2726872,52.2727165 52.2727165,52.2727964 52.2727964))','Spielplatz Allerstraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 25087181 with statement INSERT INTO bruecke VALUES (25087181,'','0',0,'',0,'0','0','LINESTRING(52.268822 52.268822,52.2686632 52.2686632)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 5021494 with statement INSERT INTO bruecke VALUES (5021494,'','0',0,'',0,'0','0','LINESTRING(52.2701395 52.2701395,52.2698438 52.2698438)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 354647709 with statement INSERT INTO bruecke VALUES (354647709,'','0',0,'',0,'0','0','LINESTRING(52.2661526 52.2661526,52.2662674 52.2662674)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 354647710 with statement INSERT INTO bruecke VALUES (354647710,'','0',0,'',0,'0','0','LINESTRING(52.2663651 52.2663651,52.2662648 52.2662648)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 115931918 with statement INSERT INTO spielplatz VALUES (115931918,'POLYGON((52.2515094 52.2515094,52.2515701 52.2515701,52.2516247 52.2516247,52.2516679 52.2516679,52.2517154 52.2517154,52.2517396 52.2517396,52.2517576 52.2517576,52.2517627 52.2517627,52.2517533 52.2517533,52.2517362 52.2517362,52.2517164 52.2517164,52.2516921 52.2516921,52.2516495 52.2516495,52.2516066 52.2516066,52.2515815 52.2515815,52.2515388 52.2515388,52.2514904 52.2514904,52.2514496 52.2514496,52.2514084 52.2514084,52.2513619 52.2513619,52.251329 52.251329,52.2513165 52.2513165,52.2513228 52.2513228,52.2513445 52.2513445,52.2513533 52.2513533,52.2513661 52.2513661,52.2513882 52.2513882,52.2514211 52.2514211,52.2514606 52.2514606,52.2515094 52.2515094))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 314600104 with statement INSERT INTO spielplatz VALUES (314600104,'POLYGON((52.2543554 52.2543554,52.2544352 52.2544352,52.2543281 52.2543281,52.2543448 52.2543448,52.2542397 52.2542397,52.2541452 52.2541452,52.2543554 52.2543554))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 136492132 with statement INSERT INTO spielplatz VALUES (136492132,'POLYGON((52.2641873 52.2641873,52.2645757 52.2645757,52.2646949 52.2646949,52.2646558 52.2646558,52.2646229 52.2646229,52.2639431 52.2639431,52.2638806 52.2638806,52.2642454 52.2642454,52.2641873 52.2641873))','Spielplatz Max-Osterloh-Platz')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 320814797 with statement INSERT INTO spielplatz VALUES (320814797,'POLYGON((52.258746 52.258746,52.2586903 52.2586903,52.2586969 52.2586969,52.2588084 52.2588084,52.2588362 52.2588362,52.2588242 52.2588242,52.258746 52.258746))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 24778408 with statement INSERT INTO bruecke VALUES (24778408,'Drachenbrücke','0',0,'',0,'0','0','LINESTRING(52.2522202 52.2522202,52.2523255 52.2523255,52.252406 52.252406)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 293189716 with statement INSERT INTO spielplatz VALUES (293189716,'POLYGON((52.2742399 52.2742399,52.2742159 52.2742159,52.2740736 52.2740736,52.2739776 52.2739776,52.2739234 52.2739234,52.2742545 52.2742545,52.2742629 52.2742629,52.2742399 52.2742399))','Spielplatz Drasewitztwete')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 37810626 with statement INSERT INTO spielplatz VALUES (37810626,'POLYGON((52.2716102 52.2716102,52.2716795 52.2716795,52.2715929 52.2715929,52.2714898 52.2714898,52.2714051 52.2714051,52.2713723 52.2713723,52.2714513 52.2714513,52.2715649 52.2715649,52.2716102 52.2716102))','Spielplatz Löbbeckes Insel')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 402774291 with statement INSERT INTO bruecke VALUES (402774291,'','0',0,'',0,'0','0','LINESTRING(52.2687292 52.2687292,52.2687378 52.2687378)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 105914718 with statement INSERT INTO bruecke VALUES (105914718,'Prinzenweg','0',0,'',0,'0','0','LINESTRING(52.2591406 52.2591406,52.2592418 52.2592418)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 5088350 with statement INSERT INTO bruecke VALUES (5088350,'Pockelsstraße','0',30,'wood',0,'0','0','LINESTRING(52.2720153 52.2720153,52.2716607 52.2716607)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 118906322 with statement INSERT INTO haus VALUES (118906322,'Marstall','','13','38100','Braunschweig',0,0,0.0,'','','','','','POLYGON((52.2657242 52.2657242,52.2655595 52.2655595,52.265547 52.265547,52.265565 52.265565,52.2655556 52.2655556,52.2655697 52.2655697,52.2655457 52.2655457,52.265547 52.265547,52.2656827 52.2656827,52.2657242 52.2657242))',NULL)
+--------REASON: ERROR: GEOSCrosses: TopologyException: side location conflict at 52.265546999999998 52.265546999999998
+  Wobei: SQL statement "SELECT                  COUNT(*) AS Anzahl FROM TestSysRel WHERE NOT ( not exists( select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss) ))"
+PL/pgSQL function dokeinhausinsee() line 1 at SQL statement
+REASON: ERROR: GEOSCrosses: TopologyException: side location conflict at 52.265546999999998 52.265546999999998
+  Wobei: SQL statement "SELECT                  COUNT(*) AS Anzahl FROM TestSysRel WHERE NOT ( not exists( select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss) ))"
+PL/pgSQL function dokeinhausinsee() line 1 at SQL statement
+ERROR: at Node: 25290643 with statement INSERT INTO bruecke VALUES (25290643,'','0',0,'',0,'0','0','LINESTRING(52.2637878 52.2637878,52.2638024 52.2638024,52.2639161 52.2639161)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 317406917 with statement INSERT INTO spielplatz VALUES (317406917,'POLYGON((52.2527605 52.2527605,52.2525461 52.2525461,52.2525688 52.2525688,52.2527524 52.2527524,52.2527605 52.2527605))','Kita St. Nikolaus (Caritas Familienzentrum St. Ni')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 31967877 with statement INSERT INTO see VALUES (31967877,'POLYGON((52.2593657 52.2593657,52.2593584 52.2593584,52.2593469 52.2593469,52.2593326 52.2593326,52.2593172 52.2593172,52.2593026 52.2593026,52.2592905 52.2592905,52.2592824 52.2592824,52.2592793 52.2592793,52.2592815 52.2592815,52.2592888 52.2592888,52.2593003 52.2593003,52.2593146 52.2593146,52.25933 52.25933,52.2593446 52.2593446,52.2593567 52.2593567,52.2593648 52.2593648,52.2593679 52.2593679,52.2593657 52.2593657))','')
+--------REASON: ERROR: GEOSCrosses: TopologyException: side location conflict at 52.259314000000003 52.259314000000003
+  Wobei: SQL statement "SELECT                  COUNT(*) AS Anzahl FROM TestSysRel WHERE NOT ( not exists( select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss) ))"
+PL/pgSQL function dokeinhausinsee() line 1 at SQL statement
+REASON: ERROR: GEOSCrosses: TopologyException: side location conflict at 52.259314000000003 52.259314000000003
+  Wobei: SQL statement "SELECT                  COUNT(*) AS Anzahl FROM TestSysRel WHERE NOT ( not exists( select * from See s,Haus h where ST_Crosses(s.umriss,h.umriss) ))"
+PL/pgSQL function dokeinhausinsee() line 1 at SQL statement
+ERROR: at Node: 229756640 with statement INSERT INTO spielplatz VALUES (229756640,'POLYGON((52.267414 52.267414,52.2676502 52.2676502,52.2675148 52.2675148,52.2672849 52.2672849,52.267414 52.267414))','Spielplatz Görgesstraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 39987213 with statement INSERT INTO spielplatz VALUES (39987213,'POLYGON((52.2737931 52.2737931,52.2738528 52.2738528,52.2737382 52.2737382,52.2736795 52.2736795,52.2737931 52.2737931))','Spielplatz Bindestraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 23422894 with statement INSERT INTO bruecke VALUES (23422894,'','0',0,'',0,'0','0','LINESTRING(52.2593039 52.2593039,52.259511 52.259511)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 122119628 with statement INSERT INTO bruecke VALUES (122119628,'','0',0,'',0,'0','0','LINESTRING(52.2594581 52.2594581,52.2592662 52.2592662)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 10231585 with statement INSERT INTO spielplatz VALUES (10231585,'POLYGON((52.2548704 52.2548704,52.2548904 52.2548904,52.2551111 52.2551111,52.2551514 52.2551514,52.2552235 52.2552235,52.2551432 52.2551432,52.2551664 52.2551664,52.2545707 52.2545707,52.2545446 52.2545446,52.2546287 52.2546287,52.2548704 52.2548704))','Spielplatz Frankfurter Straße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 7970615 with statement INSERT INTO bruecke VALUES (7970615,'','0',0,'',0,'0','0','LINESTRING(52.2723652 52.2723652,52.2723513 52.2723513)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 7970627 with statement INSERT INTO bruecke VALUES (7970627,'','0',0,'asphalt',0,'0','0','LINESTRING(52.2719913 52.2719913,52.2719052 52.2719052)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 37805673 with statement INSERT INTO bruecke VALUES (37805673,'Eulenspiegeltwete','0',0,'',0,'0','0','LINESTRING(52.2641183 52.2641183,52.2641263 52.2641263)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 321961158 with statement INSERT INTO bruecke VALUES (321961158,'','1',0,'asphalt',0,'0','0','LINESTRING(52.2610143 52.2610143,52.2609051 52.2609051)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 321961159 with statement INSERT INTO bruecke VALUES (321961159,'','1',0,'asphalt',0,'0','0','LINESTRING(52.2609878 52.2609878,52.2610868 52.2610868)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 33885896 with statement INSERT INTO spielplatz VALUES (33885896,'POLYGON((52.2525314 52.2525314,52.2522654 52.2522654,52.2523056 52.2523056,52.2524847 52.2524847,52.2527219 52.2527219,52.2527097 52.2527097,52.2526777 52.2526777,52.2525314 52.2525314))','Spielplatz Ekbertstraße')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 39819000 with statement INSERT INTO spielplatz VALUES (39819000,'POLYGON((52.2677929 52.2677929,52.267608 52.267608,52.2676846 52.2676846,52.2677241 52.2677241,52.2678577 52.2678577,52.2677929 52.2677929))','')
+--------REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+REASON: ERROR: ASSERTION keineStrasseDurchSpielplatz potenziell verletzt!
+ERROR: at Node: 316333784 with statement INSERT INTO bruecke VALUES (316333784,'Neuer Geiershagen','0',0,'',0,'0','0','LINESTRING(52.2714352 52.2714352,52.2712811 52.2712811)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 315047013 with statement INSERT INTO bruecke VALUES (315047013,'Wolfenbütteler Straße','0',0,'',0,'0','0','LINESTRING(52.2568739 52.2568739,52.2570084 52.2570084,52.2571338 52.2571338)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 315047009 with statement INSERT INTO bruecke VALUES (315047009,'','1',0,'',0,'0','0','LINESTRING(52.2570862 52.2570862,52.2568571 52.2568571)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 315047004 with statement INSERT INTO bruecke VALUES (315047004,'Kurt-Schumacher-Straße','1',0,'',0,'0','0','LINESTRING(52.2581614 52.2581614,52.2581549 52.2581549,52.2581429 52.2581429,52.2581167 52.2581167,52.258099 52.258099)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+ERROR: at Node: 337155062 with statement INSERT INTO bruecke VALUES (337155062,'','0',0,'',0,'0','0','LINESTRING(52.2693405 52.2693405,52.2693034 52.2693034)')
+--------REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+REASON: ERROR: ASSERTION brueckeMussKreuzen potenziell verletzt!
+waysMap contains 3789 items
+waysMap contains 3789 items
+Inserted 0 ways
+Done 11508 entrys out of 85059

@@ -1,22 +1,15 @@
 package importSQL;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.ObjectOutputStream;
-import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLClientInfoException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -26,7 +19,6 @@ import org.postgis.LinearRing;
 import org.postgis.Point;
 import org.postgis.Polygon;
 import org.w3c.dom.Document;
-import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
@@ -80,6 +72,7 @@ public class Main {
 		public List<String> value;
 		public boolean closed = false;
 
+		@SuppressWarnings("unused")
 		public MyWay() {
 			key = new ArrayList<>();
 			value = new ArrayList<>();
@@ -333,7 +326,6 @@ public class Main {
 	private List<Long> fillTablesNodes(Connection conn) {
 
 		List<Long> done = new ArrayList<>();
-		long i = 0;
 		PreparedStatement psAmpel;
 		try {
 			psAmpel = conn.prepareStatement("INSERT INTO ampel VALUES (?,?,?,?)");
@@ -665,7 +657,6 @@ public class Main {
 
 	private List<Long> fillTablesWays(Connection conn) {
 		List<Long> done = new ArrayList<>();
-		long i = 0;
 		for (long key : waysMap.keySet()) {
 			// output("Dataset(Ways):" + i++ + " of " + waysMap.size(),
 			// Mode.INFO);
@@ -1461,7 +1452,7 @@ public class Main {
 		Integer i = violatedAssertions.get(s[3]);
 		if (i == null)
 			i = 0;
-		violatedAssertions.put(s[2], i + 1);
+		violatedAssertions.put(s[3], i + 1);
 	}
 
 	private void output(String str, Mode mode) {
