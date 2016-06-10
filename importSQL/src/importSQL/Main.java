@@ -1,7 +1,10 @@
 package importSQL;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -35,7 +38,9 @@ public class Main {
 		INFO // Only Info will be Plottet
 	}
 
-	Mode m = Mode.FAST;
+	public static final String BACKUP_NAME = "backup.dmp";
+
+	Mode m = Mode.DEBUG;
 	Document doc;
 	NodeList nodes;
 	NodeList ways;
@@ -43,6 +48,7 @@ public class Main {
 	Map<String, Integer> tags;
 	Map<Long, MyNode> nodesMap;
 	Map<Long, MyWay> waysMap;
+	Map<String, Integer> violatedAssertions;
 
 	private class MyNode {
 		public Point p;
@@ -108,6 +114,7 @@ public class Main {
 
 	public Main() throws ParserConfigurationException, SAXException, IOException, ClassNotFoundException {
 		output("Working dir is: " + System.getProperty("user.dir"), Mode.INFO);
+		violatedAssertions = new HashMap<String, Integer>();
 		if (!createDoc())
 			return;
 
@@ -286,6 +293,7 @@ public class Main {
 		int counter = 1;
 		// Mehrfach drüber gehen, wegen Aobhängigkeit
 		do {
+			violatedAssertions.clear();
 			nodesDone.clear();
 			waysDone.clear();
 			output(counter++ + ". Durchlauf: ", Mode.FAST);
@@ -301,16 +309,18 @@ public class Main {
 
 			waysDone.addAll(fillTablesWays(conn));
 
-			output("nodesMap contains " + waysMap.size() + " items", Mode.FAST);
+			output("waysMap contains " + waysMap.size() + " items", Mode.FAST);
 			for (long key : waysDone) {
 				waysMap.remove(key);
 			}
-			output("nodesMap contains " + waysMap.size() + " items", Mode.FAST);
+			output("waysMap contains " + waysMap.size() + " items", Mode.FAST);
 
 			inserts += waysDone.size();
 			output("Inserted " + waysDone.size() + " ways", Mode.FAST);
 		} while (nodesDone.size() > 0 || waysDone.size() > 0);
 		output("Done " + inserts + " entrys out of " + (allEntries), Mode.FAST);
+		for (String s : violatedAssertions.keySet())
+			System.out.println("Violated " + s + " " + violatedAssertions.get(s) + " times");
 		if (conn != null)
 			try {
 				conn.close();
@@ -357,7 +367,8 @@ public class Main {
 			psHaus = null;
 		}
 		for (long key : nodesMap.keySet()) {
-			output("Dataset(Node):" + i++ + " of " + nodesMap.size(), Mode.INFO);
+			// output("Dataset(Node):" + i++ + " of " + nodesMap.size(),
+			// Mode.INFO);
 			// Ampel
 			if (nodesMap.get(key).value.contains("traffic_signals") && psAmpel != null) {
 				if (fillTableAmpel(psAmpel, key))
@@ -402,6 +413,7 @@ public class Main {
 		try {
 			ps.clearParameters();
 		} catch (SQLException e) {
+			output(e.getMessage(), Mode.DEBUG);
 			return false;
 		}
 		long id = nodeKey;
@@ -655,7 +667,8 @@ public class Main {
 		List<Long> done = new ArrayList<>();
 		long i = 0;
 		for (long key : waysMap.keySet()) {
-			output("Dataset(Ways):" + i++ + " of " + waysMap.size(), Mode.INFO);
+			// output("Dataset(Ways):" + i++ + " of " + waysMap.size(),
+			// Mode.INFO);
 			// Parkplatz
 			if (waysMap.get(key).value.contains("parking")) {
 				if (waysMap.get(key).isClosed()) {
@@ -1436,11 +1449,23 @@ public class Main {
 	}
 
 	private void calculateViolatedAssertions(String exception) {
-		System.out.println(exception);
+		System.out.println("--------" + exception);
+		// REASON: FEHLER: ASSERTION brueckeMussKreuzen potenziell verletzt!
+		String[] s = exception.split(" ");
+		if (!s[0].equals("REASON:"))
+			return;
+		if (!s[1].equals("FEHLER:"))
+			return;
+		if (!s[2].equals("ASSERTION"))
+			return;
+		Integer i = violatedAssertions.get(s[3]);
+		if (i == null)
+			i = 0;
+		violatedAssertions.put(s[2], i + 1);
 	}
 
 	private void output(String str, Mode mode) {
-		if (str.startsWith("REASON")) {
+		if (str.trim().startsWith("REASON")) {
 			calculateViolatedAssertions(str);
 		}
 		if (m == Mode.FAST && mode != Mode.FAST)
