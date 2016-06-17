@@ -10,6 +10,9 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
+import importAssertion.ImportAssertionMain;
+import importSQL.Main;
+
 public class GuiContainer extends JFrame {
 
 	public static void main(String[] args) {
@@ -20,6 +23,9 @@ public class GuiContainer extends JFrame {
 	SidePanel sp;
 	PaintingArea pa;
 	Console con;
+
+	Main importSQL;
+	ImportAssertionMain importAssertions;
 
 	public GuiContainer() {
 		initComponents();
@@ -44,7 +50,12 @@ public class GuiContainer extends JFrame {
 		JMenuBar jmb = new JMenuBar();
 		JMenu f = new JMenu("File");
 		jmb.add(f);
-		JMenuItem jmi = new JMenuItem("Exit");
+		JMenuItem jmi;
+		jmi = new JMenuItem("Open Assertions");
+		f.add(jmi);
+		jmi = new JMenuItem("Insert Database");
+		f.add(jmi);
+		jmi = new JMenuItem("Exit");
 		jmi.addActionListener(new ActionListener() {
 
 			@Override
@@ -53,9 +64,10 @@ public class GuiContainer extends JFrame {
 
 			}
 		});
+		f.addSeparator();
 		f.add(jmi);
-	this.setJMenuBar(jmb);
+
+		this.setJMenuBar(jmb);
 	}
-	
 
 }
