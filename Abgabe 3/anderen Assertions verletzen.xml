@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="Overpass API">
+<note>The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.</note>
+<meta osm_base="2016-04-13T21:55:02Z"/>
+<node id="34814852" lat="52.2683681" lon="10.5447898" version="6" timestamp="2014-05-13T23:23:44Z" changeset="22323539" uid="393959" user="erge50"/>
+  <node id="34814853" lat="52.2679558" lon="10.5451957" version="6" timestamp="2014-05-13T23:23:44Z" changeset="22323539" uid="393959" user="erge50"/>
+  <node id="34814854" lat="52.2682668" lon="10.5462425" version="7" timestamp="2015-07-07T08:59:58Z" changeset="32466656" uid="1719211" user="poschon"/>
+  <node id="498236492" lat="52.2680009" lon="10.5450426" version="3" timestamp="2014-05-13T23:23:48Z" changeset="22323539" uid="393959" user="erge50"/>
+ <node id="4075976176" lat="52.2643046" lon="10.5189142" version="1" timestamp="2016-03-23T22:15:13Z" changeset="38029984" uid="1314296" user="janhmaxb1992"/>
+  <node id="4075976177" lat="52.2643021" lon="10.5188958" version="1" timestamp="2016-03-23T22:15:13Z" changeset="38029984" uid="1314296" user="janhmaxb1992"/>
+  <node id="4075976178" lat="52.2642200" lon="10.5189253" version="1" timestamp="2016-03-23T22:15:13Z" changeset="38029984" uid="1314296" user="janhmaxb1992"/>
+  <node id="4075976179" lat="52.2642224" lon="10.5189437" version="1" timestamp="2016-03-23T22:15:13Z" changeset="38029984" uid="1314296" user="janhmaxb1992"/>
+
+    <way id="1" version="10" timestamp="2015-10-26T00:38:26Z" changeset="34871133" uid="2815981" user="FreierFriese">
+    <nd ref="34814852"/>
+    <nd ref="498236492"/>
+    <nd ref="34814853"/>
+    <tag k="highway" v="living_street"/>
+    <tag k="lit" v="yes"/>
+    <tag k="maxspeed" v="30"/>
+    <tag k="name" v="Yorckstraße"/>
+    <tag k="postal_code" v="38102"/>
+    <tag k="bridge" v="yes"/>
+  </way>
+
+
+  <way id="2" version="1" timestamp="2016-03-23T22:15:16Z" changeset="38029984" uid="1314296" user="janhmaxb1992">
+    <nd ref="4075976176"/>
+    <nd ref="4075976177"/>
+    <nd ref="4075976178"/>
+    <nd ref="4075976179"/>
+    <nd ref="4075976176"/>
+    <tag k="building" v="yes"/>
+  </way>
+
+  <way id="3" version="1" timestamp="2016-03-23T22:15:16Z" changeset="38029984" uid="1314296" user="janhmaxb1992">
+    <nd ref="4075976176"/>
+    <nd ref="4075976177"/>
+    <nd ref="4075976178"/>
+    <nd ref="4075976179"/>
+    <nd ref="4075976176"/>
+    <tag k="amenity" v="parking"/>
+  </way>
+
+
+</osm>
+
