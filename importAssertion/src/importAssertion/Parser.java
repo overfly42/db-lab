@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Parser {
 
@@ -15,11 +16,15 @@ public class Parser {
 		public String select;
 	}
 
-	public List<Assertion> precheckedAssertions;
+	public List<Assertion> precheckedAssertionsInsert;
+	public List<Assertion> precheckedAssertionsCheck;
+	public List<Assertion> precheckedAssertionsDrop;
 
 	public Parser(String file) {
 		File data = checkFile(file);
-		precheckedAssertions = new ArrayList<>();
+		precheckedAssertionsCheck = new ArrayList<>();
+		precheckedAssertionsInsert= new ArrayList<>();
+		precheckedAssertionsDrop = new ArrayList<>();
 		List<String> rawData = null;
 		try {
 			rawData = getRowData(data);
@@ -27,7 +32,7 @@ public class Parser {
 			System.out.println("Fehler beim einlesen. Programm Ende");
 			System.exit(-1);
 		}
-		List<String> assertions = parseAssertions(rawData);
+		Map<String,List<String>> assertions = parseAssertions(rawData);
 		runPreCheck(assertions);
 		grepSelects();
 	}
@@ -61,7 +66,7 @@ public class Parser {
 		return val;
 	}
 
-	private List<String> parseAssertions(List<String> rawData) {
+	private Map<String,List<String>> parseAssertions(List<String> rawData) {
 		List<String> data = new ArrayList<>();
 		int countBrakets = 0;
 		boolean inQuotes = false;
@@ -150,7 +155,7 @@ public class Parser {
 		return condition;
 	}
 
-	private void runPreCheck(List<String> rawData) {
+	private void runPreCheck(Map<String,List<String>> rawData) {
 		System.out.println("---------------------------------------");
 		System.out.println("Running Precheck...");
 		for (String s : rawData) {
