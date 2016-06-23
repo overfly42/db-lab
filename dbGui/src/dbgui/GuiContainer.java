@@ -77,7 +77,7 @@ public class GuiContainer extends JFrame {
 				if(option == JFileChooser.CANCEL_OPTION || !assertionFile.getSelectedFile().exists())
 					return;
 				try {
-					importAssertions = new ImportAssertionMain(assertionFile.getSelectedFile().getAbsolutePath());
+					importAssertions = new ImportAssertionMain(assertionFile.getSelectedFile().getAbsolutePath(),con);
 					JOptionPane.showMessageDialog(frame, "Insert done!");
 				} catch (ClassNotFoundException |  SQLException e) {
 					e.printStackTrace();

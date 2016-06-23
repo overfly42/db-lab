@@ -21,7 +21,7 @@ public class Console extends ScrollPane implements Output{
 	}
 
 	public void writeln(String str) {
-		// TODO Auto-generated method stub
+		System.out.println("----"+str);
 		
 	}
 }

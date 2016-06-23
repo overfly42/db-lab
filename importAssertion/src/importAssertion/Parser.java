@@ -117,6 +117,7 @@ public class Parser {
 		all.add(precheckedAssertionsCheck);
 		all.add(precheckedAssertionsDrop);
 		all.add(precheckedAssertionsInsert);
+		int removed = 0;
 		for (List<Assertion> precheckedAssertions : all) {
 			for (Assertion a : precheckedAssertions) {
 				a.select = getSelectFromAssertion(a);
@@ -134,9 +135,10 @@ public class Parser {
 				}
 			}
 			precheckedAssertions.removeAll(fails);
-			out.writeln("Precheck done: " + precheckedAssertions.size() + " passed");
-			out.writeln("-----------------------------------------------");
+			removed += precheckedAssertions.size();
 		}
+		out.writeln("Precheck done: " + removed + " passed");
+		out.writeln("-----------------------------------------------");
 	}
 
 	private String getSelectFromAssertion(Assertion a) {

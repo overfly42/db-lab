@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
+import dbInterface.Output;
 
 public class InsertAssertion {
 	Parser parser;
@@ -213,7 +214,7 @@ public class InsertAssertion {
 				    "END;'" +
 				    "LANGUAGE 'plpgsql';";
 			ResultSet result = create.executeQuery(cmd);
-			out.writeln(result);
+			out.writeln(result.toString());
 		
 		}catch(Exception ex){
 			if(ex.getMessage().contains("Die Abfrage lieferte kein Ergebnis.")){

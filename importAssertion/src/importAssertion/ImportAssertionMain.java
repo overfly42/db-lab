@@ -21,7 +21,7 @@ public class ImportAssertionMain {
 
 	}
 
-	public ImportAssertionMain(String file,Output o) throws ClassNotFoundException, SQLException
+	public ImportAssertionMain(String file,dbInterface.Output o) throws ClassNotFoundException, SQLException
 	{
 		o.writeln("Versuche Datei " + file + " einzulesen");
 		Parser p = new Parser(o,file);
