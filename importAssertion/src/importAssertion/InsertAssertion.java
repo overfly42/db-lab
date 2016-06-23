@@ -13,7 +13,7 @@ import java.util.Set;
 
 public class InsertAssertion {
 	Parser parser;
-
+	Output out;
 	private Connection connectToDB() throws SQLException, ClassNotFoundException{
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
@@ -31,10 +31,11 @@ public class InsertAssertion {
 	}
 	
 	
-	public InsertAssertion(Parser p) throws ClassNotFoundException, SQLException {
+	public InsertAssertion(Output o,Parser p) throws ClassNotFoundException, SQLException {
 		parser = p; // Datenbankverbindung
+		out = o;
 		Connection conn = connectToDB();
-		System.out.println("Start DB Check...");
+		out.writeln("Start DB Check...");
 		checkTestSysRel(conn);
 		checkAssertionSysRel(conn);
 		
@@ -44,9 +45,9 @@ public class InsertAssertion {
 					insertAssertions(conn, as);
 					Set<String> tables = getUsedTables(conn, as);
 					boolean crFct = createDOFunction(conn, as, "DO"+as.name);
-					System.out.println("Insert function: " + crFct);
+					out.writeln("Insert function: " + crFct);
 					boolean crTri = createTrigger(conn, as, "DO"+as.name, tables); 
-					System.out.println("Insert trigger: " + crTri);
+					out.writeln("Insert trigger: " + crTri);
 					if(crFct && crTri){
 						updateCorrectAssertions(conn, as);
 					}
@@ -54,7 +55,7 @@ public class InsertAssertion {
 			}
 		}
 		conn.close();
-		System.out.println("Finished!");
+		out.writeln("Finished!");
 	}
 
 	// TestSysRel
@@ -98,8 +99,8 @@ public class InsertAssertion {
 		try {
 			ResultSet exists = stmt.executeQuery(as.select);
 		} catch (Exception e) {
-			System.out.println("Error in assertion " + as.name + ":");
-			System.out.println("\t" + e.getMessage());
+			out.writeln("Error in assertion " + as.name + ":");
+			out.writeln("\t" + e.getMessage());
 			return false;
 		} finally {
 			stmt.close();
@@ -115,13 +116,13 @@ public class InsertAssertion {
 		ps.setObject(2, as.condition);
 		try {
 			ps.execute();
-			System.out.println("Insert " + as.name + "in DB.");
+			out.writeln("Insert " + as.name + "in DB.");
 		} catch (Exception e) {
-			System.out.println("Error in assertion " + as.name + ":");
+			out.writeln("Error in assertion " + as.name + ":");
 			if (e.getMessage().contains("duplicate key value violates unique")) {
-				System.out.println("\t ERROR: Assertion already exists");
+				out.writeln("\t ERROR: Assertion already exists");
 			} else {
-				System.out.println("\t" + e.getMessage());
+				out.writeln("\t" + e.getMessage());
 			}
 
 		} finally {
@@ -136,9 +137,9 @@ public class InsertAssertion {
 		
 		try {
 			create.executeUpdate("UPDATE AssertionSysRel SET implementiert= "+true+ " WHERE "+ "Assertionname='"+as.name+"';");
-			System.out.println("Update AssertionSysRel");
+			out.writeln("Update AssertionSysRel");
 		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			out.writeln(e.getMessage());
 		} finally {
 			create.close();
 		}
@@ -152,16 +153,16 @@ public class InsertAssertion {
 			create.executeUpdate("CREATE TABLE " + as.name + " ( id INT )");
 			create.executeUpdate("DROP TABLE " + as.name);
 		} catch (Exception e) {
-			System.out.println("Error in assertion " + as.name + ":");
+			out.writeln("Error in assertion " + as.name + ":");
 			
 			if(e.getMessage().contains("syntax error")){
-				System.out.println("\tERROR: Invalid assertion name");
+				out.writeln("\tERROR: Invalid assertion name");
 				try{
 					Integer.parseInt(""+ as.name.toCharArray()[0]);
-				System.out.println("\tAssertion should start with a letter");
+				out.writeln("\tAssertion should start with a letter");
 			}catch(Exception ex){}}
 			else{
-				System.out.println(e.getMessage());
+				out.writeln(e.getMessage());
 			}
 			return false;
 
@@ -212,15 +213,15 @@ public class InsertAssertion {
 				    "END;'" +
 				    "LANGUAGE 'plpgsql';";
 			ResultSet result = create.executeQuery(cmd);
-			System.out.println(result);
+			out.writeln(result);
 		
 		}catch(Exception ex){
 			if(ex.getMessage().contains("Die Abfrage lieferte kein Ergebnis.")){
 				return true;
 			}
 			else {
-				System.out.println(ex.getMessage());
-				System.out.println(cmd);
+				out.writeln(ex.getMessage());
+				out.writeln(cmd);
 				return false;
 			}
 		}finally {
@@ -238,7 +239,7 @@ public class InsertAssertion {
 						+ table + " FOR EACH ROW EXECUTE PROCEDURE " + functionName +"();");
 		}
 		}catch(Exception ex){
-			System.out.println(ex.getMessage());
+			out.writeln(ex.getMessage());
 			return false;
 		}finally {
 			create.close();
