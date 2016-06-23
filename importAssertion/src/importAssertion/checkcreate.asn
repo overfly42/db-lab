@@ -1,0 +1,8 @@
+
+CHECK ASSERTION keineStrasseDurchSpielplatz;
+
+
+DROP ASSERTION keinHausInSee;
+
+
+
