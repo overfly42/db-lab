@@ -11,6 +11,7 @@ public class ConflictAssertion {
     // Liste ist ein Tupel
     // Map <ColumName, Object>
     List<Map<String, Object>> dataset = new ArrayList<>();
+    boolean assertionOk = false;
 	
     public ConflictAssertion( Assertion assertion){
     	this.assertion = assertion;

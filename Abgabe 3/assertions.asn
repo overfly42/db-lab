@@ -82,6 +82,8 @@ create Assertion BrueckeIstWeg CHECK(
 				where ST_Coveredby(a.path,b.path)
 )));
 
+
+
 #X. Parkplatz an Straße
 check Assertion ParkplatzAnStraße Check(
 	not exists(
