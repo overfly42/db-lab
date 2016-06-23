@@ -5,3 +5,8 @@ importSQL/.classpath
 importAssertion/bin/
 importAssertion/.classpath
 importAssertion/.settings
+dbGui/.classpath
+dbGui/.settings/
+dbInterface/.classpath
+dbInterface/bin/
+

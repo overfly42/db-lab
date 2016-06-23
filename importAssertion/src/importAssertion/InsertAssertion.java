@@ -11,11 +11,10 @@ import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
 
-public class CheckDB {
+public class InsertAssertion {
 	Parser parser;
 
-	public CheckDB(Parser p) throws ClassNotFoundException, SQLException {
-		parser = p; // Datenbankverbindung
+	private Connection connectToDB() throws SQLException, ClassNotFoundException{
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
 		Connection conn;
@@ -27,13 +26,19 @@ public class CheckDB {
 			} catch (Exception ex) {
 				conn = DriverManager.getConnection(url, "admin", "admin");
 			}
-
-		}
+		} 
+		return conn;
+	}
+	
+	
+	public InsertAssertion(Parser p) throws ClassNotFoundException, SQLException {
+		parser = p; // Datenbankverbindung
+		Connection conn = connectToDB();
 		System.out.println("Start DB Check...");
 		checkTestSysRel(conn);
 		checkAssertionSysRel(conn);
 		
-		for (Assertion as : p.precheckedAssertions) {
+		for (Assertion as : p.precheckedAssertionsInsert) {
 			if (checkName(conn, as)) {
 				if (checkSelectTestSysRel(conn, as)) {
 					insertAssertions(conn, as);

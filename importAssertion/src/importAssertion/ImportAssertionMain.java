@@ -2,6 +2,7 @@ package importAssertion;
 
 import java.sql.SQLException;
 
+
 public class ImportAssertionMain {
 
 
@@ -16,9 +17,10 @@ public class ImportAssertionMain {
 	}
 
 	public ImportAssertionMain(String file) throws ClassNotFoundException, SQLException {
-		System.out.println("Versuche Datei " + file + " einzulesen");
-		Parser p = new Parser(file);
-		CheckDB c = new CheckDB(p);
+		Output o = new importAssertion.Output();
+		o.writeln("Versuche Datei " + file + " einzulesen");
+		//Parser p = new Parser( o,file);
+		//InsertAssertion c = new InsertAssertion(p);
 
 	}
 }
