@@ -22,7 +22,7 @@ public class Parser {
 
 	Output out;
 	
-	public Parser(Output o , String file) {
+	public Parser(dbInterface.Output o , String file) {
 		o = out;
 		File data = checkFile(file);
 		precheckedAssertionsCheck = new ArrayList<>();

@@ -72,7 +72,6 @@ public class GuiContainer extends JFrame {
 		jmi = new JMenuItem("Open Assertions");
 		jmi.addActionListener(new ActionListener() {
 			
-			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				int option = assertionFile.showOpenDialog(frame);
 				if(option == JFileChooser.CANCEL_OPTION || !assertionFile.getSelectedFile().exists())

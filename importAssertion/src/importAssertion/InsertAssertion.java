@@ -38,7 +38,7 @@ public class InsertAssertion {
 		checkTestSysRel(conn);
 		checkAssertionSysRel(conn);
 		
-		for (Assertion as : p.precheckedAssertions) {
+		for (Assertion as : p.precheckedAssertionsInsert) {
 			if (checkName(conn, as)) {
 				if (checkSelectTestSysRel(conn, as)) {
 					insertAssertions(conn, as);
