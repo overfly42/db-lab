@@ -20,7 +20,7 @@ public class ImportAssertionMain {
 		o = new Output();
 		o.writeln("Versuche Datei " + file + " einzulesen");
 		Parser p = new Parser(o,file);
-		CheckDB c = new CheckDB(p);
+		InsertAssertion c = new InsertAssertion(p);
 
 	}
 }
