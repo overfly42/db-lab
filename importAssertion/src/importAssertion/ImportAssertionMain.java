@@ -18,7 +18,7 @@ public class ImportAssertionMain {
 	public ImportAssertionMain(String file) throws ClassNotFoundException, SQLException {
 		System.out.println("Versuche Datei " + file + " einzulesen");
 		Parser p = new Parser(file);
-		CheckDB c = new CheckDB(p);
+		InsertAssertion c = new InsertAssertion(p);
 
 	}
 }
