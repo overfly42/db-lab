@@ -51,8 +51,9 @@ public class CheckAssertion {
 		for (Assertion as : p.precheckedAssertionsCheck) {
 			boolean name = checkName(conn, as);
 			boolean testSysRel = checkSelect(conn, as);
-			boolean duplicates = checkNoDuplicates(conn, as);
-			if (name && testSysRel && duplicates){
+		//	boolean duplicates = checkNoDuplicates(conn, as);
+			if (name && testSysRel //&& duplicates
+					){
 				out.writeln("Assertion " + as.name + " wurde erfolgreich überprüfen.");
 			}else{
 				out.writeln("Assertion " + as.name + " war fehlerhaft.");
@@ -166,7 +167,7 @@ public class CheckAssertion {
 	}
 
 	// insert Assertions
-	private boolean checkNoDuplicates(Connection conn, Assertion as)
+/*	private boolean checkNoDuplicates(Connection conn, Assertion as)
 			throws SQLException {
 		PreparedStatement ps = conn.prepareStatement("Select * from AssertionSysRel VALUES (?)");
 		ps.setObject(1, as.name);
@@ -185,7 +186,7 @@ public class CheckAssertion {
 			ps.close();
 		}
 		return true;
-	}
+	}*/
 
 
 	private boolean checkName(Connection conn, Assertion as) throws SQLException {

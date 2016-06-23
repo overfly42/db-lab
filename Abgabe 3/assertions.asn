@@ -9,11 +9,7 @@ create Assertion keineStrasseDurchSpielplatz CHECK(
 		select * from Strasse t, Spielplatz p where ST_Crosses(t.path,p.umriss)
 ));
 
-#III. Keine Straßen durch Häuser
-#create Assertion keineStrasseDurchHaus CHECK(
-#	not exists(
-#		select * from Strasse s, haus h where ST_Crosses(s.path,h.umriss) 
-#));
+
 
 #IV. Kein Parkplatz im See
 create Assertion keineParkplatzImSee CHECK(
@@ -99,3 +95,9 @@ create Assertion ParkplatzAnStraße Check(
 				where ST_Crosses(a.umriss,b.path))
 ));
 drop assertion ParkplatzAnStraße
+
+#III. Keine Straßen durch Häuser
+check Assertion keineStrasseDurchHaus CHECK(
+	not exists(
+		select * from Strasse s, haus h where ST_Crosses(s.path,h.umriss) 
+));
