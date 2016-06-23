@@ -20,7 +20,10 @@ public class Parser {
 	public List<Assertion> precheckedAssertionsCheck;
 	public List<Assertion> precheckedAssertionsDrop;
 
-	public Parser(String file) {
+	Output out;
+	
+	public Parser(Output o , String file) {
+		o = out;
 		File data = checkFile(file);
 		precheckedAssertionsCheck = new ArrayList<>();
 		precheckedAssertionsInsert= new ArrayList<>();
@@ -29,7 +32,7 @@ public class Parser {
 		try {
 			rawData = getRowData(data);
 		} catch (IOException e) {
-			System.out.println("Fehler beim einlesen. Programm Ende");
+			out.writeln("Fehler beim einlesen. Programm Ende");
 			System.exit(-1);
 		}
 		Map<String,List<String>> assertions = parseAssertions(rawData);
@@ -39,14 +42,13 @@ public class Parser {
 
 	private File checkFile(String file) {
 		if (!file.endsWith(".asn")) {
-			System.out
-					.println("Datei sollte mit \".asn\" enden\nProgramm Ende");
+			out.writeln("Datei sollte mit \".asn\" enden\nProgramm Ende");
 			System.exit(-1);
 
 		}
 		File data = new File(file);
 		if (!data.exists()) {
-			System.out.println("Datei existiert nicht");
+			out.writeln("Datei existiert nicht");
 			System.exit(-1);
 		}
 		return data;
@@ -75,9 +77,8 @@ public class Parser {
 			char[] letters = s.toCharArray();
 			if (assertion.length() > 0
 					&& s.toLowerCase().trim().startsWith("create assertion")) {
-				System.out.println("Error:" + assertion);
-				System.out
-						.println("\tERROR: Assertion skipped. Quotes, brakets or ; is missing. New \"create assertion\" found"
+				out.writeln("Error:" + assertion);
+				out.writeln("\tERROR: Assertion skipped. Quotes, brakets or ; is missing. New \"create assertion\" found"
 								);
 
 				inQuotes = false;
@@ -105,7 +106,7 @@ public class Parser {
 				assertion = "";
 			}
 		}
-		System.out.println("In " + rawData.size() + " relevanten Zeilen "
+		out.writeln("In " + rawData.size() + " relevanten Zeilen "
 				+ data.size() + " Assertions gefunden");
 		return data;
 	}
@@ -116,24 +117,23 @@ public class Parser {
 			a.select = getSelectFromAssertion(a);
 			if (a.name == null || a.condition == null || a.select == null) {
 				if (a.name == null)
-					System.out.println("ERROR: Assertion has no name");
+					out.writeln("ERROR: Assertion has no name");
 				else if (a.condition == null){
-					System.out.println("Error in assertion: " + a.name);
-					System.out.println("\t ERROR: Assertion " + a.name
+					out.writeln("Error in assertion: " + a.name);
+					out.writeln("\t ERROR: Assertion " + a.name
 							+ "has not condition");
 				}
 				else if (a.select == null){
-					System.out.println("Error in assertion: " + a.name);
-					System.out
-							.println("\t ERROR: Could not fetch select from condition.");
+					out.writeln("Error in assertion: " + a.name);
+					out.writeln("\t ERROR: Could not fetch select from condition.");
 				}
 				fails.add(a);
 			}
 		}
 		precheckedAssertions.removeAll(fails);
-		System.out.println("Precheck done: " + precheckedAssertions.size()
+		out.writeln("Precheck done: " + precheckedAssertions.size()
 				+ " passed");
-		System.out.println("-----------------------------------------------");
+		out.writeln("-----------------------------------------------");
 	}
 
 	private String getSelectFromAssertion(Assertion a) {
@@ -148,35 +148,35 @@ public class Parser {
 
 		} else {
 			condition = null;
-			System.out.println("Error in assertion: " + a.name);
-			System.out.println("\tERROR: The condtion"
+			out.writeln("Error in assertion: " + a.name);
+			out.writeln("\tERROR: The condtion"
 					+ " should start with \"exist\" or \"not exist\"");
 		}
 		return condition;
 	}
 
 	private void runPreCheck(Map<String,List<String>> rawData) {
-		System.out.println("---------------------------------------");
-		System.out.println("Running Precheck...");
+		out.writeln("---------------------------------------");
+		out.writeln("Running Precheck...");
 		for (String s : rawData) {
 			String[] words = s.trim().split(" ");
 			// check keywords
 			if (words.length < 5)
 				continue;// not a valid number of tokens
 			if (!words[0].toLowerCase().equals("create")) {
-				System.out.println("Error: " + s);
-				System.out.println("\tERROR: Missing Keyword create at " + words[0]);
+				out.writeln("Error: " + s);
+				out.writeln("\tERROR: Missing Keyword create at " + words[0]);
 				continue;// first word has to be create, in upper or lower or
 							// mixed case
 			}
 			if (!words[1].toLowerCase().equals("assertion")) {
-				System.out.println("Error: " + s);
-				System.out.println("\tERROR: Missing Keyword assertion at " + words[1]);
+				out.writeln("Error: " + s);
+				out.writeln("\tERROR: Missing Keyword assertion at " + words[1]);
 				continue;// see to rows above
 			}
 			if (!words[3].toLowerCase().startsWith("check")) {
-				System.out.println("Error: " + s);
-				System.out.println("\tERROR: Missing Keyword check " + words[3]);
+				out.writeln("Error: " + s);
+				out.writeln("\tERROR: Missing Keyword check " + words[3]);
 				continue;// see four rows above
 			}
 			if (words[3].length() > 5)
@@ -201,8 +201,8 @@ public class Parser {
 					a.condition = a.condition.substring(0,
 							a.condition.length() - 1).trim();
 				else{
-					System.out.println("Warning in assertion: " + a.name);
-					System.out.println("\tWARNING: Check Brackets!");
+					out.writeln("Warning in assertion: " + a.name);
+					out.writeln("\tWARNING: Check Brackets!");
 				}		
 			}
 
