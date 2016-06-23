@@ -96,4 +96,4 @@ create Assertion ParkplatzAnStraße Check(
 		select a.id from Parkplatz as a, Strasse as b 
 				where ST_Crosses(a.umriss,b.path))
 ));
-drop assertion ParkplatzAnStraße;
+drop assertion ParkplatzAnStraße

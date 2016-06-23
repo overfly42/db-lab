@@ -1,5 +1,6 @@
 package importAssertion;
 
+import iface.DbInterface;
 import importAssertion.Parser.Assertion;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -12,9 +13,11 @@ import java.util.Set;
 
 public class DropAssertion {
 	Parser parser;
+	DbInterface out;
 
-	public DropAssertion(Parser p) throws ClassNotFoundException, SQLException {
+	public DropAssertion(Parser p, DbInterface o) throws ClassNotFoundException, SQLException {
 		parser = p; // Datenbankverbindung
+		out = o;
 		Connection conn = connectToDB();
 
 		for (Assertion as : p.precheckedAssertionsDrop) {
@@ -26,13 +29,13 @@ public class DropAssertion {
 			//AssertionSysRel
 			boolean delAsSysRel = deleteFromAssertionSysRel(conn, as);
 			if (delAsSysRel && delFct && delTri){
-				System.out.println("Assertion " + as.name + " wurde erfolgreich gelöscht.");
+				out.writeln("Assertion " + as.name + " wurde erfolgreich gelöscht.");
 			}else{
-				System.out.println("Error: Assertion " + as.name + " konnte nicht gelöscht werden.");
+				out.writeln("Error: Assertion " + as.name + " konnte nicht gelöscht werden.");
 			}
 		}
 		conn.close();
-		System.out.println("Finished with Drop!");
+		out.writeln("Finished with Drop!");
 	}
 	
 	private Connection connectToDB() throws SQLException, ClassNotFoundException{
@@ -57,10 +60,10 @@ public class DropAssertion {
 		ps.setObject(1, as.name);
 		try {
 			ps.execute();
-			System.out.println("Deleted " + as.name + "in AssertionSysRel.");
+			out.writeln("Deleted " + as.name + "in AssertionSysRel.");
 		} catch (Exception e) {
-			System.out.println("Error in assertion " + as.name + ":");
-			System.out.println("\t" + e.getMessage());
+			out.writeln("Error in assertion " + as.name + ":");
+			out.writeln("\t" + e.getMessage());
 			return false;
 		} finally {
 			ps.close();
@@ -75,11 +78,11 @@ public class DropAssertion {
 		try {
 			cmd = "DROP FUNCTION IF EXISTS " + functionName + "()  CASCADE;"; 
 			ResultSet result = create.executeQuery(cmd);
-			System.out.println(result);
+			out.writeln("" + result);
 
 		}catch(Exception ex){
-			System.out.println(ex.getMessage());
-			System.out.println(cmd);
+			out.writeln(ex.getMessage());
+			out.writeln(cmd);
 			return false;
 		}finally {
 			create.close();
@@ -96,7 +99,7 @@ public class DropAssertion {
 								+ table + " CASCADE;");
 			}
 		}catch(Exception ex){
-			System.out.println(ex.getMessage());
+			out.writeln(ex.getMessage());
 			return false;
 		}finally {
 			create.close();

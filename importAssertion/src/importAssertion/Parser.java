@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import dbInterface.Output;
+import iface.*;
 
 public class Parser {
 
@@ -22,9 +22,9 @@ public class Parser {
 	public List<Assertion> precheckedAssertionsCheck;
 	public List<Assertion> precheckedAssertionsDrop;
 
-	Output out;
+	DbInterface out;
 
-	public Parser(Output o, String file) {
+	public Parser(DbInterface o, String file) {
 		out = o;
 		File data = checkFile(file);
 		precheckedAssertionsCheck = new ArrayList<>();

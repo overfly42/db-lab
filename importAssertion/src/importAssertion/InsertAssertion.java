@@ -1,5 +1,6 @@
 package importAssertion;
 
+import iface.DbInterface;
 import importAssertion.Parser.Assertion;
 
 import java.sql.Connection;
@@ -10,11 +11,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 import java.util.Set;
-import dbInterface.Output;
 
 public class InsertAssertion {
 	Parser parser;
-	Output out;
+	DbInterface out;
 	private Connection connectToDB() throws SQLException, ClassNotFoundException{
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
@@ -32,7 +32,7 @@ public class InsertAssertion {
 	}
 	
 	
-	public InsertAssertion(Output o,Parser p) throws ClassNotFoundException, SQLException {
+	public InsertAssertion(DbInterface o,Parser p) throws ClassNotFoundException, SQLException {
 		parser = p; // Datenbankverbindung
 		out = o;
 		Connection conn = connectToDB();

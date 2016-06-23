@@ -5,9 +5,9 @@ import java.awt.ScrollPane;
 
 import javax.swing.JTextArea;
 
-import dbInterface.Output;
+import iface.DbInterface;;
 
-public class Console extends ScrollPane implements Output {
+public class Console extends ScrollPane implements DbInterface {
 	/**
 	 * 
 	 */
