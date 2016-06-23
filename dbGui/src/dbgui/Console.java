@@ -20,7 +20,6 @@ public class Console extends ScrollPane implements Output{
 		this.setPreferredSize(new Dimension(500, 50));
 	}
 
-	@Override
 	public void writeln(String str) {
 		// TODO Auto-generated method stub
 		

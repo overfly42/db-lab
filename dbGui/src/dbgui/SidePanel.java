@@ -11,10 +11,9 @@ public class SidePanel extends JPanel {
 	public SidePanel() {
 		JButton btn = new JButton();
 		btn.setText("Drück mich");
-		SidePanel sp = this;
+		final SidePanel sp = this;
 		btn.addActionListener(new ActionListener() {
 
-			@Override
 			public void actionPerformed(ActionEvent e) {
 				JOptionPane.showConfirmDialog(sp, "Danke fürs Drücken");
 

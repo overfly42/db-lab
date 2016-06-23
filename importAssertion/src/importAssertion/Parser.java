@@ -23,7 +23,6 @@ public class Parser {
 	public List<Assertion> precheckedAssertionsDrop;
 
 	Output out;
-
 	public Parser(Output o, String file) {
 		o = out;
 		File data = checkFile(file);
