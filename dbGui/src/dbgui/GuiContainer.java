@@ -41,8 +41,8 @@ public class GuiContainer extends JFrame {
 	Component frame;
 	
 	public GuiContainer() {
-		initComponents();
 		initMenu();
+		initComponents();
 	}
 
 	private void initComponents() {

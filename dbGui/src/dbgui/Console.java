@@ -7,21 +7,23 @@ import javax.swing.JTextArea;
 
 import dbInterface.Output;
 
-public class Console extends ScrollPane implements Output{
+public class Console extends ScrollPane implements Output {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5035706321924916835L;
 
+	JTextArea ta;
+
 	public Console() {
 		super();
-		JTextArea ta = new JTextArea();
+		ta = new JTextArea();
 		this.add(ta);
-		this.setPreferredSize(new Dimension(500, 50));
+		this.setPreferredSize(new Dimension(500, 150));
 	}
 
 	public void writeln(String str) {
-		System.out.println("----"+str);
-		
+		ta.append(str + "\n");
+
 	}
 }

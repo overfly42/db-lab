@@ -37,7 +37,7 @@ public class Parser {
 			out.writeln("Fehler beim einlesen. Programm Ende");
 			System.exit(-1);
 		}
-		 List<String> assertions = parseAssertions(rawData);
+		List<String> assertions = parseAssertions(rawData);
 		runPreCheck(assertions);
 		grepSelects();
 	}
@@ -124,13 +124,14 @@ public class Parser {
 				if (a.name == null || a.condition == null || a.select == null) {
 					if (a.name == null)
 						out.writeln("ERROR: Assertion has no name");
-					else if (a.condition == null) {
+					else if (a.condition == null && !precheckedAssertionsDrop.contains(a)) {
 						out.writeln("Error in assertion: " + a.name);
 						out.writeln("\t ERROR: Assertion " + a.name + "has not condition");
-					} else if (a.select == null) {
+					} else if (a.select == null && !precheckedAssertionsDrop.contains(a)) {
 						out.writeln("Error in assertion: " + a.name);
 						out.writeln("\t ERROR: Could not fetch select from condition.");
-					}
+					} else if (precheckedAssertionsDrop.contains(a))
+						continue;
 					fails.add(a);
 				}
 			}
@@ -142,6 +143,8 @@ public class Parser {
 	}
 
 	private String getSelectFromAssertion(Assertion a) {
+		if (a.condition == null)
+			return "";
 		String[] s = a.condition.split(" ");
 		String condition;
 		// check for exists or not exists
@@ -157,31 +160,32 @@ public class Parser {
 		return condition;
 	}
 
-	private void runPreCheck( List<String> rawData) {
+	private void runPreCheck(List<String> rawData) {
 		out.writeln("---------------------------------------");
 		out.writeln("Running Precheck...");
-			for (String s : rawData) {
-				String[] words = s.trim().split(" ");
-				// first word has to be create,check or drop, in upper or lower
-				// or
-				// mixed case
-				if (words[0].toLowerCase().equals("create")) {
-					runPreCheck(s, precheckedAssertionsInsert);
-					continue;
-				}
-				if (words[0].toLowerCase().equals("check")) {
-					runPreCheck(s, precheckedAssertionsCheck);
-					continue;
-				}
-				if (words[0].toLowerCase().equals("drop")) {
-					runPreCheckDrop(s);
-				}
-				out.writeln("Error: " + s);
-				out.writeln("\tERROR: Missing Keyword create, check or drop at " + words[0]);
-
+		for (String s : rawData) {
+			String[] words = s.trim().split(" ");
+			// first word has to be create,check or drop, in upper or lower
+			// or
+			// mixed case
+			if (words[0].toLowerCase().equals("create")) {
+				runPreCheck(s, precheckedAssertionsInsert);
+				continue;
 			}
+			if (words[0].toLowerCase().equals("check")) {
+				runPreCheck(s, precheckedAssertionsCheck);
+				continue;
+			}
+			if (words[0].toLowerCase().equals("drop")) {
+				runPreCheckDrop(s);
+				continue;
+			}
+			out.writeln("Error: " + s);
+			out.writeln("\tERROR: Missing Keyword create, check or drop at " + words[0]);
 
 		}
+
+	}
 
 	private void runPreCheck(String s, List<Assertion> precheckedAssertions) {
 		String[] words = s.trim().split(" ");
