@@ -242,6 +242,8 @@ public class Parser {
 		}
 		Assertion a = new Assertion();
 		a.name = words[2];
+		if (a.name.trim().endsWith(";"))
+			a.name = a.name.trim().substring(0, a.name.trim().length() - 1);
 		precheckedAssertionsDrop.add(a);
 	}
 }
