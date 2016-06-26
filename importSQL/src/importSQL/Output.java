@@ -1,6 +1,8 @@
 package importSQL;
 
-public class Output implements dbInterface.Output {
+import iface.DbInterface;
+
+public class Output implements DbInterface {
 
 	@Override
 	public void writeln(String str) {

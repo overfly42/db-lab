@@ -1,10 +1,12 @@
 package importAssertion;
 
-import java.sql.SQLException;
+import iface.DbInterface;
 
+import java.sql.SQLException;
 
 public class ImportAssertionMain {
 
+	OutputConsole o;
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		System.out.println("Arbeitsverzeichnis ist: " + System.getProperty("user.dir"));
@@ -17,10 +19,18 @@ public class ImportAssertionMain {
 	}
 
 	public ImportAssertionMain(String file) throws ClassNotFoundException, SQLException {
-		Output o = new importAssertion.Output();
-		o.writeln("Versuche Datei " + file + " einzulesen");
-		//Parser p = new Parser( o,file);
-		//InsertAssertion c = new InsertAssertion(p);
+		this(file, new OutputConsole());
 
+	}
+
+	public ImportAssertionMain(String file, DbInterface o) throws ClassNotFoundException, SQLException
+	{
+		o.writeln("Versuche Datei " + file + " einzulesen");
+		Parser p = new Parser(o,file);
+		InsertAssertion i = new InsertAssertion(o,p);
+		o.writeln("---------------------------------");
+		DropAssertion d = new DropAssertion( p , o);
+		o.writeln("---------------------------------");
+		CheckAssertion c = new CheckAssertion(o, p);
 	}
 }
