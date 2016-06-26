@@ -27,8 +27,10 @@ public class ImportAssertionMain {
 	{
 		o.writeln("Versuche Datei " + file + " einzulesen");
 		Parser p = new Parser(o,file);
-		InsertAssertion c = new InsertAssertion(o,p);
+		InsertAssertion i = new InsertAssertion(o,p);
 		o.writeln("---------------------------------");
 		DropAssertion d = new DropAssertion( p , o);
+		o.writeln("---------------------------------");
+		CheckAssertion c = new CheckAssertion(o, p);
 	}
 }
