@@ -1,6 +1,5 @@
 package importAssertion;
 
-import iface.DbInterface;
 import importAssertion.Parser.Assertion;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -19,14 +18,16 @@ import org.postgis.LineString;
 import org.postgis.Point;
 import org.postgis.Polygon;
 
+import iface.DbInterface;
+
 public class CheckAssertion {
 
 	Parser parser;
 	DbInterface out;
 	Connection conn;
 	List<ConflictAssertion> conflictAssertions = new ArrayList<>();
-	
-	private Connection connectToDB() throws SQLException, ClassNotFoundException{
+
+	private Connection connectToDB() throws SQLException, ClassNotFoundException {
 		Class.forName("org.postgresql.Driver");
 		String url = "jdbc:postgresql://localhost:5432/geo";
 		Connection conn;
@@ -38,12 +39,11 @@ public class CheckAssertion {
 			} catch (Exception ex) {
 				conn = DriverManager.getConnection(url, "admin", "admin");
 			}
-		} 
+		}
 		return conn;
 	}
 
-
-	public CheckAssertion (DbInterface o,Parser p) throws ClassNotFoundException, SQLException {
+	public CheckAssertion(DbInterface o, Parser p) throws ClassNotFoundException, SQLException {
 		parser = p; // Datenbankverbindung
 		out = o;
 		this.conn = connectToDB();
@@ -51,103 +51,118 @@ public class CheckAssertion {
 		for (Assertion as : p.precheckedAssertionsCheck) {
 			boolean name = checkName(conn, as);
 			boolean testSysRel = checkSelect(conn, as);
-		//	boolean duplicates = checkNoDuplicates(conn, as);
-			if (name && testSysRel //&& duplicates
-					){
-				out.writeln("Assertion " + as.name + " wurde erfolgreich überprüfen.");
-			}else{
+			// boolean duplicates = checkNoDuplicates(conn, as);
+			if (name && testSysRel // && duplicates
+			) {
+				out.writeln("Assertion " + as.name + " wurde erfolgreich überprüft.");
+			} else {
 				out.writeln("Assertion " + as.name + " war fehlerhaft.");
-				break;
+				continue;
 			}
-			
+
 			// Hier beginnt der eigentliche Check
 			ConflictAssertion compromisedAsser = checkAssertionEntry(conn, as);
 			conflictAssertions.add(compromisedAsser);
-			//TODO: Funktioniert die Abfrage?
-			if (compromisedAsser.assertionOk == false){
+			// TODO: Funktioniert die Abfrage?
+			if (compromisedAsser.assertionOk == false) {
 				out.writeln("Die Assertion " + as.name + " lieferte Fehler zurück.");
-			}
-			else{
+			} else {
 				out.writeln("Die Assertion " + as.name + " lieferte keine Fehler zurück.");
 			}
 		}
 		out.writeln("Check Assertions finished!");
 		connClose();
 	}
-	
+
 	/**
-	 * Checkt die assertions und liefert ein Objekt mit der ID der fehlerhaften Tupel zurück
-	 * sowie der Geometryobjekte
+	 * Checkt die assertions und liefert ein Objekt mit der ID der fehlerhaften
+	 * Tupel zurück sowie der Geometryobjekte
+	 * 
 	 * @param conn
 	 * @param as
-	 * @return ConflictAssertion 
+	 * @return ConflictAssertion
 	 * @throws SQLException
 	 */
-	private ConflictAssertion checkAssertionEntry(Connection conn, Assertion as) throws SQLException{
+	private ConflictAssertion checkAssertionEntry(Connection conn, Assertion as) throws SQLException {
 		ConflictAssertion compromisedAsser = new ConflictAssertion(as);
-		//Ist es ein Exists oder Not Exists?
+		// Ist es ein Exists oder Not Exists?
 		String[] s = as.condition.split(" ");
 		Statement stmt = conn.createStatement();
 		// Check for exists or not exists
-		if (s[0].equals("not") && s[1].startsWith("exist")){
-		// Not exist
-		// Prüfen, ob Datensätze existieren mit Selcet
-		// Wenn ja, Fehler
+		if (s[0].equals("not") && s[1].startsWith("exist")) {
+			// Not exist
+			// Prüfen, ob Datensätze existieren mit Selcet
+			// Wenn ja, Fehler
 			try {
 				ResultSet exists = stmt.executeQuery(as.select);
-				if(exists.next() ==  false){
+				if (exists.next() == false) {
 					// Keine Einträge existieren
 					compromisedAsser.assertionOk = true;
-				}else{
-					while (exists.next()){
-						//Einträge existieren, dieses sind Fehler und werden zurück gegeben
+				} else {
+					do {// next is allready called in the if statement
+						// Einträge existieren, dieses sind Fehler und werden
+						// zurück gegeben
 						Map<String, Object> entry = new HashMap<>();
-						int id = exists.getInt("id");
-						entry.put("id", id);
-						// Geometry-Objecte besorgen
-						try{
-							Point pos = (Point) exists.getObject("pos"); //pos geometry Point
-							entry.put("pos", pos);
-							
-						}catch(Exception e) {
-							//Nichts tun
+
+						for (int i = 1; exists.getMetaData().getColumnCount() >= i; i++) {
+							String lbl = exists.getMetaData().getColumnLabel(i);
+							if (entry.keySet().contains(lbl))
+								lbl = lbl + "2";
+							entry.put(lbl, exists.getObject(i));
 						}
-						try{
-							Polygon umriss = (Polygon) exists.getObject("umriss"); //umriss geometry Polygon
-							entry.put("umriss", umriss);
-							}catch(Exception e) {
-								//Nichts tun
-							}
-						try{
-							LineString path = (LineString) exists.getObject("path"); //path geometry Linestring
-							entry.put("path", path);
-							}catch(Exception e) {
-								//Nichts tun
-							}
+						// int id = exists.getInt("id");
+						// entry.put("id", id);
+						// // Geometry-Objecte besorgen
+						// try {
+						// Point pos = (Point) exists.getObject("pos"); // pos
+						// // geometry
+						// // Point
+						// entry.put("pos", pos);
+						//
+						// } catch (Exception e) {
+						// // Nichts tun
+						// }
+						// try {
+						// Polygon umriss = (Polygon)
+						// exists.getObject("umriss"); // umriss
+						// // geometry
+						// // Polygon
+						// entry.put("umriss", umriss);
+						// } catch (Exception e) {
+						// // Nichts tun
+						// }
+						// try {
+						// LineString path = (LineString)
+						// exists.getObject("path"); // path
+						// // geometry
+						// // Linestring
+						// entry.put("path", path);
+						// } catch (Exception e) {
+						// // Nichts tun
+						// }
 
 						compromisedAsser.addListEntry(entry);
-					}
+					} while (exists.next());
 				}
 			} catch (Exception e) {
 				out.writeln("Error in assertion " + as.name + ":");
 				out.writeln("\t" + e.getMessage());
 			} finally {
 				stmt.close();
-			}	
-		}
-		else if (s[0].startsWith("exist")){
-		// Select ausführen
+			}
+		} else if (s[0].startsWith("exist")) {
+			// Select ausführen
 			ResultSet exists = stmt.executeQuery(as.select);
-			if(exists.next() ==  false){
-			// Keine Einträge ->Fehler	
-			}else{
+			if (exists.next() == false) {
+				// Keine Einträge ->Fehler
+			} else {
 				compromisedAsser.assertionOk = true;
 			}
 		}
 		return compromisedAsser;
 	}
-	
-	public void connClose() throws SQLException{
+
+	public void connClose() throws SQLException {
 		conn.close();
 	}
 
@@ -167,27 +182,18 @@ public class CheckAssertion {
 	}
 
 	// insert Assertions
-/*	private boolean checkNoDuplicates(Connection conn, Assertion as)
-			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement("Select * from AssertionSysRel VALUES (?)");
-		ps.setObject(1, as.name);
-		try {
-			ResultSet rs = ps.executeQuery();
-			if (rs.next() == true){
-				return false;
-			}
-			
-		} catch (Exception e) {
-			out.writeln("Error in assertion " + as.name + ":");
-			out.writeln("\t" + e.getMessage());
-			return false;
-
-		} finally {
-			ps.close();
-		}
-		return true;
-	}*/
-
+	/*
+	 * private boolean checkNoDuplicates(Connection conn, Assertion as) throws
+	 * SQLException { PreparedStatement ps = conn.prepareStatement(
+	 * "Select * from AssertionSysRel VALUES (?)"); ps.setObject(1, as.name);
+	 * try { ResultSet rs = ps.executeQuery(); if (rs.next() == true){ return
+	 * false; }
+	 * 
+	 * } catch (Exception e) { out.writeln("Error in assertion " + as.name +
+	 * ":"); out.writeln("\t" + e.getMessage()); return false;
+	 * 
+	 * } finally { ps.close(); } return true; }
+	 */
 
 	private boolean checkName(Connection conn, Assertion as) throws SQLException {
 		Statement create = conn.createStatement();
@@ -198,13 +204,14 @@ public class CheckAssertion {
 		} catch (Exception e) {
 			out.writeln("Error in assertion " + as.name + ":");
 
-			if(e.getMessage().contains("syntax error")){
+			if (e.getMessage().contains("syntax error")) {
 				out.writeln("\tERROR: Invalid assertion name");
-				try{
-					Integer.parseInt(""+ as.name.toCharArray()[0]);
+				try {
+					Integer.parseInt("" + as.name.toCharArray()[0]);
 					out.writeln("\tAssertion should start with a letter");
-				}catch(Exception ex){}}
-			else{
+				} catch (Exception ex) {
+				}
+			} else {
 				out.writeln(e.getMessage());
 			}
 			return false;
@@ -217,6 +224,7 @@ public class CheckAssertion {
 
 	}
 
-
+	public List<ConflictAssertion> getCheckedAssertions() {
+		return conflictAssertions;
+	}
 }
-

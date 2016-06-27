@@ -154,8 +154,14 @@ public class Main {
 			Long id = Long.valueOf(nodes.item(i).getAttributes().getNamedItem("id").getNodeValue());
 			String sLat = nodes.item(i).getAttributes().getNamedItem("lat").getNodeValue();
 			String sLon = nodes.item(i).getAttributes().getNamedItem("lon").getNodeValue();
-			double lat = Double.valueOf(sLat);
-			double lon = Double.valueOf(sLon);
+			double lat;
+			double lon;
+			try {
+				lat = Double.valueOf(sLat);
+				lon = Double.valueOf(sLon);
+			} catch (Exception e) {
+				continue;
+			}
 			Point point = new Point();
 			point.setX(lat);
 			point.setY(lon);

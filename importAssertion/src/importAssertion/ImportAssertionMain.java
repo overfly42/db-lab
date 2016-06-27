@@ -7,6 +7,10 @@ import java.sql.SQLException;
 public class ImportAssertionMain {
 
 	OutputConsole o;
+	Parser p;
+	InsertAssertion i;
+	DropAssertion d;
+	CheckAssertion c;
 
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
 		System.out.println("Arbeitsverzeichnis ist: " + System.getProperty("user.dir"));
@@ -23,14 +27,34 @@ public class ImportAssertionMain {
 
 	}
 
-	public ImportAssertionMain(String file, DbInterface o) throws ClassNotFoundException, SQLException
-	{
+	public ImportAssertionMain(String file, DbInterface o) throws ClassNotFoundException, SQLException {
 		o.writeln("Versuche Datei " + file + " einzulesen");
-		Parser p = new Parser(o,file);
-		InsertAssertion i = new InsertAssertion(o,p);
+		p = new Parser(o, file);
+		i = new InsertAssertion(o, p);
 		o.writeln("---------------------------------");
-		DropAssertion d = new DropAssertion( p , o);
+		d = new DropAssertion(p, o);
 		o.writeln("---------------------------------");
-		CheckAssertion c = new CheckAssertion(o, p);
+		c = new CheckAssertion(o, p);
 	}
+
+	public OutputConsole getO() {
+		return o;
+	}
+
+	public void setO(OutputConsole o) {
+		this.o = o;
+	}
+
+	public InsertAssertion getI() {
+		return i;
+	}
+
+
+	public CheckAssertion getC() {
+		return c;
+	}
+	public DropAssertion getD() {
+		return d;
+	}
+
 }
