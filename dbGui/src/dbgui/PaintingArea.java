@@ -12,6 +12,12 @@ import org.postgis.Geometry;
 import org.postgis.PGgeometry;
 
 public class PaintingArea extends JPanel {
+
+	public class PaintableElement {
+		double[][] coord = null;
+		int getype = 0;
+	}
+
 	int entryToShow;
 	List<PaintingObject> objects;
 
@@ -36,22 +42,26 @@ public class PaintingArea extends JPanel {
 		lg.add(po.geoB);
 		ll.add(po.idA);
 		ll.add(po.idB);
-		for (PGgeometry geo : lg)
+		List<PaintingArea> lpa = new ArrayList<>();
+		for (PGgeometry geo : lg) {
+			PaintableElement pe = new PaintableElement();
+			pe.getype = geo.getGeoType();
 			switch (geo.getGeoType()) {
 			case Geometry.LINESTRING:
-				paintLineString(g, geo, ll.get(lg.indexOf(geo)));
+				pe.coord = calcLineString(geo);
 				break;
 			case Geometry.POLYGON:
-				paintPolygon(g, geo, ll.get(lg.indexOf(geo)));
+				pe.coord = calcPolygon(geo);
 				break;
 			default:
 
 			}
+		}
 		entryToShow++;
 		entryToShow %= objects.size();
 	}
 
-	private void paintLineString(Graphics g, PGgeometry geo, long id) {
+	private double[][] calcLineString(PGgeometry geo) {
 		final int dims = 2;
 		System.out.println("Painting a lineString");
 		String s = geo.toString();
@@ -72,27 +82,13 @@ public class PaintingArea extends JPanel {
 				coordD[n][i] = Double.parseDouble(s2[n]);
 			}
 		}
-		//Get the relevant Elements
-		int[] max = new int[dims];
-		for(int i = 0; i < dims;i++)
-			max[i]=0;
-		int relevant = 100000;
-		for (int i = 0; i < coordD.length; i++) {
-			for (int n = 0; n < dims; n++) {
-				coordI[n][i] = ((int) (relevant*coordD[n][i]))%1000;
-				max[n] = Math.max(max[n], coordI[n][i]);
-				System.out.print(coordI[n][i]+" ");
-				
-			}
-			System.out.println();
-		}
-		System.out.println(this.getWidth() + " " + this.getHeight()+" max: "+max[0]+"/"+max[1]);
-
-		 g.drawPolygon(coordI[0], coordI[1], coordS.length);
+		return coordD;
 	}
 
-	private void paintPolygon(Graphics g, PGgeometry geo, long id) {
+	private double[][] calcPolygon(PGgeometry geo) {
 		System.out.println("Painting a polygon");
+		double[][] coordD = new double[0][0];
+		return coordD;
 	}
 
 }
