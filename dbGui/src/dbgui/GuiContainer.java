@@ -144,35 +144,33 @@ public class GuiContainer extends JFrame {
 			for (Map<String, Object> mso : ca.dataset) {
 				PaintingObject po = new PaintingObject();
 				for (String key : mso.keySet()) {
-					System.out.print(key+"\t");
 					Object o = mso.get(key);
 					if (o == null)
 						continue;
 					Class c = o.getClass();
 					if (c.getSimpleName().equals("PGgeometry")) {
-						if(po.geoA==null)
+						if (po.geoA == null)
 							po.geoA = (PGgeometry) o;
 						else
 							po.geoB = (PGgeometry) o;
 					}
 					if (key.startsWith("id"))
-						if(po.idA==0)
+						if (po.idA == 0)
 							po.idA = (long) o;
 						else
 							po.idB = (long) o;
 				}
-				System.out.println();
 				pa.objects.add(po);
 			}
-			con.writeln("Created "+pa.objects.size() +" Objects to draw");
-			
+			con.writeln("Created " + pa.objects.size() + " Objects to draw");
+
 		}
 		con.writeln("Cleaning up not useable data...");
 		List<PaintingObject> toDel = new ArrayList<>();
-		for(PaintingObject po : pa.objects)
-			if(po.idA==0 || po.idB == 0|| po.geoA==null || po.geoB == null)
+		for (PaintingObject po : pa.objects)
+			if (po.idA == 0 || po.idB == 0 || po.geoA == null || po.geoB == null)
 				toDel.add(po);
 		pa.objects.removeAll(toDel);
-		con.writeln(pa.objects.size() + " Elements left, deleted "+toDel.size());
+		con.writeln(pa.objects.size() + " Elements left, deleted " + toDel.size());
 	}
 }
