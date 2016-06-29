@@ -83,7 +83,8 @@ create Assertion BrueckeIstWeg CHECK(
 #X. Parkplatz an Straße
 check Assertion ParkplatzAnStraße Check(
 	not exists(
-	select a.id from Parkplatz as a where a.id not in (
+	select a.id from Parkplatz as a
+		where a.id not in (
 		select a.id from Parkplatz as a, Strasse as b 
 				where ST_Crosses(a.umriss,b.path))
 ));
@@ -94,10 +95,13 @@ create Assertion ParkplatzAnStraße Check(
 		select a.id from Parkplatz as a, Strasse as b 
 				where ST_Crosses(a.umriss,b.path))
 ));
-drop assertion ParkplatzAnStraße
+drop assertion ParkplatzAnStraße;
 
 #III. Keine Straßen durch Häuser
 check Assertion keineStrasseDurchHaus CHECK(
 	not exists(
-		select * from Strasse s, haus h where ST_Crosses(s.path,h.umriss) 
+		select s.*,h.* from Strasse s, haus h where ST_Crosses(s.path,h.umriss) 
 ));
+#drop Assertion AmpelAnWeg;
+#drop Assertion BrueckeMussKreuzen;
+#drop Assertion keineStrasseDurchSpielplatz;

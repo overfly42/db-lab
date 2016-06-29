@@ -7,11 +7,11 @@ import java.util.Map;
 import importAssertion.Parser.Assertion;
 
 public class ConflictAssertion {
-    Assertion assertion;
+    public Assertion assertion;
     // Liste ist ein Tupel
     // Map <ColumName, Object>
-    List<Map<String, Object>> dataset = new ArrayList<>();
-    boolean assertionOk = false;
+    public List<Map<String, Object>> dataset = new ArrayList<>();
+    public boolean assertionOk = false;
 	
     public ConflictAssertion( Assertion assertion){
     	this.assertion = assertion;

@@ -5,10 +5,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import iface.*;
+
+import iface.DbInterface;
 
 public class Parser {
 
@@ -242,6 +241,8 @@ public class Parser {
 		}
 		Assertion a = new Assertion();
 		a.name = words[2];
+		if (a.name.trim().endsWith(";"))
+			a.name = a.name.trim().substring(0, a.name.trim().length() - 1);
 		precheckedAssertionsDrop.add(a);
 	}
 }
