@@ -24,12 +24,12 @@ public class PaintingArea extends JPanel {
 	List<PaintingObject> objects;
 	public JLabel lbl;
 
- 	public PaintingArea() {
+	public PaintingArea() {
 		entryToShow = 0;
 		objects = new ArrayList<>();
 		this.setPreferredSize(new Dimension(500, 500));
 		this.setOpaque(true);
-		this.setBackground(Color.LIGHT_GRAY);
+		this.setBackground(Color.WHITE);
 		lbl = new JLabel("Showing...");
 		lbl.setHorizontalAlignment(JLabel.CENTER);
 	}
@@ -42,7 +42,7 @@ public class PaintingArea extends JPanel {
 		System.out.println("=================================");
 		System.out.println(objects.size() + " Entrys to display, displaying Entry " + entryToShow);
 		PaintingObject po = objects.get(entryToShow);
-		lbl.setText(entryToShow+"/"+objects.size()+" of " + po.assertion);
+		lbl.setText(entryToShow + "/" + objects.size() + " of " + po.assertion);
 		List<PGgeometry> lg = new ArrayList<>();
 		List<Long> ll = new ArrayList<>();
 		lg.add(po.geoA);
@@ -170,13 +170,16 @@ public class PaintingArea extends JPanel {
 						// System.out.println(pe.coord[n][i]);
 					}
 				// Paint modifyed data
+				Color c;
 				switch (pe.getype) {
 				case Geometry.LINESTRING:
+					c = new Color(Color.BLUE.getRed(), Color.BLUE.getGreen(), Color.BLUE.getBlue(), 100);
+					g.setColor(c);
 					g.drawPolyline(coordI[0], coordI[1], coordI[0].length);
 					break;
 				case Geometry.POLYGON:
 					System.out.println("Painted Polygon");
-					Color c = new Color(Color.RED.getRed(), Color.RED.getGreen(), Color.RED.getBlue(), 40);
+					c = new Color(Color.RED.getRed(), Color.RED.getGreen(), Color.RED.getBlue(), 40);
 					g.setColor(c);
 					g.fillPolygon(coordI[0], coordI[1], coordI[0].length);
 
@@ -187,6 +190,7 @@ public class PaintingArea extends JPanel {
 	}
 
 	private void paintNaming(Graphics g, double[][] coordD, long id) {
+		g.setColor(Color.BLACK);
 		double[] mid = { 0.0, 0.0 };
 		for (int i = 0; i < coordD[0].length; i++)
 			for (int n = 0; n < dims; n++)
