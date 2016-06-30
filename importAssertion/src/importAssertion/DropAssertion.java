@@ -56,17 +56,18 @@ public class DropAssertion {
 	// delete Assertions from AssertionSysRel
 	private boolean deleteFromAssertionSysRel(Connection conn, Assertion as)
 			throws SQLException {
-		PreparedStatement ps = conn.prepareStatement("DELETE FROM AssertionSysRel VALUES (?)");
-		ps.setObject(1, as.name);
+		Statement create = conn.createStatement();
+		String cmd = "DELETE FROM AssertionSysRel WHERE Assertionname= '" + as.name + "';"; 
 		try {
-			ps.execute();
+			create.execute(cmd);
 			out.writeln("Deleted " + as.name + "in AssertionSysRel.");
 		} catch (Exception e) {
+			out.writeln("Fehler beim Löschen aus AssertionSysRel");
 			out.writeln("Error in assertion " + as.name + ":");
 			out.writeln("\t" + e.getMessage());
 			return false;
 		} finally {
-			ps.close();
+			create.close();
 		}
 		return true;
 	}
@@ -76,11 +77,11 @@ public class DropAssertion {
 		Statement create = conn.createStatement();
 		String cmd = null;
 		try {
-			cmd = "DROP FUNCTION IF EXISTS " + functionName + "()  CASCADE;"; 
-			ResultSet result = create.executeQuery(cmd);
-			out.writeln("" + result);
+			cmd = "DROP FUNCTION IF EXISTS " + functionName	 + "()  CASCADE;"; 
+			create.execute(cmd);
 
 		}catch(Exception ex){
+			out.writeln("Fehler beim Löschen der Function");
 			out.writeln(ex.getMessage());
 			out.writeln(cmd);
 			return false;
@@ -99,6 +100,7 @@ public class DropAssertion {
 								+ table + " CASCADE;");
 			}
 		}catch(Exception ex){
+			out.writeln("Fehler beim Löschen der Trigger");
 			out.writeln(ex.getMessage());
 			return false;
 		}finally {
