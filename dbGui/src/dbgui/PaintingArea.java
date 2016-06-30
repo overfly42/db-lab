@@ -135,27 +135,29 @@ public class PaintingArea extends JPanel {
 		for (int i = 0; i < 2; i++) {
 			System.out.println("Min: " + min[i] + " / Max: " + max[i]);
 		}
-		// Move
+		// Verschieben und entzerrren
 		for (PaintableElement pe : lpe) {
 			if (pe.coord.length == 0)
 				continue;
 			int elements = pe.coord[0].length;
 			for (int i = 0; i < elements; i++)
 				for (int n = 0; n < 2; n++) {
-					// System.out.print(pe.coord[n][i] + "->");
-					pe.coord[n][i] -= min[n];
-					// System.out.println(pe.coord[n][i]);
+					System.out.print(pe.coord[n][i] + "->");
+					pe.coord[n][i] = (pe.coord[n][i] - min[n]) / (max[n] - min[n]);
+					System.out.println(pe.coord[n][i]);
 				}
 		}
 		// Getting printable area
 		int gap = 50;
-		int[] dim = { this.getWidth() - 2 * gap, this.getHeight() - 2 * gap };
-		double[] dimPx = new double[2];
-		for (int i = 0; i < 2; i++) {
-			dimPx[i] = dim[i] / (max[i] - min[i]);
-			// System.out.println("dimPx: " + dimPx[i]);
-			System.out.println(dimPx[i] + " = " + dim[i] + " / " + max[i]);
-		}
+		int minSide = Math.min(this.getWidth(), this.getHeight());
+		// int[] dim = { minSide - 2 * gap, minSide - 2 * gap };
+		// double[] dimPx = new double[2];
+
+		// for (int i = 0; i < 2; i++) {
+		// dimPx[i] = dim[i] / (max[i] - min[i]);
+		// System.out.println("dimPx: " + dimPx[i]);
+		// System.out.println(dimPx[i] + " = " + dim[i] + " / " + max[i]);
+		// }
 		// Modify all Data
 		for (PaintableElement pe : lpe)
 			if (pe.coord.length == 0)
@@ -165,23 +167,30 @@ public class PaintingArea extends JPanel {
 				for (int i = 0; i < pe.coord[0].length; i++)
 					for (int n = 0; n < 2; n++) {
 						// System.out.print(pe.coord[n][i] + "->");
-						pe.coord[n][i] = (pe.coord[n][i] * dimPx[n]) + gap;
-						coordI[n][i] = (int) pe.coord[n][i];
-						// System.out.println(pe.coord[n][i]);
+						// pe.coord[n][i] = (pe.coord[n][i] * dimPx[n]) + gap;
+						// pe.coord[n][i] = pe.coord[n][i]-min[n]/
+						pe.coord[n][i] *= minSide;
+						coordI[n][i] = (int) (pe.coord[n][i]);
+						System.out.println(coordI[n][i]);
 					}
+				for (int i = 0; i < coordI[0].length; i++) {
+					System.out.print("I: " + coordI[0][i] + "->");
+					coordI[0][i] = this.getHeight() - coordI[0][i];
+					System.out.println(coordI[0][i]);
+				}
 				// Paint modifyed data
 				Color c;
 				switch (pe.getype) {
 				case Geometry.LINESTRING:
 					c = new Color(Color.BLUE.getRed(), Color.BLUE.getGreen(), Color.BLUE.getBlue(), 100);
 					g.setColor(c);
-					g.drawPolyline(coordI[0], coordI[1], coordI[0].length);
+					g.drawPolyline(coordI[1], coordI[0], coordI[0].length);
 					break;
 				case Geometry.POLYGON:
 					System.out.println("Painted Polygon");
 					c = new Color(Color.RED.getRed(), Color.RED.getGreen(), Color.RED.getBlue(), 40);
 					g.setColor(c);
-					g.fillPolygon(coordI[0], coordI[1], coordI[0].length);
+					g.fillPolygon(coordI[1], coordI[0], coordI[0].length);
 
 					break;
 				default:
