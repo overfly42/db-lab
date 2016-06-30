@@ -105,6 +105,6 @@ check Assertion keineStrasseDurchHaus CHECK(
 	not exists(
 		select s.*,h.* from Strasse s, haus h where ST_Crosses(s.path,h.umriss) 
 ));
-#drop Assertion AmpelAnWeg;
-#drop Assertion BrueckeMussKreuzen;
-#drop Assertion keineStrasseDurchSpielplatz;
+drop Assertion AmpelAnWeg;
+drop Assertion BrueckeMussKreuzen;
+drop Assertion keineStrasseDurchSpielplatz;
