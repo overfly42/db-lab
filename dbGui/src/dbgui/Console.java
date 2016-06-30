@@ -6,7 +6,7 @@ import java.awt.ScrollPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-import iface.DbInterface;;
+import iface.DbInterface;
 
 public class Console extends JScrollPane implements DbInterface {
 	/**
