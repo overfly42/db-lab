@@ -7,4 +7,5 @@ public class PaintingObject {
 	long idB = 0;
 	PGgeometry geoA = null;
 	PGgeometry geoB = null;
+	String assertion = "";
 }

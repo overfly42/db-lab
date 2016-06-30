@@ -57,8 +57,8 @@ public class GuiContainer extends JFrame {
 		this.setSize(new Dimension(700, 500));
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.setTitle("Dies ist ein Titel");
-		sp = new SidePanel(this);
 		pa = new PaintingArea();
+		sp = new SidePanel(this);
 		con = new Console();
 		this.add(sp, BorderLayout.EAST);
 		this.add(pa, BorderLayout.CENTER);
@@ -143,6 +143,7 @@ public class GuiContainer extends JFrame {
 			con.writeln(ca.assertion.name + " contains " + ca.dataset.size() + " errors");
 			for (Map<String, Object> mso : ca.dataset) {
 				PaintingObject po = new PaintingObject();
+				po.assertion = ca.assertion.name;
 				for (String key : mso.keySet()) {
 					Object o = mso.get(key);
 					if (o == null)
