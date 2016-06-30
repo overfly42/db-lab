@@ -16,8 +16,8 @@
 -- get_schema_drop
 
 
-CREATE EXTENSION postgis;
-CREATE EXTENSION postgis_topology;
+--CREATE EXTENSION postgis;
+--CREATE EXTENSION postgis_topology;
 
 
 -- get_smallpackage_pre_sql 
@@ -152,3 +152,10 @@ create table Bruecke (
 -- get_smallpackage_post_sql
 
 -- get_associations_create
+
+
+
+
+
+
+
