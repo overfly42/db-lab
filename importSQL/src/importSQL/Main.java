@@ -107,7 +107,7 @@ public class Main {
 
 	public Main() throws ClassNotFoundException, ParserConfigurationException, SAXException, IOException {
 
-		this(new File("anderen Assertions verletzen.xml"));
+		this(new File("map.xml"));
 
 	}
 
@@ -398,7 +398,7 @@ public class Main {
 
 		} catch (SQLException e) {
 			output("ERROR closing connection " + e.getMessage(), Mode.DEBUG);
-		}
+		}           
 
 		return done;
 	}
@@ -601,7 +601,7 @@ public class Main {
 		String city = getValueOfNodeByString(node, "addr:city", 50);
 		String street = getValueOfNodeByString(node, "addr:street", 50);
 		String roof_shape = getValueOfNodeByString(node, "building:roof_shape", 50);
-		String amnity = getValueOfNodeByString(node, "amnity", 50);
+		String amnity = getValueOfNodeByString(node, "amenity", 50);
 		String shop = getValueOfNodeByString(node, "shop", 50);
 		String tourism = getValueOfNodeByString(node, "tourism", 50);
 		String operator = getValueOfNodeByString(node, "operator", 50);

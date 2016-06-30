@@ -204,7 +204,7 @@ public class PaintingArea extends JPanel {
 		for (int i = 0; i < coordD[0].length; i++)
 			for (int n = 0; n < dims; n++)
 				mid[n] += coordD[n][i] / coordD[n].length;
-		g.drawString("" + id, (int) mid[0], (int) mid[1]);
+		g.drawString("" + id, (int) mid[1], (int) mid[0]);
 	}
 
 	public void next() {
