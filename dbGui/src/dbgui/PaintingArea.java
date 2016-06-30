@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import org.postgis.Geometry;
@@ -21,13 +22,16 @@ public class PaintingArea extends JPanel {
 	final int dims = 2;
 	int entryToShow;
 	List<PaintingObject> objects;
+	public JLabel lbl;
 
-	public PaintingArea() {
+ 	public PaintingArea() {
 		entryToShow = 0;
 		objects = new ArrayList<>();
 		this.setPreferredSize(new Dimension(500, 500));
 		this.setOpaque(true);
-		this.setBackground(Color.CYAN);
+		this.setBackground(Color.LIGHT_GRAY);
+		lbl = new JLabel("Showing...");
+		lbl.setHorizontalAlignment(JLabel.CENTER);
 	}
 
 	@Override
@@ -38,6 +42,7 @@ public class PaintingArea extends JPanel {
 		System.out.println("=================================");
 		System.out.println(objects.size() + " Entrys to display, displaying Entry " + entryToShow);
 		PaintingObject po = objects.get(entryToShow);
+		lbl.setText(entryToShow+"/"+objects.size()+" of " + po.assertion);
 		List<PGgeometry> lg = new ArrayList<>();
 		List<Long> ll = new ArrayList<>();
 		lg.add(po.geoA);
@@ -63,8 +68,6 @@ public class PaintingArea extends JPanel {
 		paintElements(g, lpe);
 		paintNaming(g, lpe.get(0).coord, po.idA);
 		paintNaming(g, lpe.get(1).coord, po.idB);
-		entryToShow++;
-		entryToShow %= objects.size();
 	}
 
 	private double[][] calcLineString(PGgeometry geo) {
@@ -173,7 +176,10 @@ public class PaintingArea extends JPanel {
 					break;
 				case Geometry.POLYGON:
 					System.out.println("Painted Polygon");
-					g.drawPolygon(coordI[0], coordI[1], coordI[0].length);
+					Color c = new Color(Color.RED.getRed(), Color.RED.getGreen(), Color.RED.getBlue(), 40);
+					g.setColor(c);
+					g.fillPolygon(coordI[0], coordI[1], coordI[0].length);
+
 					break;
 				default:
 				}
@@ -186,5 +192,19 @@ public class PaintingArea extends JPanel {
 			for (int n = 0; n < dims; n++)
 				mid[n] += coordD[n][i] / coordD[n].length;
 		g.drawString("" + id, (int) mid[0], (int) mid[1]);
+	}
+
+	public void next() {
+		entryToShow++;
+		entryToShow %= objects.size();
+		repaint();
+	}
+
+	public void back() {
+		entryToShow--;
+		if (entryToShow < 0)
+			entryToShow = objects.size() - 1;
+		repaint();
+
 	}
 }
