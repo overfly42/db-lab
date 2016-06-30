@@ -10,9 +10,9 @@ create Assertion keineStrasseDurchSpielplatz CHECK(
 ));
 
 #III. Haus schneidet Spielplatz
-create Assertion HausSchneidetSpielplatz CHECK(
+check Assertion HausSchneidetPark CHECK(
 	not exists(
-		select * from Haus h, Spielplatz sp where ST_Intersects(h.umriss,sp.umriss)));
+		select * from Haus h, Park sp where ST_Intersects(h.umriss,sp.umriss)));
 
 #IV. Kein Parkplatz im See
 create Assertion keineParkplatzImSee CHECK(
