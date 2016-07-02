@@ -23,6 +23,8 @@ public class PaintingArea extends JPanel {
 	int entryToShow;
 	List<PaintingObject> objects;
 	public JLabel lbl;
+	private Color[] colors = { Color.RED, Color.BLUE };
+	private int workingColor = 0;
 
 	public PaintingArea() {
 		entryToShow = 0;
@@ -142,9 +144,9 @@ public class PaintingArea extends JPanel {
 			int elements = pe.coord[0].length;
 			for (int i = 0; i < elements; i++)
 				for (int n = 0; n < 2; n++) {
-					System.out.print(pe.coord[n][i] + "->");
+					// System.out.print(pe.coord[n][i] + "->");
 					pe.coord[n][i] = (pe.coord[n][i] - min[n]) / (max[n] - min[n]);
-					System.out.println(pe.coord[n][i]);
+					// System.out.println(pe.coord[n][i]);
 				}
 		}
 		// Getting printable area
@@ -170,25 +172,26 @@ public class PaintingArea extends JPanel {
 						// pe.coord[n][i] = (pe.coord[n][i] * dimPx[n]) + gap;
 						// pe.coord[n][i] = pe.coord[n][i]-min[n]/
 						pe.coord[n][i] *= minSide;
+						pe.coord[n][i] = this.getHeight() - pe.coord[n][i];
 						coordI[n][i] = (int) (pe.coord[n][i]);
-						System.out.println(coordI[n][i]);
+						// System.out.println(coordI[n][i]);
 					}
-				for (int i = 0; i < coordI[0].length; i++) {
-					System.out.print("I: " + coordI[0][i] + "->");
-					coordI[0][i] = this.getHeight() - coordI[0][i];
-					System.out.println(coordI[0][i]);
-				}
+				// for (int i = 0; i < coordI[0].length; i++) {
+				//// System.out.print("I: " + coordI[0][i] + "->");
+				// coordI[0][i] = coordI[0][i];
+				// // System.out.println(coordI[0][i]);
+				// }
 				// Paint modifyed data
-				Color c;
+				Color c = colors[workingColor++ % colors.length];
 				switch (pe.getype) {
 				case Geometry.LINESTRING:
-					c = new Color(Color.BLUE.getRed(), Color.BLUE.getGreen(), Color.BLUE.getBlue(), 100);
+					c = new Color(c.getRed(), c.getGreen(), c.getBlue(), 100);
 					g.setColor(c);
 					g.drawPolyline(coordI[1], coordI[0], coordI[0].length);
 					break;
 				case Geometry.POLYGON:
 					System.out.println("Painted Polygon");
-					c = new Color(Color.RED.getRed(), Color.RED.getGreen(), Color.RED.getBlue(), 40);
+					c = new Color(c.getRed(), c.getGreen(), c.getBlue(), 40);
 					g.setColor(c);
 					g.fillPolygon(coordI[1], coordI[0], coordI[0].length);
 
@@ -200,11 +203,22 @@ public class PaintingArea extends JPanel {
 
 	private void paintNaming(Graphics g, double[][] coordD, long id) {
 		g.setColor(Color.BLACK);
-		double[] mid = { 0.0, 0.0 };
+		int[] min = { 100000, 100000 };
+		int[] max = { 0, 0 };
+		// double[] mid = { 0.0, 0.0 };
+
 		for (int i = 0; i < coordD[0].length; i++)
-			for (int n = 0; n < dims; n++)
-				mid[n] += coordD[n][i] / coordD[n].length;
-		g.drawString("" + id, (int) mid[0], (int) mid[1]);
+			for (int n = 0; n < dims; n++) {
+				// mid[n] += coordD[n][i] / coordD[n].length;
+				min[n] = Math.min((int) coordD[n][i], min[n]);
+				max[n] = Math.max((int) coordD[n][i], max[n]);
+			}
+		int a = ((min[0] + max[0]) / 2);
+		int b = ((max[1] + min[1]) / 2);
+//		g.drawRect(min[1], min[0], Math.abs(max[1] - min[1]), Math.abs(max[0] - min[0]));
+//		System.out.println(a + " = (" + max[0] + " + " + min[0] + ")/2");
+//		System.out.println(b + " = (" + max[1] + " + " + min[1] + ")/2");
+		g.drawString("" + id, b, a);
 	}
 
 	public void next() {
