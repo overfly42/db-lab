@@ -9,4 +9,5 @@ dbGui/.classpath
 dbGui/.settings/
 dbInterface/.classpath
 dbInterface/bin/
+*~
 
