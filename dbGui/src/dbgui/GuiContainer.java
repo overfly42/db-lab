@@ -56,7 +56,7 @@ public class GuiContainer extends JFrame {
 		this.setLayout(new BorderLayout());
 		this.setSize(new Dimension(700, 500));
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-		this.setTitle("Dies ist ein Titel");
+		this.setTitle("Assertion Visualisierung");
 		pa = new PaintingArea();
 		sp = new SidePanel(this);
 		con = new Console();
