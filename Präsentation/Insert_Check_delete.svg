@@ -357,7 +357,7 @@
         <path style="fill:url(#pattern2)" d="M 6194,9100 L 1288,9100 1288,8200 11099,8200 11099,9100 6194,9100 Z"/>
        </g>
        <path fill="none" stroke="rgb(52,101,164)" d="M 6194,9100 L 1288,9100 1288,8200 11099,8200 11099,9100 6194,9100 Z"/>
-       <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="700"><tspan class="TextPosition" x="2720" y="8871"/><tspan class="TextPosition" x="2720" y="8871"><tspan fill="rgb(0,0,0)" stroke="none">Select-Statment prüfen</tspan></tspan></tspan></text>
+       <text class="TextShape"><tspan class="TextParagraph" font-family="Liberation Sans, sans-serif" font-size="635px" font-weight="700"><tspan class="TextPosition" x="2545" y="8871"/><tspan class="TextPosition" x="2545" y="8871"><tspan fill="rgb(0,0,0)" stroke="none">Select-Statement prüfen</tspan></tspan></tspan></text>
       </g>
      </g>
      <g class="com.sun.star.drawing.CustomShape">
