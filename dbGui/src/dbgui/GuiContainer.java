@@ -91,7 +91,7 @@ public class GuiContainer extends JFrame {
 							con.clear();
 							importAssertions = new ImportAssertionMain(
 									assertionFile.getSelectedFile().getAbsolutePath(), con);
-							JOptionPane.showMessageDialog(frame, "Insert done!");
+							JOptionPane.showMessageDialog(frame, "Everything done!");
 							proceedAssertionResults(importAssertions);
 						} catch (ClassNotFoundException | SQLException e) {
 							e.printStackTrace();
