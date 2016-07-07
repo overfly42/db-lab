@@ -1,0 +1,5 @@
+#I. Haus schneidet Spielplatz
+drop Assertion HausSchneidetPark;
+
+#II. Keine Straßen durch Häuser
+drop Assertion keineStrasseDurchHaus;

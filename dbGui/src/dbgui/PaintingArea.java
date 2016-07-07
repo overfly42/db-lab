@@ -150,7 +150,7 @@ public class PaintingArea extends JPanel {
 				}
 		}
 		// Getting printable area
-		int gap = 50;
+		int gap = 25;
 		int minSide = Math.min(this.getWidth(), this.getHeight());
 		// int[] dim = { minSide - 2 * gap, minSide - 2 * gap };
 		// double[] dimPx = new double[2];
@@ -161,6 +161,7 @@ public class PaintingArea extends JPanel {
 		// System.out.println(dimPx[i] + " = " + dim[i] + " / " + max[i]);
 		// }
 		// Modify all Data
+		minSide -= 2 * gap;
 		for (PaintableElement pe : lpe)
 			if (pe.coord.length == 0)
 				continue;
@@ -168,19 +169,13 @@ public class PaintingArea extends JPanel {
 				int[][] coordI = new int[2][pe.coord[0].length];
 				for (int i = 0; i < pe.coord[0].length; i++)
 					for (int n = 0; n < 2; n++) {
-						// System.out.print(pe.coord[n][i] + "->");
-						// pe.coord[n][i] = (pe.coord[n][i] * dimPx[n]) + gap;
-						// pe.coord[n][i] = pe.coord[n][i]-min[n]/
 						pe.coord[n][i] *= minSide;
-						pe.coord[n][i] = this.getHeight() - pe.coord[n][i];
+						if (n == 0)
+							pe.coord[n][i] = minSide - pe.coord[n][i] + gap;
+						else
+							pe.coord[n][i] = pe.coord[n][i] + gap;
 						coordI[n][i] = (int) (pe.coord[n][i]);
-						// System.out.println(coordI[n][i]);
 					}
-				// for (int i = 0; i < coordI[0].length; i++) {
-				//// System.out.print("I: " + coordI[0][i] + "->");
-				// coordI[0][i] = coordI[0][i];
-				// // System.out.println(coordI[0][i]);
-				// }
 				// Paint modifyed data
 				Color c = colors[workingColor++ % colors.length];
 				switch (pe.getype) {
@@ -215,9 +210,10 @@ public class PaintingArea extends JPanel {
 			}
 		int a = ((min[0] + max[0]) / 2);
 		int b = ((max[1] + min[1]) / 2);
-//		g.drawRect(min[1], min[0], Math.abs(max[1] - min[1]), Math.abs(max[0] - min[0]));
-//		System.out.println(a + " = (" + max[0] + " + " + min[0] + ")/2");
-//		System.out.println(b + " = (" + max[1] + " + " + min[1] + ")/2");
+		// g.drawRect(min[1], min[0], Math.abs(max[1] - min[1]), Math.abs(max[0]
+		// - min[0]));
+		// System.out.println(a + " = (" + max[0] + " + " + min[0] + ")/2");
+		// System.out.println(b + " = (" + max[1] + " + " + min[1] + ")/2");
 		g.drawString("" + id, b, a);
 	}
 

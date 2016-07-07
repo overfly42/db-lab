@@ -1,0 +1,11 @@
+#I. Haus schneidet Spielplatz
+check Assertion HausSchneidetPark CHECK(
+	not exists(
+		select * from Haus h, Park sp where ST_Intersects(h.umriss,sp.umriss)));
+
+
+#II. Keine Straßen durch Häuser
+check Assertion keineStrasseDurchHaus CHECK(
+	not exists(
+		select s.*,h.* from Strasse s, haus h where ST_Crosses(s.path,h.umriss) 
+));
